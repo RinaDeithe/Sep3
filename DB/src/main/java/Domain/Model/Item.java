@@ -1,10 +1,27 @@
 package Domain.Model;
 
+import org.hibernate.annotations.GeneratorType;
+
+import javax.persistence.*;
+
+@Entity
 public class Item {
 
+    @Column
+    @OneToOne
     private ItemType type;
+
+    @Id
+    @Column(name = "Id")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int Uid;
+
+    @Column(name = "name")
+    @OneToOne
     private User Owner;
+
+    @OneToOne
+    @Column(name = "shelf")
     private Shelf shelf;
 
 
@@ -13,6 +30,10 @@ public class Item {
         Uid = uid;
         Owner = owner;
         this.shelf = shelf;
+    }
+
+    public Item() {
+
     }
 
     public ItemType getType() {

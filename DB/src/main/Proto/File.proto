@@ -5,7 +5,7 @@ service Serivce {
 
   rpc getShelf(ShelfSearchRequest) returns (ShelfProto);
   rpc UpdateShelf(ShelfProto) returns (ShelfProto);
-
+  rpc getAllShelves(getAllRequest) returns (ShelvesListProto);
 
   rpc CreateItemType(ItemTypeCreationRequest) returns (ItemTypeProto);
   rpc ReadItemType(ItemTypeSearchRequest) returns (ItemTypeProto);
@@ -29,6 +29,11 @@ message ShelfProto {
 message ShelfSearchRequest{
   int32 id = 1;
 }
+
+message ShelvesListProto{
+  repeated ShelfProto proto =1;
+}
+
 
 message ItemTypeCreationRequest{
   int32 id = 1;
@@ -68,10 +73,14 @@ message ItemProto{
 
 
 message CreateUserRequest{
-  int32 id = 1;
+  int32 id_user = 1;
 }
 
 message UserProto{
   int32 Id = 1;
 }
 
+
+message getAllRequest{
+
+}

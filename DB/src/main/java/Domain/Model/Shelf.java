@@ -1,13 +1,31 @@
 package Domain.Model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import java.util.ArrayList;
 
+@Entity
 public class Shelf {
+    @Id
+    @Column(name = "RowNo")
     private String RowNo;
+
+    @Id
+    @Column(name = "ShelfNo")
     private String ShelfNo;
+
+    @Column(name = "dimX")
     private double dimX;
+
+    @Column(name = "dimY")
     private double dimY;
+    @Column(name = "dimZ")
     private double dimZ;
+
+    @Column(name = "ItemsOnShelf")
+    @OneToMany
     private ArrayList<Item> ItemsOnShelf;
 
     public Shelf(String rowNo, String shelfNo, double dimX, double dimY, double dimZ, ArrayList<Item> itemsOnShelf) {
@@ -17,6 +35,10 @@ public class Shelf {
         this.dimY = dimY;
         this.dimZ = dimZ;
         ItemsOnShelf = itemsOnShelf;
+    }
+
+    public Shelf() {
+
     }
 
     public String getRowNo() {

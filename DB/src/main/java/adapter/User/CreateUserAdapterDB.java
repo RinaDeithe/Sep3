@@ -13,8 +13,8 @@ public class CreateUserAdapterDB
         this.UserDao = UserDao;
     }
 
-    public File.UserProto CreateUser(File.UserProto userProto){
-        User user = ConverterUser.UserProto_To_User(userProto);
+    public File.UserProto CreateUser(File.CreateUserRequest userProto){
+        User user = ConverterUser.CreateUserRequest_To_User(userProto);
 
         User result = UserDao.CreateUser(user);
 

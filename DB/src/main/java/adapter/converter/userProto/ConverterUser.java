@@ -17,4 +17,8 @@ public class ConverterUser
   {
     return new User(userProto.getId());
   }
-}
+
+  public static User CreateUserRequest_To_User(CreateUserRequest newUser){
+    return new User(CreateUserRequest.);
+  }
+}U

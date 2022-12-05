@@ -9,7 +9,9 @@ import GRPC.proto.File;
 import GRPC.proto.SerivceGrpc;
 import adapter.Item.CreateItemAdapterDB;
 import adapter.ItemType.CreateItemTypeAdapterDB;
+import adapter.ItemType.ReadItemTypeAdapterDB;
 import adapter.Shelf.GetShelfAdapterDB;
+import adapter.Shelf.UpdateShelfAdapterDB;
 import adapter.User.CreateUserAdapterDB;
 import database.DAOs.UserDao;
 import io.grpc.stub.StreamObserver;
@@ -17,7 +19,7 @@ import io.grpc.stub.StreamObserver;
 
 //@GrpcService
 public class GRPCDataBase extends SerivceGrpc.SerivceImplBase {
-/*
+
     @Override
     public void getShelf(File.ShelfSearchRequest dao, StreamObserver<File.ShelfProto> shelfResponds) {
         GetShelfAdapterDB shelfSelect = new GetShelfAdapterDB();
@@ -27,7 +29,7 @@ public class GRPCDataBase extends SerivceGrpc.SerivceImplBase {
         shelfResponds.onNext(shelfRespond);
         shelfResponds.onCompleted();
     }
-
+/*
     @Override
     public void updateShelf(File.ShelfProto dao, StreamObserver<File.ShelfProto> shelfResponds) {
         UpdateShelfAdapterDB shelfSelect = new UpdateShelfAdapterDB();
@@ -40,46 +42,45 @@ public class GRPCDataBase extends SerivceGrpc.SerivceImplBase {
 */
 
     @Override
-    public void createItemType(File.ItemTypeCreationRequest dao, StreamObserver<File.ItemTypeProto> itemResponds) {
+    public void createItemType(File.ItemTypeCreationRequest dto, StreamObserver<File.ItemTypeProto> itemResponds) {
         CreateItemTypeAdapterDB itemTypeAdapterDB = new CreateItemTypeAdapterDB(new TestItemType());
         File.ItemTypeProto itemTypeResponse = null;
 
-        itemTypeResponse = itemTypeAdapterDB.CreateItemType(dao);
+        itemTypeResponse = itemTypeAdapterDB.CreateItemType(dto);
         itemResponds.onNext(itemTypeResponse);
         itemResponds.onCompleted();
     }
 
 
-    /*
+
     @Override
-    public void readItemType(File.ItemTypeSearchRequest dao,  StreamObserver<File.ItemTypeProto> itemTypeResponds) {
+    public void readItemType(File.ItemTypeSearchRequest dto,  StreamObserver<File.ItemTypeProto> itemTypeResponds) {
         ReadItemTypeAdapterDB itemAdapterDB = new ReadItemTypeAdapterDB();
-        File.ItemProto itemTypeResponse = null;
+        File.ItemTypeProto itemTypeResponse = null;
 
-        itemTypeResponse = CreateItemTypeAdapterDB.ItemResponse(dao);
-        itemResponds.onNext(itemTypeResponse);
-        itemResponds.onCompleted();
+        itemTypeResponse = itemAdapterDB.readItemType(dto);
+        itemTypeResponds.onNext(itemTypeResponse);
+        itemTypeResponds.onCompleted();
     }
 
 
-
+/*
     @Override
-    public void readItem(File.ItemSearchRequest dao,  StreamObserver<File.ItemProto> itemResponds) {
+    public void readItem(File.ItemSearchRequest dto,  StreamObserver<File.ItemProto> itemResponds) {
         GetItemAdapterDB itemAdapterDB = new GetItemAdapterDB();
         File.ItemProto itemResponse = null;
 
-        itemResponse = CreateItemTypeAdapterDB.ItemResponse(dao);
+        itemResponse = CreateItemTypeAdapterDB.ItemResponse(dto);
         itemResponds.onNext(itemResponse);
         itemResponds.onCompleted();
     }
 */
     @Override
-    public void createItem(File.ItemCreation dao,  StreamObserver<File.ItemProto> itemResponds) {
-        System.out.println("IM in create");
+    public void createItem(File.ItemCreation dto,  StreamObserver<File.ItemProto> itemResponds) {
         CreateItemAdapterDB itemAdapterDB = new CreateItemAdapterDB(new TestItem());
         File.ItemProto itemResponse = null;
 
-        itemResponse = itemAdapterDB.CreateItemProto(dao);
+        itemResponse = itemAdapterDB.CreateItemProto(dto);
         itemResponds.onNext(itemResponse);
         itemResponds.onCompleted();
     }
@@ -94,7 +95,7 @@ public class GRPCDataBase extends SerivceGrpc.SerivceImplBase {
         itemResponds.onCompleted();
 
     }
-
+*/
     @Override
     public void createUser(File.CreateUserRequest dao, StreamObserver<File.UserProto> userResponse) {
         CreateUserAdapterDB createUserAdapterDB = new CreateUserAdapterDB(null);
@@ -108,5 +109,5 @@ public class GRPCDataBase extends SerivceGrpc.SerivceImplBase {
 
     }
 
-*/
+
 }

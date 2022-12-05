@@ -8,7 +8,7 @@ public class TestItemType implements IItemTypeDao {
 
     @Override
     public ItemType Create(ItemType dto) {
-        return new ItemType(dto.getId()+1, dto.getDimX(), dto.getDimY(), dto.getDimZ());
+        return new ItemType(dto.getId(), dto.getDimX(), dto.getDimY(), dto.getDimZ());
     }
 
     @Override

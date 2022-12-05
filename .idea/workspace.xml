@@ -4,9 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="81ffe829-311a-4bde-8753-4e2da12b99da" name="Changes" comment="Det virker Java var ikke et problem">
+    <list default="true" id="81ffe829-311a-4bde-8753-4e2da12b99da" name="Changes" comment="Gjort så de to proto'er har det samme værdier de samme steder men den behøver ikke at have samme navne på attributter">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DB/src/main/Proto/File.proto" beforeDir="false" afterPath="$PROJECT_DIR$/DB/src/main/Proto/File.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB/src/main/java/Domain/Model/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/DB/src/main/java/Domain/Model/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB/src/main/java/Domain/Model/ItemType.java" beforeDir="false" afterPath="$PROJECT_DIR$/DB/src/main/java/Domain/Model/ItemType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB/src/main/java/Domain/Model/Shelf.java" beforeDir="false" afterPath="$PROJECT_DIR$/DB/src/main/java/Domain/Model/Shelf.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB/src/main/java/Domain/Model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/DB/src/main/java/Domain/Model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB/src/main/java/DummyData/TestItemType.java" beforeDir="false" afterPath="$PROJECT_DIR$/DB/src/main/java/DummyData/TestItemType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB/src/main/java/GRPCMethodCall/GRPCDataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/DB/src/main/java/GRPCMethodCall/GRPCDataBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB/src/main/java/adapter/User/CreateUserAdapterDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/DB/src/main/java/adapter/User/CreateUserAdapterDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB/src/main/java/adapter/converter/itemTypeProto/ConverterItemType.java" beforeDir="false" afterPath="$PROJECT_DIR$/DB/src/main/java/adapter/converter/itemTypeProto/ConverterItemType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB/src/main/java/adapter/converter/userProto/ConverterUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/DB/src/main/java/adapter/converter/userProto/ConverterUser.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,16 +70,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "WebServerToolWindowFactoryState": "false",
-    "spring.configuration.checksum": "0a5a4d7386065c6c6ac19c303768c7e1"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;0a5a4d7386065c6c6ac19c303768c7e1&quot;
   }
-}]]></component>
+}</component>
   <component name="RunDashboard">
     <option name="configurationTypes">
       <set>
@@ -143,7 +152,9 @@
       <workItem from="1669797083192" duration="17000" />
       <workItem from="1669797375966" duration="1860000" />
       <workItem from="1669799263521" duration="3085000" />
-      <workItem from="1669969052166" duration="320000" />
+      <workItem from="1669969052166" duration="11697000" />
+      <workItem from="1670228518129" duration="8830000" />
+      <workItem from="1670250217531" duration="808000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit Java">
       <created>1667318961742</created>
@@ -215,7 +226,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669905397731</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Gjort så de to proto'er har det samme værdier de samme steder men den behøver ikke at have samme navne på attributter">
+      <created>1669969508413</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1669969508413</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -245,7 +263,8 @@
     <MESSAGE value="I don't know why there is so many changes" />
     <MESSAGE value="Har genskabt den rigtige GRPC Database" />
     <MESSAGE value="Det virker Java var ikke et problem" />
-    <option name="LAST_COMMIT_MESSAGE" value="Det virker Java var ikke et problem" />
+    <MESSAGE value="Gjort så de to proto'er har det samme værdier de samme steder men den behøver ikke at have samme navne på attributter" />
+    <option name="LAST_COMMIT_MESSAGE" value="Gjort så de to proto'er har det samme værdier de samme steder men den behøver ikke at have samme navne på attributter" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
