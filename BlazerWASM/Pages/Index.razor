@@ -1,9 +1,13 @@
 ﻿@page "/"
 
 <PageTitle>Index</PageTitle>
-
-<h1>Hello, world!</h1>
-
-Welcome to your new app.
-
-<SurveyPrompt Title="How is Blazor working for you?"/>
+<h1 class="text-center">Login Page</h1>
+<div class="text-center">
+    <form action="/action_page.php"> 
+        <label for="email">UserId:</label> <br/>
+        <input type="email" id="email" name="email"><br><br>
+        <label for="pwd">Password:</label> <br/>
+        <input type="password" id="pwd" name="pwd" minlength="8"><br><br>
+        <button type="button">Godkend</button>
+    </form>
+</div>
