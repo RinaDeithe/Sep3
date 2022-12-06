@@ -1,14 +1,14 @@
 package GRPCMethodCall;
 
-import DummyData.TestItem;
-import DummyData.TestItemType;
+import database.DummyData.TestItem;
+import database.DummyData.TestItemType;
 import GRPC.proto.File;
 import GRPC.proto.SerivceGrpc;
-import adapter.Item.CreateItemAdapterDB;
-import adapter.ItemType.CreateItemTypeAdapterDB;
-import adapter.ItemType.ReadItemTypeAdapterDB;
-import adapter.Shelf.GetShelfAdapterDB;
-import adapter.User.CreateUserAdapterDB;
+import grpc.adapter.Item.CreateItemAdapterDB;
+import grpc.adapter.ItemType.CreateItemTypeAdapterDB;
+import grpc.adapter.ItemType.ReadItemTypeAdapterDB;
+import grpc.adapter.Shelf.GetShelfAdapterDB;
+import grpc.adapter.User.CreateUserAdapterDB;
 import io.grpc.stub.StreamObserver;
 
 //@GrpcService

@@ -4,7 +4,8 @@ import Domain.Model.Item;
 import Domain.Model.ItemType;
 import Domain.Model.Shelf;
 import Domain.Model.User;
-import adapter.converter.itemTypeProto.ConverterItemType;
+import grpc.converter.ShelfProto.ConverterShelf;
+import grpc.converter.itemTypeProto.ConverterItemType;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
