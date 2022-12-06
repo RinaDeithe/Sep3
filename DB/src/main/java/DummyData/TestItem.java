@@ -1,11 +1,10 @@
 package DummyData;
 
-import Domain.Dto.ItemCreateDto;
-import Domain.Model.Item;
-import Domain.Model.ItemType;
-import Domain.Model.Shelf;
-import Domain.Model.User;
-import database.DaoInterface.IItemDao;
+import database.daoInterfaces.IItemDao;
+import domain.Dto.ItemCreateDto;
+import domain.Model.Item;
+import domain.Model.ItemType;
+import domain.Model.User;
 
 import java.util.ArrayList;
 

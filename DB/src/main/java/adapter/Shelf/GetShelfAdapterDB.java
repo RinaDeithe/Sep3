@@ -5,7 +5,8 @@ import Domain.Model.Shelf;
 import GRPC.proto.File.*;
 import adapter.converter.ShelfProto.ConverterShelf;
 import database.DaoInterface.IShelfDao;
-import java.util.ArrayList;
+import database.daoInterfaces.IShelfDao;
+import domain.Model.Shelf;
 
 
 public class GetShelfAdapterDB {

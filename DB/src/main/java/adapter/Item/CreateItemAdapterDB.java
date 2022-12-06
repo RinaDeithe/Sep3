@@ -3,11 +3,11 @@ package adapter.Item;
 import Domain.Dto.ItemCreateDto;
 import Domain.Model.Item;
 import GRPC.proto.File.*;
-import adapter.converter.ShelfProto.ConverterShelf;
 import adapter.converter.itemProto.ConverterItem;
-import adapter.converter.itemTypeProto.ConverterItemType;
-import adapter.converter.userProto.ConverterUser;
 import database.DaoInterface.IItemDao;
+import database.daoInterfaces.IItemDao;
+import domain.Dto.ItemCreateDto;
+import domain.Model.Item;
 
 public class CreateItemAdapterDB {
     private IItemDao iItemDao;

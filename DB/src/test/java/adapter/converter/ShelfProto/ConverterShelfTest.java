@@ -6,11 +6,8 @@ import Domain.Model.Shelf;
 import Domain.Model.User;
 import adapter.converter.itemTypeProto.ConverterItemType;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.ArrayList;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class ConverterShelfTest
 {

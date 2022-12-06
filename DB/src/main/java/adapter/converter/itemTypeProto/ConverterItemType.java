@@ -2,6 +2,7 @@ package adapter.converter.itemTypeProto;
 
 import Domain.Model.ItemType;
 import GRPC.proto.File.*;
+import domain.Model.ItemType;
 
 public class ConverterItemType
 {

@@ -1,8 +1,7 @@
 package DummyData;
 
-
-import Domain.Model.ItemType;
-import database.DaoInterface.IItemTypeDao;
+import database.daoInterfaces.IItemTypeDao;
+import domain.Model.ItemType;
 
 public class TestItemType implements IItemTypeDao {
 

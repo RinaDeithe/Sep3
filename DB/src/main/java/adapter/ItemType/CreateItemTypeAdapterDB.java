@@ -5,6 +5,8 @@ import Domain.Model.ItemType;
 import GRPC.proto.File;
 import adapter.converter.itemTypeProto.ConverterItemType;
 import database.DaoInterface.IItemTypeDao;
+import database.daoInterfaces.IItemTypeDao;
+import domain.Model.ItemType;
 
 public class CreateItemTypeAdapterDB {
     private IItemTypeDao iItemTypeDao;

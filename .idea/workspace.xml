@@ -5,17 +5,44 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="81ffe829-311a-4bde-8753-4e2da12b99da" name="Changes" comment="Gjort så de to proto'er har det samme værdier de samme steder men den behøver ikke at have samme navne på attributter">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DB/src/main/java/database/daoInterfaces/IItemDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DB/src/main/java/database/daoInterfaces/IItemTypeDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DB/src/main/java/database/daoInterfaces/IShelfDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DB/src/main/java/database/daoInterfaces/IUserDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DB/src/main/java/grpc/DatabaseInitializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DB/src/main/resources/database/db.sqlite" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DB/src/main/Proto/File.proto" beforeDir="false" afterPath="$PROJECT_DIR$/DB/src/main/Proto/File.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DB/src/main/java/Domain/Model/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/DB/src/main/java/Domain/Model/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DB/src/main/java/Domain/Model/ItemType.java" beforeDir="false" afterPath="$PROJECT_DIR$/DB/src/main/java/Domain/Model/ItemType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DB/src/main/java/Domain/Model/Shelf.java" beforeDir="false" afterPath="$PROJECT_DIR$/DB/src/main/java/Domain/Model/Shelf.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DB/src/main/java/Domain/Model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/DB/src/main/java/Domain/Model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/DB/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB/src/main/java/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/DB/src/main/java/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB/src/main/java/Domain/Dto/ItemCreateDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB/src/main/java/Domain/Model/Item.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB/src/main/java/Domain/Model/ItemType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB/src/main/java/Domain/Model/Shelf.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB/src/main/java/Domain/Model/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB/src/main/java/DummyData/TestItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/DB/src/main/java/DummyData/TestItem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DB/src/main/java/DummyData/TestItemType.java" beforeDir="false" afterPath="$PROJECT_DIR$/DB/src/main/java/DummyData/TestItemType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DB/src/main/java/GRPCMethodCall/GRPCDataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/DB/src/main/java/GRPCMethodCall/GRPCDataBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB/src/main/java/adapter/Item/CreateItemAdapterDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/DB/src/main/java/adapter/Item/CreateItemAdapterDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB/src/main/java/adapter/ItemType/CreateItemTypeAdapterDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/DB/src/main/java/adapter/ItemType/CreateItemTypeAdapterDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB/src/main/java/adapter/ItemType/ReadItemTypeAdapterDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/DB/src/main/java/adapter/ItemType/ReadItemTypeAdapterDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB/src/main/java/adapter/Shelf/GetShelfAdapterDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/DB/src/main/java/adapter/Shelf/GetShelfAdapterDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB/src/main/java/adapter/Shelf/UpdateShelfAdapterDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/DB/src/main/java/adapter/Shelf/UpdateShelfAdapterDB.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DB/src/main/java/adapter/User/CreateUserAdapterDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/DB/src/main/java/adapter/User/CreateUserAdapterDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB/src/main/java/adapter/converter/ShelfProto/ConverterShelf.java" beforeDir="false" afterPath="$PROJECT_DIR$/DB/src/main/java/adapter/converter/ShelfProto/ConverterShelf.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB/src/main/java/adapter/converter/itemProto/ConverterItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/DB/src/main/java/adapter/converter/itemProto/ConverterItem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DB/src/main/java/adapter/converter/itemTypeProto/ConverterItemType.java" beforeDir="false" afterPath="$PROJECT_DIR$/DB/src/main/java/adapter/converter/itemTypeProto/ConverterItemType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DB/src/main/java/adapter/converter/userProto/ConverterUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/DB/src/main/java/adapter/converter/userProto/ConverterUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB/src/main/java/database/DAOs/ItemDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB/src/main/java/database/DAOs/ItemTypeDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB/src/main/java/database/DAOs/ShelfDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB/src/main/java/database/DAOs/UserDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB/src/main/java/database/DaoInterface/IItemDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB/src/main/java/database/DaoInterface/IItemTypeDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB/src/main/java/database/DaoInterface/IShelfDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB/src/main/java/database/DaoInterface/IUserDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB/src/main/java/me/via316455/db/DbApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB/src/test/java/adapter/converter/ShelfProto/ConverterShelfTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/DB/src/test/java/adapter/converter/ShelfProto/ConverterShelfTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,16 +97,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;0a5a4d7386065c6c6ac19c303768c7e1&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "jdk.selected.JAVA_MODULE": "19",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "spring.configuration.checksum": "0a5a4d7386065c6c6ac19c303768c7e1"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "sqlite"
+    ]
   }
-}</component>
+}]]></component>
   <component name="RunDashboard">
     <option name="configurationTypes">
       <set>
@@ -107,6 +146,17 @@
       <option name="MAIN_CLASS_NAME" value="adapter.converter.ShelfProto.ConverterShelfTest" />
       <option name="METHOD_NAME" value="name" />
       <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -155,6 +205,8 @@
       <workItem from="1669969052166" duration="11697000" />
       <workItem from="1670228518129" duration="8830000" />
       <workItem from="1670250217531" duration="808000" />
+      <workItem from="1670350681665" duration="1605000" />
+      <workItem from="1670352301578" duration="1950000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit Java">
       <created>1667318961742</created>

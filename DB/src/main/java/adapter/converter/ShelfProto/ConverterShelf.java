@@ -5,9 +5,12 @@ import Domain.Model.ItemType;
 import Domain.Model.Shelf;
 import Domain.Model.User;
 import GRPC.proto.File.*;
-import adapter.converter.itemProto.ConverterItem;
 import adapter.converter.itemTypeProto.ConverterItemType;
 import adapter.converter.userProto.ConverterUser;
+import domain.Model.Item;
+import domain.Model.ItemType;
+import domain.Model.Shelf;
+import domain.Model.User;
 
 import java.util.ArrayList;
 

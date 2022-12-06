@@ -1,7 +1,4 @@
-
 package GRPCMethodCall;
-
-import Domain.Model.User;
 
 import DummyData.TestItem;
 import DummyData.TestItemType;
@@ -11,11 +8,8 @@ import adapter.Item.CreateItemAdapterDB;
 import adapter.ItemType.CreateItemTypeAdapterDB;
 import adapter.ItemType.ReadItemTypeAdapterDB;
 import adapter.Shelf.GetShelfAdapterDB;
-import adapter.Shelf.UpdateShelfAdapterDB;
 import adapter.User.CreateUserAdapterDB;
-import database.DAOs.UserDao;
 import io.grpc.stub.StreamObserver;
-//import net.devh.boot.grpc.server.service.GrpcService;
 
 //@GrpcService
 public class GRPCDataBase extends SerivceGrpc.SerivceImplBase {
@@ -40,7 +34,6 @@ public class GRPCDataBase extends SerivceGrpc.SerivceImplBase {
         shelfResponds.onCompleted();
     }
 */
-
     @Override
     public void createItemType(File.ItemTypeCreationRequest dto, StreamObserver<File.ItemTypeProto> itemResponds) {
         CreateItemTypeAdapterDB itemTypeAdapterDB = new CreateItemTypeAdapterDB(new TestItemType());
@@ -62,8 +55,6 @@ public class GRPCDataBase extends SerivceGrpc.SerivceImplBase {
         itemTypeResponds.onNext(itemTypeResponse);
         itemTypeResponds.onCompleted();
     }
-
-
 /*
     @Override
     public void readItem(File.ItemSearchRequest dto,  StreamObserver<File.ItemProto> itemResponds) {

@@ -3,6 +3,8 @@ package adapter.ItemType;
 import Domain.Model.ItemType;
 import GRPC.proto.File.*;
 import database.DaoInterface.IItemTypeDao;
+import database.daoInterfaces.IItemTypeDao;
+import domain.Model.ItemType;
 
 import static adapter.converter.itemTypeProto.ConverterItemType.itemType_To_ItemTypeProto;
 

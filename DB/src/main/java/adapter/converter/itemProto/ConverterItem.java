@@ -9,7 +9,11 @@ import GRPC.proto.File.*;
 import adapter.converter.ShelfProto.ConverterShelf;
 import adapter.converter.itemTypeProto.ConverterItemType;
 import adapter.converter.userProto.ConverterUser;
-import database.DaoInterface.IItemDao;
+import domain.Dto.ItemCreateDto;
+import domain.Model.Item;
+import domain.Model.ItemType;
+import domain.Model.Shelf;
+import domain.Model.User;
 
 public class ConverterItem
 {

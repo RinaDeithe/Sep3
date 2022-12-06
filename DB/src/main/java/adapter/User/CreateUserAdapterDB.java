@@ -4,6 +4,8 @@ import Domain.Model.User;
 import GRPC.proto.File;
 import adapter.converter.userProto.ConverterUser;
 import database.DaoInterface.IUserDao;
+import database.daoInterfaces.IUserDao;
+import domain.Model.User;
 
 public class CreateUserAdapterDB
 {

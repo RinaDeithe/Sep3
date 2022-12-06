@@ -2,6 +2,7 @@ package adapter.converter.userProto;
 
 import Domain.Model.User;
 import GRPC.proto.File.*;
+import domain.Model.User;
 
 public class ConverterUser
 {
@@ -21,4 +22,4 @@ public class ConverterUser
   public static User CreateUserRequest_To_User(CreateUserRequest newUser){
     return new User(CreateUserRequest.);
   }
-}U
+}
