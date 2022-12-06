@@ -1,4 +1,5 @@
-﻿using Logic.LogicInterfaces;
+﻿using Logic.Item;
+using Logic.LogicInterfaces;
 using Microsoft.AspNetCore.Mvc;
 using Shared.DTOs;
 using Shared.Model;
@@ -10,20 +11,20 @@ namespace WebAPI.Controllers;
 [Route("[controller]")]
 public class ItemTypeController : ControllerBase
 {
-    private readonly IItemManager itemManager;
+    private readonly IItemLogic itemManager;
 
-    public ItemTypeController(IItemManager itemManager)
+    public ItemTypeController(IItemLogic itemManager)
     {
         this.itemManager = itemManager;
     }
 
     [HttpPost]
-    public async Task<ActionResult<itemType>> CreateAsync([FromBody] ItemTypeCreationDto dto)
+    public async Task<ActionResult<ItemType>> CreateAsync([FromBody] ItemTypeCreationDto dto)
     {
         try
         {
             Console.WriteLine("here");
-            itemType created = await itemManager.createItemTypeAsync(dto);
+            ItemType created = await itemManager.CreateItemTypeAsync(dto);
             return Created($"/itemtype/{created.Id}", created);
         }
         catch (Exception e)
