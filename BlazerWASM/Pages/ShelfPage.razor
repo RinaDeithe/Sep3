@@ -1,9 +1,9 @@
-﻿@page "/shelfpage"
-@using global::Shared.Model
+﻿@page "/Shelfpage"
+@*@using global::Shared.Model*@
 @using global::Shared.DTOs
 @using BlazerWASM.StateContainer
 @using HttpClients.ClientInterfaces
-@using HttpClients.Implementations
+@*@using HttpClients.Implementations*@
 @inject HttpClient Http
 
 @inject AddNewItemBeginState NewItemBeginState;
@@ -14,86 +14,89 @@
 <h3 class="text-center mb-5">ShelfPage</h3>
 
 
+
 <div class="container-fluid mt-3 ">
     <div class="row">
-    <div class="col-sm-6">
+        <div class="col-sm-6">
 
-        <table class="table ">
-            <tr>
-                <td class="border-1 text-center fw-bold">
-                    <label >Vare nummer: @NewItemBeginState.Id</label>
-                </td>
-
-            </tr>
-            <tr>
-                <td><label>antal du skal placere: @NewItemBeginState.Amount</label> </td>
-            </tr>
-            <tr>
-                <td>
-                    <label>Vare nummer</label>
-                </td>
-            </tr>
-        </table>
-    </div>
-    </div>
-    </div>
-    
-@*
-    <div class="col-sm-6">
-        <table class="table">
-            
-            <tr class="border-1">
-                <th>Shelf ID</th>
-                <th>Avalible Capacity</th>
-                <th>Input Wished</th>
-
-            </tr>
-            
-            <tbody>
-            @foreach (var item in glqt)
-            {
-
+            <table class="table ">
                 <tr>
-                    <td>@item.ShelfID</td>
-                    <td>@item.AvalibleSpace</td>
-                    <td><INPUT name="InputWished" type="textfield" placeholder="skriv ønsket mængde"class="border-0"/></td>
-                    <td><label></label></td>
+                    <td class="border-1 text-center fw-bold">
+                        <label >Vare nummer: @NewItemBeginState.Id</label>
+                    </td>
+
                 </tr>
-            }
-            </tbody>
-        </table>
-        <button type="button" name="klik" onclick="@Button.Reserver()">klik</button>
+                <tr>
+                    <td>
+                        <label>antal du skal placere: @NewItemBeginState.Amount</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Vare nummer</label>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+
+        <div class="col-sm-6">
+            <table class="table">
+
+                <tr class="border-1">
+                    <th>Shelf ID</th>
+                    <th>Avalible Capacity</th>
+                    <th>Input Wished</th>
+
+                </tr>
+
+                <tbody>
+                @*@foreach (var item in glqt)#2#*@
+                {
+                <tr>
+                        @*<td>@item.ShelfID</td>
+                        <td>@item.AvalibleSpace</td>*@
+                    <td>fd</td>
+                    <td>fd</td>
+                        <td>
+                            <INPUT name="InputWished" type="textfield" placeholder="skriv ønsket mængde"class="border-0"/>
+                        </td>
+                        <td>
+                            <label></label>
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+            <button type="button" name="klik" onclick="@Button.Reserver()">klik</button>
+        </div>
     </div>
 </div>
-</div>
+
 @code {
     private int? ShelfId;
     private int? AvalibleCapacity;
     private int? InputWished;
-     
- //   private itemType _itemType = ItemTypeService.ReadAsync(NewItemBeginState.Id).Result;
+
+    //   private itemType _itemType = ItemTypeService.ReadAsync(NewItemBeginState.Id).Result;
 
 
-    
-
-
-
-    private List<AmountOnSpaceDto> glqt = new List<AmountOnSpaceDto>
+    /*private List<AmountOnSpaceDto> glqt = new List<AmountOnSpaceDto>
     {
-        new AmountOnSpaceDto(1,2)
+        new AmountOnSpaceDto(1, 2)
         ,
         new AmountOnSpaceDto
-        (
-             2,
+            (
+            2,
             4
-        ),
-    new AmountOnSpaceDto
-    (
-        1,
-         2
-        )
-    };
-
-*@
-    }
+            ),
+        new AmountOnSpaceDto
+            (
+            1,
+            2
+            )
+    };*/
     
+
+
+}

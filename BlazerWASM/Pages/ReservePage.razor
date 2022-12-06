@@ -1,0 +1,29 @@
+﻿@page "/ReservePage"
+<h3 class="text-center">ReservePage</h3>
+
+<div class="container-fluid">
+    <div class="row text-center">
+
+        <div class="col-6">
+            <form action="/action_page.php">
+                <label for="Varenummer">Varnummer:</label> <br/>
+                <input type="varenummer" id="varenummer" name="varenummer"><br><br>
+                <label for="antal">Antal</label> <br/>
+                <input type="antal" id="antal" name="antal" minlength="8"><br><br>
+                <button type="button">Godkend</button>
+            </form>
+        </div>
+
+
+        <div class="col-6">
+                <br>
+            <textarea rows="14" cols="80"></textarea>
+        </div>
+    </div>
+
+</div>
+
+
+@code {
+
+}
