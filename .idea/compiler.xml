@@ -10,15 +10,17 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Domain" />
-        <module name="DB" />
         <module name="DatabaseServer" />
+        <module name="Hibernate" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="Database" target="17" />
       <module name="DatabaseServer" target="17" />
+      <module name="DB" target="1.8" />
+      <module name="JavaDomain" target="19" />
       <module name="lagersystem" target="17" />
+      <module name="MidTermDraft" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

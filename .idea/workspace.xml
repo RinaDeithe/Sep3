@@ -5,43 +5,160 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="81ffe829-311a-4bde-8753-4e2da12b99da" name="Changes" comment="Rykkede alt domain over i sin egen module.">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Hibernate_5_4_11_5_4_11.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DB/lib/FastInfoset-1.2.15.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DB/lib/antlr-2.7.7.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DB/lib/byte-buddy-1.10.7.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DB/lib/classmate-1.5.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DB/lib/dom4j-2.1.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DB/lib/hibernate-commons-annotations-5.1.0.Final.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DB/lib/hibernate-core-5.4.11.Final.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DB/lib/istack-commons-runtime-3.0.7.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DB/lib/jandex-2.1.1.Final.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DB/lib/javassist-3.24.0-GA.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DB/lib/javax.activation-api-1.2.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DB/lib/javax.persistence-api-2.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DB/lib/jaxb-api-2.3.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DB/lib/jaxb-runtime-2.3.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DB/lib/jboss-logging-3.3.2.Final.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DB/lib/jboss-transaction-api_1.2_spec-1.1.1.Final.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DB/lib/stax-ex-1.8.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DB/lib/txw2-2.3.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DB/src/main/resources/META-INF/persistence.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/src/main/Proto/File.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/src/main/java/database/daoInterfaces/IDbDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/src/main/java/database/daos/DbDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/src/main/java/database/daos/ItemDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/src/main/java/database/daos/ItemTypeDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/src/main/java/database/daos/ShelfDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/src/main/java/database/daos/UserDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/src/main/java/database/orm/DbConnection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/src/main/java/database/orm/IConnector.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/src/main/java/domain/Dto/ItemCreationDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/src/main/java/domain/Dto/ItemRegisterRequestDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/src/main/java/domain/Dto/ItemRegisterResponseDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/src/main/java/domain/Dto/ItemTypeCreationDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/src/main/java/domain/Dto/ItemTypeSearchDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/src/main/java/domain/Dto/ShelfAddItemRequestDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/src/main/java/domain/Dto/ShelfCreationDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/src/main/java/domain/Dto/ShelfItemAmountDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/src/main/java/domain/Dto/ShelfSearchParametersDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/src/main/java/domain/Dto/UserCreationDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/src/main/java/domain/Model/Item.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/src/main/java/domain/Model/ItemType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/src/main/java/domain/Model/Shelf.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/src/main/java/domain/Model/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/converter/ItemConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/converter/ItemTypeConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/converter/ShelfConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/converter/UserConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/services/GrpcItemService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/services/GrpcItemTypeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/services/GrpcShelfService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/services/GrpcUserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/src/main/java/org/hibernate/dialect/SQLiteDialect.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/src/main/resources/META-INF/persistence.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/src/main/resources/database/identifier.sqlite" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/classes/File.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/classes/META-INF/persistence.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/classes/database/identifier.sqlite" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/generated-sources/protobuf/grpc-java/GRPC/proto/ItemServiceGrpc.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/generated-sources/protobuf/grpc-java/GRPC/proto/ItemTypeServiceGrpc.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/generated-sources/protobuf/grpc-java/GRPC/proto/SerivceGrpc.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/generated-sources/protobuf/grpc-java/GRPC/proto/ShelfServiceGrpc.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/generated-sources/protobuf/grpc-java/GRPC/proto/UserServiceGrpc.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/generated-sources/protobuf/java/GRPC/proto/File.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/protoc-dependencies/01ef1e23fb7655319cd1af5b32dbb13b/google/api/annotations.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/protoc-dependencies/01ef1e23fb7655319cd1af5b32dbb13b/google/api/auth.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/protoc-dependencies/01ef1e23fb7655319cd1af5b32dbb13b/google/api/backend.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/protoc-dependencies/01ef1e23fb7655319cd1af5b32dbb13b/google/api/billing.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/protoc-dependencies/01ef1e23fb7655319cd1af5b32dbb13b/google/api/client.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/protoc-dependencies/01ef1e23fb7655319cd1af5b32dbb13b/google/api/config_change.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/protoc-dependencies/01ef1e23fb7655319cd1af5b32dbb13b/google/api/consumer.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/protoc-dependencies/01ef1e23fb7655319cd1af5b32dbb13b/google/api/context.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/protoc-dependencies/01ef1e23fb7655319cd1af5b32dbb13b/google/api/control.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/protoc-dependencies/01ef1e23fb7655319cd1af5b32dbb13b/google/api/distribution.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/protoc-dependencies/01ef1e23fb7655319cd1af5b32dbb13b/google/api/documentation.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/protoc-dependencies/01ef1e23fb7655319cd1af5b32dbb13b/google/api/endpoint.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/protoc-dependencies/01ef1e23fb7655319cd1af5b32dbb13b/google/api/error_reason.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/protoc-dependencies/01ef1e23fb7655319cd1af5b32dbb13b/google/api/field_behavior.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/protoc-dependencies/01ef1e23fb7655319cd1af5b32dbb13b/google/api/http.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/protoc-dependencies/01ef1e23fb7655319cd1af5b32dbb13b/google/api/httpbody.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/protoc-dependencies/01ef1e23fb7655319cd1af5b32dbb13b/google/api/label.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/protoc-dependencies/01ef1e23fb7655319cd1af5b32dbb13b/google/api/launch_stage.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/protoc-dependencies/01ef1e23fb7655319cd1af5b32dbb13b/google/api/log.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/protoc-dependencies/01ef1e23fb7655319cd1af5b32dbb13b/google/api/logging.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/protoc-dependencies/01ef1e23fb7655319cd1af5b32dbb13b/google/api/metric.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/protoc-dependencies/01ef1e23fb7655319cd1af5b32dbb13b/google/api/monitored_resource.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/protoc-dependencies/01ef1e23fb7655319cd1af5b32dbb13b/google/api/monitoring.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/protoc-dependencies/01ef1e23fb7655319cd1af5b32dbb13b/google/api/quota.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/protoc-dependencies/01ef1e23fb7655319cd1af5b32dbb13b/google/api/resource.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/protoc-dependencies/01ef1e23fb7655319cd1af5b32dbb13b/google/api/routing.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/protoc-dependencies/01ef1e23fb7655319cd1af5b32dbb13b/google/api/service.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/protoc-dependencies/01ef1e23fb7655319cd1af5b32dbb13b/google/api/source_info.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/protoc-dependencies/01ef1e23fb7655319cd1af5b32dbb13b/google/api/system_parameter.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/protoc-dependencies/01ef1e23fb7655319cd1af5b32dbb13b/google/api/usage.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/protoc-dependencies/01ef1e23fb7655319cd1af5b32dbb13b/google/api/visibility.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/protoc-dependencies/01ef1e23fb7655319cd1af5b32dbb13b/google/cloud/audit/audit_log.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/protoc-dependencies/01ef1e23fb7655319cd1af5b32dbb13b/google/cloud/extended_operations.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/protoc-dependencies/01ef1e23fb7655319cd1af5b32dbb13b/google/geo/type/viewport.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/protoc-dependencies/01ef1e23fb7655319cd1af5b32dbb13b/google/logging/type/http_request.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/protoc-dependencies/01ef1e23fb7655319cd1af5b32dbb13b/google/logging/type/log_severity.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/protoc-dependencies/01ef1e23fb7655319cd1af5b32dbb13b/google/longrunning/operations.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/protoc-dependencies/01ef1e23fb7655319cd1af5b32dbb13b/google/rpc/code.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/protoc-dependencies/01ef1e23fb7655319cd1af5b32dbb13b/google/rpc/context/attribute_context.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/protoc-dependencies/01ef1e23fb7655319cd1af5b32dbb13b/google/rpc/error_details.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/protoc-dependencies/01ef1e23fb7655319cd1af5b32dbb13b/google/rpc/status.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/protoc-dependencies/01ef1e23fb7655319cd1af5b32dbb13b/google/type/calendar_period.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/protoc-dependencies/01ef1e23fb7655319cd1af5b32dbb13b/google/type/color.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/protoc-dependencies/01ef1e23fb7655319cd1af5b32dbb13b/google/type/date.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/protoc-dependencies/01ef1e23fb7655319cd1af5b32dbb13b/google/type/datetime.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/protoc-dependencies/01ef1e23fb7655319cd1af5b32dbb13b/google/type/dayofweek.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/protoc-dependencies/01ef1e23fb7655319cd1af5b32dbb13b/google/type/decimal.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/protoc-dependencies/01ef1e23fb7655319cd1af5b32dbb13b/google/type/expr.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/protoc-dependencies/01ef1e23fb7655319cd1af5b32dbb13b/google/type/fraction.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/protoc-dependencies/01ef1e23fb7655319cd1af5b32dbb13b/google/type/interval.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/protoc-dependencies/01ef1e23fb7655319cd1af5b32dbb13b/google/type/latlng.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/protoc-dependencies/01ef1e23fb7655319cd1af5b32dbb13b/google/type/localized_text.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/protoc-dependencies/01ef1e23fb7655319cd1af5b32dbb13b/google/type/money.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/protoc-dependencies/01ef1e23fb7655319cd1af5b32dbb13b/google/type/month.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/protoc-dependencies/01ef1e23fb7655319cd1af5b32dbb13b/google/type/phone_number.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/protoc-dependencies/01ef1e23fb7655319cd1af5b32dbb13b/google/type/postal_address.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/protoc-dependencies/01ef1e23fb7655319cd1af5b32dbb13b/google/type/quaternion.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/protoc-dependencies/01ef1e23fb7655319cd1af5b32dbb13b/google/type/timeofday.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/protoc-dependencies/dd8f4eecda44e001c79d2bcaa665e0da/google/protobuf/any.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/protoc-dependencies/dd8f4eecda44e001c79d2bcaa665e0da/google/protobuf/api.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/protoc-dependencies/dd8f4eecda44e001c79d2bcaa665e0da/google/protobuf/compiler/plugin.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/protoc-dependencies/dd8f4eecda44e001c79d2bcaa665e0da/google/protobuf/descriptor.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/protoc-dependencies/dd8f4eecda44e001c79d2bcaa665e0da/google/protobuf/duration.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/protoc-dependencies/dd8f4eecda44e001c79d2bcaa665e0da/google/protobuf/empty.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/protoc-dependencies/dd8f4eecda44e001c79d2bcaa665e0da/google/protobuf/field_mask.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/protoc-dependencies/dd8f4eecda44e001c79d2bcaa665e0da/google/protobuf/source_context.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/protoc-dependencies/dd8f4eecda44e001c79d2bcaa665e0da/google/protobuf/struct.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/protoc-dependencies/dd8f4eecda44e001c79d2bcaa665e0da/google/protobuf/timestamp.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/protoc-dependencies/dd8f4eecda44e001c79d2bcaa665e0da/google/protobuf/type.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/protoc-dependencies/dd8f4eecda44e001c79d2bcaa665e0da/google/protobuf/wrappers.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/protoc-plugins/protoc-3.3.0-windows-x86_64.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hibernate/target/protoc-plugins/protoc-gen-grpc-java-1.4.0-windows-x86_64.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DB/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/DB/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DB/src/main/java/DummyData/TestItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/DB/src/main/java/database/DummyData/TestItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DB/src/main/java/DummyData/TestItemType.java" beforeDir="false" afterPath="$PROJECT_DIR$/DB/src/main/java/database/DummyData/TestItemType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DB/src/main/java/GRPCMethodCall/GRPCDataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/DB/src/main/java/GRPCMethodCall/GRPCDataBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DB/src/main/java/adapter/Item/CreateItemAdapterDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/DB/src/main/java/grpc/adapter/Item/CreateItemAdapterDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DB/src/main/java/adapter/ItemType/CreateItemTypeAdapterDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/DB/src/main/java/grpc/adapter/ItemType/CreateItemTypeAdapterDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DB/src/main/java/adapter/ItemType/ReadItemTypeAdapterDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/DB/src/main/java/grpc/adapter/ItemType/ReadItemTypeAdapterDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DB/src/main/java/adapter/Shelf/GetShelfAdapterDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/DB/src/main/java/grpc/adapter/Shelf/GetShelfAdapterDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DB/src/main/java/adapter/Shelf/UpdateShelfAdapterDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/DB/src/main/java/grpc/adapter/Shelf/UpdateShelfAdapterDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DB/src/main/java/adapter/User/CreateUserAdapterDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/DB/src/main/java/grpc/adapter/User/CreateUserAdapterDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DB/src/main/java/adapter/converter/ShelfProto/ConverterShelf.java" beforeDir="false" afterPath="$PROJECT_DIR$/DB/src/main/java/grpc/converter/ShelfProto/ConverterShelf.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DB/src/main/java/adapter/converter/itemProto/ConverterItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/DB/src/main/java/grpc/converter/itemProto/ConverterItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DB/src/main/java/adapter/converter/itemTypeProto/ConverterItemType.java" beforeDir="false" afterPath="$PROJECT_DIR$/DB/src/main/java/grpc/converter/itemTypeProto/ConverterItemType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DB/src/main/java/adapter/converter/userProto/ConverterUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/DB/src/main/java/grpc/converter/userProto/ConverterUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DB/src/main/java/database/daoInterfaces/IItemDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/DB/src/main/java/database/daoInterfaces/IItemDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DB/src/test/java/adapter/converter/ShelfProto/ConverterShelfTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/DB/src/test/java/adapter/converter/ShelfProto/ConverterShelfTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB/src/main/java/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/DB/src/main/java/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB/src/main/java/GRPCMethodCall/GRPCDataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/GrpcServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB/src/main/java/GRPCMethodCall/IGRPCDataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/IGRPCDataBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB/src/main/java/database/DummyData/TestItem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB/src/main/java/database/DummyData/TestItemType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB/src/main/java/database/daoInterfaces/IItemDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/database/daoInterfaces/IItemDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB/src/main/java/database/daoInterfaces/IItemTypeDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/database/daoInterfaces/IItemTypeDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB/src/main/java/database/daoInterfaces/IShelfDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/database/daoInterfaces/IShelfDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB/src/main/java/database/daoInterfaces/IUserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/database/daoInterfaces/IUserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB/src/main/java/grpc/DatabaseInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/DatabaseInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB/src/main/java/grpc/adapter/Item/CreateItemAdapterDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/adapter/Item/CreateItemAdapterDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB/src/main/java/grpc/adapter/ItemType/CreateItemTypeAdapterDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/adapter/ItemType/CreateItemTypeAdapterDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB/src/main/java/grpc/adapter/ItemType/ReadItemTypeAdapterDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/adapter/ItemType/ReadItemTypeAdapterDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB/src/main/java/grpc/adapter/Shelf/GetShelfAdapterDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/adapter/Shelf/GetShelfAdapterDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB/src/main/java/grpc/adapter/Shelf/UpdateShelfAdapterDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/adapter/Shelf/UpdateShelfAdapterDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB/src/main/java/grpc/adapter/User/CreateUserAdapterDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/adapter/User/CreateUserAdapterDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB/src/main/java/grpc/converter/ShelfProto/ConverterShelf.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/converter/ShelfProto/ConverterShelf.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB/src/main/java/grpc/converter/itemProto/ConverterItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/converter/itemProto/ConverterItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB/src/main/java/grpc/converter/itemTypeProto/ConverterItemType.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/converter/itemTypeProto/ConverterItemType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB/src/main/java/grpc/converter/userProto/ConverterUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/converter/userProto/ConverterUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DatabaseServer/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DatabaseServer/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DatabaseServer/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DatabaseServer/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DatabaseServer/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DatabaseServer/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DatabaseServer/src/main/java/me/via316455/databaseserver/DatabaseServerApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DatabaseServer/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DatabaseServer/src/test/java/me/via316455/databaseserver/DatabaseServerApplicationTests.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,9 +168,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Record" />
         <option value="Interface" />
         <option value="Class" />
-        <option value="Record" />
       </list>
     </option>
   </component>
@@ -61,7 +178,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/DB/src/main/java/GRPCMethodCall/GRPCDataBase.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Hibernate/src/main/java/grpc/GrpcServer.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="JpbToolWindowState">
     <option name="myId2FirstActivated">
@@ -81,14 +198,6 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="mavenHome" value="Use Maven wrapper" />
-        <option name="useMavenConfig" value="true" />
-      </MavenGeneralSettings>
-    </option>
-  </component>
   <component name="ProjectId" id="2Gx89vpW6WzRX6pIwvSB1XF3btt" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -97,29 +206,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "jdk.selected.JAVA_MODULE": "19",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "spring.configuration.checksum": "0a5a4d7386065c6c6ac19c303768c7e1"
-  },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "sqlite"
-    ]
-  }
-}]]></component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="sqlite" />
+    <property name="JPA.DatabaseSchemaImportDialog" value="29eccfd2-7cc1-4776-9a66-3b1825bb32a3" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="jdk.selected.JAVA_MODULE" value="19" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/Hibernate/src/main/java" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Hibernate/src/main/java" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Rumle\IdeaProjects\MidTermDraft\Hibernate\src\main\java" />
+      <recent name="C:\Users\Rumle\IdeaProjects\MidTermDraft\Hibernate\src\main\java\domain" />
+      <recent name="C:\Users\Rumle\IdeaProjects\MidTermDraft\Hibernate\src\main\java\database" />
+      <recent name="C:\Users\Rumle\IdeaProjects\MidTermDraft\Hibernate\src\main\proto" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Rumle\IdeaProjects\MidTermDraft" />
+      <recent name="C:\Users\Rumle\IdeaProjects\Tier3" />
+      <recent name="C:\Users\Rumle\IdeaProjects" />
+    </key>
+    <key name="ImportMappingsDialog.RecentPackages">
+      <recent name="model.entities" />
+    </key>
+  </component>
   <component name="RunDashboard">
     <option name="configurationTypes">
       <set>
@@ -147,17 +264,6 @@
       <option name="MAIN_CLASS_NAME" value="adapter.converter.ShelfProto.ConverterShelfTest" />
       <option name="METHOD_NAME" value="name" />
       <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <option name="filePath" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -207,7 +313,9 @@
       <workItem from="1670228518129" duration="8830000" />
       <workItem from="1670250217531" duration="808000" />
       <workItem from="1670350681665" duration="1605000" />
-      <workItem from="1670352301578" duration="4063000" />
+      <workItem from="1670352301578" duration="4162000" />
+      <workItem from="1670359405390" duration="8424000" />
+      <workItem from="1670367905470" duration="1148000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit Java">
       <created>1667318961742</created>
@@ -307,11 +415,45 @@
       <option name="project" value="LOCAL" />
       <updated>1670356263582</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Rykkede alt domain over i sin egen module.">
+      <created>1670358413164</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1670358413164</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="dependencySupport" implementationName="java:javax.xml.bind:jaxb-api" />
+    <option featureType="dependencySupport" implementationName="java:org.jvnet.staxex:stax-ex" />
+    <option featureType="dependencySupport" implementationName="java:org.javassist:javassist" />
+    <option featureType="dependencySupport" implementationName="java:org.junit.platform:junit-platform-engine" />
+    <option featureType="dependencySupport" implementationName="java:org.jboss:jandex" />
+    <option featureType="dependencySupport" implementationName="java:javax.activation:javax.activation-api" />
+    <option featureType="dependencySupport" implementationName="java:org.junit.platform:junit-platform-commons" />
+    <option featureType="dependencySupport" implementationName="java:org.jboss.logging:jboss-logging" />
+    <option featureType="dependencySupport" implementationName="java:com.fasterxml:classmate" />
+    <option featureType="dependencySupport" implementationName="java:org.hibernate.common:hibernate-commons-annotations" />
+    <option featureType="dependencySupport" implementationName="java:org.hibernate:hibernate-core" />
+    <option featureType="dependencySupport" implementationName="java:antlr:antlr" />
+    <option featureType="dependencySupport" implementationName="java:org.glassfish.jaxb:jaxb-runtime" />
+    <option featureType="dependencySupport" implementationName="java:org.glassfish.jaxb:txw2" />
+    <option featureType="dependencySupport" implementationName="java:org.xerial:sqlite-jdbc" />
+    <option featureType="dependencySupport" implementationName="java:javax.persistence:javax.persistence-api" />
+    <option featureType="dependencySupport" implementationName="java:org.jboss.spec.javax.transaction:jboss-transaction-api_1.2_spec" />
+    <option featureType="dependencySupport" implementationName="java:com.sun.istack:istack-commons-runtime" />
+    <option featureType="dependencySupport" implementationName="java:org.opentest4j:opentest4j" />
+    <option featureType="dependencySupport" implementationName="java:com.sun.xml.fastinfoset:FastInfoset" />
+    <option featureType="dependencySupport" implementationName="java:org.junit.jupiter:junit-jupiter-api" />
+    <option featureType="dependencySupport" implementationName="java:com.github.gwenn:sqlite-dialect" />
+    <option featureType="dependencySupport" implementationName="java:org.junit.jupiter:junit-jupiter-engine" />
+    <option featureType="dependencySupport" implementationName="java:org.apiguardian:apiguardian-api" />
+    <option featureType="dependencySupport" implementationName="java:net.bytebuddy:byte-buddy" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -323,6 +465,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />

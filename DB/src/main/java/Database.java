@@ -3,9 +3,6 @@ import GRPCMethodCall.GRPCDataBase;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 
-
-import java.io.IOException;
-
 public class Database {
     public static void main(String[] args) throws Exception{
         Server server = ServerBuilder.forPort(9090)
