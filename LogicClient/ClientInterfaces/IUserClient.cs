@@ -3,7 +3,7 @@ using Shared.Model;
 
 namespace ClientgRPC.ClientInterfaces;
 
-public interface IAuthClient
+public interface IUserClient
 {
-    User Read(UserSearchDto dto);
+    User Read(UserSearchDto userSearchDto);
 }

@@ -1,5 +1,4 @@
 ﻿using GRPC.Proto;
-using LogicClient.Converters;
 using Shared.DTOs.Item;
 using Shared.Model;
 

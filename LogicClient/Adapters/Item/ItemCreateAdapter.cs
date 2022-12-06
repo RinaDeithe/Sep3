@@ -1,9 +1,8 @@
 ﻿using ClientgRPC.Converters;
 using GRPC.Proto;
-using LogicClient.Converters;
 using Shared.DTOs.Item;
 
-namespace LogicClient.Adapters.Item;
+namespace ClientgRPC.Adapters.Item;
 
 public class ItemCreateAdapter
 {

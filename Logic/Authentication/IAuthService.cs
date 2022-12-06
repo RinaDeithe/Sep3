@@ -5,5 +5,5 @@ namespace Logic.Authentication;
 
 public interface IAuthService
 {
-    User ValidateUser(UserLoginDto user);
+    Task<User> ValidateUser(UserLoginDto user);
 }

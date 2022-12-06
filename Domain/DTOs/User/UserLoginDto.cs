@@ -2,11 +2,11 @@
 
 public class UserLoginDto
 {
-    public UserLoginDto(string userName, string password)
+    public UserLoginDto(int Id, string password)
     {
         throw new NotImplementedException();
     }
 
-    public UserLoginDto Id { get; init; }
+    public int Id { get; init; }
     public string Password { get; init; }
 }

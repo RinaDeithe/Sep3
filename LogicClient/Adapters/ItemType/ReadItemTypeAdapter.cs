@@ -1,8 +1,8 @@
-﻿using GRPC.Proto;
-using LogicClient.Converters;
+﻿using ClientgRPC.Converters;
+using GRPC.Proto;
 using Shared.DTOs.ItemType;
 
-namespace LogicClient.Adapters.ItemType;
+namespace ClientgRPC.Adapters.ItemType;
 
 public class ReadItemTypeAdapter
 {

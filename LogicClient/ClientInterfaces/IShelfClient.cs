@@ -1,7 +1,6 @@
-﻿using Shared.DTOs;
-using Shared.DTOs.Shelf;
+﻿using Shared.DTOs.Shelf;
 
-namespace LogicClient.ClientInterfaces;
+namespace ClientgRPC.ClientInterfaces;
 
 public interface IShelfClient
 {

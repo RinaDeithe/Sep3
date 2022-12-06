@@ -28,7 +28,7 @@ public class AuthController : ControllerBase
     {
         try
         {
-            User user = auth.ValidateUser(userLoginDto);
+            User user = await auth.ValidateUser(userLoginDto);
             string token = GenerateJwt(user);
             
             return Ok(token);

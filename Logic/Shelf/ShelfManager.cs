@@ -1,4 +1,4 @@
-﻿using LogicClient.ClientInterfaces;
+﻿using ClientgRPC.ClientInterfaces;
 using Shared.DTOs;
 using Shared.DTOs.ItemType;
 using Shared.DTOs.Shelf;

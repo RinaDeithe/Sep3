@@ -1,10 +1,9 @@
-﻿using LogicClient.Adapters.ItemType;
-using LogicClient.ClientInterfaces;
-using Shared.DTOs;
+﻿using ClientgRPC.Adapters.ItemType;
+using ClientgRPC.ClientInterfaces;
 using Shared.DTOs.ItemType;
 using Shared.Model;
 
-namespace LogicClient.GRPC_stubs;
+namespace ClientgRPC.GRPC_stubs;
 
 public class ItemTypeClient: IItemTypeClient
 {

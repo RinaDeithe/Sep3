@@ -1,6 +1,6 @@
 ﻿using GRPC.Proto;
 
-namespace LogicClient;
+namespace ClientgRPC;
 
 public interface IGRPCServerSide
 {

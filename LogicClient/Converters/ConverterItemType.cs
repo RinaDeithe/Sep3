@@ -2,7 +2,7 @@
 using Shared.DTOs.ItemType;
 using Shared.Model;
 
-namespace LogicClient.Converters;
+namespace ClientgRPC.Converters;
 
 public class ConverterItemType
 {

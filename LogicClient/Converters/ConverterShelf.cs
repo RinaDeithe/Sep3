@@ -1,7 +1,7 @@
 ﻿using GRPC.Proto;
 using Shared.Model;
 
-namespace LogicClient.Converters;
+namespace ClientgRPC.Converters;
 
 public class ConverterShelf
 {

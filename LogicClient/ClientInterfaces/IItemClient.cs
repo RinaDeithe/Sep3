@@ -1,7 +1,6 @@
-﻿using Shared.DTOs;
-using Shared.DTOs.Item;
+﻿using Shared.DTOs.Item;
 
-namespace LogicClient.ClientInterfaces;
+namespace ClientgRPC.ClientInterfaces;
 
 public interface IItemClient
 {

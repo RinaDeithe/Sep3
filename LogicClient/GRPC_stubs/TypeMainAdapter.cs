@@ -1,9 +1,8 @@
-﻿using LogicClient.Adapters.Item;
-using LogicClient.ClientInterfaces;
-using Shared.DTOs;
+﻿using ClientgRPC.Adapters.Item;
+using ClientgRPC.ClientInterfaces;
 using Shared.DTOs.Item;
 
-namespace LogicClient.GRPC_stubs;
+namespace ClientgRPC.GRPC_stubs;
 
 public class TypeMainAdapter : IItemClient
 {
