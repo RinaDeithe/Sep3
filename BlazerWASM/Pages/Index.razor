@@ -1,13 +1,26 @@
 ﻿@page "/"
 
-<PageTitle>Index</PageTitle>
 <h1 class="text-center">Login Page</h1>
+
 <div class="text-center">
-    <form action="/action_page.php"> 
-        <label for="email">UserId:</label> <br/>
-        <input type="email" id="email" name="email"><br><br>
-        <label for="pwd">Password:</label> <br/>
-        <input type="password" id="pwd" name="pwd" minlength="8"><br><br>
-        <button type="button">Godkend</button>
+    <form action="/action_page.php">
+        <label>UserId</label> <br/>
+        <input type="text" class="form-control col-6"@bind="UserId"/>
+
+        <label>Password</label> <br/>
+        <input type="text" class="form-control col-6"@bind="Password"/>
+
+        <button type="button">Login</button>
     </form>
 </div>
+
+
+@code
+{
+
+    private int? UserId;
+    private int? Password;
+
+
+
+}
