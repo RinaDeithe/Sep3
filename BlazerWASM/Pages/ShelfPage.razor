@@ -1,9 +1,9 @@
 ﻿@page "/Shelfpage"
-@*@using global::Shared.Model*@
+@using global::Shared.Model
 @using global::Shared.DTOs
 @using BlazerWASM.StateContainer
 @using HttpClients.ClientInterfaces
-@*@using HttpClients.Implementations*@
+@using HttpClients.Implementations
 @inject HttpClient Http
 
 @inject AddNewItemBeginState NewItemBeginState;
@@ -12,8 +12,6 @@
 @inject IButton Button;
 
 <h3 class="text-center mb-5">ShelfPage</h3>
-
-
 
 <div class="container-fluid mt-3 ">
     <div class="row">
@@ -51,11 +49,11 @@
                 </tr>
 
                 <tbody>
-                @*@foreach (var item in glqt)#2#*@
+                @foreach (var item in glqt)
                 {
                 <tr>
-                        @*<td>@item.ShelfID</td>
-                        <td>@item.AvalibleSpace</td>*@
+                        <td>@item.ShelfID</td>
+                        <td>@item.AvalibleSpace</td>
                     <td>fd</td>
                     <td>fd</td>
                         <td>
@@ -68,7 +66,7 @@
                 }
                 </tbody>
             </table>
-            <button type="button" name="klik" onclick="@Button.Reserver()">klik</button>
+          @*  <button type="button" name="klik" onclick="@Button.Reserver()">klik</button>*@
         </div>
     </div>
 </div>
@@ -81,21 +79,21 @@
     //   private itemType _itemType = ItemTypeService.ReadAsync(NewItemBeginState.Id).Result;
 
 
-    /*private List<AmountOnSpaceDto> glqt = new List<AmountOnSpaceDto>
+    private List<AmountOnSpaceDto> glqt = new List<AmountOnSpaceDto>
     {
-        new AmountOnSpaceDto(1, 2)
+        new AmountOnSpaceDto("1", 2)
         ,
         new AmountOnSpaceDto
             (
-            2,
+            "2",
             4
             ),
         new AmountOnSpaceDto
             (
-            1,
+            "1",
             2
             )
-    };*/
+    };
     
 
 
