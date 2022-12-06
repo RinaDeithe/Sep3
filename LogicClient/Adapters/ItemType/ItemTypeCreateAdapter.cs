@@ -1,8 +1,8 @@
-﻿using ClientgRPC.Converter;
-using GRPC.Proto;
-using Shared.DTOs;
+﻿using GRPC.Proto;
+using LogicClient.Converters;
+using Shared.DTOs.ItemType;
 
-namespace ClientgRPC.Adapters.ItemType.Selve_Adapterne;
+namespace LogicClient.Adapters.ItemType;
 
 public class ItemTypeCreateAdapter
 {

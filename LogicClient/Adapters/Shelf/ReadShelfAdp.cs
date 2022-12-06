@@ -1,8 +1,8 @@
-﻿using ClientgRPC.Converter;
-using GRPC.Proto;
-using Shared.DTOs;
+﻿using GRPC.Proto;
+using LogicClient.Converters;
+using Shared.DTOs.Shelf;
 
-namespace ClientgRPC.Adapters.Shelf.Adp;
+namespace LogicClient.Adapters.Shelf;
 
 public class ReadShelfAdp
 {

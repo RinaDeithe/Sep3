@@ -1,9 +1,10 @@
-﻿using ClientgRPC.Adapters.Shelf.Adp;
-using ClientgRPC.ClientInterfaces;
+﻿using LogicClient.Adapters.Shelf;
+using LogicClient.ClientInterfaces;
 using Shared.DTOs;
+using Shared.DTOs.Shelf;
 using Shared.Model;
 
-namespace ClientgRPC.GRPC_stubs;
+namespace LogicClient.GRPC_stubs;
 
 public class ShelfClient : IShelfClient
 {

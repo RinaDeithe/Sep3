@@ -1,4 +1,4 @@
-﻿namespace ClientgRPC.Adapters.Shelf.Adp;
+﻿namespace LogicClient.Adapters.Shelf;
 
 public class GetAllShelves
 {

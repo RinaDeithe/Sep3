@@ -1,8 +1,9 @@
 ﻿using GRPC.Proto;
-using Shared.DTOs;
+using LogicClient.Converters;
+using Shared.DTOs.Item;
 using Shared.Model;
 
-namespace ClientgRPC.Converter;
+namespace ClientgRPC.Converters;
 
 public class ConverterItem
 {

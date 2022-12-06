@@ -3,6 +3,7 @@ using System.Net.Http.Json;
 using System.Text.Json;
 using HttpClients.ClientInterfaces;
 using Shared.DTOs;
+using Shared.DTOs.ItemType;
 using Shared.Model;
 
 

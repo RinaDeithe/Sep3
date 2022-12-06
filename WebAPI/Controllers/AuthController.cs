@@ -1,10 +1,10 @@
 ﻿using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using Logic.LogicInterfaces;
+using Logic.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
-using Microsoft.VisualBasic.CompilerServices;
+using Shared.DTOs.User;
 using Shared.Model;
 using JwtRegisteredClaimNames = Microsoft.IdentityModel.JsonWebTokens.JwtRegisteredClaimNames;
 
@@ -22,7 +22,23 @@ public class AuthController : ControllerBase
         this.auth = auth;
         this.config = config;
     }
-    
+
+    [HttpPost, Route("login")]
+    public async Task<ActionResult> Login([FromBody] UserLoginDto userLoginDto)
+    {
+        try
+        {
+            User user = auth.ValidateUser(userLoginDto);
+            string token = GenerateJwt(user);
+            
+            return Ok(token);
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
+    }
+
     private List<Claim> GenerateClaims(User user)
     {
         var claims = new[]
@@ -44,7 +60,18 @@ public class AuthController : ControllerBase
         SigningCredentials signIn = new SigningCredentials(key, SecurityAlgorithms.HmacSha512);
 
         JwtHeader header = new JwtHeader(signIn);
-        
-        JwtPayload payload = new JwtPayload()
+
+        JwtPayload payload = new JwtPayload(
+            config["Jwt:Issuer"],
+            config["Jwt:Audience"],
+            claims,
+            null,
+            DateTime.UtcNow.AddMinutes(60)
+            );
+
+        JwtSecurityToken token = new JwtSecurityToken(header, payload);
+
+        string serializedToken = new JwtSecurityTokenHandler().WriteToken(token);
+        return serializedToken;
     }
 }

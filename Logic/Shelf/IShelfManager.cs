@@ -1,7 +1,7 @@
 ﻿using Shared.DTOs;
-using Shared.Model;
+using Shared.DTOs.Shelf;
 
-namespace Logic.LogicInterfaces;
+namespace Logic.Shelf;
 
 public interface IShelfManager
 {

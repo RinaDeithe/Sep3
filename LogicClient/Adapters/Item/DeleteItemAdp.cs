@@ -1,8 +1,9 @@
-﻿using ClientgRPC.Converter;
+﻿using ClientgRPC.Converters;
 using GRPC.Proto;
-using Shared.DTOs;
+using LogicClient.Converters;
+using Shared.DTOs.Item;
 
-namespace ClientgRPC.Adapters.Item.Adapterne;
+namespace LogicClient.Adapters.Item;
 
 public class DeleteItemAdp
 {

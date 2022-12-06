@@ -1,14 +1,13 @@
 ﻿using GRPC.Proto;
 using Shared.Model;
 
-namespace ClientgRPC.Converter;
+namespace LogicClient.Converters;
 
 public class ConverterUser
 {
     public static User UserProtoToUser(UserProto userProto)
     {
-        User user = new User();
-        user.Id = userProto.Id;
+        User user = new (userProto.Id, null);
         
         return user;
     }

@@ -1,7 +1,7 @@
 ﻿using Shared.DTOs.User;
 using Shared.Model;
 
-namespace ClientgRPC.ClientInterfaces;
+namespace LogicClient.ClientInterfaces;
 
 public interface IAuthClient
 {

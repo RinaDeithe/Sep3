@@ -1,6 +1,6 @@
 ﻿using GRPC.Proto;
 
-namespace ClientgRPC.Adapters.Shelf.Adp;
+namespace LogicClient.Adapters.Shelf;
 
 public class UpdateShelfAdp
 {
@@ -24,10 +24,8 @@ public class UpdateShelfAdp
         shelf.ItemsOnShelf = new List<Shared.Model.Item>();
         foreach (var itemss in shelfProto.ItemsOnShelf)
         {
-            Shared.Model.User userit = new Shared.Model.User();
-            
-            userit.Id = itemss.Owner.Id;
-    
+            Shared.Model.User userit = new Shared.Model.User(itemss.Owner.Id, null);
+
             Shared.Model.ItemType _itemType = new Shared.Model.ItemType(itemss.Type.Id, itemss.Type.DimX, itemss.Type.DimY, itemss.Type.DimZ);
 
             

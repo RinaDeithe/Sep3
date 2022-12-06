@@ -1,6 +1,6 @@
-using ClientgRPC;
-using ClientgRPC.ClientInterfaces;
-using ClientgRPC.GRPC_stubs;
+using LogicClient;
+using LogicClient.ClientInterfaces;
+using LogicClient.GRPC_stubs;
 using Logic.Item;
 
 var builder = WebApplication.CreateBuilder(args);

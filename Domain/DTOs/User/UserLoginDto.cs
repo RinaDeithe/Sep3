@@ -6,4 +6,7 @@ public class UserLoginDto
     {
         throw new NotImplementedException();
     }
+
+    public UserLoginDto Id { get; init; }
+    public string Password { get; init; }
 }

@@ -1,5 +1,7 @@
-using ClientgRPC.ClientInterfaces;
+using LogicClient.ClientInterfaces;
 using Shared.DTOs;
+using Shared.DTOs.Item;
+using Shared.DTOs.ItemType;
 using Shared.Model;
 
 namespace Logic.Item; 

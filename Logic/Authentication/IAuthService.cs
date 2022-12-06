@@ -1,9 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Shared.DTOs.User;
+﻿using Shared.DTOs.User;
+using Shared.Model;
 
-namespace Logic.LogicInterfaces;
+namespace Logic.Authentication;
 
 public interface IAuthService
 {
-    Task<ActionResult> ValidateUser(UserLoginDto user);
+    User ValidateUser(UserLoginDto user);
 }

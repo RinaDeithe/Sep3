@@ -1,6 +1,7 @@
-﻿using ClientgRPC.ClientInterfaces;
-using Logic.LogicInterfaces;
+﻿using LogicClient.ClientInterfaces;
 using Shared.DTOs;
+using Shared.DTOs.ItemType;
+using Shared.DTOs.Shelf;
 using Shared.Model;
 
 namespace Logic.Shelf;

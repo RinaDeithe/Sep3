@@ -4,7 +4,7 @@
 using Grpc.Net.Client;
 using GRPC.Proto;
 
-namespace ClientgRPC;
+namespace LogicClient;
 
 public class GRPCServerSide : IGRPCServerSide{
     
