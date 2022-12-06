@@ -17,7 +17,7 @@
         errorLabel = "";
         try
         {
-            UserLoginDto dto = new UserLoginDto(userName, password);
+            UserLoginDto dto = new UserLoginDto(int.Parse(userName), password);
 
             context =/*await*/ authService.LoginAsync(dto);
             navMgr.NavigateTo("/");
