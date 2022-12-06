@@ -1,7 +1,7 @@
 ﻿using GRPC.Proto;
 using Shared.Model;
 
-namespace Logic.AdapterToGRPC;
+namespace ClientgRPC.Converter;
 
 public class ConverterUser
 {
