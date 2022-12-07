@@ -1,0 +1,51 @@
+﻿@page "/BookingPage"
+<h3>BookingPage</h3>
+
+<h3>BookingPage</h3>
+<br>
+<div class="card col-6 border border-0">
+    <div>
+        <div>
+            <label>UserId</label>
+            <input type="text" class="form-control col-6"@bind="UserId"/>
+        </div>
+        <div>
+            <label>Amount</label>
+            <input type="text" class="form-control col-6"@bind="amount"/>
+        </div>
+        <div>
+            <label>ItemTypeId</label>
+            <input type="text" class="form-control col-6"@bind="ItemTypeId"/>
+        </div>
+        <div>
+            <label>DimX</label>
+            <input type="text" class="form-control col-6"@bind="DimX"/>
+        </div>
+        <div>
+            <label>DimY</label>
+            <input type="text" class="form-control col-6"@bind="DimY"/>
+        </div>
+        <div>
+            <label>DimZ</label>
+            <input type="text" class="form-control col-6"@bind="DimZ"/>
+        </div>
+        
+        <button @onclick="createBooking" class="acceptbtn my-2">Create Booking</button>
+
+    </div>
+</div>
+
+
+@code {
+    private int? UserId;
+    private int? amount;
+    private int? ItemTypeId;
+    private int? DimX;
+    private int? DimY;
+    private int? DimZ;
+
+    private async Task createBooking()
+    {
+        
+    }
+}
