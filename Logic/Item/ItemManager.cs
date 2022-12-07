@@ -1,4 +1,5 @@
-using ClientgRPC.ClientInterfaces;
+using LogicClient.ClientInterfaces;
+using LogicClient.GRPC_stubs;
 using Shared.DTOs;
 using Shared.DTOs.Item;
 using Shared.DTOs.ItemType;
@@ -11,14 +12,14 @@ public class ItemManager : IItemLogic
     IShelfClient _shelfClient;
     IItemClient _itemClient; 
     IItemTypeClient _itemTypeClient;
-
-    public ItemManager(IShelfClient shelfClient, IItemClient itemClient, IItemTypeClient itemTypeClient)
+    
+    public ItemManager()
     {
-        _shelfClient = shelfClient;
-        _itemClient = itemClient;
-        _itemTypeClient = itemTypeClient;
+        _shelfClient = new ShelfStub();
+        _itemTypeClient = new ItemTypeStub();
+        _itemClient = new ItemStub();
     }
-
+    
     public async Task<Shared.Model.Item> CreateAsync(ItemCreationDto dto)
     {
         if (dto.Antal<=0)

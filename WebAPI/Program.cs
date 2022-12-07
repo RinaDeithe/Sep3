@@ -1,7 +1,8 @@
-using ClientgRPC;
-using ClientgRPC.ClientInterfaces;
-using ClientgRPC.GRPC_stubs;
+using LogicClient.ClientInterfaces;
+using LogicClient.GRPC_stubs;
+using Logic.Authentication;
 using Logic.Item;
+using Logic.Shelf;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,19 +12,15 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+
+builder.Services.AddScoped<IShelfManager, ShelfManager>();
+builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IItemLogic, ItemManager>();
-
-
-builder.Services.AddScoped<IItemClient, TypeMainAdapter>();
-builder.Services.AddScoped<IItemTypeClient, ItemTypeClient>();
-builder.Services.AddScoped<IShelfClient, ShelfClient>();
-
-builder.Services.AddScoped<IGRPCServerSide, GRPCServerSide>();
-
-
-
-
-
+builder.Services.AddScoped<IItemClient, ItemStub>();
+builder.Services.AddScoped<IItemTypeClient, ItemTypeStub>();
+builder.Services.AddScoped<IShelfClient, ShelfStub>();
+builder.Services.AddScoped<IUserClient, UserStub>();
 
 var app = builder.Build();
 

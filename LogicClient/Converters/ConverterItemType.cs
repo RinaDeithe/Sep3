@@ -7,21 +7,27 @@ namespace ClientgRPC.Converters;
 public class ConverterItemType
 {
 
-
-
-    public static ItemTypeCreationRequest ItemTypeToItemTypeProto(ItemTypeCreationDto itemType)
-    {
-        return new ItemTypeCreationRequest {Id  = itemType.Id,DimX = itemType.DimensionX, DimY = itemType.DimenstionY, DimZ = itemType.DimensionZ };
+    public ItemTypeCreationRequest CreationToProto(ItemTypeCreationDto dto) {
+        return new ItemTypeCreationRequest { Id = dto.Id, ItemDimX = dto.DimensionX, ItemDimY = dto.DimenstionY, ItemDimZ = dto.DimensionZ};
     }
 
-    public static ItemType ItemTypeProtoToItemType(ItemTypeProto itemTypeProto)
-    {
-      return new ItemType(itemTypeProto.Id, itemTypeProto.DimX, itemTypeProto.DimY, itemTypeProto.DimZ);
+    public ItemType ProtoToType(ItemTypeProto proto) {
+        return new ItemType(proto.Id, proto.DimX, proto.DimY, proto.DimZ);
     }
 
-    public static ItemTypeSearchRequest ItemTypeSearchDtoToItemTypeSearchRequest(ItemTypeSearchDto itemTypeSearchDto)
-    {
-        return new ItemTypeSearchRequest{Id = itemTypeSearchDto.id};
+    public ItemTypeSearchRequest SearchToProto(ItemTypeSearchDto dto) {
+        return new ItemTypeSearchRequest {
+            Id = dto.id
+        };
     }
-   
+
+    public List<ItemType> ProtoToList(ItemTypeListProto proto) {
+        List<ItemType> typeList = new List<ItemType>();
+
+        foreach (var index in proto.List) {
+            typeList.Add(ProtoToType(index));
+        }
+
+        return typeList;
+    }
 }

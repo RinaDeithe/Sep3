@@ -1,4 +1,5 @@
-﻿using ClientgRPC.ClientInterfaces;
+﻿using LogicClient.ClientInterfaces;
+using LogicClient.GRPC_stubs;
 using Shared.DTOs;
 using Shared.DTOs.ItemType;
 using Shared.DTOs.Shelf;
@@ -12,11 +13,12 @@ public class ShelfManager : IShelfManager
     private IItemTypeClient _itemTypeClient;
     private IItemClient _itemClient;
 
-    public ShelfManager(IShelfClient shelfClient, IItemTypeClient itemTypeClient, IItemClient itemClient)
+    
+    public ShelfManager()
     {
-        _shelfClient = shelfClient;
-        _itemTypeClient = itemTypeClient;
-        _itemClient = itemClient;
+        _shelfClient = new ShelfStub();
+        _itemTypeClient = new ItemTypeStub();
+        _itemClient = new ItemStub();
     }
 
     public async Task<bool> Update(ShelfAddItemRequestDto dto)
@@ -37,7 +39,7 @@ public class ShelfManager : IShelfManager
 
         ItemType _itemType = _itemTypeClient.Read(new ItemTypeSearchDto(itemTypeId)).Result;
 
-        List < Shared.Model.Shelf > allShelves= await _shelfClient.GetAllShelves();
+        List < Shared.Model.Shelf > allShelves= await _shelfClient.ReadAll();
         foreach (var shelf in allShelves)
         {
             throw new NotImplementedException();
