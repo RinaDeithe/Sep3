@@ -50,5 +50,10 @@ public class GrpcItemTypeService extends ItemTypeServiceGrpc.ItemTypeServiceImpl
     @Override
     public void delete(File.ItemTypeSearchRequest request, StreamObserver<File.ItemTypeProto> responseObserver) {
         ItemType type = dao.Delete(ItemTypeConverter.CONVERT.toTypeFromSearch(request));
+
+        File.ItemTypeProto proto = ItemTypeConverter.CONVERT.toTypeProto(type);
+
+        responseObserver.onNext(proto);
+        responseObserver.onCompleted();
     }
 }

@@ -13,7 +13,7 @@ public class DbConnection<T> implements IConnector<T>{
     private EntityTransaction et;
 
     @Override
-    public void create(T entity) {
+    public void Create(T entity) {
 
         em = emf.createEntityManager();
         et = em.getTransaction();
@@ -33,7 +33,7 @@ public class DbConnection<T> implements IConnector<T>{
     }
 
     @Override
-    public T read(T classObject, int entityKey) {
+    public T Read(T classObject, int entityKey) {
 
         em = emf.createEntityManager();
         et = em.getTransaction();
@@ -57,7 +57,7 @@ public class DbConnection<T> implements IConnector<T>{
     }
 
     @Override
-    public List<T> readAll(T classObject) {
+    public List<T> ReadAll(T classObject) {
 
         em = emf.createEntityManager();
         et = em.getTransaction();
@@ -84,7 +84,7 @@ public class DbConnection<T> implements IConnector<T>{
     }
 
     @Override
-    public void update(T entity) {
+    public void Update(T entity) {
 
         em = emf.createEntityManager();
         et = em.getTransaction();
@@ -104,7 +104,7 @@ public class DbConnection<T> implements IConnector<T>{
     }
 
     @Override
-    public void delete(T entity) {
+    public void Delete(T entity) {
 
         em = emf.createEntityManager();
         et = em.getTransaction();

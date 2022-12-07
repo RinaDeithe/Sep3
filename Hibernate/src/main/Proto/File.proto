@@ -1,22 +1,6 @@
 syntax ="proto3";
 package GRPC.proto;
 
-service Serivce {
-
-  rpc getShelf(ShelfSearchRequest) returns (ShelfProto);
-  rpc UpdateShelf(ShelfProto) returns (ShelfProto);
-  rpc getAllShelves(getAllRequest) returns (ShelvesListProto);
-
-  rpc CreateItemType(ItemTypeCreationRequest) returns (ItemTypeProto);
-  rpc ReadItemType(ItemTypeSearchRequest) returns (ItemTypeProto);
-
-  rpc CreateItem(ItemCreation) returns (ItemProto);
-  rpc ReadItem(ItemSearchRequest) returns (ItemProto);
-  rpc DeleteItem(ItemSearchRequest) returns (ItemProto);
-
-  rpc CreateUser(CreateUserRequest) returns (UserProto);
-}
-
 // SERVICES
 
 service ItemService {

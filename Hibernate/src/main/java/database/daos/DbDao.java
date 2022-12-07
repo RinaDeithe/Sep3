@@ -15,29 +15,29 @@ public class DbDao<T> implements IDbDao<T> {
 
     @Override
     public T Create(T entity) {
-        connection.create(entity);
+        connection.Create(entity);
         return entity;
     }
 
     @Override
     public T Read(T entity, int entityKey) {
-        return connection.read(entity, entityKey);
+        return connection.Read(entity, entityKey);
     }
 
     @Override
     public List<T> ReadAll(T entity) {
-        return connection.readAll(entity);
+        return connection.ReadAll(entity);
     }
 
     @Override
     public T Update(T entity) {
-        connection.update(entity);
+        connection.Update(entity);
         return entity;
     }
 
     @Override
     public T Delete(T entity) {
-        connection.delete(entity);
+        connection.Delete(entity);
         return entity;
     }
 }
