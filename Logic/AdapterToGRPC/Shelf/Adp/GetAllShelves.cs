@@ -12,7 +12,7 @@ public class GetAllShelves
     {
         _grpcServerSide = grpcServerSide;
     }
-*/
+
     public async Task<List<Shared.Model.Shelf>> GetRequest()
     {
         getAllRequest request = new getAllRequest();
@@ -21,4 +21,5 @@ public class GetAllShelves
 
         return shelves;
     }
+    */
 }

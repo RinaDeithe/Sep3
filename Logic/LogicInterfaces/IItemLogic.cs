@@ -6,7 +6,8 @@ namespace Logic.LogicInterfaces;
 
 public interface IItemLogic {
     Task<Item> CreateAsync(ItemCreationDto dto);
-    
+    Task DeleteItemAsync(ItemSearchDto dto);
+
 
 
 }

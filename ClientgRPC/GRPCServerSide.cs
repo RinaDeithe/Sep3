@@ -82,7 +82,8 @@ public class GRPCServerSide : IGRPCServerSide{
         ShelfProto shelfProto = await _shelf.UpdateShelfAsync(dao);
         return shelfProto;
     }
-
+    
+    /*
     public async Task<ShelvesListProto> GetAllShelfAsync(getAllRequest dto)
     {
         var _channel = GrpcChannel.ForAddress("http://localhost:9090");
@@ -90,6 +91,6 @@ public class GRPCServerSide : IGRPCServerSide{
         ShelvesListProto shelfProto = await _shelf.getAllShelvesAsync(dto);
         return shelfProto;
     }
-
+*/
 
 }

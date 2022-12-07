@@ -75,5 +75,22 @@ public class ItemManager : IItemLogic, IItemManager
             throw;
         }
     }
+
+    public async Task DeleteItemAsync(ItemSearchDto dto)
+    {
+        try
+        {
+            Item item = await _itemClient.Delete(dto);
+            if (item.Uid!=dto.id)
+            {
+                throw new Exception("Item Not Found");
+            }
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+    }
     
 }

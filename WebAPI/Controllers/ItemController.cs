@@ -32,4 +32,20 @@ public class ItemController : ControllerBase {
             return StatusCode(500, e.Message);
         }
     }
+
+    [HttpDelete("id:int")]
+    public async Task<ActionResult> DeleteAsync(ItemSearchDto dto)
+    {
+        
+       try
+        {
+            await _itemLogic.DeleteItemAsync(dto);
+            return Ok();
+        }
+        catch(Exception e)
+        {
+            Console.WriteLine(e);
+            return StatusCode(500, e.Message);
+        }
+    }
 }
