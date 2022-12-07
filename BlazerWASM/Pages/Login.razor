@@ -1,63 +1,24 @@
 ﻿@page "/"
 
-@using HttpClients.ClientInterfaces
-@using global::Shared.DTOs.User
-@using global::Shared.Model
-@inject IAuthService authService
-@inject NavigationManager navMgr
+<h1 class="text-center">Login Page</h1>
 
-@code {
-    private string userName;
-    private string password;
-    private string errorLabel;
-    private User context;
+<div class="text-center">
+    <form action="/action_page.php">
+        <label>UserId</label> <br/>
+        <input type="text" class="form-control col-6"@bind="UserId"/>
 
-    private async Task LoginAsync()
-    {
-        errorLabel = "";
-        try
-        {
-            UserLoginDto dto = new UserLoginDto(int.Parse(userName), password);
+        <label>Password</label> <br/>
+        <input type="text" class="form-control col-6"@bind="Password"/>
 
-            context =/*await*/ authService.LoginAsync(dto);
-            navMgr.NavigateTo("/");
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e);
-            errorLabel = $"Error: {e.Message}";
-        }
-    }
+        <button type="button">Login</button>
+    </form>
+</div>
+
+
+@code
+{
+
+    private int? UserId;
+    private int? Password;
+
 }
-
-<AuthorizeView>
-    <NotAuthorized>
-        <div class="card">
-            <h3>Please login</h3>
-            <div class="field">
-                <label>User name:</label>
-                <input type="text" @bind="userName"/>
-            </div>
-            <div class="field">
-                <label style="text-align: center">Password:</label>
-                <input type="password" @bind="password"/>
-            </div>
-            @if (!string.IsNullOrEmpty(errorLabel))
-            {
-                <div class="field">
-                    <label style="color: red">
-                        @errorLabel
-                    </label>
-                </div>
-            }
-            <div class="field">
-                <button class="loginbtn" @onclick="LoginAsync">Log in</button>
-            </div>
-        </div>
-    </NotAuthorized>
-    <Authorized>
-        <div class="card">
-            <h3>Hello, @context</h3>
-        </div>
-    </Authorized>
-</AuthorizeView>
