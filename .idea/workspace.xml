@@ -227,6 +227,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="DatabaseServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="DatabaseServer" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="me.via316455.databaseserver.DatabaseServerApplication" />
