@@ -5,7 +5,6 @@ import javax.persistence.*;
 @Entity
 public class Item {
 
-    @Column
     @OneToOne
     private ItemType type;
 
@@ -14,18 +13,22 @@ public class Item {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int UID;
 
-    @Column(name = "name")
     @OneToOne
     private User Owner;
 
-    @OneToOne
-    @Column(name = "shelf")
+    @ManyToOne
     private Shelf shelf;
 
 
-    public Item(ItemType type, int UID, User owner, Shelf shelf) {
+    public Item(int UID, ItemType type, User owner, Shelf shelf) {
         this.type = type;
         this.UID = UID;
+        Owner = owner;
+        this.shelf = shelf;
+    }
+
+    public Item(ItemType type, User owner, Shelf shelf) {
+        this.type = type;
         Owner = owner;
         this.shelf = shelf;
     }

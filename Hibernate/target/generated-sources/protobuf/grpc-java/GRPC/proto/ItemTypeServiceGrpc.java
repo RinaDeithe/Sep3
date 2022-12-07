@@ -29,27 +29,27 @@ public final class ItemTypeServiceGrpc {
   // Static method descriptors that strictly reflect the proto.
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
   public static final io.grpc.MethodDescriptor<GRPC.proto.File.ItemTypeCreationRequest,
-      GRPC.proto.File.ItemProto> METHOD_CREATE =
-      io.grpc.MethodDescriptor.<GRPC.proto.File.ItemTypeCreationRequest, GRPC.proto.File.ItemProto>newBuilder()
+      GRPC.proto.File.ItemTypeProto> METHOD_CREATE =
+      io.grpc.MethodDescriptor.<GRPC.proto.File.ItemTypeCreationRequest, GRPC.proto.File.ItemTypeProto>newBuilder()
           .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
           .setFullMethodName(generateFullMethodName(
               "GRPC.proto.ItemTypeService", "Create"))
           .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
               GRPC.proto.File.ItemTypeCreationRequest.getDefaultInstance()))
           .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-              GRPC.proto.File.ItemProto.getDefaultInstance()))
+              GRPC.proto.File.ItemTypeProto.getDefaultInstance()))
           .build();
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
   public static final io.grpc.MethodDescriptor<GRPC.proto.File.ItemTypeSearchRequest,
-      GRPC.proto.File.ItemProto> METHOD_READ =
-      io.grpc.MethodDescriptor.<GRPC.proto.File.ItemTypeSearchRequest, GRPC.proto.File.ItemProto>newBuilder()
+      GRPC.proto.File.ItemTypeProto> METHOD_READ =
+      io.grpc.MethodDescriptor.<GRPC.proto.File.ItemTypeSearchRequest, GRPC.proto.File.ItemTypeProto>newBuilder()
           .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
           .setFullMethodName(generateFullMethodName(
               "GRPC.proto.ItemTypeService", "Read"))
           .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
               GRPC.proto.File.ItemTypeSearchRequest.getDefaultInstance()))
           .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-              GRPC.proto.File.ItemProto.getDefaultInstance()))
+              GRPC.proto.File.ItemTypeProto.getDefaultInstance()))
           .build();
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
   public static final io.grpc.MethodDescriptor<GRPC.proto.File.emptyParams,
@@ -65,15 +65,15 @@ public final class ItemTypeServiceGrpc {
           .build();
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
   public static final io.grpc.MethodDescriptor<GRPC.proto.File.ItemTypeSearchRequest,
-      GRPC.proto.File.ItemProto> METHOD_DELETE =
-      io.grpc.MethodDescriptor.<GRPC.proto.File.ItemTypeSearchRequest, GRPC.proto.File.ItemProto>newBuilder()
+      GRPC.proto.File.ItemTypeProto> METHOD_DELETE =
+      io.grpc.MethodDescriptor.<GRPC.proto.File.ItemTypeSearchRequest, GRPC.proto.File.ItemTypeProto>newBuilder()
           .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
           .setFullMethodName(generateFullMethodName(
               "GRPC.proto.ItemTypeService", "Delete"))
           .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
               GRPC.proto.File.ItemTypeSearchRequest.getDefaultInstance()))
           .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-              GRPC.proto.File.ItemProto.getDefaultInstance()))
+              GRPC.proto.File.ItemTypeProto.getDefaultInstance()))
           .build();
 
   /**
@@ -106,14 +106,14 @@ public final class ItemTypeServiceGrpc {
     /**
      */
     public void create(GRPC.proto.File.ItemTypeCreationRequest request,
-        io.grpc.stub.StreamObserver<GRPC.proto.File.ItemProto> responseObserver) {
+        io.grpc.stub.StreamObserver<GRPC.proto.File.ItemTypeProto> responseObserver) {
       asyncUnimplementedUnaryCall(METHOD_CREATE, responseObserver);
     }
 
     /**
      */
     public void read(GRPC.proto.File.ItemTypeSearchRequest request,
-        io.grpc.stub.StreamObserver<GRPC.proto.File.ItemProto> responseObserver) {
+        io.grpc.stub.StreamObserver<GRPC.proto.File.ItemTypeProto> responseObserver) {
       asyncUnimplementedUnaryCall(METHOD_READ, responseObserver);
     }
 
@@ -127,7 +127,7 @@ public final class ItemTypeServiceGrpc {
     /**
      */
     public void delete(GRPC.proto.File.ItemTypeSearchRequest request,
-        io.grpc.stub.StreamObserver<GRPC.proto.File.ItemProto> responseObserver) {
+        io.grpc.stub.StreamObserver<GRPC.proto.File.ItemTypeProto> responseObserver) {
       asyncUnimplementedUnaryCall(METHOD_DELETE, responseObserver);
     }
 
@@ -138,14 +138,14 @@ public final class ItemTypeServiceGrpc {
             asyncUnaryCall(
               new MethodHandlers<
                 GRPC.proto.File.ItemTypeCreationRequest,
-                GRPC.proto.File.ItemProto>(
+                GRPC.proto.File.ItemTypeProto>(
                   this, METHODID_CREATE)))
           .addMethod(
             METHOD_READ,
             asyncUnaryCall(
               new MethodHandlers<
                 GRPC.proto.File.ItemTypeSearchRequest,
-                GRPC.proto.File.ItemProto>(
+                GRPC.proto.File.ItemTypeProto>(
                   this, METHODID_READ)))
           .addMethod(
             METHOD_READ_ALL,
@@ -159,7 +159,7 @@ public final class ItemTypeServiceGrpc {
             asyncUnaryCall(
               new MethodHandlers<
                 GRPC.proto.File.ItemTypeSearchRequest,
-                GRPC.proto.File.ItemProto>(
+                GRPC.proto.File.ItemTypeProto>(
                   this, METHODID_DELETE)))
           .build();
     }
@@ -186,7 +186,7 @@ public final class ItemTypeServiceGrpc {
     /**
      */
     public void create(GRPC.proto.File.ItemTypeCreationRequest request,
-        io.grpc.stub.StreamObserver<GRPC.proto.File.ItemProto> responseObserver) {
+        io.grpc.stub.StreamObserver<GRPC.proto.File.ItemTypeProto> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(METHOD_CREATE, getCallOptions()), request, responseObserver);
     }
@@ -194,7 +194,7 @@ public final class ItemTypeServiceGrpc {
     /**
      */
     public void read(GRPC.proto.File.ItemTypeSearchRequest request,
-        io.grpc.stub.StreamObserver<GRPC.proto.File.ItemProto> responseObserver) {
+        io.grpc.stub.StreamObserver<GRPC.proto.File.ItemTypeProto> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(METHOD_READ, getCallOptions()), request, responseObserver);
     }
@@ -210,7 +210,7 @@ public final class ItemTypeServiceGrpc {
     /**
      */
     public void delete(GRPC.proto.File.ItemTypeSearchRequest request,
-        io.grpc.stub.StreamObserver<GRPC.proto.File.ItemProto> responseObserver) {
+        io.grpc.stub.StreamObserver<GRPC.proto.File.ItemTypeProto> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(METHOD_DELETE, getCallOptions()), request, responseObserver);
     }
@@ -236,14 +236,14 @@ public final class ItemTypeServiceGrpc {
 
     /**
      */
-    public GRPC.proto.File.ItemProto create(GRPC.proto.File.ItemTypeCreationRequest request) {
+    public GRPC.proto.File.ItemTypeProto create(GRPC.proto.File.ItemTypeCreationRequest request) {
       return blockingUnaryCall(
           getChannel(), METHOD_CREATE, getCallOptions(), request);
     }
 
     /**
      */
-    public GRPC.proto.File.ItemProto read(GRPC.proto.File.ItemTypeSearchRequest request) {
+    public GRPC.proto.File.ItemTypeProto read(GRPC.proto.File.ItemTypeSearchRequest request) {
       return blockingUnaryCall(
           getChannel(), METHOD_READ, getCallOptions(), request);
     }
@@ -257,7 +257,7 @@ public final class ItemTypeServiceGrpc {
 
     /**
      */
-    public GRPC.proto.File.ItemProto delete(GRPC.proto.File.ItemTypeSearchRequest request) {
+    public GRPC.proto.File.ItemTypeProto delete(GRPC.proto.File.ItemTypeSearchRequest request) {
       return blockingUnaryCall(
           getChannel(), METHOD_DELETE, getCallOptions(), request);
     }
@@ -283,7 +283,7 @@ public final class ItemTypeServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<GRPC.proto.File.ItemProto> create(
+    public com.google.common.util.concurrent.ListenableFuture<GRPC.proto.File.ItemTypeProto> create(
         GRPC.proto.File.ItemTypeCreationRequest request) {
       return futureUnaryCall(
           getChannel().newCall(METHOD_CREATE, getCallOptions()), request);
@@ -291,7 +291,7 @@ public final class ItemTypeServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<GRPC.proto.File.ItemProto> read(
+    public com.google.common.util.concurrent.ListenableFuture<GRPC.proto.File.ItemTypeProto> read(
         GRPC.proto.File.ItemTypeSearchRequest request) {
       return futureUnaryCall(
           getChannel().newCall(METHOD_READ, getCallOptions()), request);
@@ -307,7 +307,7 @@ public final class ItemTypeServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<GRPC.proto.File.ItemProto> delete(
+    public com.google.common.util.concurrent.ListenableFuture<GRPC.proto.File.ItemTypeProto> delete(
         GRPC.proto.File.ItemTypeSearchRequest request) {
       return futureUnaryCall(
           getChannel().newCall(METHOD_DELETE, getCallOptions()), request);
@@ -338,11 +338,11 @@ public final class ItemTypeServiceGrpc {
       switch (methodId) {
         case METHODID_CREATE:
           serviceImpl.create((GRPC.proto.File.ItemTypeCreationRequest) request,
-              (io.grpc.stub.StreamObserver<GRPC.proto.File.ItemProto>) responseObserver);
+              (io.grpc.stub.StreamObserver<GRPC.proto.File.ItemTypeProto>) responseObserver);
           break;
         case METHODID_READ:
           serviceImpl.read((GRPC.proto.File.ItemTypeSearchRequest) request,
-              (io.grpc.stub.StreamObserver<GRPC.proto.File.ItemProto>) responseObserver);
+              (io.grpc.stub.StreamObserver<GRPC.proto.File.ItemTypeProto>) responseObserver);
           break;
         case METHODID_READ_ALL:
           serviceImpl.readAll((GRPC.proto.File.emptyParams) request,
@@ -350,7 +350,7 @@ public final class ItemTypeServiceGrpc {
           break;
         case METHODID_DELETE:
           serviceImpl.delete((GRPC.proto.File.ItemTypeSearchRequest) request,
-              (io.grpc.stub.StreamObserver<GRPC.proto.File.ItemProto>) responseObserver);
+              (io.grpc.stub.StreamObserver<GRPC.proto.File.ItemTypeProto>) responseObserver);
           break;
         default:
           throw new AssertionError();

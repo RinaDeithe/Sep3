@@ -27,10 +27,10 @@ service ItemService {
 }
 
 service ItemTypeService {
-  rpc Create(ItemTypeCreationRequest) returns (ItemProto);
-  rpc Read(ItemTypeSearchRequest) returns (ItemProto);
+  rpc Create(ItemTypeCreationRequest) returns (ItemTypeProto);
+  rpc Read(ItemTypeSearchRequest) returns (ItemTypeProto);
   rpc ReadAll(emptyParams) returns (ItemTypeListProto);
-  rpc Delete(ItemTypeSearchRequest) returns (ItemProto);
+  rpc Delete(ItemTypeSearchRequest) returns (ItemTypeProto);
 }
 
 service ShelfService {
@@ -55,7 +55,7 @@ message ShelfProto {
   double ShelfDimX = 3;
   double ShelfDimY = 4;
   double ShelfDimZ = 5;
-  repeated ItemProto ItemsOnShelf = 6;
+  ItemListProto ItemsOnShelf = 6;
 }
 
 message ShelfCreationRequest {

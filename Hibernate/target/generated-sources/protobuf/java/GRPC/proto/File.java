@@ -54,28 +54,17 @@ public final class File {
     double getShelfDimZ();
 
     /**
-     * <code>repeated .GRPC.proto.ItemProto ItemsOnShelf = 6;</code>
+     * <code>.GRPC.proto.ItemListProto ItemsOnShelf = 6;</code>
      */
-    java.util.List<GRPC.proto.File.ItemProto> 
-        getItemsOnShelfList();
+    boolean hasItemsOnShelf();
     /**
-     * <code>repeated .GRPC.proto.ItemProto ItemsOnShelf = 6;</code>
+     * <code>.GRPC.proto.ItemListProto ItemsOnShelf = 6;</code>
      */
-    GRPC.proto.File.ItemProto getItemsOnShelf(int index);
+    GRPC.proto.File.ItemListProto getItemsOnShelf();
     /**
-     * <code>repeated .GRPC.proto.ItemProto ItemsOnShelf = 6;</code>
+     * <code>.GRPC.proto.ItemListProto ItemsOnShelf = 6;</code>
      */
-    int getItemsOnShelfCount();
-    /**
-     * <code>repeated .GRPC.proto.ItemProto ItemsOnShelf = 6;</code>
-     */
-    java.util.List<? extends GRPC.proto.File.ItemProtoOrBuilder> 
-        getItemsOnShelfOrBuilderList();
-    /**
-     * <code>repeated .GRPC.proto.ItemProto ItemsOnShelf = 6;</code>
-     */
-    GRPC.proto.File.ItemProtoOrBuilder getItemsOnShelfOrBuilder(
-        int index);
+    GRPC.proto.File.ItemListProtoOrBuilder getItemsOnShelfOrBuilder();
   }
   /**
    * Protobuf type {@code GRPC.proto.ShelfProto}
@@ -94,7 +83,6 @@ public final class File {
       shelfDimX_ = 0D;
       shelfDimY_ = 0D;
       shelfDimZ_ = 0D;
-      itemsOnShelf_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -150,12 +138,16 @@ public final class File {
               break;
             }
             case 50: {
-              if (!((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
-                itemsOnShelf_ = new java.util.ArrayList<GRPC.proto.File.ItemProto>();
-                mutable_bitField0_ |= 0x00000020;
+              GRPC.proto.File.ItemListProto.Builder subBuilder = null;
+              if (itemsOnShelf_ != null) {
+                subBuilder = itemsOnShelf_.toBuilder();
               }
-              itemsOnShelf_.add(
-                  input.readMessage(GRPC.proto.File.ItemProto.parser(), extensionRegistry));
+              itemsOnShelf_ = input.readMessage(GRPC.proto.File.ItemListProto.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(itemsOnShelf_);
+                itemsOnShelf_ = subBuilder.buildPartial();
+              }
+
               break;
             }
           }
@@ -166,9 +158,6 @@ public final class File {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
-          itemsOnShelf_ = java.util.Collections.unmodifiableList(itemsOnShelf_);
-        }
         makeExtensionsImmutable();
       }
     }
@@ -184,7 +173,6 @@ public final class File {
               GRPC.proto.File.ShelfProto.class, GRPC.proto.File.ShelfProto.Builder.class);
     }
 
-    private int bitField0_;
     public static final int ROWNO_FIELD_NUMBER = 1;
     private volatile java.lang.Object rowNo_;
     /**
@@ -281,38 +269,24 @@ public final class File {
     }
 
     public static final int ITEMSONSHELF_FIELD_NUMBER = 6;
-    private java.util.List<GRPC.proto.File.ItemProto> itemsOnShelf_;
+    private GRPC.proto.File.ItemListProto itemsOnShelf_;
     /**
-     * <code>repeated .GRPC.proto.ItemProto ItemsOnShelf = 6;</code>
+     * <code>.GRPC.proto.ItemListProto ItemsOnShelf = 6;</code>
      */
-    public java.util.List<GRPC.proto.File.ItemProto> getItemsOnShelfList() {
-      return itemsOnShelf_;
+    public boolean hasItemsOnShelf() {
+      return itemsOnShelf_ != null;
     }
     /**
-     * <code>repeated .GRPC.proto.ItemProto ItemsOnShelf = 6;</code>
+     * <code>.GRPC.proto.ItemListProto ItemsOnShelf = 6;</code>
      */
-    public java.util.List<? extends GRPC.proto.File.ItemProtoOrBuilder> 
-        getItemsOnShelfOrBuilderList() {
-      return itemsOnShelf_;
+    public GRPC.proto.File.ItemListProto getItemsOnShelf() {
+      return itemsOnShelf_ == null ? GRPC.proto.File.ItemListProto.getDefaultInstance() : itemsOnShelf_;
     }
     /**
-     * <code>repeated .GRPC.proto.ItemProto ItemsOnShelf = 6;</code>
+     * <code>.GRPC.proto.ItemListProto ItemsOnShelf = 6;</code>
      */
-    public int getItemsOnShelfCount() {
-      return itemsOnShelf_.size();
-    }
-    /**
-     * <code>repeated .GRPC.proto.ItemProto ItemsOnShelf = 6;</code>
-     */
-    public GRPC.proto.File.ItemProto getItemsOnShelf(int index) {
-      return itemsOnShelf_.get(index);
-    }
-    /**
-     * <code>repeated .GRPC.proto.ItemProto ItemsOnShelf = 6;</code>
-     */
-    public GRPC.proto.File.ItemProtoOrBuilder getItemsOnShelfOrBuilder(
-        int index) {
-      return itemsOnShelf_.get(index);
+    public GRPC.proto.File.ItemListProtoOrBuilder getItemsOnShelfOrBuilder() {
+      return getItemsOnShelf();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -342,8 +316,8 @@ public final class File {
       if (shelfDimZ_ != 0D) {
         output.writeDouble(5, shelfDimZ_);
       }
-      for (int i = 0; i < itemsOnShelf_.size(); i++) {
-        output.writeMessage(6, itemsOnShelf_.get(i));
+      if (itemsOnShelf_ != null) {
+        output.writeMessage(6, getItemsOnShelf());
       }
     }
 
@@ -370,9 +344,9 @@ public final class File {
         size += com.google.protobuf.CodedOutputStream
           .computeDoubleSize(5, shelfDimZ_);
       }
-      for (int i = 0; i < itemsOnShelf_.size(); i++) {
+      if (itemsOnShelf_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(6, itemsOnShelf_.get(i));
+          .computeMessageSize(6, getItemsOnShelf());
       }
       memoizedSize = size;
       return size;
@@ -406,8 +380,11 @@ public final class File {
           java.lang.Double.doubleToLongBits(getShelfDimZ())
           == java.lang.Double.doubleToLongBits(
               other.getShelfDimZ()));
-      result = result && getItemsOnShelfList()
-          .equals(other.getItemsOnShelfList());
+      result = result && (hasItemsOnShelf() == other.hasItemsOnShelf());
+      if (hasItemsOnShelf()) {
+        result = result && getItemsOnShelf()
+            .equals(other.getItemsOnShelf());
+      }
       return result;
     }
 
@@ -431,9 +408,9 @@ public final class File {
       hash = (37 * hash) + SHELFDIMZ_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           java.lang.Double.doubleToLongBits(getShelfDimZ()));
-      if (getItemsOnShelfCount() > 0) {
+      if (hasItemsOnShelf()) {
         hash = (37 * hash) + ITEMSONSHELF_FIELD_NUMBER;
-        hash = (53 * hash) + getItemsOnShelfList().hashCode();
+        hash = (53 * hash) + getItemsOnShelf().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -560,7 +537,6 @@ public final class File {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
-          getItemsOnShelfFieldBuilder();
         }
       }
       public Builder clear() {
@@ -576,10 +552,10 @@ public final class File {
         shelfDimZ_ = 0D;
 
         if (itemsOnShelfBuilder_ == null) {
-          itemsOnShelf_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000020);
+          itemsOnShelf_ = null;
         } else {
-          itemsOnShelfBuilder_.clear();
+          itemsOnShelf_ = null;
+          itemsOnShelfBuilder_ = null;
         }
         return this;
       }
@@ -603,23 +579,16 @@ public final class File {
 
       public GRPC.proto.File.ShelfProto buildPartial() {
         GRPC.proto.File.ShelfProto result = new GRPC.proto.File.ShelfProto(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
         result.rowNo_ = rowNo_;
         result.shelfNo_ = shelfNo_;
         result.shelfDimX_ = shelfDimX_;
         result.shelfDimY_ = shelfDimY_;
         result.shelfDimZ_ = shelfDimZ_;
         if (itemsOnShelfBuilder_ == null) {
-          if (((bitField0_ & 0x00000020) == 0x00000020)) {
-            itemsOnShelf_ = java.util.Collections.unmodifiableList(itemsOnShelf_);
-            bitField0_ = (bitField0_ & ~0x00000020);
-          }
           result.itemsOnShelf_ = itemsOnShelf_;
         } else {
           result.itemsOnShelf_ = itemsOnShelfBuilder_.build();
         }
-        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -678,31 +647,8 @@ public final class File {
         if (other.getShelfDimZ() != 0D) {
           setShelfDimZ(other.getShelfDimZ());
         }
-        if (itemsOnShelfBuilder_ == null) {
-          if (!other.itemsOnShelf_.isEmpty()) {
-            if (itemsOnShelf_.isEmpty()) {
-              itemsOnShelf_ = other.itemsOnShelf_;
-              bitField0_ = (bitField0_ & ~0x00000020);
-            } else {
-              ensureItemsOnShelfIsMutable();
-              itemsOnShelf_.addAll(other.itemsOnShelf_);
-            }
-            onChanged();
-          }
-        } else {
-          if (!other.itemsOnShelf_.isEmpty()) {
-            if (itemsOnShelfBuilder_.isEmpty()) {
-              itemsOnShelfBuilder_.dispose();
-              itemsOnShelfBuilder_ = null;
-              itemsOnShelf_ = other.itemsOnShelf_;
-              bitField0_ = (bitField0_ & ~0x00000020);
-              itemsOnShelfBuilder_ = 
-                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                   getItemsOnShelfFieldBuilder() : null;
-            } else {
-              itemsOnShelfBuilder_.addAllMessages(other.itemsOnShelf_);
-            }
-          }
+        if (other.hasItemsOnShelf()) {
+          mergeItemsOnShelf(other.getItemsOnShelf());
         }
         onChanged();
         return this;
@@ -729,7 +675,6 @@ public final class File {
         }
         return this;
       }
-      private int bitField0_;
 
       private java.lang.Object rowNo_ = "";
       /**
@@ -947,239 +892,116 @@ public final class File {
         return this;
       }
 
-      private java.util.List<GRPC.proto.File.ItemProto> itemsOnShelf_ =
-        java.util.Collections.emptyList();
-      private void ensureItemsOnShelfIsMutable() {
-        if (!((bitField0_ & 0x00000020) == 0x00000020)) {
-          itemsOnShelf_ = new java.util.ArrayList<GRPC.proto.File.ItemProto>(itemsOnShelf_);
-          bitField0_ |= 0x00000020;
-         }
+      private GRPC.proto.File.ItemListProto itemsOnShelf_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          GRPC.proto.File.ItemListProto, GRPC.proto.File.ItemListProto.Builder, GRPC.proto.File.ItemListProtoOrBuilder> itemsOnShelfBuilder_;
+      /**
+       * <code>.GRPC.proto.ItemListProto ItemsOnShelf = 6;</code>
+       */
+      public boolean hasItemsOnShelf() {
+        return itemsOnShelfBuilder_ != null || itemsOnShelf_ != null;
       }
+      /**
+       * <code>.GRPC.proto.ItemListProto ItemsOnShelf = 6;</code>
+       */
+      public GRPC.proto.File.ItemListProto getItemsOnShelf() {
+        if (itemsOnShelfBuilder_ == null) {
+          return itemsOnShelf_ == null ? GRPC.proto.File.ItemListProto.getDefaultInstance() : itemsOnShelf_;
+        } else {
+          return itemsOnShelfBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.GRPC.proto.ItemListProto ItemsOnShelf = 6;</code>
+       */
+      public Builder setItemsOnShelf(GRPC.proto.File.ItemListProto value) {
+        if (itemsOnShelfBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          itemsOnShelf_ = value;
+          onChanged();
+        } else {
+          itemsOnShelfBuilder_.setMessage(value);
+        }
 
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-          GRPC.proto.File.ItemProto, GRPC.proto.File.ItemProto.Builder, GRPC.proto.File.ItemProtoOrBuilder> itemsOnShelfBuilder_;
-
-      /**
-       * <code>repeated .GRPC.proto.ItemProto ItemsOnShelf = 6;</code>
-       */
-      public java.util.List<GRPC.proto.File.ItemProto> getItemsOnShelfList() {
-        if (itemsOnShelfBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(itemsOnShelf_);
-        } else {
-          return itemsOnShelfBuilder_.getMessageList();
-        }
+        return this;
       }
       /**
-       * <code>repeated .GRPC.proto.ItemProto ItemsOnShelf = 6;</code>
-       */
-      public int getItemsOnShelfCount() {
-        if (itemsOnShelfBuilder_ == null) {
-          return itemsOnShelf_.size();
-        } else {
-          return itemsOnShelfBuilder_.getCount();
-        }
-      }
-      /**
-       * <code>repeated .GRPC.proto.ItemProto ItemsOnShelf = 6;</code>
-       */
-      public GRPC.proto.File.ItemProto getItemsOnShelf(int index) {
-        if (itemsOnShelfBuilder_ == null) {
-          return itemsOnShelf_.get(index);
-        } else {
-          return itemsOnShelfBuilder_.getMessage(index);
-        }
-      }
-      /**
-       * <code>repeated .GRPC.proto.ItemProto ItemsOnShelf = 6;</code>
+       * <code>.GRPC.proto.ItemListProto ItemsOnShelf = 6;</code>
        */
       public Builder setItemsOnShelf(
-          int index, GRPC.proto.File.ItemProto value) {
+          GRPC.proto.File.ItemListProto.Builder builderForValue) {
         if (itemsOnShelfBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
+          itemsOnShelf_ = builderForValue.build();
+          onChanged();
+        } else {
+          itemsOnShelfBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.GRPC.proto.ItemListProto ItemsOnShelf = 6;</code>
+       */
+      public Builder mergeItemsOnShelf(GRPC.proto.File.ItemListProto value) {
+        if (itemsOnShelfBuilder_ == null) {
+          if (itemsOnShelf_ != null) {
+            itemsOnShelf_ =
+              GRPC.proto.File.ItemListProto.newBuilder(itemsOnShelf_).mergeFrom(value).buildPartial();
+          } else {
+            itemsOnShelf_ = value;
           }
-          ensureItemsOnShelfIsMutable();
-          itemsOnShelf_.set(index, value);
           onChanged();
         } else {
-          itemsOnShelfBuilder_.setMessage(index, value);
+          itemsOnShelfBuilder_.mergeFrom(value);
         }
+
         return this;
       }
       /**
-       * <code>repeated .GRPC.proto.ItemProto ItemsOnShelf = 6;</code>
-       */
-      public Builder setItemsOnShelf(
-          int index, GRPC.proto.File.ItemProto.Builder builderForValue) {
-        if (itemsOnShelfBuilder_ == null) {
-          ensureItemsOnShelfIsMutable();
-          itemsOnShelf_.set(index, builderForValue.build());
-          onChanged();
-        } else {
-          itemsOnShelfBuilder_.setMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .GRPC.proto.ItemProto ItemsOnShelf = 6;</code>
-       */
-      public Builder addItemsOnShelf(GRPC.proto.File.ItemProto value) {
-        if (itemsOnShelfBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureItemsOnShelfIsMutable();
-          itemsOnShelf_.add(value);
-          onChanged();
-        } else {
-          itemsOnShelfBuilder_.addMessage(value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .GRPC.proto.ItemProto ItemsOnShelf = 6;</code>
-       */
-      public Builder addItemsOnShelf(
-          int index, GRPC.proto.File.ItemProto value) {
-        if (itemsOnShelfBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureItemsOnShelfIsMutable();
-          itemsOnShelf_.add(index, value);
-          onChanged();
-        } else {
-          itemsOnShelfBuilder_.addMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .GRPC.proto.ItemProto ItemsOnShelf = 6;</code>
-       */
-      public Builder addItemsOnShelf(
-          GRPC.proto.File.ItemProto.Builder builderForValue) {
-        if (itemsOnShelfBuilder_ == null) {
-          ensureItemsOnShelfIsMutable();
-          itemsOnShelf_.add(builderForValue.build());
-          onChanged();
-        } else {
-          itemsOnShelfBuilder_.addMessage(builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .GRPC.proto.ItemProto ItemsOnShelf = 6;</code>
-       */
-      public Builder addItemsOnShelf(
-          int index, GRPC.proto.File.ItemProto.Builder builderForValue) {
-        if (itemsOnShelfBuilder_ == null) {
-          ensureItemsOnShelfIsMutable();
-          itemsOnShelf_.add(index, builderForValue.build());
-          onChanged();
-        } else {
-          itemsOnShelfBuilder_.addMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .GRPC.proto.ItemProto ItemsOnShelf = 6;</code>
-       */
-      public Builder addAllItemsOnShelf(
-          java.lang.Iterable<? extends GRPC.proto.File.ItemProto> values) {
-        if (itemsOnShelfBuilder_ == null) {
-          ensureItemsOnShelfIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, itemsOnShelf_);
-          onChanged();
-        } else {
-          itemsOnShelfBuilder_.addAllMessages(values);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .GRPC.proto.ItemProto ItemsOnShelf = 6;</code>
+       * <code>.GRPC.proto.ItemListProto ItemsOnShelf = 6;</code>
        */
       public Builder clearItemsOnShelf() {
         if (itemsOnShelfBuilder_ == null) {
-          itemsOnShelf_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000020);
+          itemsOnShelf_ = null;
           onChanged();
         } else {
-          itemsOnShelfBuilder_.clear();
+          itemsOnShelf_ = null;
+          itemsOnShelfBuilder_ = null;
         }
+
         return this;
       }
       /**
-       * <code>repeated .GRPC.proto.ItemProto ItemsOnShelf = 6;</code>
+       * <code>.GRPC.proto.ItemListProto ItemsOnShelf = 6;</code>
        */
-      public Builder removeItemsOnShelf(int index) {
-        if (itemsOnShelfBuilder_ == null) {
-          ensureItemsOnShelfIsMutable();
-          itemsOnShelf_.remove(index);
-          onChanged();
-        } else {
-          itemsOnShelfBuilder_.remove(index);
-        }
-        return this;
+      public GRPC.proto.File.ItemListProto.Builder getItemsOnShelfBuilder() {
+        
+        onChanged();
+        return getItemsOnShelfFieldBuilder().getBuilder();
       }
       /**
-       * <code>repeated .GRPC.proto.ItemProto ItemsOnShelf = 6;</code>
+       * <code>.GRPC.proto.ItemListProto ItemsOnShelf = 6;</code>
        */
-      public GRPC.proto.File.ItemProto.Builder getItemsOnShelfBuilder(
-          int index) {
-        return getItemsOnShelfFieldBuilder().getBuilder(index);
-      }
-      /**
-       * <code>repeated .GRPC.proto.ItemProto ItemsOnShelf = 6;</code>
-       */
-      public GRPC.proto.File.ItemProtoOrBuilder getItemsOnShelfOrBuilder(
-          int index) {
-        if (itemsOnShelfBuilder_ == null) {
-          return itemsOnShelf_.get(index);  } else {
-          return itemsOnShelfBuilder_.getMessageOrBuilder(index);
-        }
-      }
-      /**
-       * <code>repeated .GRPC.proto.ItemProto ItemsOnShelf = 6;</code>
-       */
-      public java.util.List<? extends GRPC.proto.File.ItemProtoOrBuilder> 
-           getItemsOnShelfOrBuilderList() {
+      public GRPC.proto.File.ItemListProtoOrBuilder getItemsOnShelfOrBuilder() {
         if (itemsOnShelfBuilder_ != null) {
-          return itemsOnShelfBuilder_.getMessageOrBuilderList();
+          return itemsOnShelfBuilder_.getMessageOrBuilder();
         } else {
-          return java.util.Collections.unmodifiableList(itemsOnShelf_);
+          return itemsOnShelf_ == null ?
+              GRPC.proto.File.ItemListProto.getDefaultInstance() : itemsOnShelf_;
         }
       }
       /**
-       * <code>repeated .GRPC.proto.ItemProto ItemsOnShelf = 6;</code>
+       * <code>.GRPC.proto.ItemListProto ItemsOnShelf = 6;</code>
        */
-      public GRPC.proto.File.ItemProto.Builder addItemsOnShelfBuilder() {
-        return getItemsOnShelfFieldBuilder().addBuilder(
-            GRPC.proto.File.ItemProto.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .GRPC.proto.ItemProto ItemsOnShelf = 6;</code>
-       */
-      public GRPC.proto.File.ItemProto.Builder addItemsOnShelfBuilder(
-          int index) {
-        return getItemsOnShelfFieldBuilder().addBuilder(
-            index, GRPC.proto.File.ItemProto.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .GRPC.proto.ItemProto ItemsOnShelf = 6;</code>
-       */
-      public java.util.List<GRPC.proto.File.ItemProto.Builder> 
-           getItemsOnShelfBuilderList() {
-        return getItemsOnShelfFieldBuilder().getBuilderList();
-      }
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-          GRPC.proto.File.ItemProto, GRPC.proto.File.ItemProto.Builder, GRPC.proto.File.ItemProtoOrBuilder> 
+      private com.google.protobuf.SingleFieldBuilderV3<
+          GRPC.proto.File.ItemListProto, GRPC.proto.File.ItemListProto.Builder, GRPC.proto.File.ItemListProtoOrBuilder> 
           getItemsOnShelfFieldBuilder() {
         if (itemsOnShelfBuilder_ == null) {
-          itemsOnShelfBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              GRPC.proto.File.ItemProto, GRPC.proto.File.ItemProto.Builder, GRPC.proto.File.ItemProtoOrBuilder>(
-                  itemsOnShelf_,
-                  ((bitField0_ & 0x00000020) == 0x00000020),
+          itemsOnShelfBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              GRPC.proto.File.ItemListProto, GRPC.proto.File.ItemListProto.Builder, GRPC.proto.File.ItemListProtoOrBuilder>(
+                  getItemsOnShelf(),
                   getParentForChildren(),
                   isClean());
           itemsOnShelf_ = null;
@@ -11834,80 +11656,80 @@ public final class File {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\nFile.proto\022\nGRPC.proto\"\222\001\n\nShelfProto\022" +
+      "\n\nFile.proto\022\nGRPC.proto\"\226\001\n\nShelfProto\022" +
       "\r\n\005RowNo\030\001 \001(\t\022\017\n\007ShelfNo\030\002 \001(\t\022\021\n\tShelf" +
       "DimX\030\003 \001(\001\022\021\n\tShelfDimY\030\004 \001(\001\022\021\n\tShelfDi" +
-      "mZ\030\005 \001(\001\022+\n\014ItemsOnShelf\030\006 \003(\0132\025.GRPC.pr" +
-      "oto.ItemProto\"o\n\024ShelfCreationRequest\022\r\n" +
-      "\005RowNo\030\001 \001(\t\022\017\n\007ShelfNo\030\002 \001(\t\022\021\n\tShelfDi" +
-      "mX\030\003 \001(\001\022\021\n\tShelfDimY\030\004 \001(\001\022\021\n\tShelfDimZ" +
-      "\030\005 \001(\001\" \n\022ShelfSearchRequest\022\n\n\002id\030\001 \001(\005" +
-      "\"9\n\020ShelvesListProto\022%\n\005proto\030\001 \003(\0132\026.GR" +
-      "PC.proto.ShelfProto\"[\n\027ItemTypeCreationR",
-      "equest\022\n\n\002id\030\001 \001(\005\022\020\n\010ItemDimX\030\002 \001(\001\022\020\n\010" +
-      "ItemDimY\030\003 \001(\001\022\020\n\010ItemDimZ\030\004 \001(\001\"#\n\025Item" +
-      "TypeSearchRequest\022\n\n\002id\030\001 \001(\005\"E\n\rItemTyp" +
-      "eProto\022\n\n\002id\030\001 \001(\005\022\014\n\004DimX\030\002 \001(\001\022\014\n\004DimY" +
-      "\030\003 \001(\001\022\014\n\004DimZ\030\004 \001(\001\"<\n\021ItemTypeListProt" +
-      "o\022\'\n\004list\030\001 \003(\0132\031.GRPC.proto.ItemTypePro" +
-      "to\"D\n\014ItemCreation\022\022\n\nItemTypeID\030\001 \001(\005\022\017" +
-      "\n\007ShelfID\030\002 \001(\005\022\017\n\007OwnerID\030\003 \001(\005\"\037\n\021Item" +
-      "SearchRequest\022\n\n\002id\030\001 \001(\005\"\223\001\n\tItemProto\022" +
-      "\'\n\004type\030\001 \001(\0132\031.GRPC.proto.ItemTypeProto",
-      "\022\020\n\010UniqueID\030\002 \001(\005\022$\n\005owner\030\003 \001(\0132\025.GRPC" +
-      ".proto.UserProto\022%\n\005shelf\030\004 \001(\0132\026.GRPC.p" +
-      "roto.ShelfProto\"4\n\rItemListProto\022#\n\004list" +
-      "\030\001 \003(\0132\025.GRPC.proto.ItemProto\"2\n\021CreateU" +
-      "serRequest\022\017\n\007id_user\030\001 \001(\005\022\014\n\004role\030\002 \001(" +
-      "\t\"%\n\tUserProto\022\n\n\002Id\030\001 \001(\005\022\014\n\004role\030\002 \001(\t" +
-      "\"-\n\021UserSearchRequest\022\n\n\002Id\030\001 \001(\005\022\014\n\004rol" +
-      "e\030\002 \001(\t\"4\n\rUserListProto\022#\n\004list\030\001 \003(\0132\025" +
-      ".GRPC.proto.UserProto\"\017\n\rgetAllRequest\"\r" +
-      "\n\013emptyParams2\377\004\n\007Serivce\022B\n\010getShelf\022\036.",
-      "GRPC.proto.ShelfSearchRequest\032\026.GRPC.pro" +
-      "to.ShelfProto\022=\n\013UpdateShelf\022\026.GRPC.prot" +
-      "o.ShelfProto\032\026.GRPC.proto.ShelfProto\022H\n\r" +
-      "getAllShelves\022\031.GRPC.proto.getAllRequest" +
-      "\032\034.GRPC.proto.ShelvesListProto\022P\n\016Create" +
-      "ItemType\022#.GRPC.proto.ItemTypeCreationRe" +
-      "quest\032\031.GRPC.proto.ItemTypeProto\022L\n\014Read" +
-      "ItemType\022!.GRPC.proto.ItemTypeSearchRequ" +
-      "est\032\031.GRPC.proto.ItemTypeProto\022=\n\nCreate" +
-      "Item\022\030.GRPC.proto.ItemCreation\032\025.GRPC.pr",
-      "oto.ItemProto\022@\n\010ReadItem\022\035.GRPC.proto.I" +
-      "temSearchRequest\032\025.GRPC.proto.ItemProto\022" +
-      "B\n\nDeleteItem\022\035.GRPC.proto.ItemSearchReq" +
-      "uest\032\025.GRPC.proto.ItemProto\022B\n\nCreateUse" +
-      "r\022\035.GRPC.proto.CreateUserRequest\032\025.GRPC." +
-      "proto.UserProto2\205\002\n\013ItemService\0229\n\006Creat" +
-      "e\022\030.GRPC.proto.ItemCreation\032\025.GRPC.proto" +
-      ".ItemProto\022<\n\004Read\022\035.GRPC.proto.ItemSear" +
-      "chRequest\032\025.GRPC.proto.ItemProto\022=\n\007Read" +
-      "All\022\027.GRPC.proto.emptyParams\032\031.GRPC.prot",
-      "o.ItemListProto\022>\n\006Delete\022\035.GRPC.proto.I" +
-      "temSearchRequest\032\025.GRPC.proto.ItemProto2" +
-      "\240\002\n\017ItemTypeService\022D\n\006Create\022#.GRPC.pro" +
-      "to.ItemTypeCreationRequest\032\025.GRPC.proto." +
-      "ItemProto\022@\n\004Read\022!.GRPC.proto.ItemTypeS" +
-      "earchRequest\032\025.GRPC.proto.ItemProto\022A\n\007R" +
-      "eadAll\022\027.GRPC.proto.emptyParams\032\035.GRPC.p" +
-      "roto.ItemTypeListProto\022B\n\006Delete\022!.GRPC." +
-      "proto.ItemTypeSearchRequest\032\025.GRPC.proto" +
-      ".ItemProto2\226\002\n\014ShelfService\022B\n\006Create\022 .",
-      "GRPC.proto.ShelfCreationRequest\032\026.GRPC.p" +
-      "roto.ShelfProto\022>\n\004Read\022\036.GRPC.proto.She" +
-      "lfSearchRequest\032\026.GRPC.proto.ShelfProto\022" +
-      "@\n\007ReadAll\022\027.GRPC.proto.emptyParams\032\034.GR" +
-      "PC.proto.ShelvesListProto\022@\n\006Delete\022\036.GR" +
-      "PC.proto.ShelfSearchRequest\032\026.GRPC.proto" +
-      ".ShelfProto2\212\002\n\013UserService\022>\n\006Create\022\035." +
-      "GRPC.proto.CreateUserRequest\032\025.GRPC.prot" +
-      "o.UserProto\022<\n\004Read\022\035.GRPC.proto.UserSea" +
-      "rchRequest\032\025.GRPC.proto.UserProto\022=\n\007Rea",
-      "dAll\022\027.GRPC.proto.emptyParams\032\031.GRPC.pro" +
-      "to.UserListProto\022>\n\006Delete\022\035.GRPC.proto." +
-      "UserSearchRequest\032\025.GRPC.proto.UserProto" +
-      "b\006proto3"
+      "mZ\030\005 \001(\001\022/\n\014ItemsOnShelf\030\006 \001(\0132\031.GRPC.pr" +
+      "oto.ItemListProto\"o\n\024ShelfCreationReques" +
+      "t\022\r\n\005RowNo\030\001 \001(\t\022\017\n\007ShelfNo\030\002 \001(\t\022\021\n\tShe" +
+      "lfDimX\030\003 \001(\001\022\021\n\tShelfDimY\030\004 \001(\001\022\021\n\tShelf" +
+      "DimZ\030\005 \001(\001\" \n\022ShelfSearchRequest\022\n\n\002id\030\001" +
+      " \001(\005\"9\n\020ShelvesListProto\022%\n\005proto\030\001 \003(\0132" +
+      "\026.GRPC.proto.ShelfProto\"[\n\027ItemTypeCreat",
+      "ionRequest\022\n\n\002id\030\001 \001(\005\022\020\n\010ItemDimX\030\002 \001(\001" +
+      "\022\020\n\010ItemDimY\030\003 \001(\001\022\020\n\010ItemDimZ\030\004 \001(\001\"#\n\025" +
+      "ItemTypeSearchRequest\022\n\n\002id\030\001 \001(\005\"E\n\rIte" +
+      "mTypeProto\022\n\n\002id\030\001 \001(\005\022\014\n\004DimX\030\002 \001(\001\022\014\n\004" +
+      "DimY\030\003 \001(\001\022\014\n\004DimZ\030\004 \001(\001\"<\n\021ItemTypeList" +
+      "Proto\022\'\n\004list\030\001 \003(\0132\031.GRPC.proto.ItemTyp" +
+      "eProto\"D\n\014ItemCreation\022\022\n\nItemTypeID\030\001 \001" +
+      "(\005\022\017\n\007ShelfID\030\002 \001(\005\022\017\n\007OwnerID\030\003 \001(\005\"\037\n\021" +
+      "ItemSearchRequest\022\n\n\002id\030\001 \001(\005\"\223\001\n\tItemPr" +
+      "oto\022\'\n\004type\030\001 \001(\0132\031.GRPC.proto.ItemTypeP",
+      "roto\022\020\n\010UniqueID\030\002 \001(\005\022$\n\005owner\030\003 \001(\0132\025." +
+      "GRPC.proto.UserProto\022%\n\005shelf\030\004 \001(\0132\026.GR" +
+      "PC.proto.ShelfProto\"4\n\rItemListProto\022#\n\004" +
+      "list\030\001 \003(\0132\025.GRPC.proto.ItemProto\"2\n\021Cre" +
+      "ateUserRequest\022\017\n\007id_user\030\001 \001(\005\022\014\n\004role\030" +
+      "\002 \001(\t\"%\n\tUserProto\022\n\n\002Id\030\001 \001(\005\022\014\n\004role\030\002" +
+      " \001(\t\"-\n\021UserSearchRequest\022\n\n\002Id\030\001 \001(\005\022\014\n" +
+      "\004role\030\002 \001(\t\"4\n\rUserListProto\022#\n\004list\030\001 \003" +
+      "(\0132\025.GRPC.proto.UserProto\"\017\n\rgetAllReque" +
+      "st\"\r\n\013emptyParams2\377\004\n\007Serivce\022B\n\010getShel",
+      "f\022\036.GRPC.proto.ShelfSearchRequest\032\026.GRPC" +
+      ".proto.ShelfProto\022=\n\013UpdateShelf\022\026.GRPC." +
+      "proto.ShelfProto\032\026.GRPC.proto.ShelfProto" +
+      "\022H\n\rgetAllShelves\022\031.GRPC.proto.getAllReq" +
+      "uest\032\034.GRPC.proto.ShelvesListProto\022P\n\016Cr" +
+      "eateItemType\022#.GRPC.proto.ItemTypeCreati" +
+      "onRequest\032\031.GRPC.proto.ItemTypeProto\022L\n\014" +
+      "ReadItemType\022!.GRPC.proto.ItemTypeSearch" +
+      "Request\032\031.GRPC.proto.ItemTypeProto\022=\n\nCr" +
+      "eateItem\022\030.GRPC.proto.ItemCreation\032\025.GRP",
+      "C.proto.ItemProto\022@\n\010ReadItem\022\035.GRPC.pro" +
+      "to.ItemSearchRequest\032\025.GRPC.proto.ItemPr" +
+      "oto\022B\n\nDeleteItem\022\035.GRPC.proto.ItemSearc" +
+      "hRequest\032\025.GRPC.proto.ItemProto\022B\n\nCreat" +
+      "eUser\022\035.GRPC.proto.CreateUserRequest\032\025.G" +
+      "RPC.proto.UserProto2\205\002\n\013ItemService\0229\n\006C" +
+      "reate\022\030.GRPC.proto.ItemCreation\032\025.GRPC.p" +
+      "roto.ItemProto\022<\n\004Read\022\035.GRPC.proto.Item" +
+      "SearchRequest\032\025.GRPC.proto.ItemProto\022=\n\007" +
+      "ReadAll\022\027.GRPC.proto.emptyParams\032\031.GRPC.",
+      "proto.ItemListProto\022>\n\006Delete\022\035.GRPC.pro" +
+      "to.ItemSearchRequest\032\025.GRPC.proto.ItemPr" +
+      "oto2\254\002\n\017ItemTypeService\022H\n\006Create\022#.GRPC" +
+      ".proto.ItemTypeCreationRequest\032\031.GRPC.pr" +
+      "oto.ItemTypeProto\022D\n\004Read\022!.GRPC.proto.I" +
+      "temTypeSearchRequest\032\031.GRPC.proto.ItemTy" +
+      "peProto\022A\n\007ReadAll\022\027.GRPC.proto.emptyPar" +
+      "ams\032\035.GRPC.proto.ItemTypeListProto\022F\n\006De" +
+      "lete\022!.GRPC.proto.ItemTypeSearchRequest\032" +
+      "\031.GRPC.proto.ItemTypeProto2\226\002\n\014ShelfServ",
+      "ice\022B\n\006Create\022 .GRPC.proto.ShelfCreation" +
+      "Request\032\026.GRPC.proto.ShelfProto\022>\n\004Read\022" +
+      "\036.GRPC.proto.ShelfSearchRequest\032\026.GRPC.p" +
+      "roto.ShelfProto\022@\n\007ReadAll\022\027.GRPC.proto." +
+      "emptyParams\032\034.GRPC.proto.ShelvesListProt" +
+      "o\022@\n\006Delete\022\036.GRPC.proto.ShelfSearchRequ" +
+      "est\032\026.GRPC.proto.ShelfProto2\212\002\n\013UserServ" +
+      "ice\022>\n\006Create\022\035.GRPC.proto.CreateUserReq" +
+      "uest\032\025.GRPC.proto.UserProto\022<\n\004Read\022\035.GR" +
+      "PC.proto.UserSearchRequest\032\025.GRPC.proto.",
+      "UserProto\022=\n\007ReadAll\022\027.GRPC.proto.emptyP" +
+      "arams\032\031.GRPC.proto.UserListProto\022>\n\006Dele" +
+      "te\022\035.GRPC.proto.UserSearchRequest\032\025.GRPC" +
+      ".proto.UserProtob\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {

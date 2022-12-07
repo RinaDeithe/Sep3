@@ -1,13 +1,12 @@
 package domain.Model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
-public class Shelf {
+public class Shelf implements Serializable {
     @Id
     @Column(name = "RowNo")
     private String RowNo;
@@ -24,9 +23,8 @@ public class Shelf {
     @Column(name = "dimZ")
     private double dimZ;
 
-    @Column(name = "ItemsOnShelf")
-    @OneToMany
-    private ArrayList<Item> ItemsOnShelf;
+    @ManyToMany
+    private List<Item> ItemsOnShelf;
 
     public Shelf(String rowNo, String shelfNo, double dimX, double dimY, double dimZ, ArrayList<Item> itemsOnShelf) {
         RowNo = rowNo;
@@ -81,7 +79,7 @@ public class Shelf {
         this.dimZ = dimZ;
     }
 
-    public ArrayList<Item> getItemsOnShelf() {
+    public List<Item> getItemsOnShelf() {
         return ItemsOnShelf;
     }
 
