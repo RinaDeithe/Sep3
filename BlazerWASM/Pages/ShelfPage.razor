@@ -9,7 +9,6 @@
 @inject AddNewItemBeginState NewItemBeginState;
 @inject IItemService ItemService;
 @inject IItemTypeService ItemTypeService;
-@inject IButton Button;
 
 <h3 class="text-center mb-5">ShelfPage</h3>
 
@@ -59,14 +58,13 @@
             }
             </tbody>
         </table>
-        <button type="button" name="klik" onclick="@Button.Reserver()">klik</button>
     </div>
 </div>
 </div>
 @code {
-    private int? ShelfId;
-    private int? AvalibleCapacity;
-    private int? InputWished;
+    private int? shelfId;
+    private int? avalibleCapacity;
+    private int? inputWished;
      
  //   private ItemType _itemType = ItemTypeService.ReadAsync(NewItemBeginState.Id).Result;
 
