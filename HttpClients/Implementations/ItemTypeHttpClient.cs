@@ -3,6 +3,7 @@ using System.Net.Http.Json;
 using System.Text.Json;
 using HttpClients.ClientInterfaces;
 using Shared.DTOs;
+using Shared.DTOs.ItemType;
 using Shared.Model;
 
 
@@ -15,7 +16,7 @@ public class ItemTypeHttpClient : IItemTypeService
     public ItemTypeHttpClient(HttpClient client) {
         this.client = client;
     }
-    public async Task<itemType> CreateAsync(ItemTypeCreationDto dto)
+    public async Task<ItemType> CreateAsync(ItemTypeCreationDto dto)
     {
         HttpResponseMessage response = await client.PostAsJsonAsync("/itemtype", dto);
         string result = await response.Content.ReadAsStringAsync();
@@ -26,14 +27,14 @@ public class ItemTypeHttpClient : IItemTypeService
             throw new Exception(result);
         }
 
-        itemType itemType = JsonSerializer.Deserialize<itemType>(result, new JsonSerializerOptions
+        ItemType itemType = JsonSerializer.Deserialize<ItemType>(result, new JsonSerializerOptions
         {
             PropertyNameCaseInsensitive = true
         })!;
         return itemType;
     }
     
-    public async Task<itemType> ReadAsync(int id)
+    public async Task<ItemType> ReadAsync(int id)
     {
         HttpResponseMessage response = await client.GetAsync($"/itemtype/{id}");
         string result = await response.Content.ReadAsStringAsync();
@@ -44,7 +45,7 @@ public class ItemTypeHttpClient : IItemTypeService
             throw new Exception(result);
         }
 
-        itemType itemType = JsonSerializer.Deserialize<itemType>(result, new JsonSerializerOptions
+        ItemType itemType = JsonSerializer.Deserialize<ItemType>(result, new JsonSerializerOptions
         {
             PropertyNameCaseInsensitive = true
         })!;

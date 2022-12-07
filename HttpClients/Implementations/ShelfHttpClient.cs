@@ -2,6 +2,7 @@
 using System.Text.Json;
 using HttpClients.ClientInterfaces;
 using Shared.DTOs;
+using Shared.DTOs.Shelf;
 using Shared.Model;
 
 namespace HttpClients.Implementations;

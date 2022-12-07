@@ -1,9 +1,9 @@
-using Microsoft.AspNetCore.Components.Web;
-using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using BlazerWASM;
 using BlazerWASM.StateContainer;
 using HttpClients.ClientInterfaces;
 using HttpClients.Implementations;
+using Microsoft.AspNetCore.Components.Web;
+using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
@@ -14,6 +14,7 @@ builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.
 builder.Services.AddScoped<IItemService, ItemHttpClient>();
 builder.Services.AddScoped<IItemTypeService, ItemTypeHttpClient>();
 builder.Services.AddScoped<IShelfService, ShelfHttpClient>();
+builder.Services.AddScoped<IAuthService, JwtAuthService>();
 
 builder.Services.AddSingleton<AddNewItemBeginState>();
 

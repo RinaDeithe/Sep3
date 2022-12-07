@@ -1,6 +1,7 @@
-﻿using Logic.LogicInterfaces;
+﻿using Logic.Shelf;
 using Microsoft.AspNetCore.Mvc;
 using Shared.DTOs;
+using Shared.DTOs.Shelf;
 
 namespace WebAPI.Controllers;
 
