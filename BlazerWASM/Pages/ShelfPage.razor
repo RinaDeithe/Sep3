@@ -2,12 +2,15 @@
 @using global::Shared.Model
 @using global::Shared.DTOs
 @using BlazerWASM.StateContainer
+@using global::Shared.DTOs.Item
+@using global::Shared.DTOs.ItemType
 @using HttpClients.ClientInterfaces
 @using HttpClients.Implementations
 @inject HttpClient Http
 
 @inject AddNewItemBeginState NewItemBeginState;
 @inject IItemService ItemService;
+@inject IShelfService ShelfService;
 @inject IItemTypeService ItemTypeService;
 
 <h3 class="text-center mb-5">ShelfPage</h3>
@@ -29,8 +32,8 @@
             </tr>
             <tr>
                 <td>
-                <!--        <label>Vare info : dimX = @_itemType.DimX dimY =@_itemType.DimY dimZ = @_itemType.DimZ</label>
-                -->
+                        <label>Vare info : dimX = @_itemType.DimX dimY =@_itemType.DimY dimZ = @_itemType.DimZ</label>
+                
                 </td>
             </tr>
         </table>
@@ -47,7 +50,7 @@
             </tr>
             
             <tbody>
-            @foreach (var item in glqt)
+            @foreach (var item in _glqt.ShelfInfo)
             {
 
                 <tr>
@@ -68,33 +71,19 @@
     private int? AvalibleCapacity;
     private int? InputWished;
      
-    private ItemType _itemType;
-
-
-    
+    private ItemType? _itemType;
 
 
 
-    private List<AmountOnSpaceDto> glqt = new List<AmountOnSpaceDto>
-    {
-        new AmountOnSpaceDto("1",2)
-        ,
-        new AmountOnSpaceDto
-        (
-             "2",
-            4
-        ),
-    new AmountOnSpaceDto
-    (
-        "1",
-         2
-        )
-    };
+
+
+
+    private readonly ItemRegisterReqiestDto _glqt;
 
     public ShelfPage()
     {
-       // itemType _itemType = ItemTypeService.ReadAsync(new ItemTypeSearchDto(NewItemBeginState.Id)).Result;
-        
+      _itemType = ItemTypeService.ReadAsync(new ItemTypeSearchDto(NewItemBeginState.Id)).Result;
+        _glqt = ShelfService.GetAmountOnShelf(new ItemTypeSearchDto(NewItemBeginState.Id)).Result;
     }
 
     private async Task ButtonReserver()
