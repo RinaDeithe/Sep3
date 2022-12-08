@@ -24,7 +24,13 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="JpbToolWindowState">
     <option name="myId2FirstActivated">
@@ -76,6 +82,8 @@
       <recent name="C:\Users\Rumle\IdeaProjects\MidTermDraft\Hibernate\src\main\proto" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\via\Java3\RabbitMQ\MidTermDraft\Hibernate\src\main\java" />
+      <recent name="C:\via\Java3\RabbitMQ\MidTermDraft\Hibernate\src" />
       <recent name="C:\Users\Rumle\IdeaProjects\MidTermDraft" />
       <recent name="C:\Users\Rumle\IdeaProjects\Tier3" />
       <recent name="C:\Users\Rumle\IdeaProjects" />
@@ -91,7 +99,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Application.DatabaseInitializer">
+  <component name="RunManager" selected="JUnit.TestConverter.testItemToItemProto">
     <configuration name="Database" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Database" />
       <module name="DB" />
@@ -112,17 +120,30 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ConverterShelfTest.name" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="DB" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="adapter.converter.ShelfProto.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="adapter.converter.ShelfProto" />
-      <option name="MAIN_CLASS_NAME" value="adapter.converter.ShelfProto.ConverterShelfTest" />
-      <option name="METHOD_NAME" value="name" />
+    <configuration name="TestConverter" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Hibernate" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestConverter" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestConverter.testItemToItemProto" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Hibernate" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestConverter" />
+      <option name="METHOD_NAME" value="testItemToItemProto" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestConverter.testItemTypeToItemProto" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Hibernate" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestConverter" />
+      <option name="METHOD_NAME" value="testItemTypeToItemProto" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -155,10 +176,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TestConverter.testItemToItemProto" />
         <item itemvalue="Application.DatabaseInitializer" />
+        <item itemvalue="JUnit.TestConverter" />
+        <item itemvalue="JUnit.TestConverter.testItemTypeToItemProto" />
         <item itemvalue="Application.Database" />
-        <item itemvalue="JUnit.ConverterShelfTest.name" />
-        <item itemvalue="JUnit.ConverterShelfTest.name" />
       </list>
     </recent_temporary>
   </component>
@@ -364,7 +386,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />

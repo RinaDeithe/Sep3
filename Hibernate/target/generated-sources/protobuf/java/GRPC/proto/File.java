@@ -11685,51 +11685,35 @@ public final class File {
       " \001(\t\"-\n\021UserSearchRequest\022\n\n\002Id\030\001 \001(\005\022\014\n" +
       "\004role\030\002 \001(\t\"4\n\rUserListProto\022#\n\004list\030\001 \003" +
       "(\0132\025.GRPC.proto.UserProto\"\017\n\rgetAllReque" +
-      "st\"\r\n\013emptyParams2\377\004\n\007Serivce\022B\n\010getShel",
-      "f\022\036.GRPC.proto.ShelfSearchRequest\032\026.GRPC" +
-      ".proto.ShelfProto\022=\n\013UpdateShelf\022\026.GRPC." +
-      "proto.ShelfProto\032\026.GRPC.proto.ShelfProto" +
-      "\022H\n\rgetAllShelves\022\031.GRPC.proto.getAllReq" +
-      "uest\032\034.GRPC.proto.ShelvesListProto\022P\n\016Cr" +
-      "eateItemType\022#.GRPC.proto.ItemTypeCreati" +
-      "onRequest\032\031.GRPC.proto.ItemTypeProto\022L\n\014" +
-      "ReadItemType\022!.GRPC.proto.ItemTypeSearch" +
-      "Request\032\031.GRPC.proto.ItemTypeProto\022=\n\nCr" +
-      "eateItem\022\030.GRPC.proto.ItemCreation\032\025.GRP",
-      "C.proto.ItemProto\022@\n\010ReadItem\022\035.GRPC.pro" +
-      "to.ItemSearchRequest\032\025.GRPC.proto.ItemPr" +
-      "oto\022B\n\nDeleteItem\022\035.GRPC.proto.ItemSearc" +
-      "hRequest\032\025.GRPC.proto.ItemProto\022B\n\nCreat" +
-      "eUser\022\035.GRPC.proto.CreateUserRequest\032\025.G" +
-      "RPC.proto.UserProto2\205\002\n\013ItemService\0229\n\006C" +
-      "reate\022\030.GRPC.proto.ItemCreation\032\025.GRPC.p" +
-      "roto.ItemProto\022<\n\004Read\022\035.GRPC.proto.Item" +
-      "SearchRequest\032\025.GRPC.proto.ItemProto\022=\n\007" +
-      "ReadAll\022\027.GRPC.proto.emptyParams\032\031.GRPC.",
-      "proto.ItemListProto\022>\n\006Delete\022\035.GRPC.pro" +
-      "to.ItemSearchRequest\032\025.GRPC.proto.ItemPr" +
-      "oto2\254\002\n\017ItemTypeService\022H\n\006Create\022#.GRPC" +
-      ".proto.ItemTypeCreationRequest\032\031.GRPC.pr" +
-      "oto.ItemTypeProto\022D\n\004Read\022!.GRPC.proto.I" +
-      "temTypeSearchRequest\032\031.GRPC.proto.ItemTy" +
-      "peProto\022A\n\007ReadAll\022\027.GRPC.proto.emptyPar" +
-      "ams\032\035.GRPC.proto.ItemTypeListProto\022F\n\006De" +
-      "lete\022!.GRPC.proto.ItemTypeSearchRequest\032" +
-      "\031.GRPC.proto.ItemTypeProto2\226\002\n\014ShelfServ",
-      "ice\022B\n\006Create\022 .GRPC.proto.ShelfCreation" +
-      "Request\032\026.GRPC.proto.ShelfProto\022>\n\004Read\022" +
-      "\036.GRPC.proto.ShelfSearchRequest\032\026.GRPC.p" +
-      "roto.ShelfProto\022@\n\007ReadAll\022\027.GRPC.proto." +
-      "emptyParams\032\034.GRPC.proto.ShelvesListProt" +
-      "o\022@\n\006Delete\022\036.GRPC.proto.ShelfSearchRequ" +
-      "est\032\026.GRPC.proto.ShelfProto2\212\002\n\013UserServ" +
-      "ice\022>\n\006Create\022\035.GRPC.proto.CreateUserReq" +
-      "uest\032\025.GRPC.proto.UserProto\022<\n\004Read\022\035.GR" +
-      "PC.proto.UserSearchRequest\032\025.GRPC.proto.",
-      "UserProto\022=\n\007ReadAll\022\027.GRPC.proto.emptyP" +
-      "arams\032\031.GRPC.proto.UserListProto\022>\n\006Dele" +
-      "te\022\035.GRPC.proto.UserSearchRequest\032\025.GRPC" +
-      ".proto.UserProtob\006proto3"
+      "st\"\r\n\013emptyParams2\205\002\n\013ItemService\0229\n\006Cre",
+      "ate\022\030.GRPC.proto.ItemCreation\032\025.GRPC.pro" +
+      "to.ItemProto\022<\n\004Read\022\035.GRPC.proto.ItemSe" +
+      "archRequest\032\025.GRPC.proto.ItemProto\022=\n\007Re" +
+      "adAll\022\027.GRPC.proto.emptyParams\032\031.GRPC.pr" +
+      "oto.ItemListProto\022>\n\006Delete\022\035.GRPC.proto" +
+      ".ItemSearchRequest\032\025.GRPC.proto.ItemProt" +
+      "o2\254\002\n\017ItemTypeService\022H\n\006Create\022#.GRPC.p" +
+      "roto.ItemTypeCreationRequest\032\031.GRPC.prot" +
+      "o.ItemTypeProto\022D\n\004Read\022!.GRPC.proto.Ite" +
+      "mTypeSearchRequest\032\031.GRPC.proto.ItemType",
+      "Proto\022A\n\007ReadAll\022\027.GRPC.proto.emptyParam" +
+      "s\032\035.GRPC.proto.ItemTypeListProto\022F\n\006Dele" +
+      "te\022!.GRPC.proto.ItemTypeSearchRequest\032\031." +
+      "GRPC.proto.ItemTypeProto2\226\002\n\014ShelfServic" +
+      "e\022B\n\006Create\022 .GRPC.proto.ShelfCreationRe" +
+      "quest\032\026.GRPC.proto.ShelfProto\022>\n\004Read\022\036." +
+      "GRPC.proto.ShelfSearchRequest\032\026.GRPC.pro" +
+      "to.ShelfProto\022@\n\007ReadAll\022\027.GRPC.proto.em" +
+      "ptyParams\032\034.GRPC.proto.ShelvesListProto\022" +
+      "@\n\006Delete\022\036.GRPC.proto.ShelfSearchReques",
+      "t\032\026.GRPC.proto.ShelfProto2\212\002\n\013UserServic" +
+      "e\022>\n\006Create\022\035.GRPC.proto.CreateUserReque" +
+      "st\032\025.GRPC.proto.UserProto\022<\n\004Read\022\035.GRPC" +
+      ".proto.UserSearchRequest\032\025.GRPC.proto.Us" +
+      "erProto\022=\n\007ReadAll\022\027.GRPC.proto.emptyPar" +
+      "ams\032\031.GRPC.proto.UserListProto\022>\n\006Delete" +
+      "\022\035.GRPC.proto.UserSearchRequest\032\025.GRPC.p" +
+      "roto.UserProtob\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
