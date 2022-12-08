@@ -56,4 +56,8 @@ public enum ItemTypeConverter {
     public ItemType toTypeFromSearch(File.ItemTypeSearchRequest request) {
         return new ItemType(request.getId(), null, null, null);
     }
+
+    public ItemType toTypeFromProto(File.ItemTypeProto proto) {
+        return new ItemType(proto.getId(), proto.getDimX(), proto.getDimY(), proto.getDimZ());
+    }
 }

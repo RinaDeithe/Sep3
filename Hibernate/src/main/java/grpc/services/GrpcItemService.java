@@ -18,11 +18,6 @@ public class GrpcItemService extends ItemServiceGrpc.ItemServiceImplBase {
     }
 
     @Override
-    public void update(File.ItemProto request, StreamObserver<File.ItemProto> responseObserver) {
-        super.update(request, responseObserver);
-    }
-
-    @Override
     public void create(File.ItemCreation request, StreamObserver<File.ItemProto> responseObserver) {
         Item item = dao.Create(ItemConverter.CONVERT.toItemFromCreation(request));
 
@@ -34,7 +29,7 @@ public class GrpcItemService extends ItemServiceGrpc.ItemServiceImplBase {
 
     @Override
     public void read(File.ItemSearchRequest request, StreamObserver<File.ItemProto> responseObserver) {
-        Item item = dao.Read(new Item(), request.getId());
+        Item item = dao.Read(new Item(request.getId(), null, null, null));
 
         File.ItemProto proto = ItemConverter.CONVERT.toItemProtoFromItem(item);
 
@@ -46,7 +41,15 @@ public class GrpcItemService extends ItemServiceGrpc.ItemServiceImplBase {
     public void readAll(File.emptyParams request, StreamObserver<File.ItemListProto> responseObserver) {
         List<Item> itemList = dao.ReadAll(new Item());
 
-        File.ItemListProto proto = ItemConverter.CONVERT.toItemProtoFromList(itemList);
+        File.ItemListProto proto = ItemConverter.CONVERT.toProtoFromList(itemList);
+
+        responseObserver.onNext(proto);
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void update(File.ItemProto request, StreamObserver<File.ItemProto> responseObserver) {
+        File.ItemProto proto = ItemConverter.CONVERT.toItemProtoFromItem(dao.Update(ItemConverter.CONVERT.toItemFromProto(request)));
 
         responseObserver.onNext(proto);
         responseObserver.onCompleted();

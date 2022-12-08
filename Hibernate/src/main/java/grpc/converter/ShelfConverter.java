@@ -17,7 +17,7 @@ public enum ShelfConverter {
                 .setShelfDimX(shelf.getDimX())
                 .setShelfDimY(shelf.getDimY())
                 .setShelfDimZ(shelf.getDimZ())
-                .setItemsOnShelf(ItemConverter.CONVERT.toItemProtoFromList(shelf.getItemsOnShelf()))
+                .setItemsOnShelf(ItemConverter.CONVERT.toProtoFromList(shelf.getItemsOnShelf()))
                 .build();
     }
 
@@ -26,7 +26,7 @@ public enum ShelfConverter {
     }
 
     public Shelf toShelfFromSearch(File.ShelfSearchRequest request) {
-        return new Shelf("" + request.getId(), null, 0, 0, 0, null);
+        return new Shelf(request.getRowNo(), request.getShelfNo(), 0, 0, 0, null);
     }
 
     public File.ShelvesListProto toShelfProtoFromList(List<Shelf> shelfList) {
@@ -37,7 +37,7 @@ public enum ShelfConverter {
 
         for (Shelf index : shelfList) {
             protoList.add(File.ShelfProto.newBuilder()
-                    .setItemsOnShelf(ItemConverter.CONVERT.toItemProtoFromList(index.getItemsOnShelf()))
+                    .setItemsOnShelf(ItemConverter.CONVERT.toProtoFromList(index.getItemsOnShelf()))
                     .setShelfNo(index.getShelfNo())
                     .setRowNo(index.getRowNo())
                     .setShelfDimX(index.getDimX())
@@ -50,5 +50,40 @@ public enum ShelfConverter {
 
 
         return builder.build();
+    }
+
+    public Shelf toShelfFromProto(File.ShelfProto proto) {
+        return new Shelf(
+                proto.getRowNo(),
+                proto.getShelfNo(),
+                proto.getShelfDimX(),
+                proto.getShelfDimY(),
+                proto.getShelfDimZ(),
+                GetItemsOnShelfList(proto.getItemsOnShelf()));
+    }
+
+    private List<Item> GetItemsOnShelfList(File.ItemListProto itemsOnShelf) {
+
+        List<Item> itemList = new ArrayList<>();
+        List<Item> placeHolderList = new ArrayList<>();
+
+        for (File.ItemProto index : itemsOnShelf.getListList()) {
+            new Item(
+                    index.getUniqueID(),
+                    ItemTypeConverter.CONVERT.toTypeFromProto(index.getType()),
+                    UserConverter.CONVERT.toUserFromProto(index.getOwner()),
+                    new Shelf(
+                            index.getShelf().getRowNo(),
+                            index.getShelf().getShelfNo(),
+                            index.getShelf().getShelfDimX(),
+                            index.getShelf().getShelfDimY(),
+                            index.getShelf().getShelfDimZ(),
+                            placeHolderList
+                    )
+            );
+        }
+
+
+        return itemList;
     }
 }

@@ -1911,9 +1911,24 @@ public final class File {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>int32 id = 1;</code>
+     * <code>string RowNo = 1;</code>
      */
-    int getId();
+    java.lang.String getRowNo();
+    /**
+     * <code>string RowNo = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getRowNoBytes();
+
+    /**
+     * <code>string ShelfNo = 2;</code>
+     */
+    java.lang.String getShelfNo();
+    /**
+     * <code>string ShelfNo = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getShelfNoBytes();
   }
   /**
    * Protobuf type {@code GRPC.proto.ShelfSearchRequest}
@@ -1927,7 +1942,8 @@ public final class File {
       super(builder);
     }
     private ShelfSearchRequest() {
-      id_ = 0;
+      rowNo_ = "";
+      shelfNo_ = "";
     }
 
     @java.lang.Override
@@ -1955,9 +1971,16 @@ public final class File {
               }
               break;
             }
-            case 8: {
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
 
-              id_ = input.readInt32();
+              rowNo_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              shelfNo_ = s;
               break;
             }
           }
@@ -1983,13 +2006,72 @@ public final class File {
               GRPC.proto.File.ShelfSearchRequest.class, GRPC.proto.File.ShelfSearchRequest.Builder.class);
     }
 
-    public static final int ID_FIELD_NUMBER = 1;
-    private int id_;
+    public static final int ROWNO_FIELD_NUMBER = 1;
+    private volatile java.lang.Object rowNo_;
     /**
-     * <code>int32 id = 1;</code>
+     * <code>string RowNo = 1;</code>
      */
-    public int getId() {
-      return id_;
+    public java.lang.String getRowNo() {
+      java.lang.Object ref = rowNo_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        rowNo_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string RowNo = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getRowNoBytes() {
+      java.lang.Object ref = rowNo_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        rowNo_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int SHELFNO_FIELD_NUMBER = 2;
+    private volatile java.lang.Object shelfNo_;
+    /**
+     * <code>string ShelfNo = 2;</code>
+     */
+    public java.lang.String getShelfNo() {
+      java.lang.Object ref = shelfNo_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        shelfNo_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string ShelfNo = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getShelfNoBytes() {
+      java.lang.Object ref = shelfNo_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        shelfNo_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     private byte memoizedIsInitialized = -1;
@@ -2004,8 +2086,11 @@ public final class File {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (id_ != 0) {
-        output.writeInt32(1, id_);
+      if (!getRowNoBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, rowNo_);
+      }
+      if (!getShelfNoBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, shelfNo_);
       }
     }
 
@@ -2014,9 +2099,11 @@ public final class File {
       if (size != -1) return size;
 
       size = 0;
-      if (id_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, id_);
+      if (!getRowNoBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, rowNo_);
+      }
+      if (!getShelfNoBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, shelfNo_);
       }
       memoizedSize = size;
       return size;
@@ -2034,8 +2121,10 @@ public final class File {
       GRPC.proto.File.ShelfSearchRequest other = (GRPC.proto.File.ShelfSearchRequest) obj;
 
       boolean result = true;
-      result = result && (getId()
-          == other.getId());
+      result = result && getRowNo()
+          .equals(other.getRowNo());
+      result = result && getShelfNo()
+          .equals(other.getShelfNo());
       return result;
     }
 
@@ -2046,8 +2135,10 @@ public final class File {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + ID_FIELD_NUMBER;
-      hash = (53 * hash) + getId();
+      hash = (37 * hash) + ROWNO_FIELD_NUMBER;
+      hash = (53 * hash) + getRowNo().hashCode();
+      hash = (37 * hash) + SHELFNO_FIELD_NUMBER;
+      hash = (53 * hash) + getShelfNo().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -2177,7 +2268,9 @@ public final class File {
       }
       public Builder clear() {
         super.clear();
-        id_ = 0;
+        rowNo_ = "";
+
+        shelfNo_ = "";
 
         return this;
       }
@@ -2201,7 +2294,8 @@ public final class File {
 
       public GRPC.proto.File.ShelfSearchRequest buildPartial() {
         GRPC.proto.File.ShelfSearchRequest result = new GRPC.proto.File.ShelfSearchRequest(this);
-        result.id_ = id_;
+        result.rowNo_ = rowNo_;
+        result.shelfNo_ = shelfNo_;
         onBuilt();
         return result;
       }
@@ -2243,8 +2337,13 @@ public final class File {
 
       public Builder mergeFrom(GRPC.proto.File.ShelfSearchRequest other) {
         if (other == GRPC.proto.File.ShelfSearchRequest.getDefaultInstance()) return this;
-        if (other.getId() != 0) {
-          setId(other.getId());
+        if (!other.getRowNo().isEmpty()) {
+          rowNo_ = other.rowNo_;
+          onChanged();
+        }
+        if (!other.getShelfNo().isEmpty()) {
+          shelfNo_ = other.shelfNo_;
+          onChanged();
         }
         onChanged();
         return this;
@@ -2272,28 +2371,140 @@ public final class File {
         return this;
       }
 
-      private int id_ ;
+      private java.lang.Object rowNo_ = "";
       /**
-       * <code>int32 id = 1;</code>
+       * <code>string RowNo = 1;</code>
        */
-      public int getId() {
-        return id_;
+      public java.lang.String getRowNo() {
+        java.lang.Object ref = rowNo_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          rowNo_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
-       * <code>int32 id = 1;</code>
+       * <code>string RowNo = 1;</code>
        */
-      public Builder setId(int value) {
-        
-        id_ = value;
+      public com.google.protobuf.ByteString
+          getRowNoBytes() {
+        java.lang.Object ref = rowNo_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          rowNo_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string RowNo = 1;</code>
+       */
+      public Builder setRowNo(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        rowNo_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 id = 1;</code>
+       * <code>string RowNo = 1;</code>
        */
-      public Builder clearId() {
+      public Builder clearRowNo() {
         
-        id_ = 0;
+        rowNo_ = getDefaultInstance().getRowNo();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string RowNo = 1;</code>
+       */
+      public Builder setRowNoBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        rowNo_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object shelfNo_ = "";
+      /**
+       * <code>string ShelfNo = 2;</code>
+       */
+      public java.lang.String getShelfNo() {
+        java.lang.Object ref = shelfNo_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          shelfNo_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string ShelfNo = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getShelfNoBytes() {
+        java.lang.Object ref = shelfNo_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          shelfNo_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string ShelfNo = 2;</code>
+       */
+      public Builder setShelfNo(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        shelfNo_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string ShelfNo = 2;</code>
+       */
+      public Builder clearShelfNo() {
+        
+        shelfNo_ = getDefaultInstance().getShelfNo();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string ShelfNo = 2;</code>
+       */
+      public Builder setShelfNoBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        shelfNo_ = value;
         onChanged();
         return this;
       }
@@ -11663,63 +11874,63 @@ public final class File {
       "oto.ItemListProto\"o\n\024ShelfCreationReques" +
       "t\022\r\n\005RowNo\030\001 \001(\t\022\017\n\007ShelfNo\030\002 \001(\t\022\021\n\tShe" +
       "lfDimX\030\003 \001(\001\022\021\n\tShelfDimY\030\004 \001(\001\022\021\n\tShelf" +
-      "DimZ\030\005 \001(\001\" \n\022ShelfSearchRequest\022\n\n\002id\030\001" +
-      " \001(\005\"9\n\020ShelvesListProto\022%\n\005proto\030\001 \003(\0132" +
-      "\026.GRPC.proto.ShelfProto\"[\n\027ItemTypeCreat",
-      "ionRequest\022\n\n\002id\030\001 \001(\005\022\020\n\010ItemDimX\030\002 \001(\001" +
-      "\022\020\n\010ItemDimY\030\003 \001(\001\022\020\n\010ItemDimZ\030\004 \001(\001\"#\n\025" +
-      "ItemTypeSearchRequest\022\n\n\002id\030\001 \001(\005\"E\n\rIte" +
-      "mTypeProto\022\n\n\002id\030\001 \001(\005\022\014\n\004DimX\030\002 \001(\001\022\014\n\004" +
-      "DimY\030\003 \001(\001\022\014\n\004DimZ\030\004 \001(\001\"<\n\021ItemTypeList" +
-      "Proto\022\'\n\004list\030\001 \003(\0132\031.GRPC.proto.ItemTyp" +
-      "eProto\"D\n\014ItemCreation\022\022\n\nItemTypeID\030\001 \001" +
-      "(\005\022\017\n\007ShelfID\030\002 \001(\005\022\017\n\007OwnerID\030\003 \001(\005\"\037\n\021" +
-      "ItemSearchRequest\022\n\n\002id\030\001 \001(\005\"\223\001\n\tItemPr" +
-      "oto\022\'\n\004type\030\001 \001(\0132\031.GRPC.proto.ItemTypeP",
-      "roto\022\020\n\010UniqueID\030\002 \001(\005\022$\n\005owner\030\003 \001(\0132\025." +
-      "GRPC.proto.UserProto\022%\n\005shelf\030\004 \001(\0132\026.GR" +
-      "PC.proto.ShelfProto\"4\n\rItemListProto\022#\n\004" +
-      "list\030\001 \003(\0132\025.GRPC.proto.ItemProto\"2\n\021Cre" +
-      "ateUserRequest\022\017\n\007id_user\030\001 \001(\005\022\014\n\004role\030" +
-      "\002 \001(\t\"%\n\tUserProto\022\n\n\002Id\030\001 \001(\005\022\014\n\004role\030\002" +
-      " \001(\t\"-\n\021UserSearchRequest\022\n\n\002Id\030\001 \001(\005\022\014\n" +
-      "\004role\030\002 \001(\t\"4\n\rUserListProto\022#\n\004list\030\001 \003" +
-      "(\0132\025.GRPC.proto.UserProto\"\017\n\rgetAllReque" +
-      "st\"\r\n\013emptyParams2\275\002\n\013ItemService\0229\n\006Cre",
-      "ate\022\030.GRPC.proto.ItemCreation\032\025.GRPC.pro" +
-      "to.ItemProto\022<\n\004Read\022\035.GRPC.proto.ItemSe" +
-      "archRequest\032\025.GRPC.proto.ItemProto\022=\n\007Re" +
-      "adAll\022\027.GRPC.proto.emptyParams\032\031.GRPC.pr" +
-      "oto.ItemListProto\0226\n\006Update\022\025.GRPC.proto" +
-      ".ItemProto\032\025.GRPC.proto.ItemProto\022>\n\006Del" +
-      "ete\022\035.GRPC.proto.ItemSearchRequest\032\025.GRP" +
-      "C.proto.ItemProto2\344\002\n\017ItemTypeService\022H\n" +
-      "\006Create\022#.GRPC.proto.ItemTypeCreationReq" +
-      "uest\032\031.GRPC.proto.ItemTypeProto\022D\n\004Read\022",
-      "!.GRPC.proto.ItemTypeSearchRequest\032\031.GRP" +
-      "C.proto.ItemTypeProto\022A\n\007ReadAll\022\027.GRPC." +
-      "proto.emptyParams\032\035.GRPC.proto.ItemTypeL" +
-      "istProto\0226\n\006Update\022\025.GRPC.proto.ItemProt" +
-      "o\032\025.GRPC.proto.ItemProto\022F\n\006Delete\022!.GRP" +
-      "C.proto.ItemTypeSearchRequest\032\031.GRPC.pro" +
-      "to.ItemTypeProto2\316\002\n\014ShelfService\022B\n\006Cre" +
-      "ate\022 .GRPC.proto.ShelfCreationRequest\032\026." +
-      "GRPC.proto.ShelfProto\022>\n\004Read\022\036.GRPC.pro" +
-      "to.ShelfSearchRequest\032\026.GRPC.proto.Shelf",
-      "Proto\022@\n\007ReadAll\022\027.GRPC.proto.emptyParam" +
-      "s\032\034.GRPC.proto.ShelvesListProto\0226\n\006Updat" +
-      "e\022\025.GRPC.proto.ItemProto\032\025.GRPC.proto.It" +
-      "emProto\022@\n\006Delete\022\036.GRPC.proto.ShelfSear" +
-      "chRequest\032\026.GRPC.proto.ShelfProto2\302\002\n\013Us" +
-      "erService\022>\n\006Create\022\035.GRPC.proto.CreateU" +
-      "serRequest\032\025.GRPC.proto.UserProto\022<\n\004Rea" +
-      "d\022\035.GRPC.proto.UserSearchRequest\032\025.GRPC." +
-      "proto.UserProto\022=\n\007ReadAll\022\027.GRPC.proto." +
-      "emptyParams\032\031.GRPC.proto.UserListProto\0226",
-      "\n\006Update\022\025.GRPC.proto.ItemProto\032\025.GRPC.p" +
-      "roto.ItemProto\022>\n\006Delete\022\035.GRPC.proto.Us" +
-      "erSearchRequest\032\025.GRPC.proto.UserProtob\006" +
-      "proto3"
+      "DimZ\030\005 \001(\001\"4\n\022ShelfSearchRequest\022\r\n\005RowN" +
+      "o\030\001 \001(\t\022\017\n\007ShelfNo\030\002 \001(\t\"9\n\020ShelvesListP" +
+      "roto\022%\n\005proto\030\001 \003(\0132\026.GRPC.proto.ShelfPr",
+      "oto\"[\n\027ItemTypeCreationRequest\022\n\n\002id\030\001 \001" +
+      "(\005\022\020\n\010ItemDimX\030\002 \001(\001\022\020\n\010ItemDimY\030\003 \001(\001\022\020" +
+      "\n\010ItemDimZ\030\004 \001(\001\"#\n\025ItemTypeSearchReques" +
+      "t\022\n\n\002id\030\001 \001(\005\"E\n\rItemTypeProto\022\n\n\002id\030\001 \001" +
+      "(\005\022\014\n\004DimX\030\002 \001(\001\022\014\n\004DimY\030\003 \001(\001\022\014\n\004DimZ\030\004" +
+      " \001(\001\"<\n\021ItemTypeListProto\022\'\n\004list\030\001 \003(\0132" +
+      "\031.GRPC.proto.ItemTypeProto\"D\n\014ItemCreati" +
+      "on\022\022\n\nItemTypeID\030\001 \001(\005\022\017\n\007ShelfID\030\002 \001(\005\022" +
+      "\017\n\007OwnerID\030\003 \001(\005\"\037\n\021ItemSearchRequest\022\n\n" +
+      "\002id\030\001 \001(\005\"\223\001\n\tItemProto\022\'\n\004type\030\001 \001(\0132\031.",
+      "GRPC.proto.ItemTypeProto\022\020\n\010UniqueID\030\002 \001" +
+      "(\005\022$\n\005owner\030\003 \001(\0132\025.GRPC.proto.UserProto" +
+      "\022%\n\005shelf\030\004 \001(\0132\026.GRPC.proto.ShelfProto\"" +
+      "4\n\rItemListProto\022#\n\004list\030\001 \003(\0132\025.GRPC.pr" +
+      "oto.ItemProto\"2\n\021CreateUserRequest\022\017\n\007id" +
+      "_user\030\001 \001(\005\022\014\n\004role\030\002 \001(\t\"%\n\tUserProto\022\n" +
+      "\n\002Id\030\001 \001(\005\022\014\n\004role\030\002 \001(\t\"-\n\021UserSearchRe" +
+      "quest\022\n\n\002Id\030\001 \001(\005\022\014\n\004role\030\002 \001(\t\"4\n\rUserL" +
+      "istProto\022#\n\004list\030\001 \003(\0132\025.GRPC.proto.User" +
+      "Proto\"\017\n\rgetAllRequest\"\r\n\013emptyParams2\275\002",
+      "\n\013ItemService\0229\n\006Create\022\030.GRPC.proto.Ite" +
+      "mCreation\032\025.GRPC.proto.ItemProto\022<\n\004Read" +
+      "\022\035.GRPC.proto.ItemSearchRequest\032\025.GRPC.p" +
+      "roto.ItemProto\022=\n\007ReadAll\022\027.GRPC.proto.e" +
+      "mptyParams\032\031.GRPC.proto.ItemListProto\0226\n" +
+      "\006Update\022\025.GRPC.proto.ItemProto\032\025.GRPC.pr" +
+      "oto.ItemProto\022>\n\006Delete\022\035.GRPC.proto.Ite" +
+      "mSearchRequest\032\025.GRPC.proto.ItemProto2\354\002" +
+      "\n\017ItemTypeService\022H\n\006Create\022#.GRPC.proto" +
+      ".ItemTypeCreationRequest\032\031.GRPC.proto.It",
+      "emTypeProto\022D\n\004Read\022!.GRPC.proto.ItemTyp" +
+      "eSearchRequest\032\031.GRPC.proto.ItemTypeProt" +
+      "o\022A\n\007ReadAll\022\027.GRPC.proto.emptyParams\032\035." +
+      "GRPC.proto.ItemTypeListProto\022>\n\006Update\022\031" +
+      ".GRPC.proto.ItemTypeProto\032\031.GRPC.proto.I" +
+      "temTypeProto\022F\n\006Delete\022!.GRPC.proto.Item" +
+      "TypeSearchRequest\032\031.GRPC.proto.ItemTypeP" +
+      "roto2\320\002\n\014ShelfService\022B\n\006Create\022 .GRPC.p" +
+      "roto.ShelfCreationRequest\032\026.GRPC.proto.S" +
+      "helfProto\022>\n\004Read\022\036.GRPC.proto.ShelfSear",
+      "chRequest\032\026.GRPC.proto.ShelfProto\022@\n\007Rea" +
+      "dAll\022\027.GRPC.proto.emptyParams\032\034.GRPC.pro" +
+      "to.ShelvesListProto\0228\n\006Update\022\026.GRPC.pro" +
+      "to.ShelfProto\032\026.GRPC.proto.ShelfProto\022@\n" +
+      "\006Delete\022\036.GRPC.proto.ShelfSearchRequest\032" +
+      "\026.GRPC.proto.ShelfProto2\302\002\n\013UserService\022" +
+      ">\n\006Create\022\035.GRPC.proto.CreateUserRequest" +
+      "\032\025.GRPC.proto.UserProto\022<\n\004Read\022\035.GRPC.p" +
+      "roto.UserSearchRequest\032\025.GRPC.proto.User" +
+      "Proto\022=\n\007ReadAll\022\027.GRPC.proto.emptyParam",
+      "s\032\031.GRPC.proto.UserListProto\0226\n\006Update\022\025" +
+      ".GRPC.proto.UserProto\032\025.GRPC.proto.UserP" +
+      "roto\022>\n\006Delete\022\035.GRPC.proto.UserSearchRe" +
+      "quest\032\025.GRPC.proto.UserProtob\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -11750,7 +11961,7 @@ public final class File {
     internal_static_GRPC_proto_ShelfSearchRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_GRPC_proto_ShelfSearchRequest_descriptor,
-        new java.lang.String[] { "Id", });
+        new java.lang.String[] { "RowNo", "ShelfNo", });
     internal_static_GRPC_proto_ShelvesListProto_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_GRPC_proto_ShelvesListProto_fieldAccessorTable = new

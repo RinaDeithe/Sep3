@@ -28,7 +28,7 @@
       <module name="DB" options="-parameters" />
       <module name="Database" options="-parameters" />
       <module name="DatabaseServer" options="-parameters" />
-      <module name="Hibernate" options="--add-modules java.base,java.sql" />
+      <module name="Hibernate" options="" />
     </option>
   </component>
 </project>

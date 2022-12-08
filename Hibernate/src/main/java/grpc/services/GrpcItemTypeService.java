@@ -18,11 +18,6 @@ public class GrpcItemTypeService extends ItemTypeServiceGrpc.ItemTypeServiceImpl
     }
 
     @Override
-    public void update(File.ItemProto request, StreamObserver<File.ItemProto> responseObserver) {
-        super.update(request, responseObserver);
-    }
-
-    @Override
     public void create(File.ItemTypeCreationRequest request, StreamObserver<File.ItemTypeProto> responseObserver) {
         ItemType type = dao.Create(ItemTypeConverter.CONVERT.toTypeFromSearch(request));
 
@@ -34,7 +29,7 @@ public class GrpcItemTypeService extends ItemTypeServiceGrpc.ItemTypeServiceImpl
 
     @Override
     public void read(File.ItemTypeSearchRequest request, StreamObserver<File.ItemTypeProto> responseObserver) {
-        ItemType type = dao.Read(new ItemType(), request.getId());
+        ItemType type = dao.Read(new ItemType(request.getId(), null, null, null));
 
         File.ItemTypeProto proto = ItemTypeConverter.CONVERT.toTypeProtoFromType(type);
 
@@ -47,6 +42,14 @@ public class GrpcItemTypeService extends ItemTypeServiceGrpc.ItemTypeServiceImpl
         List<ItemType> typeList = dao.ReadAll(new ItemType());
 
         File.ItemTypeListProto proto = ItemTypeConverter.CONVERT.toTypeProtoFromList(typeList);
+
+        responseObserver.onNext(proto);
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void update(File.ItemTypeProto request, StreamObserver<File.ItemTypeProto> responseObserver) {
+        File.ItemTypeProto proto = ItemTypeConverter.CONVERT.toTypeProto(dao.Update(ItemTypeConverter.CONVERT.toTypeFromProto(request)));
 
         responseObserver.onNext(proto);
         responseObserver.onCompleted();
