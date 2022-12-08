@@ -61,6 +61,7 @@
             </tbody>
         </table>
         <button type="button" name="klik" onclick="@ButtonReserver()">klik</button>
+        @resultMsg
     </div>
 </div>
 </div>
@@ -70,6 +71,9 @@
     private int? InputWished;
      
     private ItemType? _itemType;
+
+    private string resultMsg ="";
+    
     
 
 
@@ -81,8 +85,14 @@
 
     public ShelfPage()
     {
-      _itemType = ItemTypeService.ReadAsync(new ItemTypeSearchDto(NewItemBeginState.Id)).Result;
+      try{
+        _itemType = ItemTypeService.ReadAsync(new ItemTypeSearchDto(NewItemBeginState.Id)).Result;
         _glqt = ShelfService.GetAmountOnShelf(new ItemTypeSearchDto(NewItemBeginState.Id)).Result;
+      }
+      catch (Exception e)
+      {
+          resultMsg = e.Message;
+      }
     }
 
     private async Task ButtonReserver()

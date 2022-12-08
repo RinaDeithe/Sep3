@@ -22,7 +22,7 @@ public class ItemTypeController : ControllerBase
     {
         try
         {
-            Console.WriteLine("here");
+            Console.WriteLine(dto.Id);
             ItemType created = await itemManager.CreateItemTypeAsync(dto);
             return Created($"/itemtype/{created.Id}", created);
         }
@@ -33,11 +33,13 @@ public class ItemTypeController : ControllerBase
         }
     }
     
-    [HttpGet]
-    public async Task<ActionResult<ItemType>> ReadAsync([FromBody] ItemTypeSearchDto dto)
+    [HttpGet("{id:int}")]
+    public async Task<ActionResult<ItemType>> ReadAsync([FromRoute] int id)
     {
         try
         {
+            ItemTypeSearchDto dto = new ItemTypeSearchDto(id);
+            Console.WriteLine(id);
             ItemType created = await itemManager.ReadItemTypeAsync(dto);
             return Created($"/itemtype/{created.Id}", created);
         }
@@ -47,5 +49,7 @@ public class ItemTypeController : ControllerBase
             return StatusCode(500, e.Message);
         }
     }
+    
+    
 
 }

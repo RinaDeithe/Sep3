@@ -21,6 +21,10 @@ public class ShelfManager : IShelfManager
         _itemClient = itemClient;
     }
 
+    public ShelfManager()
+    {
+    }
+
     public async Task<bool> Update(ShelfAddItemRequestDto dtos)
     {
         if (await HasRoom(dtos))

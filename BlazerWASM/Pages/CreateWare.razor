@@ -60,6 +60,7 @@
             NewItemBeginState.Amount = (int)vareAntal;
             NewItemBeginState.Id = vareNummer;
             NewItemBeginState.User = (int)kundeNummer;
+            Console.WriteLine("test");
             await Service.ReadAsync(new ItemTypeSearchDto(vareNummer));
             
             kundeNummer = null;

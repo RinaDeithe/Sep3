@@ -9,6 +9,11 @@ public class ItemManager : IItemLogic
 {
     private IItemClient _itemClient;
     private IItemTypeClient _itemTypeClient;
+
+    public ItemManager()
+    {
+        
+    }
     
 /*
     public ItemManager(IShelfClient shelfClient, IItemClient itemClient, IItemTypeClient itemTypeClient)

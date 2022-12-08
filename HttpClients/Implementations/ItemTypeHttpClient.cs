@@ -34,7 +34,8 @@ public class ItemTypeHttpClient : IItemTypeService
 
     public async Task<ItemType> ReadAsync(ItemTypeSearchDto dto)
     {
-        HttpResponseMessage response = await client.GetAsync("/ItemType");
+        HttpResponseMessage response = await client.GetAsync($"/ItemType/{dto.Id}");
+        Console.WriteLine("test");
         string content = await response.Content.ReadAsStringAsync();
         if (!response.IsSuccessStatusCode)
         {
