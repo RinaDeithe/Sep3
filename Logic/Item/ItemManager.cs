@@ -1,8 +1,10 @@
+using ClientgRPC.Adapters.Shelf;
 using ClientgRPC.ClientInterfaces;
 using ClientgRPC.GRPC_stubs;
 using Logic.AdapterToGRPC.Item;
 using Logic.AdapterToGRPC.ItemType;
 using Logic.AdapterToGRPC.Shelf;
+using Logic.AdapterToGRPC.Shelf.Adp;
 using Logic.LogicInterfaces;
 using Microsoft.AspNetCore.Http;
 using Shared.DTOs;
@@ -14,7 +16,7 @@ namespace Logic.Logic;
 
 public class ItemManager : IItemLogic, IItemManager
 {
-    IShelfClient _shelfClient = new ShelfClient();
+    IShelfClient _shelfClient = new ShelfClient(new ReadShelfAdp(),new UpdateShelfAdp());
     IItemClient _itemClient = new TypeMainAdapter(); 
     IItemTypeClient _itemTypeClient = new ItemTypeMainAdapter();
 /*
@@ -78,6 +80,11 @@ public class ItemManager : IItemLogic, IItemManager
             Console.WriteLine(e);
             throw;
         }
+    }
+
+    public Task<Shared.Model.Item> CreateAsync(ItemSearchDto dto)
+    {
+        throw new NotImplementedException();
     }
 
     public async Task DeleteItemAsync(ItemSearchDto dto)
