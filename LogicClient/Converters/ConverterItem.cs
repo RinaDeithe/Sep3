@@ -1,20 +1,21 @@
-﻿using GRPC.Proto;
-using Shared.DTOs.Item;
+﻿using System.Collections;
+using GRPC.Proto;
+using Shared.DTOs;
 using Shared.Model;
 
-namespace ClientgRPC.Converters;
+namespace Logic.AdapterToGRPC;
 
 public class ConverterItem
 {
-    public static Item ItemProtoToItem(ItemProto itemProto)
+    public static Shared.Model.Item ItemProtoToItem(ItemProto itemProto)
     {
-        List<Item> items = new List<Item>();
+        List<Shared.Model.Item> items = new List<Shared.Model.Item>();
         
         User user = ConverterUser.UserProtoToUser(itemProto.Owner);
             
-        ItemType itemType = ConverterItemType.ItemTypeProtoToItemType(itemProto.Type);
+        itemType itemType = ConverterItemType.ItemTypeProtoToItemType(itemProto.Type);
 
-        Shelf shelf = new Shelf();
+        Shared.Model.Shelf shelf = new Shared.Model.Shelf();
         shelf.DimX = itemProto.Shelf.DimX;
         shelf.DimY = itemProto.Shelf.Dimz;
         shelf.DimZ = itemProto.Shelf.Dimz;
@@ -22,7 +23,7 @@ public class ConverterItem
         shelf.ShelfNo = itemProto.Shelf.ShelfNo;
 
 
-        Item result = new Item(itemType, itemProto.UniqueID, user, shelf);
+        Shared.Model.Item result = new Shared.Model.Item(itemType, itemProto.UniqueID, user, shelf);
 
         
 
@@ -30,9 +31,9 @@ public class ConverterItem
         {
             User _user = ConverterUser.UserProtoToUser(item.Owner);
             
-            ItemType _itemType = ConverterItemType.ItemTypeProtoToItemType(item.Type);  
+            itemType _itemType = ConverterItemType.ItemTypeProtoToItemType(item.Type);  
             
-            items.Add(new Item(_itemType,itemProto.UniqueID,_user,shelf));
+            items.Add(new Shared.Model.Item(_itemType,itemProto.UniqueID,_user,shelf));
         }
 
         shelf.ItemsOnShelf = items;
@@ -42,7 +43,7 @@ public class ConverterItem
 
     public static ItemCreation ItemCreationDtoToItemCreation(ItemCreationDto item)
     {
-        return new ItemCreation
-            { ItemTypeID = item.ItemTypeId, ShelfID = (int) item.shelfId!, OwnerID = item.OwnerId };
+        return new GRPC.Proto.ItemCreation
+            { ItemTypeID = item.ItemTypeId, ShelfID = item.shelfId, OwnerID = item.OwnerId };
     }
 }

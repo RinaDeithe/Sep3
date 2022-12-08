@@ -8,80 +8,89 @@ namespace ClientgRPC;
 
 public class GRPCServerSide : IGRPCServerSide{
     
-    public async  Task<ShelfProto> GetShelf(ShelfSearchRequest dto)
+    public async  Task<ShelfProto> GetShelf(ShelfSearchRequest search)
     {
         var _channel = GrpcChannel.ForAddress("http://localhost:9090");
         var _shelvesClient = new Serivce.SerivceClient(_channel);
-        ShelfProto shelfProto = await _shelvesClient.getShelfAsync(dto);
+        ShelfProto shelfProto = await _shelvesClient.getShelfAsync(search);
         return shelfProto;
     }
 
 
-    public async Task<ItemProto> GetItem(ItemSearchRequest dto)
+    public async Task<ItemProto> GetItem(ItemSearchRequest search)
     {
         var _channel = GrpcChannel.ForAddress("http://localhost:9090");
         var _itemClient = new Serivce.SerivceClient(_channel);
-        ItemProto itemProto = await _itemClient.ReadItemAsync(dto);
+        ItemProto itemProto = await _itemClient.ReadItemAsync(search);
         return itemProto;
     }
 
-    public async Task<ItemTypeProto> CreateItemTypeGRPC(ItemTypeCreationRequest dto)
+    public async Task<ItemTypeProto> CreateItemTypeGRPC(ItemTypeCreationRequest dao)
     {
         var _channel = GrpcChannel.ForAddress("http://localhost:9090");
         var _itemType = new Serivce.SerivceClient(_channel);
-        ItemTypeProto itemTypeProto = await _itemType.CreateItemTypeAsync(dto);
+        ItemTypeProto itemTypeProto = await _itemType.CreateItemTypeAsync(dao);
         return itemTypeProto;
     }
 
-    public async Task<ItemTypeProto> SearchItemTypeGRPC(ItemTypeSearchRequest dto)
+    public async Task<ItemTypeProto> SearchItemTypeGRPC(ItemTypeSearchRequest dao)
     {
         var _channel = GrpcChannel.ForAddress("http://localhost:9090");
         var _itemType = new Serivce.SerivceClient(_channel);
-        ItemTypeProto itemTypeProto = await _itemType.ReadItemTypeAsync(dto);
+        ItemTypeProto itemTypeProto = await _itemType.ReadItemTypeAsync(dao);
         return itemTypeProto;   
     }
 
-    public async Task<ItemProto> CreateItemGRPCAsync(ItemCreation dto)
+    public async Task<ItemProto> CreateItemGRPCAsync(ItemCreation dao)
     {
-        Console.WriteLine(dto);
         var _channel = GrpcChannel.ForAddress("http://localhost:9090");
         var _item = new Serivce.SerivceClient(_channel);
-        ItemProto itemProto = await _item.CreateItemAsync(dto);
+        ItemProto itemProto = await _item.CreateItemAsync(dao);
         return itemProto;   
     }
 
-    public async Task<ItemProto> GetItemGRPCAsync(ItemSearchRequest dto)
+    public async Task<ItemProto> GetItemGRPCAsync(ItemSearchRequest dao)
     {
         var _channel = GrpcChannel.ForAddress("http://localhost:9090");
         var _item = new Serivce.SerivceClient(_channel);
-        ItemProto itemProto = await _item.ReadItemAsync(dto);
-        Console.WriteLine(dto);
+        ItemProto itemProto = await _item.ReadItemAsync(dao);
+        Console.WriteLine(dao);
         return itemProto;    
     }
 
-    public async Task<ItemProto> DeleteItemGRPCAsync(ItemSearchRequest dto)
+    public async Task<ItemProto> DeleteItemGRPCAsync(ItemSearchRequest dao)
     {
         var _channel = GrpcChannel.ForAddress("http://localhost:9090");
         var _item = new Serivce.SerivceClient(_channel);
-        ItemProto itemProto = await _item.DeleteItemAsync(dto);
+        ItemProto itemProto = await _item.DeleteItemAsync(dao);
         return itemProto;
     }
 
 
-    public async Task<ShelfProto> ReadShelfAsync(ShelfSearchRequest dto)
+    public async Task<ShelfProto> ReadShelfAsync(ShelfSearchRequest dao)
     {
         var _channel = GrpcChannel.ForAddress("http://localhost:9090");
         var _shelf = new Serivce.SerivceClient(_channel);
-        ShelfProto shelfProto = await _shelf.getShelfAsync(dto);
+        ShelfProto shelfProto = await _shelf.getShelfAsync(dao);
         return shelfProto;
     }
 
-    public async Task<ShelfProto> UpdateSelfAsync(ShelfProto dto)
+    public async Task<ShelfProto> UpdateSelfAsync(ShelfProto dao)
     {
         var _channel = GrpcChannel.ForAddress("http://localhost:9090");
         var _shelf = new Serivce.SerivceClient(_channel);
-        ShelfProto shelfProto = await _shelf.UpdateShelfAsync(dto);
+        ShelfProto shelfProto = await _shelf.UpdateShelfAsync(dao);
         return shelfProto;
     }
+    
+    /*
+    public async Task<ShelvesListProto> GetAllShelfAsync(getAllRequest dto)
+    {
+        var _channel = GrpcChannel.ForAddress("http://localhost:9090");
+        var _shelf = new Serivce.SerivceClient(_channel);
+        ShelvesListProto shelfProto = await _shelf.getAllShelvesAsync(dto);
+        return shelfProto;
+    }
+*/
 
 }

@@ -21,7 +21,7 @@ public class ConverterItemType
 
     public static ItemTypeSearchRequest ItemTypeSearchDtoToItemTypeSearchRequest(ItemTypeSearchDto itemTypeSearchDto)
     {
-        return new ItemTypeSearchRequest{Id = itemTypeSearchDto.id};
+        return new ItemTypeSearchRequest{Id = itemTypeSearchDto.Id};
     }
    
 }

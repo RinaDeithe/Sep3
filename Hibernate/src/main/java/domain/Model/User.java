@@ -31,4 +31,8 @@ public class User {
     public String getRole() {
         return role;
     }
+
+    public void setRole(String something){
+        role = something;
+    }
 }

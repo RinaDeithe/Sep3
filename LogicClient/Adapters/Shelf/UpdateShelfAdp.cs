@@ -4,7 +4,15 @@ namespace ClientgRPC.Adapters.Shelf;
 
 public class UpdateShelfAdp
 {
-    private GRPCServerSide _grpcServerSide = new GRPCServerSide();
+    private readonly IGRPCServerSide _grpcServerSide;
+
+    /*
+    public UpdateShelfAdp(IGRPCServerSide grpcServerSide)
+    {
+        _grpcServerSide = grpcServerSide;
+    }
+    */
+
     public async Task<Shared.Model.Shelf> UpdateShelf(Shared.Model.Shelf dao)
     {
         ShelfProto shelfRequest = new ShelfProto

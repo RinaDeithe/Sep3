@@ -1,23 +1,26 @@
-﻿using ClientgRPC.Converters;
+﻿using ClientgRPC;
 using GRPC.Proto;
-using Shared.DTOs.Shelf;
+using Logic.AdapterToGRPC.Item.Adapterne;
+using Shared.DTOs;
+using Shared.Model;
 
-namespace ClientgRPC.Adapters.Shelf;
+namespace Logic.AdapterToGRPC.Shelf.Adp;
 
 public class ReadShelfAdp
 {
-    GRPCServerSide? GrpcServerSide { get;set; }
+    private readonly IGRPCServerSide _grpcServerSide = new GRPCServerSide();
+/*
+    public ReadShelfAdp(IGRPCServerSide grpcServerSide)
+    {
+        _grpcServerSide = grpcServerSide;
+    }
+*/
+    
 
     public async Task<Shared.Model.Shelf> ReadShelf(ShelfSearchParametersDto dao){
-    ShelfSearchRequest shelfSearchRequest = new ShelfSearchRequest{Id = dao.id};
-            ShelfProto shelfProto = await GrpcServerSide.ReadShelfAsync(shelfSearchRequest);
-
-            Shared.Model.Shelf shelf = ConverterShelf.ShelfProtoToShelf(shelfProto);
-            
-
-
-
-
-            return shelf;
+        ShelfSearchRequest shelfSearchRequest = new ShelfSearchRequest{Id = dao.id};
+        ShelfProto shelfProto = await _grpcServerSide.ReadShelfAsync(shelfSearchRequest);
+        Shared.Model.Shelf shelf = ConverterShelf.ShelfProtoToShelf(shelfProto);
+        return shelf;
     }
 }

@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="81ffe829-311a-4bde-8753-4e2da12b99da" name="Changes" comment="Slettede gammelt modul">
+    <list default="true" id="81ffe829-311a-4bde-8753-4e2da12b99da" name="Changes" comment="bug fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/Proto/File.proto" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/Proto/File.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/database/daos/DbDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/database/daos/DbDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/database/orm/DbConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/database/orm/DbConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/database/orm/IConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/database/orm/IConnector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/services/GrpcItemTypeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/services/GrpcItemTypeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/converter/ItemConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/converter/ItemConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/services/GrpcShelfService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/services/GrpcShelfService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,7 +24,13 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="JpbToolWindowState">
     <option name="myId2FirstActivated">
@@ -57,6 +60,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="sqlite" />
+    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
     <property name="JPA.DatabaseSchemaImportDialog" value="29eccfd2-7cc1-4776-9a66-3b1825bb32a3" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
@@ -78,6 +82,8 @@
       <recent name="C:\Users\Rumle\IdeaProjects\MidTermDraft\Hibernate\src\main\proto" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\via\Java3\RabbitMQ\MidTermDraft\Hibernate\src\main\java" />
+      <recent name="C:\via\Java3\RabbitMQ\MidTermDraft\Hibernate\src" />
       <recent name="C:\Users\Rumle\IdeaProjects\MidTermDraft" />
       <recent name="C:\Users\Rumle\IdeaProjects\Tier3" />
       <recent name="C:\Users\Rumle\IdeaProjects" />
@@ -93,7 +99,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Application.DatabaseInitializer">
+  <component name="RunManager" selected="JUnit.TestConverter.testItemToItemProto">
     <configuration name="Database" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Database" />
       <module name="DB" />
@@ -114,17 +120,30 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ConverterShelfTest.name" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="DB" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="adapter.converter.ShelfProto.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="adapter.converter.ShelfProto" />
-      <option name="MAIN_CLASS_NAME" value="adapter.converter.ShelfProto.ConverterShelfTest" />
-      <option name="METHOD_NAME" value="name" />
+    <configuration name="TestConverter" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Hibernate" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestConverter" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestConverter.testItemToItemProto" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Hibernate" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestConverter" />
+      <option name="METHOD_NAME" value="testItemToItemProto" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestConverter.testItemTypeToItemProto" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Hibernate" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestConverter" />
+      <option name="METHOD_NAME" value="testItemTypeToItemProto" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -157,10 +176,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TestConverter.testItemToItemProto" />
         <item itemvalue="Application.DatabaseInitializer" />
+        <item itemvalue="JUnit.TestConverter" />
+        <item itemvalue="JUnit.TestConverter.testItemTypeToItemProto" />
         <item itemvalue="Application.Database" />
-        <item itemvalue="JUnit.ConverterShelfTest.name" />
-        <item itemvalue="JUnit.ConverterShelfTest.name" />
       </list>
     </recent_temporary>
   </component>
@@ -190,7 +210,12 @@
       <workItem from="1670352301578" duration="4162000" />
       <workItem from="1670359405390" duration="8424000" />
       <workItem from="1670367905470" duration="9672000" />
-      <workItem from="1670378275184" duration="3668000" />
+      <workItem from="1670378275184" duration="4924000" />
+      <workItem from="1670383749232" duration="1893000" />
+      <workItem from="1670403470519" duration="595000" />
+      <workItem from="1670405642585" duration="5000" />
+      <workItem from="1670412153492" duration="595000" />
+      <workItem from="1670485250421" duration="4333000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit Java">
       <created>1667318961742</created>
@@ -311,7 +336,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670378404061</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="bug fix">
+      <created>1670381981350</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1670381981350</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -354,7 +386,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
@@ -373,7 +404,8 @@
     <MESSAGE value="Rykkede alt domain over i sin egen module." />
     <MESSAGE value="Lavet nye services til nemmere overblik + Nemmere tilføjelse af nye services + nemmere tilføjelse af nye messages." />
     <MESSAGE value="Slettede gammelt modul" />
-    <option name="LAST_COMMIT_MESSAGE" value="Slettede gammelt modul" />
+    <MESSAGE value="bug fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="bug fix" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

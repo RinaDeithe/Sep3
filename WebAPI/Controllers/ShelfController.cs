@@ -17,7 +17,7 @@ public class ShelfController : ControllerBase
     }
 
     [HttpPatch]
-    public async Task<ActionResult<bool>> update(List<ShelfAddItemRequestDto> dtos)
+    public async Task<ActionResult<bool>> update(ShelfAddItemRequestDto dtos)
     {
         
         try
