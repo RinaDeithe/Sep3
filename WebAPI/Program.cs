@@ -23,7 +23,7 @@ builder.Services.AddScoped<IItemManager, ItemManager>();
 
 
 builder.Services.AddScoped<IItemClient, TypeMainAdapter>();
-builder.Services.AddScoped<IItemTypeClient, IItemTypeClient>();
+builder.Services.AddScoped<IItemTypeClient, ItemTypeClient>();
 builder.Services.AddScoped<IShelfClient, ShelfClient>();
 
 builder.Services.AddScoped<IGRPCServerSide, GRPCServerSide>();

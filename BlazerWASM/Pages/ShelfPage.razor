@@ -56,7 +56,7 @@
                 <tr>
                     <td>@item.ShelfID</td>
                     <td>@item.AvalibleSpace</td>
-                    <td><INPUT name="InputWished" type="textfield" placeholder="skriv ønsket mængde"class="border-0" @bind=""/></td>
+                    <td><INPUT name="InputWished" type="textfield" placeholder="skriv ønsket mængde"class="border-0" /></td>
                     <td><label></label></td>
                 </tr>
             }
@@ -72,13 +72,14 @@
     private int? InputWished;
      
     private ItemType? _itemType;
+    
 
 
 
 
 
 
-    private readonly ItemRegisterReqiestDto _glqt;
+    private ItemRegisterReqiestDto _glqt = new ItemRegisterReqiestDto(0,null);
 
     public ShelfPage()
     {

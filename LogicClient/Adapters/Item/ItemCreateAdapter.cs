@@ -7,7 +7,7 @@ namespace ClientgRPC.Adapters.Item;
 
 public class ItemCreateAdapter
 {
-    private readonly IGRPCServerSide _grpcServerSide = new GRPCServerSide();
+    private readonly IGRPCServerSide _grpcServerSide;
     
 
     public async Task<Shared.Model.Item> createItem(ItemCreationDto dto)
