@@ -3,7 +3,6 @@ using System.Net.Http.Json;
 using System.Text.Json;
 using HttpClients.ClientInterfaces;
 using Shared.DTOs;
-using Shared.DTOs.ItemType;
 using Shared.Model;
 
 
@@ -11,14 +10,14 @@ namespace HttpClients.Implementations;
 
 public class ItemTypeHttpClient : IItemTypeService
 {
-    private HttpClient client;
+    private readonly HttpClient client;
 
     public ItemTypeHttpClient(HttpClient client) {
         this.client = client;
     }
-    public async Task<ItemType> CreateAsync(ItemTypeCreationDto dto)
+    public async Task<itemType> CreateAsync(ItemTypeCreationDto dto)
     {
-        HttpResponseMessage response = await client.PostAsJsonAsync("/itemtype", dto);
+        HttpResponseMessage response = await client.PostAsJsonAsync("/itemsType", dto);
         string result = await response.Content.ReadAsStringAsync();
         
         if (!response.IsSuccessStatusCode)
@@ -27,29 +26,26 @@ public class ItemTypeHttpClient : IItemTypeService
             throw new Exception(result);
         }
 
-        ItemType itemType = JsonSerializer.Deserialize<ItemType>(result, new JsonSerializerOptions
+        itemType itemType = JsonSerializer.Deserialize<itemType>(result, new JsonSerializerOptions
         {
             PropertyNameCaseInsensitive = true
         })!;
         return itemType;
     }
-    
-    public async Task<ItemType> ReadAsync(int id)
+
+    public async Task<itemType> ReadAsync(ItemTypeSearchDto dto)
     {
-        HttpResponseMessage response = await client.GetAsync($"/itemtype/{id}");
-        string result = await response.Content.ReadAsStringAsync();
-        
+        HttpResponseMessage response = await client.GetAsync("/ItemType");
+        string content = await response.Content.ReadAsStringAsync();
         if (!response.IsSuccessStatusCode)
         {
-            
-            throw new Exception(result);
+            throw new Exception(content);
         }
 
-        ItemType itemType = JsonSerializer.Deserialize<ItemType>(result, new JsonSerializerOptions
+        itemType result = JsonSerializer.Deserialize<itemType>(content, new JsonSerializerOptions
         {
             PropertyNameCaseInsensitive = true
         })!;
-        return itemType;
+        return result;
     }
-
 }

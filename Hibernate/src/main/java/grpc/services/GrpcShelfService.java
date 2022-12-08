@@ -9,7 +9,7 @@ import grpc.converter.ShelfConverter;
 import io.grpc.stub.StreamObserver;
 
 import java.util.List;
-
+// SHELF CONVERTER OG DE DIVERSE SHELF PROTO MESSAGES SKAL OPDATERERS TIL IKKE KUN AT HAVE 1 ID, MEN 2.
 public class GrpcShelfService extends ShelfServiceGrpc.ShelfServiceImplBase {
 
     IDbDao<Shelf> dao;

@@ -5,7 +5,7 @@
 @using global::Shared.DTOs.Item
 
 
-@inject IItemService Service;
+@inject IItemTypeService Service;
 @inject NavigationManager NavigationManager;
 @inject AddNewItemBeginState NewItemBeginState;
 
@@ -49,7 +49,7 @@
 
 
     private int? kundeNummer;
-    private int? vareNummer;
+    private int vareNummer;
     private int? vareAntal;
     private string resultMsg;
     private string color;
@@ -59,12 +59,11 @@
         try
         {
             NewItemBeginState.Amount = (int)vareAntal;
-            NewItemBeginState.Id = (int)vareNummer;
+            NewItemBeginState.Id = vareNummer;
             NewItemBeginState.User = (int)kundeNummer;
-            await Service.CreateAsync(new ItemCreationDto((int)vareNummer, (int)vareAntal, (int)kundeNummer,true,0));
+            await Service.ReadAsync(new ItemTypeSearchDto(vareNummer));
             
             kundeNummer = null;
-            vareNummer = null;
             vareAntal = null;
             resultMsg = "";
             color = "green";

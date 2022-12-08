@@ -1,0 +1,42 @@
+﻿@page "/DeleteItem"
+@using HttpClients.ClientInterfaces
+@using global::Shared.DTOs
+
+@inject IItemService Service;
+
+<h3>DeleteItem</h3>
+
+<table>
+    <tr>
+        
+        <td class="border-1 text-center fw-bold">
+            <label >Vare Id: </label>
+            <INPUT name="InputWished" type="textfield" placeholder="Dit vare Unikke ID"class="border-0" @bind="uniqevareNummer"/>
+        </td>
+        
+    </tr>
+    <tr>
+        <button type="button" name="klik" onclick="@Delete()">klik</button>
+    </tr>
+</table>
+
+
+
+@code {
+    int uniqevareNummer;
+
+    private async Task Delete()
+    {
+        try
+        {
+            await Service.DeleItemAsync(new ItemSearchDto(uniqevareNummer));
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+        
+    }
+    
+}

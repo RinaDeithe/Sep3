@@ -6,16 +6,14 @@ namespace ClientgRPC.GRPC_stubs;
 
 public class TypeMainAdapter : IItemClient
 {
-    private readonly ItemCreateAdapter _itemCreateAdapter;
-    private readonly ReadItemAdp _readItemAdp;
-    private readonly DeleteItemAdp _deleteItemAdp ;
+    private readonly ItemCreateAdapter _itemCreateAdapter = new();
+    private readonly ReadItemAdp _readItemAdp = new();
+    private readonly DeleteItemAdp _deleteItemAdp = new() ;
 
 
-    public TypeMainAdapter(ItemCreateAdapter itemCreateAdapter, ReadItemAdp readItemAdp, DeleteItemAdp deleteItemAdp)
+    public TypeMainAdapter()
     {
-        _itemCreateAdapter = itemCreateAdapter;
-        _readItemAdp = readItemAdp;
-        _deleteItemAdp = deleteItemAdp;
+        
     }
 
     public async Task<Shared.Model.Item> Create(ItemCreationDto dto)
