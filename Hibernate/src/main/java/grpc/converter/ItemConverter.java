@@ -35,7 +35,14 @@ public enum ItemConverter {
         for (Item index : itemList) {
             protoList.add(File.ItemProto.newBuilder()
                     .setOwner(UserConverter.CONVERT.toUserProto(index.getOwner()))
-                    .setShelf(ShelfConverter.CONVERT.toShelfProto(index.getShelf()))
+                    .setShelf(
+                            File.ShelfProto.newBuilder().setRowNo(index.getShelf().getRowNo())
+                                    .setRowNo(index.getShelf().getShelfNo())
+                                    .setShelfDimZ(index.getShelf().getDimZ())
+                                    .setShelfDimY(index.getShelf().getDimY())
+                                    .setShelfDimX(index.getShelf().getDimX())
+                                    .build()
+                    )
                     .setUniqueID(index.getUID())
                     .setType(ItemTypeConverter.CONVERT.toTypeProto(index.getType()))
                     .build());
