@@ -1,5 +1,3 @@
-using LogicClient.ClientInterfaces;
-using LogicClient.GRPC_stubs;
 using Logic.Authentication;
 using Logic.Item;
 using Logic.Shelf;
@@ -17,10 +15,11 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IShelfManager, ShelfManager>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IItemLogic, ItemManager>();
-builder.Services.AddScoped<IItemClient, ItemStub>();
+/*builder.Services.AddScoped<IItemClient, ItemStub>();
 builder.Services.AddScoped<IItemTypeClient, ItemTypeStub>();
 builder.Services.AddScoped<IShelfClient, ShelfStub>();
 builder.Services.AddScoped<IUserClient, UserStub>();
+*/
 
 var app = builder.Build();
 

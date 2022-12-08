@@ -17,7 +17,7 @@ public class ConverterItemType
 
     public ItemTypeSearchRequest SearchToProto(ItemTypeSearchDto dto) {
         return new ItemTypeSearchRequest {
-            Id = dto.id
+            Id = dto.Id
         };
     }
 
@@ -30,4 +30,5 @@ public class ConverterItemType
 
         return typeList;
     }
+    
 }

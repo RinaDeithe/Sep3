@@ -1,11 +1,13 @@
+
+
+using ClientgRPC.ClientInterfaces;
 using ClientgRPC.Converters;
 using Grpc.Net.Client;
 using GRPC.Proto;
-using LogicClient.ClientInterfaces;
 using Shared.DTOs.User;
 using Shared.Model;
 
-namespace LogicClient.GRPC_stubs; 
+namespace ClientgRPC.GRPC_stubs; 
 
 public class UserStub : IUserClient {
     private GrpcChannel _channel;

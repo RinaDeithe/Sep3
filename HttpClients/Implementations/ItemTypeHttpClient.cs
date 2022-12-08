@@ -1,8 +1,6 @@
-﻿using System.Net;
-using System.Net.Http.Json;
+﻿using System.Net.Http.Json;
 using System.Text.Json;
 using HttpClients.ClientInterfaces;
-using Shared.DTOs;
 using Shared.DTOs.ItemType;
 using Shared.Model;
 
@@ -48,5 +46,10 @@ public class ItemTypeHttpClient : IItemTypeService
             PropertyNameCaseInsensitive = true
         })!;
         return result;
+    }
+
+    public bool CheckType(ItemTypeSearchDto itemTypeSearchDto)
+    {
+        throw new NotImplementedException();
     }
 }

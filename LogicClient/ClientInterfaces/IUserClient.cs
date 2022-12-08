@@ -1,7 +1,7 @@
 ﻿using Shared.DTOs.User;
 using Shared.Model;
 
-namespace LogicClient.ClientInterfaces;
+namespace ClientgRPC.ClientInterfaces;
 
 public interface IUserClient {
     Task<User> Create(UserCreationDto dto);

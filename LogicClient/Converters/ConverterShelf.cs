@@ -6,6 +6,8 @@ namespace ClientgRPC.Converters;
 
 public class ConverterShelf
 {
+    
+    
     public ShelfCreationRequest CreationToProto(ShelfCreationDto dto) {
         return new ShelfCreationRequest {
             RowNo = dto.RowNo,
@@ -34,4 +36,5 @@ public class ConverterShelf
 
         return returnList;
     }
+    
 }

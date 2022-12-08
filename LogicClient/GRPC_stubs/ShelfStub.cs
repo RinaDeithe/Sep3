@@ -1,11 +1,13 @@
+
+
+using ClientgRPC.ClientInterfaces;
 using ClientgRPC.Converters;
 using Grpc.Net.Client;
 using GRPC.Proto;
-using LogicClient.ClientInterfaces;
 using Shared.DTOs.Shelf;
 using Shared.Model;
 
-namespace LogicClient.GRPC_stubs; 
+namespace ClientgRPC.GRPC_stubs; 
 
 public class ShelfStub : IShelfClient {
     private GrpcChannel _channel;

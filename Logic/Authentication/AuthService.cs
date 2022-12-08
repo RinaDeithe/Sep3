@@ -1,4 +1,4 @@
-﻿using LogicClient.ClientInterfaces;
+﻿using ClientgRPC.ClientInterfaces;
 using Shared.DTOs.User;
 using Shared.Model;
 
