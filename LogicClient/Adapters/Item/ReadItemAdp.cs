@@ -1,6 +1,7 @@
 ﻿using ClientgRPC;
 using GRPC.Proto;
 using Shared.DTOs;
+using Shared.DTOs.Item;
 using Shared.Model;
 using Shelf = Shared.Model.Shelf;
 

@@ -8,9 +8,9 @@ public class ReadItemTypeAdapter
 {
     private readonly IGRPCServerSide _grpcServerSide;
 
-    public ReadItemTypeAdapter(IGRPCServerSide grpcServerSide)
+    public ReadItemTypeAdapter()
     {
-        _grpcServerSide = grpcServerSide;
+        
     }
 
     public async Task<Shared.Model.ItemType> ReadItem(ItemTypeSearchDto dto)

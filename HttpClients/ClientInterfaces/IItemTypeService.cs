@@ -1,10 +1,11 @@
 ﻿using Shared.DTOs;
+using Shared.DTOs.ItemType;
 using Shared.Model;
 
 namespace HttpClients.ClientInterfaces;
 
 public interface IItemTypeService
 {
-    Task<itemType> CreateAsync(ItemTypeCreationDto dto);
-    Task<itemType> ReadAsync(ItemTypeSearchDto dto);
+    Task<ItemType> CreateAsync(ItemTypeCreationDto dto);
+    Task<ItemType> ReadAsync(ItemTypeSearchDto dto);
 }

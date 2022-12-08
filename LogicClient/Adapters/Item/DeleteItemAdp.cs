@@ -1,5 +1,6 @@
 ﻿using ClientgRPC.Converters;
 using GRPC.Proto;
+using Logic.AdapterToGRPC;
 using Shared.DTOs.Item;
 
 namespace ClientgRPC.Adapters.Item;

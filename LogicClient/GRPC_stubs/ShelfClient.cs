@@ -1,5 +1,6 @@
 ﻿using ClientgRPC.Adapters.Shelf;
 using ClientgRPC.ClientInterfaces;
+using Logic.AdapterToGRPC.Shelf.Adp;
 using Shared.DTOs.Shelf;
 using Shared.Model;
 

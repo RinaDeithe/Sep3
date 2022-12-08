@@ -1,5 +1,6 @@
 ﻿using ClientgRPC.Adapters.Item;
 using ClientgRPC.ClientInterfaces;
+using Logic.AdapterToGRPC.Item.Adapterne;
 using Shared.DTOs.Item;
 
 namespace ClientgRPC.GRPC_stubs;

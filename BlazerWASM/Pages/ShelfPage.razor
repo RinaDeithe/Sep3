@@ -53,7 +53,7 @@
                 <tr>
                     <td>@item.ShelfID</td>
                     <td>@item.AvalibleSpace</td>
-                    <td><INPUT name="InputWished" type="textfield" placeholder="skriv ønsket mængde"class="border-0"/></td>
+                    <td><INPUT name="InputWished" type="textfield" placeholder="skriv ønsket mængde"class="border-0" @bind=""/></td>
                     <td><label></label></td>
                 </tr>
             }
@@ -68,7 +68,7 @@
     private int? AvalibleCapacity;
     private int? InputWished;
      
-    private itemType _itemType;
+    private ItemType _itemType;
 
 
     

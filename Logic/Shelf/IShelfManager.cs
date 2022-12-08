@@ -5,7 +5,7 @@ namespace Logic.Shelf;
 
 public interface IShelfManager
 {
-    Task<bool> Update(List<ShelfAddItemRequestDto> dtos);
+    Task<bool> Update(ShelfAddItemRequestDto dtos);
 
     Task<List<AmountOnSpaceDto>> GetAmountOnShelf(int ItemTypeId);
 

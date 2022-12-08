@@ -1,6 +1,8 @@
 ﻿using System.Collections;
+using ClientgRPC.Converters;
 using GRPC.Proto;
 using Shared.DTOs;
+using Shared.DTOs.Item;
 using Shared.Model;
 
 namespace Logic.AdapterToGRPC;
@@ -13,7 +15,7 @@ public class ConverterItem
         
         User user = ConverterUser.UserProtoToUser(itemProto.Owner);
             
-        itemType itemType = ConverterItemType.ItemTypeProtoToItemType(itemProto.Type);
+        ItemType itemType = ConverterItemType.ItemTypeProtoToItemType(itemProto.Type);
 
         Shared.Model.Shelf shelf = new Shared.Model.Shelf();
         shelf.DimX = itemProto.Shelf.DimX;
@@ -31,7 +33,7 @@ public class ConverterItem
         {
             User _user = ConverterUser.UserProtoToUser(item.Owner);
             
-            itemType _itemType = ConverterItemType.ItemTypeProtoToItemType(item.Type);  
+            ItemType _itemType = ConverterItemType.ItemTypeProtoToItemType(item.Type);  
             
             items.Add(new Shared.Model.Item(_itemType,itemProto.UniqueID,_user,shelf));
         }

@@ -9,9 +9,9 @@ public class ItemTypeCreateAdapter
     
     private IGRPCServerSide _grpcServerSide;
 
-    public ItemTypeCreateAdapter(IGRPCServerSide grpcServerSide)
+    public ItemTypeCreateAdapter()
     {
-        _grpcServerSide = grpcServerSide;
+        
     }
 
     public async Task<Shared.Model.ItemType>  CreateAdapter(ItemTypeCreationDto dto)

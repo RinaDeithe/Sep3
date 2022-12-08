@@ -36,4 +36,17 @@ public class ConverterShelf
             Dimy = shelf.DimY, Dimz = shelf.DimZ, DimX = shelf.DimX, RowNo = shelf.RowNo, ShelfNo = shelf.ShelfNo
         };
     }
+    /*
+    public static List<Shared.Model.Shelf> AllShelvesProtoToAllShelves(ShelvesListProto shelvesListProto)
+    {
+        List<Shared.Model.Shelf> result = new List<Shared.Model.Shelf>();
+        
+        foreach (ShelfProto protoList in shelvesListProto.Proto)
+        {
+            result.Add(ShelfProtoToShelf(protoList));
+        }
+
+        return result;
+    }
+    */
 }

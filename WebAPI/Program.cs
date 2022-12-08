@@ -1,9 +1,12 @@
 using ClientgRPC;
+using ClientgRPC.ClientInterfaces;
+using ClientgRPC.GRPC_stubs;
 using Logic.AdapterToGRPC.Item;
 using Logic.AdapterToGRPC.ItemType;
 using Logic.AdapterToGRPC.Shelf;
 using Logic.Logic;
 using Logic.LogicInterfaces;
+using Shared.Model;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,7 +23,7 @@ builder.Services.AddScoped<IItemManager, ItemManager>();
 
 
 builder.Services.AddScoped<IItemClient, TypeMainAdapter>();
-builder.Services.AddScoped<IItemTypeClient, ItemTypeMainAdapter>();
+builder.Services.AddScoped<IItemTypeClient, IItemTypeClient>();
 builder.Services.AddScoped<IShelfClient, ShelfClient>();
 
 builder.Services.AddScoped<IGRPCServerSide, GRPCServerSide>();

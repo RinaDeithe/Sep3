@@ -22,4 +22,6 @@ public class ItemTypeMainAdapter: IItemTypeClient
 
         return await readadp.ReadItem(dto);
     }
+    
+    
 }

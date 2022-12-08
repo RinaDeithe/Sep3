@@ -1,7 +1,9 @@
 ﻿using ClientgRPC;
+using ClientgRPC.Converters;
 using GRPC.Proto;
 using Logic.AdapterToGRPC.Item.Adapterne;
 using Shared.DTOs;
+using Shared.DTOs.Shelf;
 using Shared.Model;
 
 namespace Logic.AdapterToGRPC.Shelf.Adp;
