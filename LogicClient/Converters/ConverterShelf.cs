@@ -1,8 +1,12 @@
-﻿namespace ClientgRPC.Converters;
+﻿using GRPC.Proto;
+using Shared.DTOs.Shelf;
+using Shared.Model;
+
+namespace ClientgRPC.Converters;
 
 public class ConverterShelf
 {
-    /*
+    
     
     public ShelfCreationRequest CreationToProto(ShelfCreationDto dto) {
         return new ShelfCreationRequest {
@@ -32,5 +36,5 @@ public class ConverterShelf
 
         return returnList;
     }
-    */
+    
 }

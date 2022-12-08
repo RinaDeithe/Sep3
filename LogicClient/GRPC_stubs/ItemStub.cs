@@ -1,5 +1,12 @@
 
-/*
+
+using ClientgRPC.ClientInterfaces;
+using ClientgRPC.Converters;
+using Grpc.Net.Client;
+using GRPC.Proto;
+using Shared.DTOs.Item;
+using Shared.Model;
+
 namespace ClientgRPC.GRPC_stubs; 
 
 public class ItemStub : IItemClient {
@@ -44,4 +51,3 @@ public class ItemStub : IItemClient {
     }
 
 }
-*/

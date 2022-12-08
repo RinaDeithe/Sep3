@@ -1,8 +1,12 @@
-﻿namespace ClientgRPC.Converters;
+﻿using GRPC.Proto;
+using Shared.DTOs.Item;
+using Shared.Model;
+
+namespace ClientgRPC.Converters;
 
 public class ConverterItem
 {
-    /*
+    
     public ItemCreation CreationDtoToProto(ItemCreationDto dto) {
         
         return new ItemCreation
@@ -50,5 +54,5 @@ public class ConverterItem
 
         };
     }
-    */
+    
 }

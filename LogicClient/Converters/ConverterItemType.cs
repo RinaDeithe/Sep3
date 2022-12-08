@@ -1,8 +1,12 @@
-﻿namespace ClientgRPC.Converters;
+﻿using GRPC.Proto;
+using Shared.DTOs.ItemType;
+using Shared.Model;
+
+namespace ClientgRPC.Converters;
 
 public class ConverterItemType
 {
-/*
+
     public ItemTypeCreationRequest CreationToProto(ItemTypeCreationDto dto) {
         return new ItemTypeCreationRequest { Id = dto.Id, ItemDimX = dto.DimensionX, ItemDimY = dto.DimenstionY, ItemDimZ = dto.DimensionZ};
     }
@@ -13,7 +17,7 @@ public class ConverterItemType
 
     public ItemTypeSearchRequest SearchToProto(ItemTypeSearchDto dto) {
         return new ItemTypeSearchRequest {
-            Id = dto.id
+            Id = dto.Id
         };
     }
 
@@ -26,5 +30,5 @@ public class ConverterItemType
 
         return typeList;
     }
-    */
+    
 }

@@ -1,5 +1,12 @@
 
-/*
+
+using ClientgRPC.ClientInterfaces;
+using ClientgRPC.Converters;
+using Grpc.Net.Client;
+using GRPC.Proto;
+using Shared.DTOs.ItemType;
+using Shared.Model;
+
 namespace ClientgRPC.GRPC_stubs; 
 
 public class ItemTypeStub : IItemTypeClient {
@@ -40,4 +47,3 @@ public class ItemTypeStub : IItemTypeClient {
         return Task.FromResult(_converter.ProtoToType(_client.Delete(request)));
     }
 }
-*/

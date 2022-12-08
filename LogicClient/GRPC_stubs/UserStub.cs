@@ -1,5 +1,12 @@
 
-/*
+
+using ClientgRPC.ClientInterfaces;
+using ClientgRPC.Converters;
+using Grpc.Net.Client;
+using GRPC.Proto;
+using Shared.DTOs.User;
+using Shared.Model;
+
 namespace ClientgRPC.GRPC_stubs; 
 
 public class UserStub : IUserClient {
@@ -39,4 +46,3 @@ public class UserStub : IUserClient {
         return Task.FromResult(_converter.ProtoToUser(_client.Delete(request)));
     }
 }
-*/

@@ -1,5 +1,12 @@
 
-/*
+
+using ClientgRPC.ClientInterfaces;
+using ClientgRPC.Converters;
+using Grpc.Net.Client;
+using GRPC.Proto;
+using Shared.DTOs.Shelf;
+using Shared.Model;
+
 namespace ClientgRPC.GRPC_stubs; 
 
 public class ShelfStub : IShelfClient {
@@ -39,4 +46,3 @@ public class ShelfStub : IShelfClient {
         return Task.FromResult(ConverterShelf.ProtoToShelf(_client.Delete(request)));
     }
 }
-*/
