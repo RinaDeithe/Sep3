@@ -15,7 +15,7 @@ service ItemTypeService {
   rpc Create(ItemTypeCreationRequest) returns (ItemTypeProto);
   rpc Read(ItemTypeSearchRequest) returns (ItemTypeProto);
   rpc ReadAll(emptyParams) returns (ItemTypeListProto);
-  rpc Update(ItemProto) returns (ItemProto);
+  rpc Update(ItemTypeProto) returns (ItemTypeProto);
   rpc Delete(ItemTypeSearchRequest) returns (ItemTypeProto);
 }
 
@@ -23,7 +23,7 @@ service ShelfService {
   rpc Create(ShelfCreationRequest) returns (ShelfProto);
   rpc Read(ShelfSearchRequest) returns (ShelfProto);
   rpc ReadAll(emptyParams) returns (ShelvesListProto);
-  rpc Update(ItemProto) returns (ItemProto);
+  rpc Update(ShelfProto) returns (ShelfProto);
   rpc Delete(ShelfSearchRequest) returns (ShelfProto);
 }
 
@@ -31,7 +31,7 @@ service UserService {
   rpc Create(CreateUserRequest) returns (UserProto);
   rpc Read(UserSearchRequest) returns (UserProto);
   rpc ReadAll(emptyParams) returns (UserListProto);
-  rpc Update(ItemProto) returns (ItemProto);
+  rpc Update(UserProto) returns (UserProto);
   rpc Delete(UserSearchRequest) returns (UserProto);
 }
 
@@ -55,7 +55,8 @@ message ShelfCreationRequest {
 }
 
 message ShelfSearchRequest{
-  int32 id = 1;
+  string RowNo = 1;
+  string ShelfNo = 2;
 }
 
 message ShelvesListProto{

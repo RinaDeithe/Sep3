@@ -5,7 +5,7 @@ import javax.persistence.*;
 @Entity
 public class Item {
 
-    @OneToOne
+    @ManyToOne
     private ItemType type;
 
     @Id
@@ -13,7 +13,7 @@ public class Item {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int UID;
 
-    @OneToOne
+    @ManyToOne
     private User Owner;
 
     @ManyToOne

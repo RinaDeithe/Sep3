@@ -14,7 +14,7 @@ public enum ItemConverter {
     CONVERT;
 
     public Item toItemFromCreation(File.ItemCreation request) {
-        return new Item(new ItemType(request.getItemTypeID(), null, null, null), new User(request.getOwnerID()), new Shelf(request.getShelfID() + "", request.getShelfID() + "" , 0, 0, 0, null));
+        return new Item(new ItemType(request.getItemTypeID(), null, null, null), new User(request.getOwnerID(), "temp"), new Shelf(request.getShelfID() + "", request.getShelfID() + "" , 0, 0, 0, null));
     }
 
     public File.ItemProto toItemProtoFromItem(Item item) {
@@ -26,7 +26,7 @@ public enum ItemConverter {
                 .build();
     }
 
-    public File.ItemListProto toItemProtoFromList(List<Item> itemList) {
+    public File.ItemListProto toProtoFromList(List<Item> itemList) {
 
         File.ItemListProto.Builder builder = File.ItemListProto.newBuilder();
 
@@ -52,5 +52,11 @@ public enum ItemConverter {
 
 
         return builder.build();
+    }
+
+    public Item toItemFromProto(File.ItemProto request) {
+
+        return new Item(request.getUniqueID(), ItemTypeConverter.CONVERT.toTypeFromProto(request.getType()), UserConverter.CONVERT.toUserFromProto(request.getOwner()), ShelfConverter.CONVERT.toShelfFromProto(request.getShelf()));
+
     }
 }
