@@ -11685,35 +11685,41 @@ public final class File {
       " \001(\t\"-\n\021UserSearchRequest\022\n\n\002Id\030\001 \001(\005\022\014\n" +
       "\004role\030\002 \001(\t\"4\n\rUserListProto\022#\n\004list\030\001 \003" +
       "(\0132\025.GRPC.proto.UserProto\"\017\n\rgetAllReque" +
-      "st\"\r\n\013emptyParams2\205\002\n\013ItemService\0229\n\006Cre",
+      "st\"\r\n\013emptyParams2\275\002\n\013ItemService\0229\n\006Cre",
       "ate\022\030.GRPC.proto.ItemCreation\032\025.GRPC.pro" +
       "to.ItemProto\022<\n\004Read\022\035.GRPC.proto.ItemSe" +
       "archRequest\032\025.GRPC.proto.ItemProto\022=\n\007Re" +
       "adAll\022\027.GRPC.proto.emptyParams\032\031.GRPC.pr" +
-      "oto.ItemListProto\022>\n\006Delete\022\035.GRPC.proto" +
-      ".ItemSearchRequest\032\025.GRPC.proto.ItemProt" +
-      "o2\254\002\n\017ItemTypeService\022H\n\006Create\022#.GRPC.p" +
-      "roto.ItemTypeCreationRequest\032\031.GRPC.prot" +
-      "o.ItemTypeProto\022D\n\004Read\022!.GRPC.proto.Ite" +
-      "mTypeSearchRequest\032\031.GRPC.proto.ItemType",
-      "Proto\022A\n\007ReadAll\022\027.GRPC.proto.emptyParam" +
-      "s\032\035.GRPC.proto.ItemTypeListProto\022F\n\006Dele" +
-      "te\022!.GRPC.proto.ItemTypeSearchRequest\032\031." +
-      "GRPC.proto.ItemTypeProto2\226\002\n\014ShelfServic" +
-      "e\022B\n\006Create\022 .GRPC.proto.ShelfCreationRe" +
-      "quest\032\026.GRPC.proto.ShelfProto\022>\n\004Read\022\036." +
-      "GRPC.proto.ShelfSearchRequest\032\026.GRPC.pro" +
-      "to.ShelfProto\022@\n\007ReadAll\022\027.GRPC.proto.em" +
-      "ptyParams\032\034.GRPC.proto.ShelvesListProto\022" +
-      "@\n\006Delete\022\036.GRPC.proto.ShelfSearchReques",
-      "t\032\026.GRPC.proto.ShelfProto2\212\002\n\013UserServic" +
-      "e\022>\n\006Create\022\035.GRPC.proto.CreateUserReque" +
-      "st\032\025.GRPC.proto.UserProto\022<\n\004Read\022\035.GRPC" +
-      ".proto.UserSearchRequest\032\025.GRPC.proto.Us" +
-      "erProto\022=\n\007ReadAll\022\027.GRPC.proto.emptyPar" +
-      "ams\032\031.GRPC.proto.UserListProto\022>\n\006Delete" +
-      "\022\035.GRPC.proto.UserSearchRequest\032\025.GRPC.p" +
-      "roto.UserProtob\006proto3"
+      "oto.ItemListProto\0226\n\006Update\022\025.GRPC.proto" +
+      ".ItemProto\032\025.GRPC.proto.ItemProto\022>\n\006Del" +
+      "ete\022\035.GRPC.proto.ItemSearchRequest\032\025.GRP" +
+      "C.proto.ItemProto2\344\002\n\017ItemTypeService\022H\n" +
+      "\006Create\022#.GRPC.proto.ItemTypeCreationReq" +
+      "uest\032\031.GRPC.proto.ItemTypeProto\022D\n\004Read\022",
+      "!.GRPC.proto.ItemTypeSearchRequest\032\031.GRP" +
+      "C.proto.ItemTypeProto\022A\n\007ReadAll\022\027.GRPC." +
+      "proto.emptyParams\032\035.GRPC.proto.ItemTypeL" +
+      "istProto\0226\n\006Update\022\025.GRPC.proto.ItemProt" +
+      "o\032\025.GRPC.proto.ItemProto\022F\n\006Delete\022!.GRP" +
+      "C.proto.ItemTypeSearchRequest\032\031.GRPC.pro" +
+      "to.ItemTypeProto2\316\002\n\014ShelfService\022B\n\006Cre" +
+      "ate\022 .GRPC.proto.ShelfCreationRequest\032\026." +
+      "GRPC.proto.ShelfProto\022>\n\004Read\022\036.GRPC.pro" +
+      "to.ShelfSearchRequest\032\026.GRPC.proto.Shelf",
+      "Proto\022@\n\007ReadAll\022\027.GRPC.proto.emptyParam" +
+      "s\032\034.GRPC.proto.ShelvesListProto\0226\n\006Updat" +
+      "e\022\025.GRPC.proto.ItemProto\032\025.GRPC.proto.It" +
+      "emProto\022@\n\006Delete\022\036.GRPC.proto.ShelfSear" +
+      "chRequest\032\026.GRPC.proto.ShelfProto2\302\002\n\013Us" +
+      "erService\022>\n\006Create\022\035.GRPC.proto.CreateU" +
+      "serRequest\032\025.GRPC.proto.UserProto\022<\n\004Rea" +
+      "d\022\035.GRPC.proto.UserSearchRequest\032\025.GRPC." +
+      "proto.UserProto\022=\n\007ReadAll\022\027.GRPC.proto." +
+      "emptyParams\032\031.GRPC.proto.UserListProto\0226",
+      "\n\006Update\022\025.GRPC.proto.ItemProto\032\025.GRPC.p" +
+      "roto.ItemProto\022>\n\006Delete\022\035.GRPC.proto.Us" +
+      "erSearchRequest\032\025.GRPC.proto.UserProtob\006" +
+      "proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {

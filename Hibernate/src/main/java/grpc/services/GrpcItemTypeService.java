@@ -18,6 +18,11 @@ public class GrpcItemTypeService extends ItemTypeServiceGrpc.ItemTypeServiceImpl
     }
 
     @Override
+    public void update(File.ItemProto request, StreamObserver<File.ItemProto> responseObserver) {
+        super.update(request, responseObserver);
+    }
+
+    @Override
     public void create(File.ItemTypeCreationRequest request, StreamObserver<File.ItemTypeProto> responseObserver) {
         ItemType type = dao.Create(ItemTypeConverter.CONVERT.toTypeFromSearch(request));
 

@@ -18,6 +18,11 @@ public class GrpcItemService extends ItemServiceGrpc.ItemServiceImplBase {
     }
 
     @Override
+    public void update(File.ItemProto request, StreamObserver<File.ItemProto> responseObserver) {
+        super.update(request, responseObserver);
+    }
+
+    @Override
     public void create(File.ItemCreation request, StreamObserver<File.ItemProto> responseObserver) {
         Item item = dao.Create(ItemConverter.CONVERT.toItemFromCreation(request));
 

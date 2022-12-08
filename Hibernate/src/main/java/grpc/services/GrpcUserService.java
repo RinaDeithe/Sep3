@@ -19,6 +19,11 @@ public class GrpcUserService extends UserServiceGrpc.UserServiceImplBase {
     }
 
     @Override
+    public void update(File.ItemProto request, StreamObserver<File.ItemProto> responseObserver) {
+        super.update(request, responseObserver);
+    }
+
+    @Override
     public void create(File.CreateUserRequest request, StreamObserver<File.UserProto> responseObserver) {
         User user = dao.Create(UserConverter.CONVERT.toUserFromProto(request));
 

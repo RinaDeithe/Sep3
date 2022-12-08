@@ -17,6 +17,7 @@
     <bytecodeTargetLevel>
       <module name="Database" target="17" />
       <module name="DatabaseServer" target="17" />
+      <module name="DB" target="${java.version}" />
       <module name="JavaDomain" target="19" />
       <module name="lagersystem" target="17" />
       <module name="MidTermDraft" target="17" />
@@ -27,6 +28,7 @@
       <module name="DB" options="-parameters" />
       <module name="Database" options="-parameters" />
       <module name="DatabaseServer" options="-parameters" />
+      <module name="Hibernate" options="--add-modules java.base,java.sql" />
     </option>
   </component>
 </project>
