@@ -19,6 +19,11 @@ public class GrpcShelfService extends ShelfServiceGrpc.ShelfServiceImplBase {
     }
 
     @Override
+    public void update(File.ItemProto request, StreamObserver<File.ItemProto> responseObserver) {
+        super.update(request, responseObserver);
+    }
+
+    @Override
     public void create(File.ShelfCreationRequest request, StreamObserver<File.ShelfProto> responseObserver) {
         Shelf shelf = dao.Create(ShelfConverter.CONVERT.toShelfFromCreation(request));
 

@@ -5,35 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="81ffe829-311a-4bde-8753-4e2da12b99da" name="Changes" comment="bug fix">
-      <change afterPath="$PROJECT_DIR$/Hibernate/src/Test/java/grpc/services/GrpcItemServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/Proto/File.proto" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/Proto/File.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/target/classes/database/daos/DbDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/target/classes/database/orm/DbConnection.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/target/classes/database/orm/IConnector.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/target/classes/domain/Dto/ItemCreationDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/target/classes/domain/Dto/ItemRegisterRequestDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/target/classes/domain/Dto/ItemRegisterResponseDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/target/classes/domain/Dto/ItemTypeCreationDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/target/classes/domain/Dto/ItemTypeSearchDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/target/classes/domain/Dto/ShelfAddItemRequestDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/target/classes/domain/Dto/ShelfCreationDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/target/classes/domain/Dto/ShelfItemAmountDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/target/classes/domain/Dto/ShelfSearchParametersDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/target/classes/domain/Dto/UserCreationDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/target/classes/domain/Model/Item.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/target/classes/domain/Model/ItemType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/target/classes/domain/Model/Shelf.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/target/classes/domain/Model/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/target/classes/org/hibernate/dialect/SQLiteDialect$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/target/classes/org/hibernate/dialect/SQLiteDialect$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/target/classes/org/hibernate/dialect/SQLiteDialect$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/target/classes/org/hibernate/dialect/SQLiteDialect$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/target/classes/org/hibernate/dialect/SQLiteDialect$5.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/target/classes/org/hibernate/dialect/SQLiteDialect$SQLiteUniqueDelegate.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/target/classes/org/hibernate/dialect/SQLiteDialect.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/target/generated-sources/protobuf/java/GRPC/proto/File.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,13 +29,6 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="REBASE" />
-  </component>
-  <component name="GithubProjectSettings">
-    <option name="branchProtectionPatterns">
-      <list>
-        <option value="main" />
-      </list>
-    </option>
   </component>
   <component name="JpbToolWindowState">
     <option name="myId2FirstActivated">
@@ -102,7 +67,7 @@
     <property name="jdk.selected.JAVA_MODULE" value="19" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/Hibernate/src/main/java" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
