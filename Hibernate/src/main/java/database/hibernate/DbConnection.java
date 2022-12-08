@@ -1,4 +1,4 @@
-package database.orm;
+package database.hibernate;
 
 import database.daoInterfaces.IDbDao;
 
@@ -6,7 +6,6 @@ import javax.persistence.*;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,7 +46,7 @@ public class DbConnection<T> implements IDbDao<T> {
     }
 
     @Override
-    public T Read(T classObject) {
+    public T Read(T classObject, String id) {
 
         emf = Persistence.createEntityManagerFactory("default");
         em = emf.createEntityManager();
@@ -58,7 +57,7 @@ public class DbConnection<T> implements IDbDao<T> {
         try {
             et.begin();
 
-            returnObject = (T) em.find(returnObject.getClass(), returnObject);
+            returnObject = (T) em.find(returnObject.getClass(), id);
 
             et.commit();
         } catch (Exception e) {

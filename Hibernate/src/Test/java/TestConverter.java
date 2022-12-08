@@ -15,8 +15,8 @@ public class TestConverter {
 
     @Test
     public void testItemToItemProto(){
-        ItemType itemType = new ItemType(1,2.,3.,4.);
-        User user = new User(1, "temp");
+        ItemType itemType = new ItemType("1",2.,3.,4.);
+        User user = new User("1", "temp");
         user.setRole("tet");
         ArrayList<Item> itemList = new ArrayList<>();
 
@@ -32,11 +32,11 @@ public class TestConverter {
     }
     @Test
     public void testItemTypeToItemProto(){
-        ItemType itemType = new ItemType(1,2.,3.,4.);
+        ItemType itemType = new ItemType("1",2.,3.,4.);
 
         File.ItemTypeProto itemTypeProto = ItemTypeConverter.CONVERT.toTypeProto(itemType);
 
-        File.ItemTypeProto test = File.ItemTypeProto.newBuilder().setId(1).setDimX(2.).setDimY(3.).setDimZ(4.).build();
+        File.ItemTypeProto test = File.ItemTypeProto.newBuilder().setId("1").setDimX(2.).setDimY(3.).setDimZ(4.).build();
 
         if (test.equals(itemTypeProto)){
             assert true;

@@ -66,18 +66,18 @@ message ShelvesListProto{
 // ITEMTYPE MESSAGES
 
 message ItemTypeCreationRequest{
-  int32 id = 1;
+  string id = 1;
   double ItemDimX = 2;
   double ItemDimY = 3;
   double ItemDimZ = 4;
 }
 
 message ItemTypeSearchRequest{
-  int32 id = 1;
+  string id = 1;
 }
 
 message ItemTypeProto{
-  int32 id = 1;
+  string id = 1;
   double DimX = 2;
   double DimY = 3;
   double DimZ = 4;
@@ -90,18 +90,18 @@ message ItemTypeListProto {
 // ITEM MESSAGES
 
 message ItemCreation{
-  int32 ItemTypeID = 1;
-  int32 ShelfID = 2;
-  int32 OwnerID = 3;
+  string ItemTypeID = 1;
+  string ShelfID = 2;
+  string OwnerID = 3;
 }
 
 message ItemSearchRequest{
-  int32 id = 1;
+  string id = 1;
 }
 
 message ItemProto{
   ItemTypeProto type = 1;
-  int32 UniqueID = 2;
+  string UniqueID = 2;
   UserProto owner = 3;
   ShelfProto shelf = 4;
 }
@@ -113,17 +113,17 @@ message ItemListProto {
 // USER MESSAGES
 
 message CreateUserRequest{
-  int32 id_user = 1;
+  string id_user = 1;
   string role = 2;
 }
 
 message UserProto{
-  int32 Id = 1;
+  string Id = 1;
   string role = 2;
 }
 
 message UserSearchRequest {
-  int32 Id = 1;
+  string Id = 1;
   string role = 2;
 }
 

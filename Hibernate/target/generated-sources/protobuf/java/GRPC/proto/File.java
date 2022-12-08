@@ -3308,9 +3308,14 @@ public final class File {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>int32 id = 1;</code>
+     * <code>string id = 1;</code>
      */
-    int getId();
+    java.lang.String getId();
+    /**
+     * <code>string id = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getIdBytes();
 
     /**
      * <code>double ItemDimX = 2;</code>
@@ -3339,7 +3344,7 @@ public final class File {
       super(builder);
     }
     private ItemTypeCreationRequest() {
-      id_ = 0;
+      id_ = "";
       itemDimX_ = 0D;
       itemDimY_ = 0D;
       itemDimZ_ = 0D;
@@ -3370,9 +3375,10 @@ public final class File {
               }
               break;
             }
-            case 8: {
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
 
-              id_ = input.readInt32();
+              id_ = s;
               break;
             }
             case 17: {
@@ -3414,12 +3420,37 @@ public final class File {
     }
 
     public static final int ID_FIELD_NUMBER = 1;
-    private int id_;
+    private volatile java.lang.Object id_;
     /**
-     * <code>int32 id = 1;</code>
+     * <code>string id = 1;</code>
      */
-    public int getId() {
-      return id_;
+    public java.lang.String getId() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        id_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string id = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getIdBytes() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        id_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     public static final int ITEMDIMX_FIELD_NUMBER = 2;
@@ -3461,8 +3492,8 @@ public final class File {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (id_ != 0) {
-        output.writeInt32(1, id_);
+      if (!getIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
       }
       if (itemDimX_ != 0D) {
         output.writeDouble(2, itemDimX_);
@@ -3480,9 +3511,8 @@ public final class File {
       if (size != -1) return size;
 
       size = 0;
-      if (id_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, id_);
+      if (!getIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
       }
       if (itemDimX_ != 0D) {
         size += com.google.protobuf.CodedOutputStream
@@ -3512,8 +3542,8 @@ public final class File {
       GRPC.proto.File.ItemTypeCreationRequest other = (GRPC.proto.File.ItemTypeCreationRequest) obj;
 
       boolean result = true;
-      result = result && (getId()
-          == other.getId());
+      result = result && getId()
+          .equals(other.getId());
       result = result && (
           java.lang.Double.doubleToLongBits(getItemDimX())
           == java.lang.Double.doubleToLongBits(
@@ -3537,7 +3567,7 @@ public final class File {
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + ID_FIELD_NUMBER;
-      hash = (53 * hash) + getId();
+      hash = (53 * hash) + getId().hashCode();
       hash = (37 * hash) + ITEMDIMX_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           java.lang.Double.doubleToLongBits(getItemDimX()));
@@ -3676,7 +3706,7 @@ public final class File {
       }
       public Builder clear() {
         super.clear();
-        id_ = 0;
+        id_ = "";
 
         itemDimX_ = 0D;
 
@@ -3751,8 +3781,9 @@ public final class File {
 
       public Builder mergeFrom(GRPC.proto.File.ItemTypeCreationRequest other) {
         if (other == GRPC.proto.File.ItemTypeCreationRequest.getDefaultInstance()) return this;
-        if (other.getId() != 0) {
-          setId(other.getId());
+        if (!other.getId().isEmpty()) {
+          id_ = other.id_;
+          onChanged();
         }
         if (other.getItemDimX() != 0D) {
           setItemDimX(other.getItemDimX());
@@ -3789,28 +3820,71 @@ public final class File {
         return this;
       }
 
-      private int id_ ;
+      private java.lang.Object id_ = "";
       /**
-       * <code>int32 id = 1;</code>
+       * <code>string id = 1;</code>
        */
-      public int getId() {
-        return id_;
+      public java.lang.String getId() {
+        java.lang.Object ref = id_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          id_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
-       * <code>int32 id = 1;</code>
+       * <code>string id = 1;</code>
        */
-      public Builder setId(int value) {
-        
+      public com.google.protobuf.ByteString
+          getIdBytes() {
+        java.lang.Object ref = id_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          id_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string id = 1;</code>
+       */
+      public Builder setId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         id_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 id = 1;</code>
+       * <code>string id = 1;</code>
        */
       public Builder clearId() {
         
-        id_ = 0;
+        id_ = getDefaultInstance().getId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string id = 1;</code>
+       */
+      public Builder setIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        id_ = value;
         onChanged();
         return this;
       }
@@ -3946,9 +4020,14 @@ public final class File {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>int32 id = 1;</code>
+     * <code>string id = 1;</code>
      */
-    int getId();
+    java.lang.String getId();
+    /**
+     * <code>string id = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getIdBytes();
   }
   /**
    * Protobuf type {@code GRPC.proto.ItemTypeSearchRequest}
@@ -3962,7 +4041,7 @@ public final class File {
       super(builder);
     }
     private ItemTypeSearchRequest() {
-      id_ = 0;
+      id_ = "";
     }
 
     @java.lang.Override
@@ -3990,9 +4069,10 @@ public final class File {
               }
               break;
             }
-            case 8: {
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
 
-              id_ = input.readInt32();
+              id_ = s;
               break;
             }
           }
@@ -4019,12 +4099,37 @@ public final class File {
     }
 
     public static final int ID_FIELD_NUMBER = 1;
-    private int id_;
+    private volatile java.lang.Object id_;
     /**
-     * <code>int32 id = 1;</code>
+     * <code>string id = 1;</code>
      */
-    public int getId() {
-      return id_;
+    public java.lang.String getId() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        id_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string id = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getIdBytes() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        id_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     private byte memoizedIsInitialized = -1;
@@ -4039,8 +4144,8 @@ public final class File {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (id_ != 0) {
-        output.writeInt32(1, id_);
+      if (!getIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
       }
     }
 
@@ -4049,9 +4154,8 @@ public final class File {
       if (size != -1) return size;
 
       size = 0;
-      if (id_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, id_);
+      if (!getIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
       }
       memoizedSize = size;
       return size;
@@ -4069,8 +4173,8 @@ public final class File {
       GRPC.proto.File.ItemTypeSearchRequest other = (GRPC.proto.File.ItemTypeSearchRequest) obj;
 
       boolean result = true;
-      result = result && (getId()
-          == other.getId());
+      result = result && getId()
+          .equals(other.getId());
       return result;
     }
 
@@ -4082,7 +4186,7 @@ public final class File {
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + ID_FIELD_NUMBER;
-      hash = (53 * hash) + getId();
+      hash = (53 * hash) + getId().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -4212,7 +4316,7 @@ public final class File {
       }
       public Builder clear() {
         super.clear();
-        id_ = 0;
+        id_ = "";
 
         return this;
       }
@@ -4278,8 +4382,9 @@ public final class File {
 
       public Builder mergeFrom(GRPC.proto.File.ItemTypeSearchRequest other) {
         if (other == GRPC.proto.File.ItemTypeSearchRequest.getDefaultInstance()) return this;
-        if (other.getId() != 0) {
-          setId(other.getId());
+        if (!other.getId().isEmpty()) {
+          id_ = other.id_;
+          onChanged();
         }
         onChanged();
         return this;
@@ -4307,28 +4412,71 @@ public final class File {
         return this;
       }
 
-      private int id_ ;
+      private java.lang.Object id_ = "";
       /**
-       * <code>int32 id = 1;</code>
+       * <code>string id = 1;</code>
        */
-      public int getId() {
-        return id_;
+      public java.lang.String getId() {
+        java.lang.Object ref = id_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          id_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
-       * <code>int32 id = 1;</code>
+       * <code>string id = 1;</code>
        */
-      public Builder setId(int value) {
-        
+      public com.google.protobuf.ByteString
+          getIdBytes() {
+        java.lang.Object ref = id_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          id_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string id = 1;</code>
+       */
+      public Builder setId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         id_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 id = 1;</code>
+       * <code>string id = 1;</code>
        */
       public Builder clearId() {
         
-        id_ = 0;
+        id_ = getDefaultInstance().getId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string id = 1;</code>
+       */
+      public Builder setIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        id_ = value;
         onChanged();
         return this;
       }
@@ -4386,9 +4534,14 @@ public final class File {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>int32 id = 1;</code>
+     * <code>string id = 1;</code>
      */
-    int getId();
+    java.lang.String getId();
+    /**
+     * <code>string id = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getIdBytes();
 
     /**
      * <code>double DimX = 2;</code>
@@ -4417,7 +4570,7 @@ public final class File {
       super(builder);
     }
     private ItemTypeProto() {
-      id_ = 0;
+      id_ = "";
       dimX_ = 0D;
       dimY_ = 0D;
       dimZ_ = 0D;
@@ -4448,9 +4601,10 @@ public final class File {
               }
               break;
             }
-            case 8: {
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
 
-              id_ = input.readInt32();
+              id_ = s;
               break;
             }
             case 17: {
@@ -4492,12 +4646,37 @@ public final class File {
     }
 
     public static final int ID_FIELD_NUMBER = 1;
-    private int id_;
+    private volatile java.lang.Object id_;
     /**
-     * <code>int32 id = 1;</code>
+     * <code>string id = 1;</code>
      */
-    public int getId() {
-      return id_;
+    public java.lang.String getId() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        id_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string id = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getIdBytes() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        id_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     public static final int DIMX_FIELD_NUMBER = 2;
@@ -4539,8 +4718,8 @@ public final class File {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (id_ != 0) {
-        output.writeInt32(1, id_);
+      if (!getIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
       }
       if (dimX_ != 0D) {
         output.writeDouble(2, dimX_);
@@ -4558,9 +4737,8 @@ public final class File {
       if (size != -1) return size;
 
       size = 0;
-      if (id_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, id_);
+      if (!getIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
       }
       if (dimX_ != 0D) {
         size += com.google.protobuf.CodedOutputStream
@@ -4590,8 +4768,8 @@ public final class File {
       GRPC.proto.File.ItemTypeProto other = (GRPC.proto.File.ItemTypeProto) obj;
 
       boolean result = true;
-      result = result && (getId()
-          == other.getId());
+      result = result && getId()
+          .equals(other.getId());
       result = result && (
           java.lang.Double.doubleToLongBits(getDimX())
           == java.lang.Double.doubleToLongBits(
@@ -4615,7 +4793,7 @@ public final class File {
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + ID_FIELD_NUMBER;
-      hash = (53 * hash) + getId();
+      hash = (53 * hash) + getId().hashCode();
       hash = (37 * hash) + DIMX_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           java.lang.Double.doubleToLongBits(getDimX()));
@@ -4754,7 +4932,7 @@ public final class File {
       }
       public Builder clear() {
         super.clear();
-        id_ = 0;
+        id_ = "";
 
         dimX_ = 0D;
 
@@ -4829,8 +5007,9 @@ public final class File {
 
       public Builder mergeFrom(GRPC.proto.File.ItemTypeProto other) {
         if (other == GRPC.proto.File.ItemTypeProto.getDefaultInstance()) return this;
-        if (other.getId() != 0) {
-          setId(other.getId());
+        if (!other.getId().isEmpty()) {
+          id_ = other.id_;
+          onChanged();
         }
         if (other.getDimX() != 0D) {
           setDimX(other.getDimX());
@@ -4867,28 +5046,71 @@ public final class File {
         return this;
       }
 
-      private int id_ ;
+      private java.lang.Object id_ = "";
       /**
-       * <code>int32 id = 1;</code>
+       * <code>string id = 1;</code>
        */
-      public int getId() {
-        return id_;
+      public java.lang.String getId() {
+        java.lang.Object ref = id_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          id_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
-       * <code>int32 id = 1;</code>
+       * <code>string id = 1;</code>
        */
-      public Builder setId(int value) {
-        
+      public com.google.protobuf.ByteString
+          getIdBytes() {
+        java.lang.Object ref = id_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          id_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string id = 1;</code>
+       */
+      public Builder setId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         id_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 id = 1;</code>
+       * <code>string id = 1;</code>
        */
       public Builder clearId() {
         
-        id_ = 0;
+        id_ = getDefaultInstance().getId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string id = 1;</code>
+       */
+      public Builder setIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        id_ = value;
         onChanged();
         return this;
       }
@@ -5770,19 +5992,34 @@ public final class File {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>int32 ItemTypeID = 1;</code>
+     * <code>string ItemTypeID = 1;</code>
      */
-    int getItemTypeID();
+    java.lang.String getItemTypeID();
+    /**
+     * <code>string ItemTypeID = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getItemTypeIDBytes();
 
     /**
-     * <code>int32 ShelfID = 2;</code>
+     * <code>string ShelfID = 2;</code>
      */
-    int getShelfID();
+    java.lang.String getShelfID();
+    /**
+     * <code>string ShelfID = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getShelfIDBytes();
 
     /**
-     * <code>int32 OwnerID = 3;</code>
+     * <code>string OwnerID = 3;</code>
      */
-    int getOwnerID();
+    java.lang.String getOwnerID();
+    /**
+     * <code>string OwnerID = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getOwnerIDBytes();
   }
   /**
    * Protobuf type {@code GRPC.proto.ItemCreation}
@@ -5796,9 +6033,9 @@ public final class File {
       super(builder);
     }
     private ItemCreation() {
-      itemTypeID_ = 0;
-      shelfID_ = 0;
-      ownerID_ = 0;
+      itemTypeID_ = "";
+      shelfID_ = "";
+      ownerID_ = "";
     }
 
     @java.lang.Override
@@ -5826,19 +6063,22 @@ public final class File {
               }
               break;
             }
-            case 8: {
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
 
-              itemTypeID_ = input.readInt32();
+              itemTypeID_ = s;
               break;
             }
-            case 16: {
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
 
-              shelfID_ = input.readInt32();
+              shelfID_ = s;
               break;
             }
-            case 24: {
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
 
-              ownerID_ = input.readInt32();
+              ownerID_ = s;
               break;
             }
           }
@@ -5865,30 +6105,105 @@ public final class File {
     }
 
     public static final int ITEMTYPEID_FIELD_NUMBER = 1;
-    private int itemTypeID_;
+    private volatile java.lang.Object itemTypeID_;
     /**
-     * <code>int32 ItemTypeID = 1;</code>
+     * <code>string ItemTypeID = 1;</code>
      */
-    public int getItemTypeID() {
-      return itemTypeID_;
+    public java.lang.String getItemTypeID() {
+      java.lang.Object ref = itemTypeID_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        itemTypeID_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string ItemTypeID = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getItemTypeIDBytes() {
+      java.lang.Object ref = itemTypeID_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        itemTypeID_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     public static final int SHELFID_FIELD_NUMBER = 2;
-    private int shelfID_;
+    private volatile java.lang.Object shelfID_;
     /**
-     * <code>int32 ShelfID = 2;</code>
+     * <code>string ShelfID = 2;</code>
      */
-    public int getShelfID() {
-      return shelfID_;
+    public java.lang.String getShelfID() {
+      java.lang.Object ref = shelfID_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        shelfID_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string ShelfID = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getShelfIDBytes() {
+      java.lang.Object ref = shelfID_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        shelfID_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     public static final int OWNERID_FIELD_NUMBER = 3;
-    private int ownerID_;
+    private volatile java.lang.Object ownerID_;
     /**
-     * <code>int32 OwnerID = 3;</code>
+     * <code>string OwnerID = 3;</code>
      */
-    public int getOwnerID() {
-      return ownerID_;
+    public java.lang.String getOwnerID() {
+      java.lang.Object ref = ownerID_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        ownerID_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string OwnerID = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getOwnerIDBytes() {
+      java.lang.Object ref = ownerID_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        ownerID_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     private byte memoizedIsInitialized = -1;
@@ -5903,14 +6218,14 @@ public final class File {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (itemTypeID_ != 0) {
-        output.writeInt32(1, itemTypeID_);
+      if (!getItemTypeIDBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, itemTypeID_);
       }
-      if (shelfID_ != 0) {
-        output.writeInt32(2, shelfID_);
+      if (!getShelfIDBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, shelfID_);
       }
-      if (ownerID_ != 0) {
-        output.writeInt32(3, ownerID_);
+      if (!getOwnerIDBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, ownerID_);
       }
     }
 
@@ -5919,17 +6234,14 @@ public final class File {
       if (size != -1) return size;
 
       size = 0;
-      if (itemTypeID_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, itemTypeID_);
+      if (!getItemTypeIDBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, itemTypeID_);
       }
-      if (shelfID_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(2, shelfID_);
+      if (!getShelfIDBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, shelfID_);
       }
-      if (ownerID_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(3, ownerID_);
+      if (!getOwnerIDBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, ownerID_);
       }
       memoizedSize = size;
       return size;
@@ -5947,12 +6259,12 @@ public final class File {
       GRPC.proto.File.ItemCreation other = (GRPC.proto.File.ItemCreation) obj;
 
       boolean result = true;
-      result = result && (getItemTypeID()
-          == other.getItemTypeID());
-      result = result && (getShelfID()
-          == other.getShelfID());
-      result = result && (getOwnerID()
-          == other.getOwnerID());
+      result = result && getItemTypeID()
+          .equals(other.getItemTypeID());
+      result = result && getShelfID()
+          .equals(other.getShelfID());
+      result = result && getOwnerID()
+          .equals(other.getOwnerID());
       return result;
     }
 
@@ -5964,11 +6276,11 @@ public final class File {
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + ITEMTYPEID_FIELD_NUMBER;
-      hash = (53 * hash) + getItemTypeID();
+      hash = (53 * hash) + getItemTypeID().hashCode();
       hash = (37 * hash) + SHELFID_FIELD_NUMBER;
-      hash = (53 * hash) + getShelfID();
+      hash = (53 * hash) + getShelfID().hashCode();
       hash = (37 * hash) + OWNERID_FIELD_NUMBER;
-      hash = (53 * hash) + getOwnerID();
+      hash = (53 * hash) + getOwnerID().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -6098,11 +6410,11 @@ public final class File {
       }
       public Builder clear() {
         super.clear();
-        itemTypeID_ = 0;
+        itemTypeID_ = "";
 
-        shelfID_ = 0;
+        shelfID_ = "";
 
-        ownerID_ = 0;
+        ownerID_ = "";
 
         return this;
       }
@@ -6170,14 +6482,17 @@ public final class File {
 
       public Builder mergeFrom(GRPC.proto.File.ItemCreation other) {
         if (other == GRPC.proto.File.ItemCreation.getDefaultInstance()) return this;
-        if (other.getItemTypeID() != 0) {
-          setItemTypeID(other.getItemTypeID());
+        if (!other.getItemTypeID().isEmpty()) {
+          itemTypeID_ = other.itemTypeID_;
+          onChanged();
         }
-        if (other.getShelfID() != 0) {
-          setShelfID(other.getShelfID());
+        if (!other.getShelfID().isEmpty()) {
+          shelfID_ = other.shelfID_;
+          onChanged();
         }
-        if (other.getOwnerID() != 0) {
-          setOwnerID(other.getOwnerID());
+        if (!other.getOwnerID().isEmpty()) {
+          ownerID_ = other.ownerID_;
+          onChanged();
         }
         onChanged();
         return this;
@@ -6205,80 +6520,209 @@ public final class File {
         return this;
       }
 
-      private int itemTypeID_ ;
+      private java.lang.Object itemTypeID_ = "";
       /**
-       * <code>int32 ItemTypeID = 1;</code>
+       * <code>string ItemTypeID = 1;</code>
        */
-      public int getItemTypeID() {
-        return itemTypeID_;
+      public java.lang.String getItemTypeID() {
+        java.lang.Object ref = itemTypeID_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          itemTypeID_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
-       * <code>int32 ItemTypeID = 1;</code>
+       * <code>string ItemTypeID = 1;</code>
        */
-      public Builder setItemTypeID(int value) {
-        
+      public com.google.protobuf.ByteString
+          getItemTypeIDBytes() {
+        java.lang.Object ref = itemTypeID_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          itemTypeID_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string ItemTypeID = 1;</code>
+       */
+      public Builder setItemTypeID(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         itemTypeID_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 ItemTypeID = 1;</code>
+       * <code>string ItemTypeID = 1;</code>
        */
       public Builder clearItemTypeID() {
         
-        itemTypeID_ = 0;
+        itemTypeID_ = getDefaultInstance().getItemTypeID();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string ItemTypeID = 1;</code>
+       */
+      public Builder setItemTypeIDBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        itemTypeID_ = value;
         onChanged();
         return this;
       }
 
-      private int shelfID_ ;
+      private java.lang.Object shelfID_ = "";
       /**
-       * <code>int32 ShelfID = 2;</code>
+       * <code>string ShelfID = 2;</code>
        */
-      public int getShelfID() {
-        return shelfID_;
+      public java.lang.String getShelfID() {
+        java.lang.Object ref = shelfID_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          shelfID_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
-       * <code>int32 ShelfID = 2;</code>
+       * <code>string ShelfID = 2;</code>
        */
-      public Builder setShelfID(int value) {
-        
+      public com.google.protobuf.ByteString
+          getShelfIDBytes() {
+        java.lang.Object ref = shelfID_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          shelfID_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string ShelfID = 2;</code>
+       */
+      public Builder setShelfID(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         shelfID_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 ShelfID = 2;</code>
+       * <code>string ShelfID = 2;</code>
        */
       public Builder clearShelfID() {
         
-        shelfID_ = 0;
+        shelfID_ = getDefaultInstance().getShelfID();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string ShelfID = 2;</code>
+       */
+      public Builder setShelfIDBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        shelfID_ = value;
         onChanged();
         return this;
       }
 
-      private int ownerID_ ;
+      private java.lang.Object ownerID_ = "";
       /**
-       * <code>int32 OwnerID = 3;</code>
+       * <code>string OwnerID = 3;</code>
        */
-      public int getOwnerID() {
-        return ownerID_;
+      public java.lang.String getOwnerID() {
+        java.lang.Object ref = ownerID_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          ownerID_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
-       * <code>int32 OwnerID = 3;</code>
+       * <code>string OwnerID = 3;</code>
        */
-      public Builder setOwnerID(int value) {
-        
+      public com.google.protobuf.ByteString
+          getOwnerIDBytes() {
+        java.lang.Object ref = ownerID_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          ownerID_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string OwnerID = 3;</code>
+       */
+      public Builder setOwnerID(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         ownerID_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 OwnerID = 3;</code>
+       * <code>string OwnerID = 3;</code>
        */
       public Builder clearOwnerID() {
         
-        ownerID_ = 0;
+        ownerID_ = getDefaultInstance().getOwnerID();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string OwnerID = 3;</code>
+       */
+      public Builder setOwnerIDBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        ownerID_ = value;
         onChanged();
         return this;
       }
@@ -6336,9 +6780,14 @@ public final class File {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>int32 id = 1;</code>
+     * <code>string id = 1;</code>
      */
-    int getId();
+    java.lang.String getId();
+    /**
+     * <code>string id = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getIdBytes();
   }
   /**
    * Protobuf type {@code GRPC.proto.ItemSearchRequest}
@@ -6352,7 +6801,7 @@ public final class File {
       super(builder);
     }
     private ItemSearchRequest() {
-      id_ = 0;
+      id_ = "";
     }
 
     @java.lang.Override
@@ -6380,9 +6829,10 @@ public final class File {
               }
               break;
             }
-            case 8: {
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
 
-              id_ = input.readInt32();
+              id_ = s;
               break;
             }
           }
@@ -6409,12 +6859,37 @@ public final class File {
     }
 
     public static final int ID_FIELD_NUMBER = 1;
-    private int id_;
+    private volatile java.lang.Object id_;
     /**
-     * <code>int32 id = 1;</code>
+     * <code>string id = 1;</code>
      */
-    public int getId() {
-      return id_;
+    public java.lang.String getId() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        id_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string id = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getIdBytes() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        id_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     private byte memoizedIsInitialized = -1;
@@ -6429,8 +6904,8 @@ public final class File {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (id_ != 0) {
-        output.writeInt32(1, id_);
+      if (!getIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
       }
     }
 
@@ -6439,9 +6914,8 @@ public final class File {
       if (size != -1) return size;
 
       size = 0;
-      if (id_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, id_);
+      if (!getIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
       }
       memoizedSize = size;
       return size;
@@ -6459,8 +6933,8 @@ public final class File {
       GRPC.proto.File.ItemSearchRequest other = (GRPC.proto.File.ItemSearchRequest) obj;
 
       boolean result = true;
-      result = result && (getId()
-          == other.getId());
+      result = result && getId()
+          .equals(other.getId());
       return result;
     }
 
@@ -6472,7 +6946,7 @@ public final class File {
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + ID_FIELD_NUMBER;
-      hash = (53 * hash) + getId();
+      hash = (53 * hash) + getId().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -6602,7 +7076,7 @@ public final class File {
       }
       public Builder clear() {
         super.clear();
-        id_ = 0;
+        id_ = "";
 
         return this;
       }
@@ -6668,8 +7142,9 @@ public final class File {
 
       public Builder mergeFrom(GRPC.proto.File.ItemSearchRequest other) {
         if (other == GRPC.proto.File.ItemSearchRequest.getDefaultInstance()) return this;
-        if (other.getId() != 0) {
-          setId(other.getId());
+        if (!other.getId().isEmpty()) {
+          id_ = other.id_;
+          onChanged();
         }
         onChanged();
         return this;
@@ -6697,28 +7172,71 @@ public final class File {
         return this;
       }
 
-      private int id_ ;
+      private java.lang.Object id_ = "";
       /**
-       * <code>int32 id = 1;</code>
+       * <code>string id = 1;</code>
        */
-      public int getId() {
-        return id_;
+      public java.lang.String getId() {
+        java.lang.Object ref = id_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          id_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
-       * <code>int32 id = 1;</code>
+       * <code>string id = 1;</code>
        */
-      public Builder setId(int value) {
-        
+      public com.google.protobuf.ByteString
+          getIdBytes() {
+        java.lang.Object ref = id_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          id_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string id = 1;</code>
+       */
+      public Builder setId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         id_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 id = 1;</code>
+       * <code>string id = 1;</code>
        */
       public Builder clearId() {
         
-        id_ = 0;
+        id_ = getDefaultInstance().getId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string id = 1;</code>
+       */
+      public Builder setIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        id_ = value;
         onChanged();
         return this;
       }
@@ -6789,9 +7307,14 @@ public final class File {
     GRPC.proto.File.ItemTypeProtoOrBuilder getTypeOrBuilder();
 
     /**
-     * <code>int32 UniqueID = 2;</code>
+     * <code>string UniqueID = 2;</code>
      */
-    int getUniqueID();
+    java.lang.String getUniqueID();
+    /**
+     * <code>string UniqueID = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getUniqueIDBytes();
 
     /**
      * <code>.GRPC.proto.UserProto owner = 3;</code>
@@ -6831,7 +7354,7 @@ public final class File {
       super(builder);
     }
     private ItemProto() {
-      uniqueID_ = 0;
+      uniqueID_ = "";
     }
 
     @java.lang.Override
@@ -6872,9 +7395,10 @@ public final class File {
 
               break;
             }
-            case 16: {
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
 
-              uniqueID_ = input.readInt32();
+              uniqueID_ = s;
               break;
             }
             case 26: {
@@ -6948,12 +7472,37 @@ public final class File {
     }
 
     public static final int UNIQUEID_FIELD_NUMBER = 2;
-    private int uniqueID_;
+    private volatile java.lang.Object uniqueID_;
     /**
-     * <code>int32 UniqueID = 2;</code>
+     * <code>string UniqueID = 2;</code>
      */
-    public int getUniqueID() {
-      return uniqueID_;
+    public java.lang.String getUniqueID() {
+      java.lang.Object ref = uniqueID_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        uniqueID_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string UniqueID = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getUniqueIDBytes() {
+      java.lang.Object ref = uniqueID_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        uniqueID_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     public static final int OWNER_FIELD_NUMBER = 3;
@@ -7013,8 +7562,8 @@ public final class File {
       if (type_ != null) {
         output.writeMessage(1, getType());
       }
-      if (uniqueID_ != 0) {
-        output.writeInt32(2, uniqueID_);
+      if (!getUniqueIDBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, uniqueID_);
       }
       if (owner_ != null) {
         output.writeMessage(3, getOwner());
@@ -7033,9 +7582,8 @@ public final class File {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getType());
       }
-      if (uniqueID_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(2, uniqueID_);
+      if (!getUniqueIDBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, uniqueID_);
       }
       if (owner_ != null) {
         size += com.google.protobuf.CodedOutputStream
@@ -7066,8 +7614,8 @@ public final class File {
         result = result && getType()
             .equals(other.getType());
       }
-      result = result && (getUniqueID()
-          == other.getUniqueID());
+      result = result && getUniqueID()
+          .equals(other.getUniqueID());
       result = result && (hasOwner() == other.hasOwner());
       if (hasOwner()) {
         result = result && getOwner()
@@ -7093,7 +7641,7 @@ public final class File {
         hash = (53 * hash) + getType().hashCode();
       }
       hash = (37 * hash) + UNIQUEID_FIELD_NUMBER;
-      hash = (53 * hash) + getUniqueID();
+      hash = (53 * hash) + getUniqueID().hashCode();
       if (hasOwner()) {
         hash = (37 * hash) + OWNER_FIELD_NUMBER;
         hash = (53 * hash) + getOwner().hashCode();
@@ -7237,7 +7785,7 @@ public final class File {
           type_ = null;
           typeBuilder_ = null;
         }
-        uniqueID_ = 0;
+        uniqueID_ = "";
 
         if (ownerBuilder_ == null) {
           owner_ = null;
@@ -7333,8 +7881,9 @@ public final class File {
         if (other.hasType()) {
           mergeType(other.getType());
         }
-        if (other.getUniqueID() != 0) {
-          setUniqueID(other.getUniqueID());
+        if (!other.getUniqueID().isEmpty()) {
+          uniqueID_ = other.uniqueID_;
+          onChanged();
         }
         if (other.hasOwner()) {
           mergeOwner(other.getOwner());
@@ -7485,28 +8034,71 @@ public final class File {
         return typeBuilder_;
       }
 
-      private int uniqueID_ ;
+      private java.lang.Object uniqueID_ = "";
       /**
-       * <code>int32 UniqueID = 2;</code>
+       * <code>string UniqueID = 2;</code>
        */
-      public int getUniqueID() {
-        return uniqueID_;
+      public java.lang.String getUniqueID() {
+        java.lang.Object ref = uniqueID_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          uniqueID_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
-       * <code>int32 UniqueID = 2;</code>
+       * <code>string UniqueID = 2;</code>
        */
-      public Builder setUniqueID(int value) {
-        
+      public com.google.protobuf.ByteString
+          getUniqueIDBytes() {
+        java.lang.Object ref = uniqueID_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          uniqueID_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string UniqueID = 2;</code>
+       */
+      public Builder setUniqueID(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         uniqueID_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 UniqueID = 2;</code>
+       * <code>string UniqueID = 2;</code>
        */
       public Builder clearUniqueID() {
         
-        uniqueID_ = 0;
+        uniqueID_ = getDefaultInstance().getUniqueID();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string UniqueID = 2;</code>
+       */
+      public Builder setUniqueIDBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        uniqueID_ = value;
         onChanged();
         return this;
       }
@@ -8544,9 +9136,14 @@ public final class File {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>int32 id_user = 1;</code>
+     * <code>string id_user = 1;</code>
      */
-    int getIdUser();
+    java.lang.String getIdUser();
+    /**
+     * <code>string id_user = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getIdUserBytes();
 
     /**
      * <code>string role = 2;</code>
@@ -8570,7 +9167,7 @@ public final class File {
       super(builder);
     }
     private CreateUserRequest() {
-      idUser_ = 0;
+      idUser_ = "";
       role_ = "";
     }
 
@@ -8599,9 +9196,10 @@ public final class File {
               }
               break;
             }
-            case 8: {
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
 
-              idUser_ = input.readInt32();
+              idUser_ = s;
               break;
             }
             case 18: {
@@ -8634,12 +9232,37 @@ public final class File {
     }
 
     public static final int ID_USER_FIELD_NUMBER = 1;
-    private int idUser_;
+    private volatile java.lang.Object idUser_;
     /**
-     * <code>int32 id_user = 1;</code>
+     * <code>string id_user = 1;</code>
      */
-    public int getIdUser() {
-      return idUser_;
+    public java.lang.String getIdUser() {
+      java.lang.Object ref = idUser_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        idUser_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string id_user = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getIdUserBytes() {
+      java.lang.Object ref = idUser_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        idUser_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     public static final int ROLE_FIELD_NUMBER = 2;
@@ -8688,8 +9311,8 @@ public final class File {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (idUser_ != 0) {
-        output.writeInt32(1, idUser_);
+      if (!getIdUserBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, idUser_);
       }
       if (!getRoleBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, role_);
@@ -8701,9 +9324,8 @@ public final class File {
       if (size != -1) return size;
 
       size = 0;
-      if (idUser_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, idUser_);
+      if (!getIdUserBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, idUser_);
       }
       if (!getRoleBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, role_);
@@ -8724,8 +9346,8 @@ public final class File {
       GRPC.proto.File.CreateUserRequest other = (GRPC.proto.File.CreateUserRequest) obj;
 
       boolean result = true;
-      result = result && (getIdUser()
-          == other.getIdUser());
+      result = result && getIdUser()
+          .equals(other.getIdUser());
       result = result && getRole()
           .equals(other.getRole());
       return result;
@@ -8739,7 +9361,7 @@ public final class File {
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + ID_USER_FIELD_NUMBER;
-      hash = (53 * hash) + getIdUser();
+      hash = (53 * hash) + getIdUser().hashCode();
       hash = (37 * hash) + ROLE_FIELD_NUMBER;
       hash = (53 * hash) + getRole().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
@@ -8871,7 +9493,7 @@ public final class File {
       }
       public Builder clear() {
         super.clear();
-        idUser_ = 0;
+        idUser_ = "";
 
         role_ = "";
 
@@ -8940,8 +9562,9 @@ public final class File {
 
       public Builder mergeFrom(GRPC.proto.File.CreateUserRequest other) {
         if (other == GRPC.proto.File.CreateUserRequest.getDefaultInstance()) return this;
-        if (other.getIdUser() != 0) {
-          setIdUser(other.getIdUser());
+        if (!other.getIdUser().isEmpty()) {
+          idUser_ = other.idUser_;
+          onChanged();
         }
         if (!other.getRole().isEmpty()) {
           role_ = other.role_;
@@ -8973,28 +9596,71 @@ public final class File {
         return this;
       }
 
-      private int idUser_ ;
+      private java.lang.Object idUser_ = "";
       /**
-       * <code>int32 id_user = 1;</code>
+       * <code>string id_user = 1;</code>
        */
-      public int getIdUser() {
-        return idUser_;
+      public java.lang.String getIdUser() {
+        java.lang.Object ref = idUser_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          idUser_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
-       * <code>int32 id_user = 1;</code>
+       * <code>string id_user = 1;</code>
        */
-      public Builder setIdUser(int value) {
-        
+      public com.google.protobuf.ByteString
+          getIdUserBytes() {
+        java.lang.Object ref = idUser_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          idUser_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string id_user = 1;</code>
+       */
+      public Builder setIdUser(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         idUser_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 id_user = 1;</code>
+       * <code>string id_user = 1;</code>
        */
       public Builder clearIdUser() {
         
-        idUser_ = 0;
+        idUser_ = getDefaultInstance().getIdUser();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string id_user = 1;</code>
+       */
+      public Builder setIdUserBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        idUser_ = value;
         onChanged();
         return this;
       }
@@ -9121,9 +9787,14 @@ public final class File {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>int32 Id = 1;</code>
+     * <code>string Id = 1;</code>
      */
-    int getId();
+    java.lang.String getId();
+    /**
+     * <code>string Id = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getIdBytes();
 
     /**
      * <code>string role = 2;</code>
@@ -9147,7 +9818,7 @@ public final class File {
       super(builder);
     }
     private UserProto() {
-      id_ = 0;
+      id_ = "";
       role_ = "";
     }
 
@@ -9176,9 +9847,10 @@ public final class File {
               }
               break;
             }
-            case 8: {
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
 
-              id_ = input.readInt32();
+              id_ = s;
               break;
             }
             case 18: {
@@ -9211,12 +9883,37 @@ public final class File {
     }
 
     public static final int ID_FIELD_NUMBER = 1;
-    private int id_;
+    private volatile java.lang.Object id_;
     /**
-     * <code>int32 Id = 1;</code>
+     * <code>string Id = 1;</code>
      */
-    public int getId() {
-      return id_;
+    public java.lang.String getId() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        id_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string Id = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getIdBytes() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        id_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     public static final int ROLE_FIELD_NUMBER = 2;
@@ -9265,8 +9962,8 @@ public final class File {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (id_ != 0) {
-        output.writeInt32(1, id_);
+      if (!getIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
       }
       if (!getRoleBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, role_);
@@ -9278,9 +9975,8 @@ public final class File {
       if (size != -1) return size;
 
       size = 0;
-      if (id_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, id_);
+      if (!getIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
       }
       if (!getRoleBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, role_);
@@ -9301,8 +9997,8 @@ public final class File {
       GRPC.proto.File.UserProto other = (GRPC.proto.File.UserProto) obj;
 
       boolean result = true;
-      result = result && (getId()
-          == other.getId());
+      result = result && getId()
+          .equals(other.getId());
       result = result && getRole()
           .equals(other.getRole());
       return result;
@@ -9316,7 +10012,7 @@ public final class File {
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + ID_FIELD_NUMBER;
-      hash = (53 * hash) + getId();
+      hash = (53 * hash) + getId().hashCode();
       hash = (37 * hash) + ROLE_FIELD_NUMBER;
       hash = (53 * hash) + getRole().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
@@ -9448,7 +10144,7 @@ public final class File {
       }
       public Builder clear() {
         super.clear();
-        id_ = 0;
+        id_ = "";
 
         role_ = "";
 
@@ -9517,8 +10213,9 @@ public final class File {
 
       public Builder mergeFrom(GRPC.proto.File.UserProto other) {
         if (other == GRPC.proto.File.UserProto.getDefaultInstance()) return this;
-        if (other.getId() != 0) {
-          setId(other.getId());
+        if (!other.getId().isEmpty()) {
+          id_ = other.id_;
+          onChanged();
         }
         if (!other.getRole().isEmpty()) {
           role_ = other.role_;
@@ -9550,28 +10247,71 @@ public final class File {
         return this;
       }
 
-      private int id_ ;
+      private java.lang.Object id_ = "";
       /**
-       * <code>int32 Id = 1;</code>
+       * <code>string Id = 1;</code>
        */
-      public int getId() {
-        return id_;
+      public java.lang.String getId() {
+        java.lang.Object ref = id_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          id_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
-       * <code>int32 Id = 1;</code>
+       * <code>string Id = 1;</code>
        */
-      public Builder setId(int value) {
-        
+      public com.google.protobuf.ByteString
+          getIdBytes() {
+        java.lang.Object ref = id_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          id_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string Id = 1;</code>
+       */
+      public Builder setId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         id_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 Id = 1;</code>
+       * <code>string Id = 1;</code>
        */
       public Builder clearId() {
         
-        id_ = 0;
+        id_ = getDefaultInstance().getId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string Id = 1;</code>
+       */
+      public Builder setIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        id_ = value;
         onChanged();
         return this;
       }
@@ -9698,9 +10438,14 @@ public final class File {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>int32 Id = 1;</code>
+     * <code>string Id = 1;</code>
      */
-    int getId();
+    java.lang.String getId();
+    /**
+     * <code>string Id = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getIdBytes();
 
     /**
      * <code>string role = 2;</code>
@@ -9724,7 +10469,7 @@ public final class File {
       super(builder);
     }
     private UserSearchRequest() {
-      id_ = 0;
+      id_ = "";
       role_ = "";
     }
 
@@ -9753,9 +10498,10 @@ public final class File {
               }
               break;
             }
-            case 8: {
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
 
-              id_ = input.readInt32();
+              id_ = s;
               break;
             }
             case 18: {
@@ -9788,12 +10534,37 @@ public final class File {
     }
 
     public static final int ID_FIELD_NUMBER = 1;
-    private int id_;
+    private volatile java.lang.Object id_;
     /**
-     * <code>int32 Id = 1;</code>
+     * <code>string Id = 1;</code>
      */
-    public int getId() {
-      return id_;
+    public java.lang.String getId() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        id_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string Id = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getIdBytes() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        id_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     public static final int ROLE_FIELD_NUMBER = 2;
@@ -9842,8 +10613,8 @@ public final class File {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (id_ != 0) {
-        output.writeInt32(1, id_);
+      if (!getIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
       }
       if (!getRoleBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, role_);
@@ -9855,9 +10626,8 @@ public final class File {
       if (size != -1) return size;
 
       size = 0;
-      if (id_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, id_);
+      if (!getIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
       }
       if (!getRoleBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, role_);
@@ -9878,8 +10648,8 @@ public final class File {
       GRPC.proto.File.UserSearchRequest other = (GRPC.proto.File.UserSearchRequest) obj;
 
       boolean result = true;
-      result = result && (getId()
-          == other.getId());
+      result = result && getId()
+          .equals(other.getId());
       result = result && getRole()
           .equals(other.getRole());
       return result;
@@ -9893,7 +10663,7 @@ public final class File {
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + ID_FIELD_NUMBER;
-      hash = (53 * hash) + getId();
+      hash = (53 * hash) + getId().hashCode();
       hash = (37 * hash) + ROLE_FIELD_NUMBER;
       hash = (53 * hash) + getRole().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
@@ -10025,7 +10795,7 @@ public final class File {
       }
       public Builder clear() {
         super.clear();
-        id_ = 0;
+        id_ = "";
 
         role_ = "";
 
@@ -10094,8 +10864,9 @@ public final class File {
 
       public Builder mergeFrom(GRPC.proto.File.UserSearchRequest other) {
         if (other == GRPC.proto.File.UserSearchRequest.getDefaultInstance()) return this;
-        if (other.getId() != 0) {
-          setId(other.getId());
+        if (!other.getId().isEmpty()) {
+          id_ = other.id_;
+          onChanged();
         }
         if (!other.getRole().isEmpty()) {
           role_ = other.role_;
@@ -10127,28 +10898,71 @@ public final class File {
         return this;
       }
 
-      private int id_ ;
+      private java.lang.Object id_ = "";
       /**
-       * <code>int32 Id = 1;</code>
+       * <code>string Id = 1;</code>
        */
-      public int getId() {
-        return id_;
+      public java.lang.String getId() {
+        java.lang.Object ref = id_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          id_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
-       * <code>int32 Id = 1;</code>
+       * <code>string Id = 1;</code>
        */
-      public Builder setId(int value) {
-        
+      public com.google.protobuf.ByteString
+          getIdBytes() {
+        java.lang.Object ref = id_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          id_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string Id = 1;</code>
+       */
+      public Builder setId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         id_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 Id = 1;</code>
+       * <code>string Id = 1;</code>
        */
       public Builder clearId() {
         
-        id_ = 0;
+        id_ = getDefaultInstance().getId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string Id = 1;</code>
+       */
+      public Builder setIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        id_ = value;
         onChanged();
         return this;
       }
@@ -11878,23 +12692,23 @@ public final class File {
       "o\030\001 \001(\t\022\017\n\007ShelfNo\030\002 \001(\t\"9\n\020ShelvesListP" +
       "roto\022%\n\005proto\030\001 \003(\0132\026.GRPC.proto.ShelfPr",
       "oto\"[\n\027ItemTypeCreationRequest\022\n\n\002id\030\001 \001" +
-      "(\005\022\020\n\010ItemDimX\030\002 \001(\001\022\020\n\010ItemDimY\030\003 \001(\001\022\020" +
+      "(\t\022\020\n\010ItemDimX\030\002 \001(\001\022\020\n\010ItemDimY\030\003 \001(\001\022\020" +
       "\n\010ItemDimZ\030\004 \001(\001\"#\n\025ItemTypeSearchReques" +
-      "t\022\n\n\002id\030\001 \001(\005\"E\n\rItemTypeProto\022\n\n\002id\030\001 \001" +
-      "(\005\022\014\n\004DimX\030\002 \001(\001\022\014\n\004DimY\030\003 \001(\001\022\014\n\004DimZ\030\004" +
+      "t\022\n\n\002id\030\001 \001(\t\"E\n\rItemTypeProto\022\n\n\002id\030\001 \001" +
+      "(\t\022\014\n\004DimX\030\002 \001(\001\022\014\n\004DimY\030\003 \001(\001\022\014\n\004DimZ\030\004" +
       " \001(\001\"<\n\021ItemTypeListProto\022\'\n\004list\030\001 \003(\0132" +
       "\031.GRPC.proto.ItemTypeProto\"D\n\014ItemCreati" +
-      "on\022\022\n\nItemTypeID\030\001 \001(\005\022\017\n\007ShelfID\030\002 \001(\005\022" +
-      "\017\n\007OwnerID\030\003 \001(\005\"\037\n\021ItemSearchRequest\022\n\n" +
-      "\002id\030\001 \001(\005\"\223\001\n\tItemProto\022\'\n\004type\030\001 \001(\0132\031.",
+      "on\022\022\n\nItemTypeID\030\001 \001(\t\022\017\n\007ShelfID\030\002 \001(\t\022" +
+      "\017\n\007OwnerID\030\003 \001(\t\"\037\n\021ItemSearchRequest\022\n\n" +
+      "\002id\030\001 \001(\t\"\223\001\n\tItemProto\022\'\n\004type\030\001 \001(\0132\031.",
       "GRPC.proto.ItemTypeProto\022\020\n\010UniqueID\030\002 \001" +
-      "(\005\022$\n\005owner\030\003 \001(\0132\025.GRPC.proto.UserProto" +
+      "(\t\022$\n\005owner\030\003 \001(\0132\025.GRPC.proto.UserProto" +
       "\022%\n\005shelf\030\004 \001(\0132\026.GRPC.proto.ShelfProto\"" +
       "4\n\rItemListProto\022#\n\004list\030\001 \003(\0132\025.GRPC.pr" +
       "oto.ItemProto\"2\n\021CreateUserRequest\022\017\n\007id" +
-      "_user\030\001 \001(\005\022\014\n\004role\030\002 \001(\t\"%\n\tUserProto\022\n" +
-      "\n\002Id\030\001 \001(\005\022\014\n\004role\030\002 \001(\t\"-\n\021UserSearchRe" +
-      "quest\022\n\n\002Id\030\001 \001(\005\022\014\n\004role\030\002 \001(\t\"4\n\rUserL" +
+      "_user\030\001 \001(\t\022\014\n\004role\030\002 \001(\t\"%\n\tUserProto\022\n" +
+      "\n\002Id\030\001 \001(\t\022\014\n\004role\030\002 \001(\t\"-\n\021UserSearchRe" +
+      "quest\022\n\n\002Id\030\001 \001(\t\022\014\n\004role\030\002 \001(\t\"4\n\rUserL" +
       "istProto\022#\n\004list\030\001 \003(\0132\025.GRPC.proto.User" +
       "Proto\"\017\n\rgetAllRequest\"\r\n\013emptyParams2\275\002",
       "\n\013ItemService\0229\n\006Create\022\030.GRPC.proto.Ite" +

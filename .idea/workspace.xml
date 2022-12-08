@@ -4,37 +4,34 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="81ffe829-311a-4bde-8753-4e2da12b99da" name="Changes" comment="Compiled updated .proto.">
-      <change afterPath="$PROJECT_DIR$/Hibernate/src/Test/java/database/orm/DbConnectionTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Hibernate/src/Test/resources/META-INF/persistence.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Hibernate/src/Test/resources/database/identifier.sqlite" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/testMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+    <list default="true" id="81ffe829-311a-4bde-8753-4e2da12b99da" name="Changes" comment="Added Update() method&#10;Fixed ShelfSearchRequest needing an int Id. Now takes rowNo and shelfNo&#10;Removed DbDao.java and IConnector.java. DbConnector.Java now implements from IDbDao.java&#10;Added Crude main method testing as Junit and Hibernate doesn't get along.&#10;Fixed minor bugs in Shelf converter and Item converter">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Hibernate/src/Test/java/TestConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/Test/java/TestConverter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/src/Test/java/grpc/services/GrpcItemServiceTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hibernate/src/Test/java/database/orm/DbConnectionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/Test/java/database/hibernate/DbConnectionTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Hibernate/src/main/Proto/File.proto" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/Proto/File.proto" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/database/daoInterfaces/IDbDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/database/daoInterfaces/IDbDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/database/daos/DbDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/database/orm/DbConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/database/orm/DbConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/database/orm/IConnector.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/database/orm/DbConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/database/hibernate/DbConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/domain/Dto/ItemCreationDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/domain/Dto/ItemRegisterRequestDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/domain/Dto/ItemRegisterResponseDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/domain/Dto/ItemTypeCreationDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/domain/Dto/ItemTypeSearchDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/domain/Dto/ShelfAddItemRequestDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/domain/Dto/ShelfCreationDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/domain/Dto/ShelfItemAmountDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/domain/Dto/ShelfSearchParametersDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/domain/Dto/UserCreationDto.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/domain/Model/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/domain/Model/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/domain/Model/Shelf.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/domain/Model/Shelf.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/domain/Model/ItemType.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/domain/Model/ItemType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/domain/Model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/domain/Model/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/DatabaseInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/DatabaseInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/converter/ItemConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/converter/ItemConverter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/converter/ItemTypeConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/converter/ItemTypeConverter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/converter/ShelfConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/converter/ShelfConverter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/converter/UserConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/converter/UserConverter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/services/GrpcItemService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/services/GrpcItemService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/services/GrpcItemTypeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/services/GrpcItemTypeService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/services/GrpcShelfService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/services/GrpcShelfService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/services/GrpcUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/services/GrpcUserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/testMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/testMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Hibernate/src/main/resources/database/identifier.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/resources/database/identifier.sqlite" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Hibernate/target/classes/database/identifier.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/target/classes/database/identifier.sqlite" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/target/generated-sources/protobuf/grpc-java/GRPC/proto/ItemTypeServiceGrpc.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/target/generated-sources/protobuf/grpc-java/GRPC/proto/ItemTypeServiceGrpc.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/target/generated-sources/protobuf/grpc-java/GRPC/proto/ShelfServiceGrpc.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/target/generated-sources/protobuf/grpc-java/GRPC/proto/ShelfServiceGrpc.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/target/generated-sources/protobuf/grpc-java/GRPC/proto/UserServiceGrpc.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/target/generated-sources/protobuf/grpc-java/GRPC/proto/UserServiceGrpc.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Hibernate/target/generated-sources/protobuf/java/GRPC/proto/File.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/target/generated-sources/protobuf/java/GRPC/proto/File.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Hibernate/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
     </list>
@@ -60,6 +57,14 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="GithubProjectSettings">
     <option name="branchProtectionPatterns">
@@ -147,7 +152,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Application.testMain">
+  <component name="RunManager" selected="Application.DatabaseInitializer">
     <configuration name="DatabaseInitializer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="grpc.DatabaseInitializer" />
       <module name="Hibernate" />
@@ -178,12 +183,12 @@
       <module name="Hibernate" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="database.orm.*" />
+          <option name="PATTERN" value="database.hibernate.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="database.orm" />
-      <option name="MAIN_CLASS_NAME" value="database.orm.DbConnectionTest" />
+      <option name="PACKAGE_NAME" value="database.hibernate" />
+      <option name="MAIN_CLASS_NAME" value="database.hibernate.DbConnectionTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -193,12 +198,12 @@
       <module name="Hibernate" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="database.orm.*" />
+          <option name="PATTERN" value="database.hibernate.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="database.orm" />
-      <option name="MAIN_CLASS_NAME" value="database.orm.DbConnectionTest" />
+      <option name="PACKAGE_NAME" value="database.hibernate" />
+      <option name="MAIN_CLASS_NAME" value="database.hibernate.DbConnectionTest" />
       <option name="METHOD_NAME" value="create" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -300,8 +305,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.testMain" />
         <item itemvalue="Application.DatabaseInitializer" />
+        <item itemvalue="Application.testMain" />
         <item itemvalue="JUnit.DbConnectionTest" />
         <item itemvalue="JUnit.DbConnectionTest.create" />
         <item itemvalue="JUnit.GrpcItemServiceTest.create" />
@@ -342,7 +347,7 @@
       <workItem from="1670485250421" duration="4333000" />
       <workItem from="1670506457087" duration="976000" />
       <workItem from="1670511444241" duration="207000" />
-      <workItem from="1670517558974" duration="14152000" />
+      <workItem from="1670517558974" duration="17332000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit Java">
       <created>1667318961742</created>
@@ -477,7 +482,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670501553195</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Added Update() method&#10;Fixed ShelfSearchRequest needing an int Id. Now takes rowNo and shelfNo&#10;Removed DbDao.java and IConnector.java. DbConnector.Java now implements from IDbDao.java&#10;Added Crude main method testing as Junit and Hibernate doesn't get along.&#10;Fixed minor bugs in Shelf converter and Item converter">
+      <created>1670540120436</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1670540120436</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -541,7 +553,8 @@
     <MESSAGE value="Slettede gammelt modul" />
     <MESSAGE value="bug fix" />
     <MESSAGE value="Compiled updated .proto." />
-    <option name="LAST_COMMIT_MESSAGE" value="Compiled updated .proto." />
+    <MESSAGE value="Added Update() method&#10;Fixed ShelfSearchRequest needing an int Id. Now takes rowNo and shelfNo&#10;Removed DbDao.java and IConnector.java. DbConnector.Java now implements from IDbDao.java&#10;Added Crude main method testing as Junit and Hibernate doesn't get along.&#10;Fixed minor bugs in Shelf converter and Item converter" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Update() method&#10;Fixed ShelfSearchRequest needing an int Id. Now takes rowNo and shelfNo&#10;Removed DbDao.java and IConnector.java. DbConnector.Java now implements from IDbDao.java&#10;Added Crude main method testing as Junit and Hibernate doesn't get along.&#10;Fixed minor bugs in Shelf converter and Item converter" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

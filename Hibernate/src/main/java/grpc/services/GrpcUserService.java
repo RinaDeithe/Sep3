@@ -29,7 +29,7 @@ public class GrpcUserService extends UserServiceGrpc.UserServiceImplBase {
 
     @Override
     public void read(File.UserSearchRequest request, StreamObserver<File.UserProto> responseObserver) {
-        User user = dao.Read(new User(request.getId(), request.getRole()));
+        User user = dao.Read(new User(), request.getId());
 
         File.UserProto proto = UserConverter.CONVERT.toUserProto(user);
 

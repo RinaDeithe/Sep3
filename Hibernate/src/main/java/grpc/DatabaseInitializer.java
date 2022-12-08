@@ -1,6 +1,6 @@
 package grpc;
 
-import database.orm.DbConnection;
+import database.hibernate.DbConnection;
 import domain.Model.Item;
 import domain.Model.ItemType;
 import domain.Model.Shelf;

@@ -1,18 +1,19 @@
 package domain.Model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-public class User {
+public class User implements Serializable {
 
     @Id
     @Column(name = "id")
-    private int id;
+    private String id;
 
     @Column(name = "role")
     private String role;
 
-    public User(int id, String role) {
+    public User(String id, String role) {
         this.id = id;
         this.role = role;
     }
@@ -21,11 +22,11 @@ public class User {
         //DO NOT USE THIS CONSTRUCTOR
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

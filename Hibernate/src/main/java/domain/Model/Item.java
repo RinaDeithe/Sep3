@@ -1,9 +1,10 @@
 package domain.Model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-public class Item {
+public class Item implements Serializable {
 
     @ManyToOne
     private ItemType type;
@@ -11,7 +12,7 @@ public class Item {
     @Id
     @Column(name = "Id")
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private int UID;
+    private String UID;
 
     @ManyToOne
     private User Owner;
@@ -20,7 +21,7 @@ public class Item {
     private Shelf shelf;
 
 
-    public Item(int UID, ItemType type, User owner, Shelf shelf) {
+    public Item(String UID, ItemType type, User owner, Shelf shelf) {
         this.type = type;
         this.UID = UID;
         Owner = owner;
@@ -45,11 +46,11 @@ public class Item {
         this.type = type;
     }
 
-    public int getUID() {
+    public String getUID() {
         return UID;
     }
 
-    public void setUID(int UID) {
+    public void setUID(String UID) {
         this.UID = UID;
     }
 

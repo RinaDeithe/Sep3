@@ -1,7 +1,7 @@
 package grpc;
 
 import database.daoInterfaces.IDbDao;
-import database.orm.DbConnection;
+import database.hibernate.DbConnection;
 import domain.Model.Item;
 import domain.Model.ItemType;
 import domain.Model.Shelf;
@@ -16,9 +16,9 @@ public class testMain {
         IDbDao<ItemType> TypeDao = new DbConnection<>();
         IDbDao<Shelf> ShelfDao = new DbConnection<>();
 
-        User user = new User(0, "test");
+        User user = new User("0", "test");
 
-        ItemType type = new ItemType(-1, -1.0, -1.0, -1.0);
+        ItemType type = new ItemType("-1", -1.0, -1.0, -1.0);
         Shelf shelf = new Shelf("test", "shelf", -1.0, -1.0, -1.0, new ArrayList<>());
 
         UserDao.Create(user);
@@ -29,6 +29,6 @@ public class testMain {
 
         ItemDao.Create(new Item(type, user, shelf));
 
-        System.out.println(ShelfDao.Read(new Shelf("test", "shelf", 0.0, 0.0, 0.0, null)).toString());
+        System.out.println(ShelfDao.Read(new Shelf(), shelf.getShelfNo() + shelf.getRowNo()).toString());
     }
 }

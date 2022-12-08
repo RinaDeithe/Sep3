@@ -1,4 +1,4 @@
-package database.orm;
+package database.hibernate;
 
 import database.daoInterfaces.IDbDao;
 import domain.Model.Item;
@@ -6,10 +6,6 @@ import domain.Model.ItemType;
 import domain.Model.Shelf;
 import domain.Model.User;
 import org.junit.jupiter.api.Test;
-import org.hibernate.*;
-import org.hibernate.query.*;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class DbConnectionTest {
 
@@ -21,9 +17,9 @@ class DbConnectionTest {
         IDbDao<ItemType> TypeDao = new DbConnection<>();
         IDbDao<Shelf> ShelfDao = new DbConnection<>();
 
-        User user = new User(0, "test");
+        User user = new User("0", "test");
 
-        ItemType type = new ItemType(-1, -1.0, -1.0, -1.0);
+        ItemType type = new ItemType("-1", -1.0, -1.0, -1.0);
         Shelf shelf = new Shelf("test", "shelf", -1.0, -1.0, -1.0, null);
 
         UserDao.Create(user);

@@ -3,14 +3,15 @@ package domain.Model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.io.Serializable;
 
 @Entity
-public class ItemType
+public class ItemType implements Serializable
 {
 
     @Id
     @Column(name = "ItemTypeId")
-    private int id;
+    private String id;
 
     @Column(name = "dimX")
     private Double dimX;
@@ -20,7 +21,7 @@ public class ItemType
     @Column(name = "dimZ")
     private Double dimZ;
 
-    public ItemType(int id, Double dimX, Double dimY, Double dimZ) {
+    public ItemType(String id, Double dimX, Double dimY, Double dimZ) {
         this.id = id;
         this.dimX = dimX;
         this.dimY = dimY;
@@ -31,11 +32,11 @@ public class ItemType
         //DO NOT USE THIS CONSTRUCTOR
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
