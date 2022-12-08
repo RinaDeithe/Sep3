@@ -1,11 +1,6 @@
-using ClientgRPC.Converters;
-using Grpc.Net.Client;
-using GRPC.Proto;
-using LogicClient.ClientInterfaces;
-using Shared.DTOs.Shelf;
-using Shared.Model;
 
-namespace LogicClient.GRPC_stubs; 
+/*
+namespace ClientgRPC.GRPC_stubs; 
 
 public class ShelfStub : IShelfClient {
     private GrpcChannel _channel;
@@ -44,3 +39,4 @@ public class ShelfStub : IShelfClient {
         return Task.FromResult(ConverterShelf.ProtoToShelf(_client.Delete(request)));
     }
 }
+*/

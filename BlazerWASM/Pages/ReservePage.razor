@@ -1,4 +1,11 @@
 ﻿@page "/ReservePage"
+@using BlazerWASM.StateContainer
+@using global::Shared.DTOs.ItemType
+@using HttpClients.ClientInterfaces
+@inject ReserveItemState state;
+@inject NavigationManager NavigationManager;
+@inject IItemTypeService typeService;
+
 <h3 class="text-center">ReservePage</h3>
 
 <div class="container-fluid">
@@ -6,11 +13,12 @@
 
         <div class="col-6">
             <form action="/action_page.php">
-                <label for="Varenummer">Varnummer:</label> <br/>
-                <input type="varenummer" id="varenummer" name="varenummer"><br><br>
-                <label for="antal">Antal</label> <br/>
-                <input type="antal" id="antal" name="antal" minlength="8"><br><br>
-                <button type="button">Godkend</button>
+                <label for="Varenummer">Varnummer: </label> <br/>
+                <input type="varenummer" id="varenummer" name="varenummer"@bind="state.typeId" placeholder="@state.typeId"><br><br>
+                <label for="antal">Antal </label> <br/>
+                <input type="antal" id="antal" name="antal" minlength="8" @bind="state.amount" placeholder="@state.amount"><br><br>
+                <button type="button" @onclick="Reserve">Godkend</button>
+                <button type="button" @onclick="Confirmation">Godkend</button>
             </form>
         </div>
 
@@ -25,5 +33,32 @@
 
 
 @code {
+    private string resultmsg;
+    private bool buttonClicked;
+
+    private void Reserve()
+    {
+        if (state.typeId == null)
+        {
+            resultmsg = "Please input an id";
+        }
+        
+        if (!typeService.CheckType(new ItemTypeSearchDto(state.typeId)))
+        {
+            buttonClicked = false;
+
+            while (buttonClicked.Equals(false))
+            {
+                Thread.Sleep(500);
+            }
+            
+            NavigationManager.NavigateTo("/CreateItemType");
+        }
+    }
+    
+    private void Confirmation()
+    {
+        buttonClicked = true;
+    }
 
 }

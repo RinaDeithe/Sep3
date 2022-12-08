@@ -1,6 +1,7 @@
 ﻿using Shared.DTOs;
 using Shared.Model;
 
+namespace ClientgRPC.StaticBusiness;
 
 public class Amount
 {

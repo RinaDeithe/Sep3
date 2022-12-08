@@ -1,11 +1,8 @@
-﻿using GRPC.Proto;
-using Shared.DTOs.User;
-using Shared.Model;
-
-namespace ClientgRPC.Converters;
+﻿namespace ClientgRPC.Converters;
 
 public class ConverterUser
 {
+    /*
     public static UserProto UserToUserProto(User user)
     {
         return new UserProto {Id = user.Id};
@@ -38,4 +35,5 @@ public class ConverterUser
 
         return returnList;
     }
+    */
 }

@@ -1,13 +1,9 @@
-using ClientgRPC.Converters;
-using Grpc.Net.Client;
-using GRPC.Proto;
-using LogicClient.ClientInterfaces;
-using Shared.DTOs.ItemType;
-using Shared.Model;
 
-namespace LogicClient.GRPC_stubs; 
+/*
+namespace ClientgRPC.GRPC_stubs; 
 
 public class ItemTypeStub : IItemTypeClient {
+    
     private GrpcChannel _channel;
     private ItemTypeService.ItemTypeServiceClient _client;
     private ConverterItemType _converter;
@@ -44,3 +40,4 @@ public class ItemTypeStub : IItemTypeClient {
         return Task.FromResult(_converter.ProtoToType(_client.Delete(request)));
     }
 }
+*/

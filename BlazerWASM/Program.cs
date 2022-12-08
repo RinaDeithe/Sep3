@@ -17,6 +17,7 @@ builder.Services.AddScoped<IShelfService, ShelfHttpClient>();
 builder.Services.AddScoped<IAuthService, JwtAuthService>();
 
 builder.Services.AddSingleton<AddNewItemBeginState>();
+builder.Services.AddSingleton<ReserveItemState>();
 
 builder.Services.AddScoped(
     sp => 

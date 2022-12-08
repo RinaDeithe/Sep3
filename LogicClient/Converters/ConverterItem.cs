@@ -1,15 +1,12 @@
-﻿using GRPC.Proto;
-using Shared.DTOs.Item;
-using Shared.Model;
-
-namespace ClientgRPC.Converters;
+﻿namespace ClientgRPC.Converters;
 
 public class ConverterItem
 {
+    /*
     public ItemCreation CreationDtoToProto(ItemCreationDto dto) {
         
         return new ItemCreation
-            { ItemTypeID = dto.ItemTypeId, ShelfID = (int) dto.shelfId!, OwnerID = dto.OwnerId };
+            { ItemTypeID = dto.ItemTypeId, ShelfID = dto.shelfId!, OwnerID = dto.OwnerId };
     }
 
     public static Item ProtoToItem(ItemProto proto) {
@@ -53,4 +50,5 @@ public class ConverterItem
 
         };
     }
+    */
 }

@@ -1,4 +1,4 @@
-﻿@page "/CreateItemType"
+﻿@page "/ReserveCreatiomType"
 @using BlazerWASM.StateContainer
 @using global::Shared.DTOs.ItemType
 @using HttpClients.ClientInterfaces
@@ -7,13 +7,13 @@
 
 @inject IItemTypeService Service;
 @inject NavigationManager NavigationManager;
-@inject AddNewItemBeginState NewItemBeginState;
+@inject ReserveItemState state;
 
 <div class="card col-6 border border-0">
 <div>
     <h3>CreateItemType</h3>
                     <td class="border-1 text-center fw-bold">
-                        <label >Vare nummer: @NewItemBeginState.Id</label>
+                        <label >Vare nummer: @state.typeId </label>
                     </td>
     <div class="my-2">
         <label>DimX</label>
@@ -56,7 +56,7 @@
         
         try
         {
-            await Service.CreateAsync(new ItemTypeCreationDto(NewItemBeginState.Id,(double)dimX,(double)dimY,(double)dimZ));
+            await Service.CreateAsync(new ItemTypeCreationDto(state.typeId,(double)dimX,(double)dimY,(double)dimZ));
             dimZ = null;
             dimY = null;
             dimX= null;

@@ -1,30 +1,32 @@
-﻿using ClientgRPC.Adapters.ItemType;
-using ClientgRPC.ClientInterfaces;
-using Logic.AdapterToGRPC.Item;
-using Shared.DTOs;
+﻿using ClientgRPC.ClientInterfaces;
 using Shared.DTOs.ItemType;
-using Shared.Model;
 
 namespace Logic.AdapterToGRPC.ItemType;
 
 public class ItemTypeMainAdapter: IItemTypeClient
 {
-    
-    private readonly ItemTypeCreateAdapter saveadp = new ();
-    private readonly ReadItemTypeAdapter readadp = new ();
-    
-
-    public async Task<Shared.Model.ItemType> Create(ItemTypeCreationDto dto)
+    public Task<Shared.Model.ItemType> Create(ItemTypeCreationDto dto)
     {
-        
-        return await saveadp.CreateAdapter(dto);
+        throw new NotImplementedException();
     }
 
-    public async Task<Shared.Model.ItemType> Read(ItemTypeSearchDto dto)
+    public Task<Shared.Model.ItemType> Read(ItemTypeSearchDto dto)
     {
-
-        return await readadp.ReadItem(dto);
+        throw new NotImplementedException();
     }
-    
-    
+
+    public Task<List<Shared.Model.ItemType>> ReadAll()
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<Shared.Model.ItemType> Update(Shared.Model.ItemType entity)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<Shared.Model.ItemType> Delete(ItemTypeSearchDto dto)
+    {
+        throw new NotImplementedException();
+    }
 }

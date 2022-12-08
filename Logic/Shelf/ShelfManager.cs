@@ -1,19 +1,12 @@
-﻿using System.Runtime.InteropServices;
-using ClientgRPC;
-using ClientgRPC.ClientInterfaces;
-using Logic.AdapterToGRPC.Item;
-using Logic.AdapterToGRPC.Shelf;
-using Logic.AdapterToGRPC.Shelf.Adp;
-using Logic.LogicInterfaces;
-using Logic.Shelf;
-
+﻿using ClientgRPC.ClientInterfaces;
+using ClientgRPC.StaticBusiness;
 using Shared.DTOs;
 using Shared.DTOs.Item;
 using Shared.DTOs.ItemType;
 using Shared.DTOs.Shelf;
 using Shared.Model;
 
-namespace Logic.Logic;
+namespace Logic.Shelf;
 
 public class ShelfManager : IShelfManager
 {
@@ -61,7 +54,7 @@ public class ShelfManager : IShelfManager
 
         ItemType _itemType = _itemTypeClient.Read(new ItemTypeSearchDto(itemTypeId)).Result;
 
-        List < Shared.Model.Shelf > allShelves= await _shelfClient.GetAllShelves();
+        List < Shared.Model.Shelf > allShelves= await _shelfClient.ReadAll();
         foreach (var shelf in allShelves)
         {
             result.Add(Amount.AmountOnSpaceDto(shelf, _itemType));
