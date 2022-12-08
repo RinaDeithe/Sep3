@@ -1,8 +1,11 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 
+using Google.Protobuf.WellKnownTypes;
 using Grpc.Net.Client;
 using GRPC.Proto;
+using Logic.AdapterToGRPC.Shelf.Adp;
+using Empty = GRPC.Proto.Empty;
 
 namespace ClientgRPC;
 
@@ -82,7 +85,14 @@ public class GRPCServerSide : IGRPCServerSide{
         ShelfProto shelfProto = await _shelf.UpdateShelfAsync(dao);
         return shelfProto;
     }
-    
+
+    public async Task<ShelfListProtoReturn> GetAllShelvsGRPCAsync(Empty dto){
+    var _channel = GrpcChannel.ForAddress("http://localhost:9090");
+        var _shelf = new Serivce.SerivceClient(_channel);
+        ShelfListProtoReturn shelfProto = await _shelf.getAllShelvesAsync(dto);
+        return shelfProto;
+    }
+
     /*
     public async Task<ShelvesListProto> GetAllShelfAsync(getAllRequest dto)
     {

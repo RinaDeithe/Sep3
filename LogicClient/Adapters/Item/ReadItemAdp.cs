@@ -9,7 +9,7 @@ namespace Logic.AdapterToGRPC.Item.Adapterne;
 
 public class ReadItemAdp
 {
-    private readonly IGRPCServerSide _grpcServerSide;
+    private readonly IGRPCServerSide _grpcServerSide = new GRPCServerSide();
 
     
 

@@ -4,7 +4,7 @@ namespace ClientgRPC.Adapters.Shelf;
 
 public class UpdateShelfAdp
 {
-    private readonly IGRPCServerSide _grpcServerSide;
+    private readonly IGRPCServerSide _grpcServerSide = new GRPCServerSide();
 
     /*
     public UpdateShelfAdp(IGRPCServerSide grpcServerSide)

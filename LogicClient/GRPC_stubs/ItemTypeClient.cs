@@ -10,14 +10,13 @@ namespace ClientgRPC.GRPC_stubs;
 public class ItemTypeClient: IItemTypeClient
 {
     
-    private readonly ItemTypeCreateAdapter saveadp = new();
-    private readonly ReadItemTypeAdapter readadp = new();
+    private readonly ItemTypeCreateAdapter saveadp = new ItemTypeCreateAdapter();
+    private readonly ReadItemTypeAdapter readadp = new ReadItemTypeAdapter();
 
     
-    public ItemTypeClient(ItemTypeCreateAdapter saveadp, ReadItemTypeAdapter readadp)
+    public ItemTypeClient()
     {
-        this.saveadp = saveadp;
-        this.readadp = readadp;
+
     }
 
     public async Task<ItemType> Create(ItemTypeCreationDto dto)

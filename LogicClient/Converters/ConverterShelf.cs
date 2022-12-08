@@ -49,4 +49,15 @@ public class ConverterShelf
         return result;
     }
     */
+    public static List<Shelf> AllShelvesProtoToAllShelves(ShelfListProtoReturn shelfProtos)
+    {
+        List<Shared.Model.Shelf> shelves = new List<Shared.Model.Shelf>();
+        
+        foreach (ShelfProto protoList in shelfProtos.ShelfListproto)
+        {
+            shelves.Add(ShelfProtoToShelf(protoList));
+        }
+
+        return shelves;
+    }
 }

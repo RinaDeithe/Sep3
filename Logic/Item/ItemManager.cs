@@ -16,7 +16,7 @@ namespace Logic.Logic;
 
 public class ItemManager : IItemLogic, IItemManager
 {
-    IShelfClient _shelfClient = new ShelfClient(new ReadShelfAdp(),new UpdateShelfAdp());
+    IShelfClient _shelfClient = new ShelfClient();
     IItemClient _itemClient = new TypeMainAdapter(); 
     IItemTypeClient _itemTypeClient = new ItemTypeMainAdapter();
 /*

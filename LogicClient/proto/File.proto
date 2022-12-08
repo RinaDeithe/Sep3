@@ -7,7 +7,7 @@ service Serivce {
 
   rpc getShelf(ShelfSearchRequest) returns (ShelfProto);
   rpc UpdateShelf(ShelfProto) returns (ShelfProto);
-  rpc getAllShelves(empty) returns (ShelfListProto);
+  rpc getAllShelves(Empty) returns (ShelfListProtoReturn);
 
   rpc CreateItemType(ItemTypeCreationRequest) returns (ItemTypeProto);
   rpc ReadItemType(ItemTypeSearchRequest) returns (ItemTypeProto);
@@ -28,7 +28,7 @@ message ShelfProto {
   repeated ItemProto ItemsOnShelf = 6;
 }
 
-message ShelfListProto {
+message ShelfListProtoReturn {
 repeated ShelfProto shelfListproto = 1;
 }
 

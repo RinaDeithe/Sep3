@@ -8,13 +8,13 @@ namespace ClientgRPC.GRPC_stubs;
 
 public class ShelfClient : IShelfClient
 {
-    private readonly ReadShelfAdp _readShelfAdp;
-    private readonly UpdateShelfAdp _updateShelfAdp;
+    private readonly ReadShelfAdp _readShelfAdp = new ReadShelfAdp();
+    private readonly UpdateShelfAdp _updateShelfAdp = new UpdateShelfAdp();
+    private readonly GetAllShelves _getAllShelves = new GetAllShelves();
 
-    public ShelfClient(ReadShelfAdp readShelfAdp, UpdateShelfAdp updateShelfAdp)
+    public ShelfClient()
     {
-        _readShelfAdp = readShelfAdp;
-        _updateShelfAdp = updateShelfAdp;
+
     }
 
     public async Task<Shared.Model.Shelf> ReadShelf(ShelfSearchParametersDto dao)
@@ -29,6 +29,7 @@ public class ShelfClient : IShelfClient
 
     public Task<List<Shelf>> GetAllShelves()
     {
-        throw new NotImplementedException();
+        return _getAllShelves.GetRequest();
+        
     }
 }

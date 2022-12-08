@@ -7,7 +7,7 @@ namespace ClientgRPC.Adapters.Item;
 
 public class DeleteItemAdp
 {
-    private readonly IGRPCServerSide _grpcServerSide;
+    private readonly IGRPCServerSide _grpcServerSide = new GRPCServerSide();
     
 
     public async Task<Shared.Model.Item> Delete(ItemSearchDto dao)

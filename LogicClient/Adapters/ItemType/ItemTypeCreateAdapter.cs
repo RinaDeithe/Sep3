@@ -7,7 +7,7 @@ namespace ClientgRPC.Adapters.ItemType;
 public class ItemTypeCreateAdapter
 {
     
-    private IGRPCServerSide _grpcServerSide;
+    private IGRPCServerSide _grpcServerSide = new GRPCServerSide();
 
     public ItemTypeCreateAdapter()
     {

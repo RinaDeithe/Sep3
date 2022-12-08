@@ -1,4 +1,7 @@
-﻿using GRPC.Proto;
+﻿using Google.Protobuf.WellKnownTypes;
+using GRPC.Proto;
+using Logic.AdapterToGRPC.Shelf.Adp;
+using Empty = GRPC.Proto.Empty;
 
 namespace ClientgRPC;
 
@@ -13,4 +16,5 @@ public interface IGRPCServerSide
     Task<ItemProto> DeleteItemGRPCAsync(ItemSearchRequest dto);
     Task<ShelfProto> ReadShelfAsync(ShelfSearchRequest dto);
     Task<ShelfProto> UpdateSelfAsync(ShelfProto dto);
+    Task<ShelfListProtoReturn> GetAllShelvsGRPCAsync(Empty dto);
 }
