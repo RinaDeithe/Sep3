@@ -1,51 +1,56 @@
-﻿using System.Collections;
-using ClientgRPC.Converters;
-using GRPC.Proto;
-using Shared.DTOs;
+﻿using GRPC.Proto;
 using Shared.DTOs.Item;
 using Shared.Model;
 
-namespace Logic.AdapterToGRPC;
+namespace ClientgRPC.Converters;
 
 public class ConverterItem
 {
-    public static Shared.Model.Item ItemProtoToItem(ItemProto itemProto)
-    {
-        List<Shared.Model.Item> items = new List<Shared.Model.Item>();
+    public ItemCreation CreationDtoToProto(ItemCreationDto dto) {
         
-        User user = ConverterUser.UserProtoToUser(itemProto.Owner);
-            
-        ItemType itemType = ConverterItemType.ItemTypeProtoToItemType(itemProto.Type);
-
-        Shared.Model.Shelf shelf = new Shared.Model.Shelf();
-        shelf.DimX = itemProto.Shelf.DimX;
-        shelf.DimY = itemProto.Shelf.Dimz;
-        shelf.DimZ = itemProto.Shelf.Dimz;
-        shelf.RowNo = itemProto.Shelf.RowNo;
-        shelf.ShelfNo = itemProto.Shelf.ShelfNo;
-
-
-        Shared.Model.Item result = new Shared.Model.Item(itemType, itemProto.UniqueID, user, shelf);
-
-        
-
-        foreach (ItemProto item in itemProto.Shelf.ItemsOnShelf)
-        {
-            User _user = ConverterUser.UserProtoToUser(item.Owner);
-            
-            ItemType _itemType = ConverterItemType.ItemTypeProtoToItemType(item.Type);  
-            
-            items.Add(new Shared.Model.Item(_itemType,itemProto.UniqueID,_user,shelf));
-        }
-
-        shelf.ItemsOnShelf = items;
-
-        return result;
+        return new ItemCreation
+            { ItemTypeID = dto.ItemTypeId, ShelfID = (int) dto.shelfId!, OwnerID = dto.OwnerId };
     }
 
-    public static ItemCreation ItemCreationDtoToItemCreation(ItemCreationDto item)
-    {
-        return new GRPC.Proto.ItemCreation
-            { ItemTypeID = item.ItemTypeId, ShelfID = item.shelfId, OwnerID = item.OwnerId };
+    public static Item ProtoToItem(ItemProto proto) {
+        return new Item(new ItemType(proto.Type.Id, proto.Type.DimX, proto.Type.DimY, proto.Type.DimZ), proto.UniqueID,
+            new User(proto.UniqueID, "temp"), ConverterShelf.ProtoToShelf(proto.Shelf));
+    }
+
+    public ItemSearchRequest SearchDtoToProto(ItemSearchDto dto) {
+        return new ItemSearchRequest {
+            Id = dto.id
+        };
+    }
+
+    public static List<Item> ProtoToList(ItemListProto proto) {
+        List<Item> returnList = new();
+
+        foreach (var index in proto.List) {
+            returnList.Add(ProtoToItem(index));
+        }
+
+        return returnList;
+    }
+
+    public ItemProto ItemToProto(Item entity) {
+        return new ItemProto {
+            Owner = ConverterUser.UserToUserProto(entity.Owner),
+            Shelf = new ShelfProto {
+                ShelfDimX = entity.Shelf.DimX,
+                ShelfDimY = entity.Shelf.DimY,
+                ShelfDimZ = entity.Shelf.DimZ,
+                ShelfNo = entity.Uid.ToString(),
+                RowNo = entity.Uid.ToString()
+            },
+            Type = new ItemTypeProto {
+                Id = entity.Type.Id,
+                DimX = entity.Type.DimX,
+                DimY = entity.Type.DimY,
+                DimZ = entity.Type.DimZ
+            },
+            UniqueID = entity.Uid
+
+        };
     }
 }

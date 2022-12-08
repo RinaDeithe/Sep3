@@ -1,11 +1,14 @@
 ﻿using Shared.DTOs.Item;
+using Shared.Model;
 
-namespace ClientgRPC.ClientInterfaces;
+namespace LogicClient.ClientInterfaces;
 
 public interface IItemClient
 {
-    Task<Shared.Model.Item> Create(ItemCreationDto dto);
-    Task<Shared.Model.Item> Read(ItemSearchDto dao);
-    Task<Shared.Model.Item> Delete(ItemSearchDto dao);
+    Task<Item> Create(ItemCreationDto dto);
+    Task<Item> Read(ItemSearchDto dto);
+    Task<List<Item>> ReadAll();
+    Task<Item> Update(Item entity);
+    Task<Item> Delete(ItemSearchDto dto);
 
 }
