@@ -42,4 +42,9 @@ public class ItemHttpClient : IItemService {
             throw new Exception(content);
         }
     }
+
+    public Task ReserveItem(ItemCreationDto dto)
+    {
+        
+    }
 }

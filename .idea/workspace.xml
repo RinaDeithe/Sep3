@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="81ffe829-311a-4bde-8753-4e2da12b99da" name="Changes" comment="bug fix">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/converter/ItemConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/converter/ItemConverter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/services/GrpcShelfService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/services/GrpcShelfService.java" afterDir="false" />
-    </list>
+    <list default="true" id="81ffe829-311a-4bde-8753-4e2da12b99da" name="Changes" comment="bug fix" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -58,22 +54,12 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="DatabaseDriversLRU" value="sqlite" />
-    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
-    <property name="JPA.DatabaseSchemaImportDialog" value="29eccfd2-7cc1-4776-9a66-3b1825bb32a3" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="jdk.selected.JAVA_MODULE" value="19" />
-    <property name="last_directory_selection" value="$PROJECT_DIR$/Hibernate/src/main/java" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="MavenSettings" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Rumle\IdeaProjects\MidTermDraft\Hibernate\src\main\java" />
