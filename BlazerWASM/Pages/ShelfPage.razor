@@ -29,7 +29,8 @@
             </tr>
             <tr>
                 <td>
-                    <label>Vare nummer</label>
+                <!--        <label>Vare info : dimX = @_itemType.DimX dimY =@_itemType.DimY dimZ = @_itemType.DimZ</label>
+                -->
                 </td>
             </tr>
         </table>
@@ -58,15 +59,16 @@
             }
             </tbody>
         </table>
+        <button type="button" name="klik" onclick="@ButtonReserver()">klik</button>
     </div>
 </div>
 </div>
 @code {
-    private int? shelfId;
-    private int? avalibleCapacity;
-    private int? inputWished;
+    private int? ShelfId;
+    private int? AvalibleCapacity;
+    private int? InputWished;
      
- //   private ItemType _itemType = ItemTypeService.ReadAsync(NewItemBeginState.Id).Result;
+    private itemType _itemType;
 
 
     
@@ -75,18 +77,29 @@
 
     private List<AmountOnSpaceDto> glqt = new List<AmountOnSpaceDto>
     {
-        new AmountOnSpaceDto(1,2)
+        new AmountOnSpaceDto("1",2)
         ,
         new AmountOnSpaceDto
         (
-             2,
+             "2",
             4
         ),
     new AmountOnSpaceDto
     (
-        1,
+        "1",
          2
         )
     };
+
+    public ShelfPage()
+    {
+       // itemType _itemType = ItemTypeService.ReadAsync(new ItemTypeSearchDto(NewItemBeginState.Id)).Result;
+        
+    }
+
+    private async Task ButtonReserver()
+    {
+        Thread.Sleep(10);
+    }
 
 }

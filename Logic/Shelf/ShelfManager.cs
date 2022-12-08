@@ -1,15 +1,19 @@
-﻿using ClientgRPC.ClientInterfaces;
+﻿using System.Runtime.InteropServices;
+using ClientgRPC;
+using Logic.AdapterToGRPC.Item;
+using Logic.AdapterToGRPC.Shelf;
+using Logic.AdapterToGRPC.Shelf.Adp;
+using Logic.LogicInterfaces;
+using Logic.UniversalBussniesClasses;
 using Shared.DTOs;
-using Shared.DTOs.ItemType;
-using Shared.DTOs.Shelf;
 using Shared.Model;
 
-namespace Logic.Shelf;
+namespace Logic.Logic;
 
 public class ShelfManager : IShelfManager
 {
-    private IShelfClient _shelfClient;
-    private IItemTypeClient _itemTypeClient;
+    private readonly IShelfClient _shelfClient;
+    private readonly IItemTypeClient _itemTypeClient;
     private IItemClient _itemClient;
 
     public ShelfManager(IShelfClient shelfClient, IItemTypeClient itemTypeClient, IItemClient itemClient)
@@ -19,14 +23,29 @@ public class ShelfManager : IShelfManager
         _itemClient = itemClient;
     }
 
-    public async Task<bool> Update(ShelfAddItemRequestDto dto)
+    public async Task<bool> Update(ShelfAddItemRequestDto dtos)
     {
-        throw new NotImplementedException();
-    }
+        if (await HasRoom(dtos))
+        {
+            return false;
+        }
 
-    public Task<bool> Update(List<ShelfAddItemRequestDto> dtos)
-    {
-        throw new NotImplementedException();
+ 
+        
+        
+
+        foreach(AmountOnSpaceDto antalPåHylde in dtos.ShelfInfo)
+        {
+            
+            
+            for (int i = 0; i < antalPåHylde.AvalibleSpace; i++)
+            {
+                ItemCreationDto newItem = new ItemCreationDto(dtos.ItemTypeId, 1, dtos.Owner.Id
+                    , false, antalPåHylde.ShelfID);
+            }
+        }
+
+        return true;
     }
 
     public async Task<List<AmountOnSpaceDto>> GetAmountOnShelf(int itemTypeId)
@@ -35,13 +54,12 @@ public class ShelfManager : IShelfManager
 
         
 
-        ItemType _itemType = _itemTypeClient.Read(new ItemTypeSearchDto(itemTypeId)).Result;
+        itemType _itemType = _itemTypeClient.Read(new ItemTypeSearchDto(itemTypeId)).Result;
 
-        List < Shared.Model.Shelf > allShelves= await _shelfClient.GetAllShelves();
+        List < Shelf > allShelves= await _shelfClient.GetAllShelves();
         foreach (var shelf in allShelves)
         {
-            throw new NotImplementedException();
-            //result.Add(Amount.AmountOnSpaceDto(shelf, _itemType));
+            result.Add(Amount.AmountOnSpaceDto(shelf, _itemType));
         }
 
         return result;

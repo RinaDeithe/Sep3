@@ -32,4 +32,14 @@ public class ItemHttpClient : IItemService {
         })!;
         return item;
     }
+
+    public async Task DeleItemAsync(ItemSearchDto dto)
+    {
+        HttpResponseMessage response = await client.DeleteAsync($"Todos/{dto}");
+        if (!response.IsSuccessStatusCode)
+        {
+            string content = await response.Content.ReadAsStringAsync();
+            throw new Exception(content);
+        }
+    }
 }
