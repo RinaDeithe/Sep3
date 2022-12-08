@@ -2,11 +2,11 @@
 
 public class UserSearchDto
 {
-    public UserSearchDto(int id)
+    public UserSearchDto(string id)
     {
         Id = id;
     }
 
-    public int Id { get; init;  }
+    public string Id { get; init;  }
 
 }

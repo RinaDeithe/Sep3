@@ -1,3 +1,3 @@
 ﻿namespace Shared.DTOs.Shelf;
 
-public record ShelfCreationDto(String RowNo, String ShelfNo, double DimensionX, double DimensionY, double DimentsionZ);
+public record ShelfCreationDto(string RowNo, string ShelfNo, double DimensionX, double DimensionY, double DimentsionZ);

@@ -1,4 +1,4 @@
 ﻿namespace Shared.DTOs.Shelf; 
 
 public record ShelfSearchParametersDto(
-    int id,double DimY,double DimZ,double DimX);
+    string RowNo, string ShelfNo,double DimY,double DimZ,double DimX);

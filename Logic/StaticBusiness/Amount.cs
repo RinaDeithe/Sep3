@@ -1,11 +1,11 @@
 ﻿using Shared.DTOs;
 using Shared.Model;
 
-namespace ClientgRPC.StaticBusiness;
+namespace Logic.StaticBusiness;
 
 public class Amount
 {
-    public static AmountOnSpaceDto AmountOnSpaceDto(Shelf shelf, ItemType _itemType)
+    public static AmountOnSpaceDto AmountOnSpaceDto(Shared.Model.Shelf shelf, ItemType _itemType)
     {
         double volumenShelf = shelf.DimX * shelf.DimY * shelf.DimZ;
         double volumenItemType = _itemType.DimX * _itemType.DimY * _itemType.DimZ;

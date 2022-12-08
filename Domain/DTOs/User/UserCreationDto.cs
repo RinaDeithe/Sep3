@@ -1,3 +1,3 @@
 ﻿namespace Shared.DTOs.User;
 
-public record UserCreationDto(int id);
+public record UserCreationDto(string id);

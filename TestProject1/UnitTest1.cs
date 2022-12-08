@@ -14,7 +14,7 @@ public class Tests
     [Test]
     public void Test1()
     {
-        User user= new User(10, null);
+        User user= new User("10", null);
         
     }
 }

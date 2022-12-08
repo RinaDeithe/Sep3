@@ -1,3 +1,3 @@
 ﻿namespace Shared.DTOs.Item; 
 
-public record ItemCreationDto(int ItemTypeId, int Antal, int OwnerId, bool Reserved,string shelfId);
+public record ItemCreationDto(string ItemTypeId, int Antal, string OwnerId, bool Reserved,string shelfId);

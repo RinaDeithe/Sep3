@@ -1,5 +1,6 @@
 ﻿using ClientgRPC.ClientInterfaces;
-using ClientgRPC.StaticBusiness;
+using ClientgRPC.GRPC_stubs;
+using Logic.StaticBusiness;
 using Shared.DTOs;
 using Shared.DTOs.Item;
 using Shared.DTOs.ItemType;
@@ -19,6 +20,13 @@ public class ShelfManager : IShelfManager
         _shelfClient = shelfClient;
         _itemTypeClient = itemTypeClient;
         _itemClient = itemClient;
+    }
+
+    public ShelfManager()
+    {
+        _shelfClient = new ShelfStub();
+        _itemTypeClient = new ItemTypeStub();
+        _itemClient = new ItemStub();
     }
 
     public async Task<bool> Update(ShelfAddItemRequestDto dtos)
@@ -46,7 +54,7 @@ public class ShelfManager : IShelfManager
         return true;
     }
 
-    public async Task<ItemRegisterReqiestDto> GetAmountOnShelf(int itemTypeId)
+    public async Task<ItemRegisterReqiestDto> GetAmountOnShelf(string itemTypeId)
     {
         List<AmountOnSpaceDto> result = new List<AmountOnSpaceDto>();
 
@@ -63,11 +71,6 @@ public class ShelfManager : IShelfManager
         ItemRegisterReqiestDto itemRegisterReqiestDto = new ItemRegisterReqiestDto(itemTypeId, result);
 
         return itemRegisterReqiestDto;
-    }
-
-    public Task<bool> HasRoom(int ItemTypeId)
-    {
-        throw new NotImplementedException();
     }
 
     public async Task<bool> HasRoom(ShelfAddItemRequestDto dtos)

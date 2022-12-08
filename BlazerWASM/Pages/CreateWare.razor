@@ -47,8 +47,8 @@
 @code {
 
 
-    private int? kundeNummer;
-    private int vareNummer;
+    private string? kundeNummer;
+    private string vareNummer;
     private int? vareAntal;
     private string resultMsg;
     private string color;
@@ -59,7 +59,7 @@
         {
             NewItemBeginState.Amount = (int)vareAntal;
             NewItemBeginState.Id = vareNummer;
-            NewItemBeginState.User = (int)kundeNummer;
+            NewItemBeginState.User = kundeNummer;
             await Service.ReadAsync(new ItemTypeSearchDto(vareNummer));
             
             kundeNummer = null;

@@ -1,3 +1,3 @@
 ﻿namespace Shared.DTOs.ItemType;
 
-public record ItemTypeSearchDto(int Id);
+public record ItemTypeSearchDto(string Id);

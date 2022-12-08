@@ -34,7 +34,7 @@ public class ItemTypeController : ControllerBase
     }
     
     [HttpGet]
-    public async Task<ActionResult<ItemType>> ReadAsync([FromBody] ItemTypeSearchDto dto)
+    public async Task<ActionResult<ItemType>> ReadAsync([FromQuery] ItemTypeSearchDto dto)
     {
         try
         {

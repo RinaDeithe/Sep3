@@ -1,4 +1,5 @@
 using ClientgRPC.ClientInterfaces;
+using ClientgRPC.GRPC_stubs;
 using Shared.DTOs.Item;
 using Shared.DTOs.ItemType;
 using Shared.Model;
@@ -10,14 +11,19 @@ public class ItemManager : IItemLogic
     private IItemClient _itemClient;
     private IItemTypeClient _itemTypeClient;
     
-/*
+
     public ItemManager(IShelfClient shelfClient, IItemClient itemClient, IItemTypeClient itemTypeClient)
     {
-        _shelfClient = shelfClient;
         _itemClient = itemClient;
         _itemTypeClient = itemTypeClient;
     }
-*/
+
+    public ItemManager()
+    {
+        _itemClient = new ItemStub();
+        _itemTypeClient = new ItemTypeStub();
+    }
+
     public async Task<Shared.Model.Item> CreateAsync(ItemCreationDto dto)
     {
         if (dto.Antal<=0)
@@ -25,7 +31,7 @@ public class ItemManager : IItemLogic
             throw new Exception("antal skal være mere end 0");
         }
 
-        if (dto.ItemTypeId<=0)
+        if (int.Parse(dto.ItemTypeId)<=0)
         {
             throw new Exception("itemType skal være større end 0");
 
@@ -37,7 +43,7 @@ public class ItemManager : IItemLogic
 
     public async Task<ItemType> CreateItemTypeAsync(ItemTypeCreationDto dto)
     {
-        if (dto.Id<1)
+        if (int.Parse(dto.Id) <1)
         {
             throw new Exception("Id skal være større end 0");
         }

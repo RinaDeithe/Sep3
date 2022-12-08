@@ -28,8 +28,9 @@ public class ItemTypeStub : IItemTypeClient {
     }
 
     public Task<ItemType> Read(ItemTypeSearchDto dto) {
+        Console.WriteLine("Getting item");
         ItemTypeSearchRequest request = _converter.SearchToProto(dto);
-
+        Console.WriteLine("Sending Item back");
         return Task.FromResult(_converter.ProtoToType(_client.Read(request)));
     }
 

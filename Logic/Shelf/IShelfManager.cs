@@ -7,7 +7,7 @@ public interface IShelfManager
 {
     Task<bool> Update(ShelfAddItemRequestDto dtos);
 
-    Task<ItemRegisterReqiestDto> GetAmountOnShelf(int ItemTypeId);
+    Task<ItemRegisterReqiestDto> GetAmountOnShelf(string ItemTypeId);
 
-    Task<bool> HasRoom(int ItemTypeId);
+    Task<bool> HasRoom(ShelfAddItemRequestDto dtos);
 }

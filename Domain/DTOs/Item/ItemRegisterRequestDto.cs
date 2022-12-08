@@ -2,5 +2,5 @@
 
 public record ItemRegisterReqiestDto
 (
-    int? ItemType,
+    string? ItemType,
     List<AmountOnSpaceDto> ShelfInfo);  
