@@ -82,20 +82,4 @@ public class ItemTypeHttpClient : IItemTypeService
         })!;
         return itemType;
     }
-    
-    public async Task<bool> CheckType()
-    {
-        HttpResponseMessage response = await client.GetAsync("/ItemType");
-        string content = await response.Content.ReadAsStringAsync();
-        if (!response.IsSuccessStatusCode)
-        {
-            throw new Exception(content);
-        }
-
-        bool result = JsonSerializer.Deserialize<bool>(content, new JsonSerializerOptions
-        {
-            PropertyNameCaseInsensitive = false
-        })!;
-        return result;
-    }
 }

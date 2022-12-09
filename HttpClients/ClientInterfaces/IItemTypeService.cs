@@ -12,6 +12,4 @@ public interface IItemTypeService
     Task<bool> CheckType(ItemTypeSearchDto dto);
     
     Task<ItemType> CreateType(ItemTypeCreationDto dto);
-    
-    Task<bool> CheckType();
 }
