@@ -28,10 +28,13 @@ public enum ItemConverter {
 
     public File.ItemListProto toProtoFromList(List<Item> itemList) {
 
+
         File.ItemListProto.Builder builder = File.ItemListProto.newBuilder();
-
+        if (itemList==null){
+            return builder.build();
+        }
         List<File.ItemProto> protoList = new ArrayList<>();
-
+        System.out.println(itemList.isEmpty());
         for (Item index : itemList) {
             protoList.add(File.ItemProto.newBuilder()
                     .setOwner(UserConverter.CONVERT.toUserProto(index.getOwner()))
