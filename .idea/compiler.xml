@@ -5,30 +5,8 @@
       <directory url="file://$PROJECT_DIR$/../Database/src/main/resources/archetype-resources" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/../DB/src/main/resources/archetype-resources" includeSubdirectories="true" />
     </excludeFromCompile>
-    <annotationProcessing>
-      <profile name="Maven default annotation processors profile" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <module name="DatabaseServer" />
-        <module name="Hibernate" />
-      </profile>
-    </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="Database" target="17" />
-      <module name="DatabaseServer" target="17" />
-      <module name="DB" target="${java.version}" />
-      <module name="JavaDomain" target="19" />
       <module name="lagersystem" target="17" />
-      <module name="MidTermDraft" target="17" />
     </bytecodeTargetLevel>
-  </component>
-  <component name="JavacSettings">
-    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="DB" options="-parameters" />
-      <module name="Database" options="-parameters" />
-      <module name="DatabaseServer" options="-parameters" />
-      <module name="Hibernate" options="" />
-    </option>
   </component>
 </project>
