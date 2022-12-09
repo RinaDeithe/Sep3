@@ -47,7 +47,7 @@ public class DbConnection<T> implements IDbDao<T> {
     }
 
     @Override
-    public T Read(T classObject) {
+    public T Read(T classObject, String entity) {
 
         emf = Persistence.createEntityManagerFactory("default");
         em = emf.createEntityManager();

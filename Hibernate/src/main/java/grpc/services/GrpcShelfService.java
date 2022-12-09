@@ -29,7 +29,7 @@ public class GrpcShelfService extends ShelfServiceGrpc.ShelfServiceImplBase {
 
     @Override
     public void read(File.ShelfSearchRequest request, StreamObserver<File.ShelfProto> responseObserver) {
-        Shelf shelf = dao.Read(new Shelf(request.getRowNo(), request.getShelfNo(), 0.0, 0.0, 0.0, null));
+        Shelf shelf = dao.Read(new Shelf(), request.getShelfNo() + request.getRowNo());
 
         File.ShelfProto proto = ShelfConverter.CONVERT.toShelfProto(shelf);
 
