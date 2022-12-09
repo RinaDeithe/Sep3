@@ -1,14 +1,10 @@
-using System.Text.Json;
 using ClientgRPC.Adapters.Shelf;
 using ClientgRPC.ClientInterfaces;
 using ClientgRPC.GRPC_stubs;
-using Logic.AdapterToGRPC.Item;
 using Logic.AdapterToGRPC.ItemType;
-using Logic.AdapterToGRPC.Shelf;
 using Logic.AdapterToGRPC.Shelf.Adp;
 using Logic.LogicInterfaces;
-using Microsoft.AspNetCore.Http;
-using Shared.DTOs;
+
 using Shared.DTOs.Item;
 using Shared.DTOs.ItemType;
 using Shared.Model;
@@ -104,5 +100,19 @@ public class ItemManager : IItemLogic, IItemManager
             throw;
         }
     }
-    
+
+    public async Task<bool> CheckType(ItemTypeSearchDto dto)
+    {
+        if (_itemTypeClient.Read(dto).Result == null)
+        {
+            return false;
+        }
+
+        return true;
+    }
+
+    public Task ReserveItem(ItemCreationDto dto)
+    {
+        
+    }
 }

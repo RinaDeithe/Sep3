@@ -1,6 +1,7 @@
 ﻿using Logic.Shelf;
 using Microsoft.AspNetCore.Mvc;
 using Shared.DTOs;
+using Shared.DTOs.Item;
 using Shared.DTOs.Shelf;
 
 namespace WebAPI.Controllers;
@@ -34,5 +35,10 @@ public class ShelfController : ControllerBase
             Console.WriteLine(e);
             return StatusCode(500, e.Message);
         }
+    }
+
+    public async Task<bool> HasRoom(ItemRegisterReqiestDto dto)
+    {
+        return await _shelfManager.HasRoom(dto);
     }
 }

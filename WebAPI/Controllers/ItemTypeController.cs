@@ -49,4 +49,9 @@ public class ItemTypeController : ControllerBase
         }
     }
 
+    public async Task<bool> CheckType([FromBody]ItemTypeSearchDto dto)
+    {
+        return await itemManager.CheckType(dto);
+    }
+
 }

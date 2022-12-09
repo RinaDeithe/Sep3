@@ -12,8 +12,7 @@ public interface IItemManager
     Task<ItemType> ReadItemTypeAsync(ItemTypeSearchDto dto);
 
     Task<bool> CheckType(ItemTypeSearchDto dto);
-
-    Task<bool> checkType();
+    
 
     Task ReserveItem(ItemCreationDto dto);
 
