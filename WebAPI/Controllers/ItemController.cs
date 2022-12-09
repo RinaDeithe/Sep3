@@ -1,3 +1,4 @@
+using System.Runtime.ExceptionServices;
 using Logic.LogicInterfaces;
 using Microsoft.AspNetCore.Mvc;
 using Shared.DTOs;
@@ -12,7 +13,6 @@ namespace WebAPI.Controllers;
 public class ItemController : ControllerBase {
 
     private IItemLogic _itemLogic;
-    private IItemManager itemManager;
 
 
     public ItemController(IItemLogic itemLogic) {
@@ -38,22 +38,14 @@ public class ItemController : ControllerBase {
     
     
     [HttpPost]
-    public async Task<ActionResult<Item>> ReserveItem(ItemCreationDto dto) {
-        try {
+    public async void ReserveItem(ItemCreationDto dto) {
+        try
+        {
             Item item = await _itemLogic.CreateAsync(dto);
-            if (item.Type.Id!=dto.ItemTypeId)
-            {
-                return StatusCode(428, "ItemType not found");
-            }
-            return Created($"/item/{item.Uid}", item);
         }
-        catch (Exception e) {
-            Console.WriteLine(e);
-            return StatusCode(500, e.Message);
+        catch
+        {
+            ExceptionDispatchInfo.SetCurrentStackTrace(null);
         }
-        
-        
-        
     }
-    
 }
