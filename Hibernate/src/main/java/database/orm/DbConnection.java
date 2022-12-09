@@ -47,7 +47,7 @@ public class DbConnection<T> implements IDbDao<T> {
     }
 
     @Override
-    public T Read(T classObject) {
+    public T Read(T classObject, int entity) {
 
         emf = Persistence.createEntityManagerFactory("default");
         em = emf.createEntityManager();
@@ -58,7 +58,7 @@ public class DbConnection<T> implements IDbDao<T> {
         try {
             et.begin();
 
-            returnObject = (T) em.find(returnObject.getClass(), returnObject);
+            returnObject = (T) em.find(returnObject.getClass(), entity);
 
             et.commit();
         } catch (Exception e) {

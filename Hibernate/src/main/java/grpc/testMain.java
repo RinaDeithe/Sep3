@@ -29,6 +29,6 @@ public class testMain {
 
         ItemDao.Create(new Item(type, user, shelf));
 
-        System.out.println(ShelfDao.Read(new Shelf("test", "shelf", 0.0, 0.0, 0.0, null)).toString());
+        System.out.println(ShelfDao.Read(new Shelf(), 4).toString());
     }
 }

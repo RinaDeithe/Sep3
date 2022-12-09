@@ -38,6 +38,20 @@ public class ShelfController : ControllerBase
     }
 
     [HttpGet]
+    [Route("HasRoom")]
+    public async Task<ActionResult<bool>> HasRoom(ItemRegisterResponseDto dto)
+    {
+        try
+        {
+            return await _shelfManager.HasRoom(dto);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            return StatusCode(500, e.Message);
+        }
+    }
+
     public async Task<ActionResult<ItemRegisterReqiestDto>> GetAmountOnShelf(ItemTypeSearchDto dto)
     {
         try
@@ -54,5 +68,4 @@ public class ShelfController : ControllerBase
             return StatusCode(500, e.Message);
         }
     }
-
 }

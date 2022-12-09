@@ -11,7 +11,6 @@ namespace HttpClients.Implementations;
 public class ShelfHttpClient : IShelfService
 {
     private readonly HttpClient client;
-
     public ShelfHttpClient(HttpClient client)
     {
         this.client = client;
@@ -42,6 +41,20 @@ public class ShelfHttpClient : IShelfService
         return shelves;
     }
 
+    public async Task<bool> HasRoom(ItemRegisterResponseDto dto)
+    {
+        HttpResponseMessage response = await client.GetAsync("/Shelf/HasRoom");
+        string content = await response.Content.ReadAsStringAsync();
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(content);
+        }
+
+        return JsonSerializer.Deserialize<bool>(content, new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true
+        })!;
+    }
     public async Task<ItemRegisterReqiestDto> GetAmountOnShelf(ItemTypeSearchDto dto)
     {
         HttpResponseMessage response = await client.GetAsync($"/Shelfs/{dto.Id}");

@@ -1,9 +1,10 @@
 package domain.Model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-public class Item {
+public class Item implements Serializable {
 
     @ManyToOne
     private ItemType type;

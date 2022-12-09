@@ -29,7 +29,7 @@ public class GrpcItemService extends ItemServiceGrpc.ItemServiceImplBase {
 
     @Override
     public void read(File.ItemSearchRequest request, StreamObserver<File.ItemProto> responseObserver) {
-        Item item = dao.Read(new Item(request.getId(), null, null, null));
+        Item item = dao.Read(new Item(),  request.getId());
 
         File.ItemProto proto = ItemConverter.CONVERT.toItemProtoFromItem(item);
 

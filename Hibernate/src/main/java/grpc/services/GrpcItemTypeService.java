@@ -29,7 +29,7 @@ public class GrpcItemTypeService extends ItemTypeServiceGrpc.ItemTypeServiceImpl
 
     @Override
     public void read(File.ItemTypeSearchRequest request, StreamObserver<File.ItemTypeProto> responseObserver) {
-        ItemType type = dao.Read(new ItemType(request.getId(), null, null, null));
+        ItemType type = dao.Read(new ItemType(), request.getId());
 
         File.ItemTypeProto proto = ItemTypeConverter.CONVERT.toTypeProtoFromType(type);
 
