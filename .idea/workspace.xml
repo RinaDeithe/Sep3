@@ -5,12 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="81ffe829-311a-4bde-8753-4e2da12b99da" name="Changes" comment="Compiled updated .proto.">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/database/daoInterfaces/IDbDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/database/daoInterfaces/IDbDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/database/orm/DbConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/database/orm/DbConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/converter/ItemTypeConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/converter/ItemTypeConverter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/services/GrpcItemService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/services/GrpcItemService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/services/GrpcItemTypeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/services/GrpcItemTypeService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/services/GrpcShelfService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/services/GrpcShelfService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/services/GrpcUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/services/GrpcUserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/testMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/testMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/resources/database/identifier.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/resources/database/identifier.sqlite" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hibernate/target/classes/database/identifier.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/target/classes/database/identifier.sqlite" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hibernate/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,13 +42,6 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="GithubProjectSettings">
-    <option name="branchProtectionPatterns">
-      <list>
-        <option value="main" />
-      </list>
-    </option>
   </component>
   <component name="JpbToolWindowState">
     <option name="myId2FirstActivated">
@@ -121,7 +122,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Application.testMain">
+  <component name="RunManager" selected="Application.DatabaseInitializer">
     <configuration name="DatabaseInitializer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="grpc.DatabaseInitializer" />
       <module name="Hibernate" />
@@ -274,8 +275,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.testMain" />
         <item itemvalue="Application.DatabaseInitializer" />
+        <item itemvalue="Application.testMain" />
         <item itemvalue="JUnit.DbConnectionTest" />
         <item itemvalue="JUnit.DbConnectionTest.create" />
         <item itemvalue="JUnit.GrpcItemServiceTest.create" />
@@ -495,7 +496,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
