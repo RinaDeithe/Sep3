@@ -36,14 +36,14 @@
     private string resultmsg;
     private bool buttonClicked;
 
-    private void Reserve()
+    private async void Reserve()
     {
         if (state.typeId == null)
         {
             resultmsg = "Please input an id";
         }
         
-        if (!typeService.CheckType(new ItemTypeSearchDto(state.typeId)))
+        if (!await typeService.CheckType(new ItemTypeSearchDto(state.typeId)))
         {
             buttonClicked = false;
 

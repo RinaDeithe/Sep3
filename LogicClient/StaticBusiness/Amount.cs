@@ -1,5 +1,4 @@
-﻿using System.Linq.Expressions;
-using Shared.DTOs;
+﻿using Shared.DTOs;
 using Shared.Model;
 
 namespace ClientgRPC.StaticBusiness;

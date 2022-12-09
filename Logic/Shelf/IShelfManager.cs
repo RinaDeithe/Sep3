@@ -1,6 +1,3 @@
-
-﻿using Shared.DTOs;
-using Shared.DTOs.Item;
 ﻿using Shared.DTOs.Item;
 using Shared.DTOs.Shelf;
 

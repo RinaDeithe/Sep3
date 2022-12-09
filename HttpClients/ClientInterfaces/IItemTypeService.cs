@@ -1,5 +1,4 @@
-﻿using Shared.DTOs;
-using Shared.DTOs.ItemType;
+﻿using Shared.DTOs.ItemType;
 using Shared.Model;
 
 namespace HttpClients.ClientInterfaces;

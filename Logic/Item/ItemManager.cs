@@ -1,9 +1,7 @@
 using ClientgRPC.ClientInterfaces;
-using ClientgRPC.GRPC_stubs;
-using Logic.AdapterToGRPC.ItemType;
-using Logic.AdapterToGRPC.Shelf.Adp;
-using Logic.LogicInterfaces;
+using ClientgRPC.StaticBusiness;
 using Logic.Shelf;
+using Microsoft.AspNetCore.Mvc;
 using Shared.DTOs.Item;
 using Shared.DTOs.ItemType;
 using Shared.Model;
@@ -13,6 +11,7 @@ public class ItemManager : IItemLogic
 {
     private IItemClient _itemClient;
     private IItemTypeClient _itemTypeClient;
+    private IShelfManager shelfManager;
     
 /*
     public ItemManager(IShelfClient shelfClient, IItemClient itemClient, IItemTypeClient itemTypeClient)
@@ -79,11 +78,6 @@ public class ItemManager : IItemLogic
         }
     }
 
-    public Task<Shared.Model.Item> CreateAsync(ItemSearchDto dto)
-    {
-        throw new NotImplementedException();
-    }
-
     public async Task DeleteItemAsync(ItemSearchDto dto)
     {
         try
@@ -101,7 +95,7 @@ public class ItemManager : IItemLogic
         }
     }
 
-    public async Task<bool> CheckType(ItemTypeSearchDto dto)
+    public async Task<ActionResult<bool>> CheckType(ItemTypeSearchDto dto)
     {
         if (_itemTypeClient.Read(dto).Result == null)
         {
