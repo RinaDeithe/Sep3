@@ -1,10 +1,16 @@
 ﻿@page "/ReservePage"
 @using BlazerWASM.StateContainer
+@using global::Shared.DTOs
+@using global::Shared.DTOs.Item
 @using global::Shared.DTOs.ItemType
 @using HttpClients.ClientInterfaces
+@using HttpClients.Implementations
 @inject ReserveItemState state;
 @inject NavigationManager NavigationManager;
 @inject IItemTypeService typeService;
+@inject IShelfService shelfServic;
+@inject IItemService itemService;
+@inject ItemHttpClient itemHttpClient;
 
 <h3 class="text-center">ReservePage</h3>
 
@@ -17,7 +23,6 @@
                 <input type="varenummer" id="varenummer" name="varenummer"@bind="state.typeId" placeholder="@state.typeId"><br><br>
                 <label for="antal">Antal </label> <br/>
                 <input type="antal" id="antal" name="antal" minlength="8" @bind="state.amount" placeholder="@state.amount"><br><br>
-                <button type="button" @onclick="Reserve">Godkend</button>
                 <button type="button" @onclick="Confirmation">Godkend</button>
             </form>
         </div>
@@ -54,7 +59,16 @@
             
             NavigationManager.NavigateTo("/CreateItemType");
         }
+
+        if (!shelfServic.HasRoom(new ItemRegisterReqiestDto(state.typeId, new List<AmountOnSpaceDto>())))
+        {
+            resultmsg = "No room for this amount";
+            return;
+        }
+
+        itemService.ReserveItem(new ItemCreationDto(state.typeId, int.Parse(state.amount),1, true, null));
     }
+    
     
     private void Confirmation()
     {

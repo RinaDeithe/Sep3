@@ -11,4 +11,5 @@ public interface IShelfService
     Task<List<Shelf>> getShelfs();
     Task<bool> HasRoom(ItemRegisterResponseDto dto);
     Task<ItemRegisterReqiestDto> GetAmountOnShelf(ItemTypeSearchDto dto);
+    bool HasRoom(ItemRegisterReqiestDto itemRegisterReqiestDto);
 }

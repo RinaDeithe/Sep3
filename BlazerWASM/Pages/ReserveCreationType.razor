@@ -1,4 +1,4 @@
-﻿@page "/ReserveCreatiomType"
+﻿@page "/ReserveCreationType"
 @using BlazerWASM.StateContainer
 @using global::Shared.DTOs.ItemType
 @using HttpClients.ClientInterfaces
@@ -53,7 +53,6 @@
     
     private async Task CreateItemTypeMethod()
     {
-        
         try
         {
             await Service.CreateAsync(new ItemTypeCreationDto(state.typeId,(double)dimX,(double)dimY,(double)dimZ));
@@ -61,7 +60,7 @@
             dimY = null;
             dimX= null;
             resultMsg ="";
-            NavigationManager.NavigateTo("/ShelfPage");
+            NavigationManager.NavigateTo("/ReservePage");
         }
         catch (Exception e)
         {

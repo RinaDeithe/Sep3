@@ -10,5 +10,4 @@ public interface IItemService {
     Task<Item> CreateAsync(ItemCreationDto dto);
     Task DeleItemAsync(ItemSearchDto dto);
     Task ReserveItem(ItemCreationDto dto);
-    
 }
