@@ -44,7 +44,8 @@ public class ShelfHttpClient : IShelfService
 
     public async Task<ItemRegisterReqiestDto> GetAmountOnShelf(ItemTypeSearchDto dto)
     {
-        HttpResponseMessage response = await client.GetAsync($"/Shelfs/{dto.Id}");
+        Console.WriteLine("getting amount");
+        HttpResponseMessage response = await client.GetAsync($"Shelf/Amount/{dto.Id}");
         string content = await response.Content.ReadAsStringAsync();
         if (!response.IsSuccessStatusCode)
         {

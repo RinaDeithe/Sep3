@@ -16,7 +16,8 @@ public class ItemTypeHttpClient : IItemTypeService
     }
     public async Task<ItemType> CreateAsync(ItemTypeCreationDto dto)
     {
-        HttpResponseMessage response = await client.PostAsJsonAsync("/itemsType", dto);
+        Console.WriteLine("testt");
+        HttpResponseMessage response = await client.PostAsJsonAsync("/ItemType/", dto);
         string result = await response.Content.ReadAsStringAsync();
         
         if (!response.IsSuccessStatusCode)

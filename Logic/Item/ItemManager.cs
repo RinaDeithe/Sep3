@@ -65,9 +65,15 @@ public class ItemManager : IItemLogic
 
     public async Task<ItemType> ReadItemTypeAsync(ItemTypeSearchDto dto)
     {
+        if (dto.Id < 0)
+        {
+            throw new Exception("Id må ikke være lavere end 0");
+        }
+        
         try
         {
             ItemType result = await _itemTypeClient.Read(dto);
+            Console.WriteLine(result.Id);
             return result;
         }
         catch (Exception e)

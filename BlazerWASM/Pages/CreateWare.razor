@@ -57,6 +57,21 @@
     {
         try
         {
+            
+
+            if (kundeNummer<1)
+            {
+                throw new Exception("kundeNummer skal være større end 0");
+            }
+            if (vareAntal<1)
+            {
+                throw new Exception("antal skal være større end 0");
+            }
+            if (vareNummer<1)
+            {
+                throw new Exception("VareId skal være større end 0");
+            }
+            
             NewItemBeginState.Amount = (int)vareAntal;
             NewItemBeginState.Id = vareNummer;
             NewItemBeginState.User = (int)kundeNummer;

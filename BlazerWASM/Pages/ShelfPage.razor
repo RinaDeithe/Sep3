@@ -1,9 +1,12 @@
 ﻿@page "/shelfpage"
 @using global::Shared.Model
 @using BlazerWASM.StateContainer
+@using global::Shared.DTOs
 @using global::Shared.DTOs.Item
 @using global::Shared.DTOs.ItemType
 @using HttpClients.ClientInterfaces
+@using System.Reflection.Emit
+@using global::Shared.DTOs.Shelf
 @inject HttpClient Http
 
 @inject AddNewItemBeginState NewItemBeginState;
@@ -30,8 +33,13 @@
             </tr>
             <tr>
                 <td>
-                        <label>Vare info : dimX = @_itemType.DimX dimY =@_itemType.DimY dimZ = @_itemType.DimZ</label>
-                
+                    @if (_itemType == null)
+                    {
+                        <label>vare Info hentes</label>
+                    }
+                    else{
+                    <label>Vare info : dimX = @_itemType.DimX dimY =@_itemType.DimY dimZ = @_itemType.DimZ</label>
+                    }
                 </td>
             </tr>
         </table>
@@ -42,22 +50,31 @@
             
             <tr class="border-1">
                 <th>Shelf ID</th>
-                <th>Avalible Capacity</th>
+                <th>Room For</th>
                 <th>Input Wished</th>
 
             </tr>
             
             <tbody>
-            @foreach (var item in _glqt.ShelfInfo)
+            @if (_glqt == null)
+            {
+                <label>loading ShelfInfo</label>
+            }
+            else{
+            @foreach (AmountOnSpaceDto item in _glqt.ShelfInfo)
             {
 
                 <tr>
+
                     <td>@item.ShelfID</td>
                     <td>@item.AvalibleSpace</td>
-                    <td><INPUT name="InputWished" type="textfield" placeholder="skriv ønsket mængde"class="border-0" /></td>
+                    <td><INPUT name="InputWished" type="textfield" placeholder="skriv ønsket mængde"class="border-0" @bind=@/></td>
                     <td><label></label></td>
+
                 </tr>
             }
+            }
+
             </tbody>
         </table>
         <button type="button" name="klik" onclick="@ButtonReserver()">klik</button>
@@ -73,6 +90,8 @@
     private ItemType? _itemType;
 
     private string resultMsg ="";
+
+    private List<int> AmountChossen;
     
     
 
@@ -81,23 +100,44 @@
 
 
 
-    private ItemRegisterReqiestDto _glqt = new ItemRegisterReqiestDto(0,null);
+    private ItemRegisterReqiestDto _glqt;
 
-    public ShelfPage()
+    protected override async Task OnInitializedAsync()
     {
       try{
-        _itemType = ItemTypeService.ReadAsync(new ItemTypeSearchDto(NewItemBeginState.Id)).Result;
-        _glqt = ShelfService.GetAmountOnShelf(new ItemTypeSearchDto(NewItemBeginState.Id)).Result;
+          _glqt = await ShelfService.GetAmountOnShelf(new ItemTypeSearchDto(NewItemBeginState.Id));
+        
+        
       }
       catch (Exception e)
       {
           resultMsg = e.Message;
       }
+        try
+        {
+            _itemType = await ItemTypeService.ReadAsync(new ItemTypeSearchDto(NewItemBeginState.Id));
+            
+        }
+        catch (Exception e)
+        {
+            resultMsg += e.Message;
+        }
     }
 
     private async Task ButtonReserver()
     {
-        Thread.Sleep(10);
+        List<ShelfAddItemRequestDto> list = new List<ShelfAddItemRequestDto>();
+        try
+        {
+            await ShelfService.AddItemToShelf(list);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+        
+        
     }
 
 }
