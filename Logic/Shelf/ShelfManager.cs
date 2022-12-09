@@ -46,7 +46,7 @@ public class ShelfManager : IShelfManager
         return true;
     }
 
-    public async Task<ItemRegisterReqiestDto> GetAmountOnShelf(int itemTypeId)
+    public async Task<ItemRegisterRequestDto> GetAmountOnShelf(int itemTypeId)
     {
         List<AmountOnSpaceDto> result = new List<AmountOnSpaceDto>();
 
@@ -60,9 +60,9 @@ public class ShelfManager : IShelfManager
             result.Add(Amount.AmountOnSpaceDto(shelf, _itemType));
         }
 
-        ItemRegisterReqiestDto itemRegisterReqiestDto = new ItemRegisterReqiestDto(itemTypeId, result);
+        ItemRegisterRequestDto itemRegisterRequestDto = new ItemRegisterRequestDto(itemTypeId, result);
 
-        return itemRegisterReqiestDto;
+        return itemRegisterRequestDto;
     }
 
     public async Task<bool> HasRoom(ItemRegisterResponseDto dto)
@@ -100,7 +100,7 @@ public class ShelfManager : IShelfManager
 
     public async Task<bool> HasRoom(ShelfAddItemRequestDto dtos)
     {
-        ItemRegisterReqiestDto list = await GetAmountOnShelf(dtos.ItemTypeId);
+        ItemRegisterRequestDto list = await GetAmountOnShelf(dtos.ItemTypeId);
         foreach (AmountOnSpaceDto spaces in list.ShelfInfo)
         {
             foreach (AmountOnSpaceDto places in dtos.ShelfInfo)

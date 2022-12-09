@@ -52,12 +52,12 @@ public class ShelfController : ControllerBase
         }
     }
 
-    public async Task<ActionResult<ItemRegisterReqiestDto>> GetAmountOnShelf(ItemTypeSearchDto dto)
+    public async Task<ActionResult<ItemRegisterRequestDto>> GetAmountOnShelf(ItemTypeSearchDto dto)
     {
         try
         {
             
-            ItemRegisterReqiestDto succes = await _shelfManager.GetAmountOnShelf(dto.Id);
+            ItemRegisterRequestDto succes = await _shelfManager.GetAmountOnShelf(dto.Id);
            
                 return Created("Shelf/Amount",succes);
                 

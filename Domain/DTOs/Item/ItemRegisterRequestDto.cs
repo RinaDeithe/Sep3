@@ -1,6 +1,6 @@
 ﻿namespace Shared.DTOs.Item;
 
-public record ItemRegisterReqiestDto
+public record ItemRegisterRequestDto
 (
     int? ItemType,
     List<AmountOnSpaceDto> ShelfInfo);  

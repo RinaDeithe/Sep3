@@ -3,5 +3,5 @@
 public class ReserveItemState
 {
     public int typeId;
-    public string amount;
+    public int amount;
 }
