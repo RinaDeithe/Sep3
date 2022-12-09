@@ -6,6 +6,7 @@
 @using global::Shared.DTOs.ItemType
 @using HttpClients.ClientInterfaces
 @using System.Reflection.Emit
+@using System.Security.Cryptography
 @using global::Shared.DTOs.Shelf
 @inject HttpClient Http
 
@@ -68,7 +69,7 @@
 
                     <td>@item.ShelfID</td>
                     <td>@item.AvalibleSpace</td>
-                    <td><INPUT name="InputWished" type="textfield" placeholder="skriv ønsket mængde"class="border-0" @bind=@/></td>
+                    <td><INPUT name="InputWished" type="textfield" class="border-0" @bind="AmountChoosen"/></td>
                     <td><label></label></td>
 
                 </tr>
@@ -91,7 +92,8 @@
 
     private string resultMsg ="";
 
-    private List<int> AmountChossen;
+    private int AmountChoosen =0;
+    
     
     
 
@@ -106,8 +108,8 @@
     {
       try{
           _glqt = await ShelfService.GetAmountOnShelf(new ItemTypeSearchDto(NewItemBeginState.Id));
-        
-        
+
+
       }
       catch (Exception e)
       {
@@ -127,9 +129,11 @@
     private async Task ButtonReserver()
     {
         List<ShelfAddItemRequestDto> list = new List<ShelfAddItemRequestDto>();
+
         try
         {
             await ShelfService.AddItemToShelf(list);
+
         }
         catch (Exception e)
         {

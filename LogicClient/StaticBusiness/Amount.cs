@@ -10,6 +10,11 @@ public class Amount
         double volumenShelf = shelf.DimX * shelf.DimY * shelf.DimZ;
         double volumenItemType = itemType.DimX * itemType.DimY * itemType.DimZ;
 
+        foreach (Item ItemOnShelf in shelf.ItemsOnShelf)
+        {
+            volumenShelf -= ItemOnShelf.Type.DimX * ItemOnShelf.Type.DimY * ItemOnShelf.Type.DimZ;
+        }
+
         return new AmountOnSpaceDto(shelf.RowNo+shelf.ShelfNo,(int?)Math.Floor(volumenShelf / volumenItemType));
     }
 }
