@@ -4,18 +4,21 @@ using ClientgRPC.GRPC_stubs;
 using Logic.AdapterToGRPC.ItemType;
 using Logic.AdapterToGRPC.Shelf.Adp;
 using Logic.LogicInterfaces;
-
+using Logic.Shelf;
 using Shared.DTOs.Item;
 using Shared.DTOs.ItemType;
 using Shared.Model;
 
-namespace Logic.Logic; 
+namespace Logic.Logic;
 
 public class ItemManager : IItemLogic, IItemManager
 {
-    IShelfClient _shelfClient = new ShelfClient(new ReadShelfAdp(),new UpdateShelfAdp());
-    IItemClient _itemClient = new TypeMainAdapter(); 
+    IShelfClient _shelfClient = new ShelfClient(new ReadShelfAdp(), new UpdateShelfAdp());
+    IItemClient _itemClient = new TypeMainAdapter();
+    private IShelfManager shelfManager;
+
     IItemTypeClient _itemTypeClient = new ItemTypeMainAdapter();
+
 /*
     public ItemManager(IShelfClient shelfClient, IItemClient itemClient, IItemTypeClient itemTypeClient)
     {
@@ -26,42 +29,44 @@ public class ItemManager : IItemLogic, IItemManager
 */
     public async Task<Shared.Model.Item> CreateAsync(ItemCreationDto dto)
     {
-        if (dto.Antal<=0)
-        { 
+        if (dto.Antal <= 0)
+        {
             throw new Exception("antal skal være mere end 0");
         }
 
-        if (dto.ItemTypeId<=0)
+        if (dto.ItemTypeId <= 0)
         {
             throw new Exception("itemType skal være større end 0");
 
         }
+
         Shared.Model.Item result = await _itemClient.Create(dto);
-        
+
         return result;
     }
 
     public async Task<ItemType> CreateItemTypeAsync(ItemTypeCreationDto dto)
     {
-        if (dto.Id<1)
+        if (dto.Id < 1)
         {
             throw new Exception("Id skal være større end 0");
         }
 
-        if (dto.DimensionX<=0)
+        if (dto.DimensionX <= 0)
         {
             throw new Exception("Din X dim skal være større end 0");
         }
-        
-        if (dto.DimenstionY<=0)
+
+        if (dto.DimenstionY <= 0)
         {
             throw new Exception("Din Y dim skal være større end 0");
         }
-        
-        if (dto.DimensionZ<=0)
+
+        if (dto.DimensionZ <= 0)
         {
             throw new Exception("Din Z dim skal være større end 0");
         }
+
         return await _itemTypeClient.Create(dto);
     }
 
@@ -89,7 +94,7 @@ public class ItemManager : IItemLogic, IItemManager
         try
         {
             Shared.Model.Item item = await _itemClient.Delete(dto);
-            if (item.Uid!=dto.id)
+            if (item.Uid != dto.id)
             {
                 throw new Exception("Item Not Found");
             }
@@ -111,8 +116,25 @@ public class ItemManager : IItemLogic, IItemManager
         return true;
     }
 
-    public Task ReserveItem(ItemCreationDto dto)
+    public async Task ReserveItem(ItemCreationDto dto)
     {
-        
+        List<Shared.Model.Shelf> shelves = shelfManager.ReadAll();
+
+        ItemType type = await _itemTypeClient.Read(new ItemTypeSearchDto(dto.ItemTypeId));
+
+        foreach (var index in shelves)
+        {
+            double roomLeft = Amount.ShelfMass(index);
+            foreach (var Item in index.ItemsOnShelf)
+            {
+                double itemMass = Amount.ItemTypeMass(Item.Type);
+                roomLeft -= itemMass;
+
+                if (Amount.ItemTypeMass(type) < roomLeft)
+                {
+                    _itemClient.Create(dto);
+                }
+            }
+        }
     }
 }
