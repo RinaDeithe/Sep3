@@ -1,0 +1,71 @@
+﻿@page "/ReserveCreatiomType"
+@using BlazerWASM.StateContainer
+@using global::Shared.DTOs.ItemType
+@using HttpClients.ClientInterfaces
+
+
+
+@inject IItemTypeService Service;
+@inject NavigationManager NavigationManager;
+@inject ReserveItemState state;
+
+<div class="card col-6 border border-0">
+<div>
+    <h3>CreateItemType</h3>
+                    <td class="border-1 text-center fw-bold">
+                        <label >Vare nummer: @state.typeId </label>
+                    </td>
+    <div class="my-2">
+        <label>DimX</label>
+        <input type="text" class ="form-control col-6" @bind="dimX"/>
+        @if (!string.IsNullOrEmpty(resultMsg))
+        {
+            <label>@resultMsg</label>
+        }
+    </div>
+    <div>
+        <label>DimY</label>
+        <input type="text" class ="form-control col-6" @bind="dimY"/>
+        @if (!string.IsNullOrEmpty(resultMsg))
+        {
+            <label>@resultMsg</label>
+        }
+    </div>
+
+<div>
+    <label>DimZ</label>
+    <input type="text" class ="form-control col-6" @bind="dimZ"/>
+    @if (!string.IsNullOrEmpty(resultMsg))
+    {
+        <label>@resultMsg</label>
+    }
+</div>
+<button @onclick="CreateItemTypeMethod" class="acceptbtn my-2">Create</button>
+</div>
+</div>
+
+
+@code {
+    private double? dimZ;
+    private double? dimY;
+    private double? dimX;
+    private string resultMsg;
+    
+    private async Task CreateItemTypeMethod()
+    {
+        
+        try
+        {
+            await Service.CreateAsync(new ItemTypeCreationDto(state.typeId,(double)dimX,(double)dimY,(double)dimZ));
+            dimZ = null;
+            dimY = null;
+            dimX= null;
+            resultMsg ="";
+            NavigationManager.NavigateTo("/ShelfPage");
+        }
+        catch (Exception e)
+        {
+            resultMsg = e.Message;
+        }
+    }
+}

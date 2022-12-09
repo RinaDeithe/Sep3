@@ -1,18 +1,15 @@
-using Logic.AdapterToGRPC.Item;
-using Logic.AdapterToGRPC.ItemType;
-using Logic.AdapterToGRPC.Shelf;
-using Logic.LogicInterfaces;
-using Microsoft.AspNetCore.Http;
-using Shared.DTOs;
+using ClientgRPC.ClientInterfaces;
+using Shared.DTOs.Item;
+using Shared.DTOs.ItemType;
 using Shared.Model;
 
-namespace Logic.Logic; 
+namespace Logic.Item; 
 
-public class ItemManager : IItemLogic, IItemManager
+public class ItemManager : IItemLogic
 {
-    IShelfClient _shelfClient = new ShelfClient();
-    IItemClient _itemClient = new TypeMainAdapter(); 
-    IItemTypeClient _itemTypeClient = new ItemTypeMainAdapter();
+    private IItemClient _itemClient;
+    private IItemTypeClient _itemTypeClient;
+    
 /*
     public ItemManager(IShelfClient shelfClient, IItemClient itemClient, IItemTypeClient itemTypeClient)
     {
@@ -21,7 +18,7 @@ public class ItemManager : IItemLogic, IItemManager
         _itemTypeClient = itemTypeClient;
     }
 */
-    public async Task<Item> CreateAsync(ItemCreationDto dto)
+    public async Task<Shared.Model.Item> CreateAsync(ItemCreationDto dto)
     {
         if (dto.Antal<=0)
         { 
@@ -33,12 +30,12 @@ public class ItemManager : IItemLogic, IItemManager
             throw new Exception("itemType skal være større end 0");
 
         }
-        Item result = await _itemClient.Create(dto);
+        Shared.Model.Item result = await _itemClient.Create(dto);
         
         return result;
     }
 
-    public async Task<itemType> CreateItemTypeAsync(ItemTypeCreationDto dto)
+    public async Task<ItemType> CreateItemTypeAsync(ItemTypeCreationDto dto)
     {
         if (dto.Id<1)
         {
@@ -62,11 +59,11 @@ public class ItemManager : IItemLogic, IItemManager
         return await _itemTypeClient.Create(dto);
     }
 
-    public async Task<itemType> ReadItemTypeAsync(ItemTypeSearchDto dto)
+    public async Task<ItemType> ReadItemTypeAsync(ItemTypeSearchDto dto)
     {
         try
         {
-            itemType result = await _itemTypeClient.Read(dto);
+            ItemType result = await _itemTypeClient.Read(dto);
             return result;
         }
         catch (Exception e)
@@ -76,11 +73,16 @@ public class ItemManager : IItemLogic, IItemManager
         }
     }
 
+    public Task<Shared.Model.Item> CreateAsync(ItemSearchDto dto)
+    {
+        throw new NotImplementedException();
+    }
+
     public async Task DeleteItemAsync(ItemSearchDto dto)
     {
         try
         {
-            Item item = await _itemClient.Delete(dto);
+            Shared.Model.Item item = await _itemClient.Delete(dto);
             if (item.Uid!=dto.id)
             {
                 throw new Exception("Item Not Found");

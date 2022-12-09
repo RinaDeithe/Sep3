@@ -1,14 +1,12 @@
-﻿using System.Runtime.InteropServices;
-using ClientgRPC;
-using Logic.AdapterToGRPC.Item;
-using Logic.AdapterToGRPC.Shelf;
-using Logic.AdapterToGRPC.Shelf.Adp;
-using Logic.LogicInterfaces;
-using Logic.UniversalBussniesClasses;
+﻿using ClientgRPC.ClientInterfaces;
+using ClientgRPC.StaticBusiness;
 using Shared.DTOs;
+using Shared.DTOs.Item;
+using Shared.DTOs.ItemType;
+using Shared.DTOs.Shelf;
 using Shared.Model;
 
-namespace Logic.Logic;
+namespace Logic.Shelf;
 
 public class ShelfManager : IShelfManager
 {
@@ -48,21 +46,23 @@ public class ShelfManager : IShelfManager
         return true;
     }
 
-    public async Task<List<AmountOnSpaceDto>> GetAmountOnShelf(int itemTypeId)
+    public async Task<ItemRegisterReqiestDto> GetAmountOnShelf(int itemTypeId)
     {
         List<AmountOnSpaceDto> result = new List<AmountOnSpaceDto>();
 
         
 
-        itemType _itemType = _itemTypeClient.Read(new ItemTypeSearchDto(itemTypeId)).Result;
+        ItemType _itemType = _itemTypeClient.Read(new ItemTypeSearchDto(itemTypeId)).Result;
 
-        List < Shelf > allShelves= await _shelfClient.GetAllShelves();
+        List < Shared.Model.Shelf > allShelves= await _shelfClient.ReadAll();
         foreach (var shelf in allShelves)
         {
             result.Add(Amount.AmountOnSpaceDto(shelf, _itemType));
         }
 
-        return result;
+        ItemRegisterReqiestDto itemRegisterReqiestDto = new ItemRegisterReqiestDto(itemTypeId, result);
+
+        return itemRegisterReqiestDto;
     }
 
     public Task<bool> HasRoom(int ItemTypeId)
@@ -72,8 +72,8 @@ public class ShelfManager : IShelfManager
 
     public async Task<bool> HasRoom(ShelfAddItemRequestDto dtos)
     {
-        List<AmountOnSpaceDto> list = await GetAmountOnShelf(dtos.ItemTypeId);
-        foreach (AmountOnSpaceDto spaces in list)
+        ItemRegisterReqiestDto list = await GetAmountOnShelf(dtos.ItemTypeId);
+        foreach (AmountOnSpaceDto spaces in list.ShelfInfo)
         {
             foreach (AmountOnSpaceDto places in dtos.ShelfInfo)
             {

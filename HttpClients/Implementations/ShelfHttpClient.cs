@@ -1,7 +1,8 @@
 ﻿using System.Text;
 using System.Text.Json;
 using HttpClients.ClientInterfaces;
-using Shared.DTOs;
+using Shared.DTOs.Item;
+using Shared.DTOs.ItemType;
 using Shared.DTOs.Shelf;
 using Shared.Model;
 
@@ -41,9 +42,19 @@ public class ShelfHttpClient : IShelfService
         return shelves;
     }
 
-  /*  public async Task<List<Shelf>> getShelfsAmount(int itemTypeId)
+    public async Task<ItemRegisterReqiestDto> GetAmountOnShelf(ItemTypeSearchDto dto)
     {
+        HttpResponseMessage response = await client.GetAsync($"/Shelfs/{dto.Id}");
+        string content = await response.Content.ReadAsStringAsync();
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(content);
+        }
         
+        ItemRegisterReqiestDto shelves = JsonSerializer.Deserialize<ItemRegisterReqiestDto>(content, new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true
+        })!;
+        return shelves;
     }
-    */
 }

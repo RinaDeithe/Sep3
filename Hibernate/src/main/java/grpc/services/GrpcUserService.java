@@ -3,7 +3,6 @@ package grpc.services;
 import GRPC.proto.File;
 import GRPC.proto.UserServiceGrpc;
 import database.daoInterfaces.IDbDao;
-import database.daos.DbDao;
 import domain.Model.User;
 import grpc.converter.UserConverter;
 import io.grpc.stub.StreamObserver;
@@ -14,13 +13,13 @@ public class GrpcUserService extends UserServiceGrpc.UserServiceImplBase {
 
     IDbDao<User> dao;
 
-    public GrpcUserService(DbDao<User> userDbDao) {
+    public GrpcUserService(IDbDao<User> userDbDao) {
         dao = userDbDao;
     }
 
     @Override
     public void create(File.CreateUserRequest request, StreamObserver<File.UserProto> responseObserver) {
-        User user = dao.Create(UserConverter.CONVERT.toUserFromProto(request));
+        User user = dao.Create(UserConverter.CONVERT.toUserFromCreation(request));
 
         File.UserProto proto = UserConverter.CONVERT.toUserProto(user);
 
@@ -30,7 +29,7 @@ public class GrpcUserService extends UserServiceGrpc.UserServiceImplBase {
 
     @Override
     public void read(File.UserSearchRequest request, StreamObserver<File.UserProto> responseObserver) {
-        User user = dao.Read(new User(), request.getId());
+        User user = dao.Read(new User(request.getId(), request.getRole()));
 
         File.UserProto proto = UserConverter.CONVERT.toUserProto(user);
 
@@ -43,6 +42,14 @@ public class GrpcUserService extends UserServiceGrpc.UserServiceImplBase {
         List<User> userList = dao.ReadAll(new User());
 
         File.UserListProto proto = UserConverter.CONVERT.toUserProtoFromList(userList);
+    }
+
+    @Override
+    public void update(File.UserProto request, StreamObserver<File.UserProto> responseObserver) {
+        File.UserProto proto = UserConverter.CONVERT.toUserProto(dao.Update(UserConverter.CONVERT.toUserFromProto(request)));
+
+        responseObserver.onNext(proto);
+        responseObserver.onCompleted();
     }
 
     @Override

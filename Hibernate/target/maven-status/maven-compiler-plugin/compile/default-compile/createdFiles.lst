@@ -2,7 +2,6 @@ grpc\proto\ShelfServiceGrpc$ShelfServiceBlockingStub.class
 org\hibernate\dialect\SQLiteDialect$5.class
 domain\Model\User.class
 grpc\proto\File$ItemSearchRequest$Builder.class
-database\orm\IConnector.class
 grpc\proto\File$ItemTypeListProto$1.class
 grpc\DatabaseInitializer.class
 grpc\proto\File$UserSearchRequest$Builder.class
@@ -74,6 +73,7 @@ grpc\converter\ShelfConverter.class
 grpc\proto\File$emptyParams$1.class
 grpc\proto\ItemServiceGrpc$ItemServiceFutureStub.class
 grpc\proto\File$ItemListProto$Builder.class
+grpc\testMain.class
 grpc\proto\File$UserProto$1.class
 org\hibernate\dialect\SQLiteDialect$SQLiteUniqueDelegate.class
 org\hibernate\dialect\SQLiteDialect$1.class
@@ -100,7 +100,6 @@ grpc\proto\File$ItemProto$Builder.class
 grpc\proto\UserServiceGrpc$UserServiceFutureStub.class
 grpc\proto\ShelfServiceGrpc$ShelfServiceImplBase.class
 grpc\proto\File$ItemSearchRequest.class
-database\daos\DbDao.class
 grpc\proto\File$ItemSearchRequest$1.class
 domain\Dto\ItemTypeSearchDto.class
 grpc\proto\ShelfServiceGrpc$ShelfServiceStub.class
