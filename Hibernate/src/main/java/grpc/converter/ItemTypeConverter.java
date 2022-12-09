@@ -24,6 +24,9 @@ public enum ItemTypeConverter {
     }
 
     public File.ItemTypeProto toTypeProtoFromType(ItemType type) {
+        if (type ==null){
+            return File.ItemTypeProto.newBuilder().build();
+        }
         return File.ItemTypeProto.newBuilder()
                 .setId(type.getId())
                 .setDimX(type.getDimX())
