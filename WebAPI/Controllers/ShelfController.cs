@@ -17,16 +17,17 @@ public class ShelfController : ControllerBase
         _shelfManager = shelfManager;
     }
 
-    [HttpPatch]
-    public async Task<ActionResult<bool>> update(ShelfAddItemRequestDto dtos)
+    [HttpPatch("AddItem")]
+    public async Task<ActionResult<bool>> update([FromBody]ShelfAddItemRequestDto dtos)
     {
         
         try
         {
+            Console.WriteLine("tete");
             bool succes = await _shelfManager.Update(dtos);
             if (succes)
             {
-                return Ok();
+                return Ok("/shelf/AddItem");
             }
             return StatusCode(500, "something went wrong");
         }

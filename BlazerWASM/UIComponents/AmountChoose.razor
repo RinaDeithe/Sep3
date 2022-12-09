@@ -1,0 +1,17 @@
+﻿
+<label class="Amount-Container">
+    <input 
+        type="number"
+        class="form-control col-6" 
+        defaultValue ="@Amount" 
+        min =0
+        @onchange="@((arg) => OnChange.InvokeAsync((int)arg.Value!))"
+    />
+</label>
+@code {
+    [Parameter]
+    public int Amount { get; set; }
+    
+    [Parameter]
+    public EventCallback<int> OnChange { get; set; }
+}

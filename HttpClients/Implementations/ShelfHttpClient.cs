@@ -17,7 +17,7 @@ public class ShelfHttpClient : IShelfService
         this.client = client;
     }
 
-    public async Task<bool> AddItemToShelf(List<ShelfAddItemRequestDto> dto)
+    public async Task<bool> AddItemToShelf(ShelfAddItemRequestDto dto)
     {
         string dtoAsJson = JsonSerializer.Serialize(dto);
         StringContent body = new StringContent(dtoAsJson, Encoding.UTF8, "application/json");

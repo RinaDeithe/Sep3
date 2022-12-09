@@ -2,6 +2,6 @@
 
 public record AmountOnSpaceDto
 (
-    string ShelfID,
+    string ShelfId,
     int? AvalibleSpace
 );

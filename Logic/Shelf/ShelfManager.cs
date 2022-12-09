@@ -27,11 +27,12 @@ public class ShelfManager : IShelfManager
 
     public async Task<bool> Update(ShelfAddItemRequestDto dtos)
     {
-        if (await HasRoom(dtos))
+        
+        if (!await HasRoom(dtos))
         {
             return false;
         }
-
+        
  
         
         
@@ -43,9 +44,12 @@ public class ShelfManager : IShelfManager
             for (int i = 0; i < antalPåHylde.AvalibleSpace; i++)
             {
                 ItemCreationDto newItem = new ItemCreationDto(dtos.ItemTypeId, 1, dtos.Owner.Id
-                    , false, antalPåHylde.ShelfID);
+                    , false, antalPåHylde.ShelfId);
+                _itemClient.Create(newItem);
             }
+            
         }
+        
 
         return true;
     }
@@ -81,7 +85,7 @@ public class ShelfManager : IShelfManager
         {
             foreach (AmountOnSpaceDto places in dtos.ShelfInfo)
             {
-                if (spaces.ShelfID.Equals(places.ShelfID))
+                if (spaces.ShelfId.Equals(places.ShelfId))
                 {
                     if (spaces.AvalibleSpace<places.AvalibleSpace)
                     {

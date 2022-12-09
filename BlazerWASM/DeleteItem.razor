@@ -11,9 +11,10 @@
         
         <td class="border-1 text-center fw-bold">
             <label >Vare Id: </label>
-            <INPUT name="InputWished" type="textfield" placeholder="Dit vare Unikke ID"class="border-0" @bind="uniqevareNummer"/>
         </td>
-        
+        <td>
+            <input type="text" class ="form-control col-6" @bind="_uniqevareNummer"/>
+        </td>
     </tr>
     <tr>
         <button type="button" name="klik" onclick="@Delete()">klik</button>
@@ -23,13 +24,13 @@
 
 
 @code {
-    int uniqevareNummer;
+    int _uniqevareNummer=0;
 
     private async Task Delete()
     {
         try
         {
-            await Service.DeleItemAsync(new ItemSearchDto(uniqevareNummer));
+            await Service.DeleItemAsync(new ItemSearchDto(_uniqevareNummer));
         }
         catch (Exception e)
         {
