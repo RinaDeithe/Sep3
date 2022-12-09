@@ -14,15 +14,14 @@ public class ItemManager : IItemLogic
     {
         
     }
-    
-/*
-    public ItemManager(IShelfClient shelfClient, IItemClient itemClient, IItemTypeClient itemTypeClient)
+
+    public ItemManager(IItemClient itemClient, IItemTypeClient itemTypeClient)
     {
-        _shelfClient = shelfClient;
+        
         _itemClient = itemClient;
         _itemTypeClient = itemTypeClient;
     }
-*/
+
     public async Task<Shared.Model.Item> CreateAsync(ItemCreationDto dto)
     {
         if (dto.Antal<=0)
