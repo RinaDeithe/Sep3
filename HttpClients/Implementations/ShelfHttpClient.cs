@@ -11,7 +11,6 @@ namespace HttpClients.Implementations;
 public class ShelfHttpClient : IShelfService
 {
     private readonly HttpClient client;
-
     public ShelfHttpClient(HttpClient client)
     {
         this.client = client;
@@ -44,7 +43,7 @@ public class ShelfHttpClient : IShelfService
 
     public Task<bool> HasRoom(ItemRegisterReqiestDto dto)
     {
-        throw new NotImplementedException();
+        client.HasRoom
     }
 
     

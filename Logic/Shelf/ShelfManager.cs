@@ -70,11 +70,7 @@ public class ShelfManager : IShelfManager
         return result;
     }
 
-    public Task<bool> HasRoom(int ItemTypeId)
-    {
-        throw new NotImplementedException();
-    }
-
+   
     public async Task<bool> HasRoom(ShelfAddItemRequestDto dtos)
     {
         List<AmountOnSpaceDto> list = await GetAmountOnShelf(dtos.ItemTypeId);
@@ -86,6 +82,8 @@ public class ShelfManager : IShelfManager
                 {
                     if (spaces.AvalibleSpace<places.AvalibleSpace)
                     {
+
+                        return false;
                         throw new Exception("To many Item on shelf");
                     }
                 }
