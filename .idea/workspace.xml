@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="81ffe829-311a-4bde-8753-4e2da12b99da" name="Changes" comment="Fixed null point error. Fixed input int error. Fixed database URL">
+    <list default="true" id="81ffe829-311a-4bde-8753-4e2da12b99da" name="Changes" comment="Compiled updated .proto.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/domain/Model/Shelf.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/domain/Model/Shelf.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/converter/ItemConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/converter/ItemConverter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/converter/ShelfConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/converter/ShelfConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hibernate/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hibernate/src/Test/java/database/orm/DbConnectionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/Test/java/database/orm/DbConnectionTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Hibernate/src/main/resources/database/identifier.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/resources/database/identifier.sqlite" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Hibernate/target/classes/database/identifier.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/target/classes/database/identifier.sqlite" afterDir="false" />
     </list>
@@ -30,7 +29,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="MortenSafe" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -61,24 +60,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="DatabaseDriversLRU" value="sqlite" />
-    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
-    <property name="JPA.DatabaseSchemaImportDialog" value="29eccfd2-7cc1-4776-9a66-3b1825bb32a3" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
-    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
-    <property name="jdk.selected.JAVA_MODULE" value="19" />
-    <property name="last_directory_selection" value="$PROJECT_DIR$/Hibernate/src/main/java" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Hibernate/src/Test" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="MavenSettings" />
-  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;
+  }
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Rumle\IdeaProjects\test2\Hibernate\src\Test" />
@@ -268,9 +256,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.DatabaseInitializer" />
+        <item itemvalue="JUnit.DbConnectionTest.create" />
         <item itemvalue="Application.testMain" />
         <item itemvalue="JUnit.DbConnectionTest" />
-        <item itemvalue="JUnit.DbConnectionTest.create" />
         <item itemvalue="JUnit.GrpcItemServiceTest.create" />
       </list>
     </recent_temporary>
@@ -311,6 +299,8 @@
       <workItem from="1670511444241" duration="207000" />
       <workItem from="1670517558974" duration="14152000" />
       <workItem from="1670573374248" duration="1207000" />
+      <workItem from="1670592323743" duration="289000" />
+      <workItem from="1670607597670" duration="3284000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit Java">
       <created>1667318961742</created>

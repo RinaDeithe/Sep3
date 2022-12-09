@@ -49,6 +49,14 @@
       <version>5.5.3.Final</version>
     </dependency>
 
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-testing</artifactId>
+      <version>5.5.3.Final</version>
+      <type>pom</type>
+      <scope>test</scope>
+    </dependency>
+
     <!-- Junit -->
 
     <dependency>
@@ -78,6 +86,12 @@
       <groupId>com.github.gwenn</groupId>
       <artifactId>sqlite-dialect</artifactId>
       <version>0.1.2</version>
+    </dependency>
+    <dependency>
+      <groupId>org.testng</groupId>
+      <artifactId>testng</artifactId>
+      <version>RELEASE</version>
+      <scope>test</scope>
     </dependency>
 
   </dependencies>
