@@ -1,4 +1,9 @@
 ﻿@page "/BookingPage"
+@using HttpClients.ClientInterfaces
+@using global::Shared.DTOs.ItemType
+@inject IItemTypeService typeService;
+@inject IShelfService shelfService;
+@inject IItemService itemService;
 <h3>BookingPage</h3>
 
 <h3>BookingPage</h3>
@@ -30,22 +35,39 @@
             <input type="text" class="form-control col-6"@bind="DimZ"/>
         </div>
         
-        <button @onclick="createBooking" class="acceptbtn my-2">Create Booking</button>
 
     </div>
 </div>
 
 
 @code {
-    private int? UserId;
-    private int? amount;
-    private int? ItemTypeId;
-    private int? DimX;
-    private int? DimY;
-    private int? DimZ;
+    private string? UserId { get; set; }
+    private int? amount { get; set; }
+    private int ItemTypeId { get; set; }
+    private int? DimX { get; set; }
+    private int? DimY { get; set; }
+    private int? DimZ { get; set; }
+    private string resultMsg { get; set; }
 
-    private async Task createBooking()
+    private async Task Reserve()
     {
+        resultMsg = "";
+
+        if (ItemTypeId == null)
+        {
+            resultMsg = "No Type id was given.";
+            return;
+        }
         
+        if (!typeService.CheckType(new ItemTypeSearchDto(ItemTypeId)))
+        {
+            resultMsg = "Item type doesn't exist. Do you want to create one?";
+            
+            
+            
+        }
     }
+    
+    
+    
 }

@@ -10,7 +10,7 @@ public class AuthService : IAuthService
     public async Task<User> ValidateUser(UserLoginDto dto)
     {
         
-        User? existingUser = client.Read(new UserSearchDto(dto.Id));
+        User? existingUser = await client.Read(new UserSearchDto(dto.Id));
 
         if (existingUser == null)
         {

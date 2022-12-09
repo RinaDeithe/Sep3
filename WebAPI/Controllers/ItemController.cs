@@ -1,7 +1,6 @@
 using System.Runtime.ExceptionServices;
 using Logic.LogicInterfaces;
 using Microsoft.AspNetCore.Mvc;
-using Shared.DTOs;
 using Shared.DTOs.Item;
 using Shared.Model;
 using IItemLogic = Logic.Item.IItemLogic;

@@ -1,4 +1,3 @@
-using ClientgRPC.Adapters.Shelf;
 using ClientgRPC.ClientInterfaces;
 using ClientgRPC.GRPC_stubs;
 using Logic.AdapterToGRPC.ItemType;
@@ -8,17 +7,13 @@ using Logic.Shelf;
 using Shared.DTOs.Item;
 using Shared.DTOs.ItemType;
 using Shared.Model;
+namespace Logic.Item; 
 
-namespace Logic.Logic;
-
-public class ItemManager : IItemLogic, IItemManager
+public class ItemManager : IItemLogic
 {
-    IShelfClient _shelfClient = new ShelfClient(new ReadShelfAdp(), new UpdateShelfAdp());
-    IItemClient _itemClient = new TypeMainAdapter();
-    private IShelfManager shelfManager;
-
-    IItemTypeClient _itemTypeClient = new ItemTypeMainAdapter();
-
+    private IItemClient _itemClient;
+    private IItemTypeClient _itemTypeClient;
+    
 /*
     public ItemManager(IShelfClient shelfClient, IItemClient itemClient, IItemTypeClient itemTypeClient)
     {

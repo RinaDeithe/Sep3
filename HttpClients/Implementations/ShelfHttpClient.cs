@@ -56,12 +56,19 @@ public class ShelfHttpClient : IShelfService
             PropertyNameCaseInsensitive = true
         })!;
     }
-
-    
-    
-    /*  public async Task<List<Shelf>> getShelfsAmount(int itemTypeId)
+    public async Task<ItemRegisterReqiestDto> GetAmountOnShelf(ItemTypeSearchDto dto)
     {
+        HttpResponseMessage response = await client.GetAsync($"/Shelfs/{dto.Id}");
+        string content = await response.Content.ReadAsStringAsync();
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(content);
+        }
         
+        ItemRegisterReqiestDto shelves = JsonSerializer.Deserialize<ItemRegisterReqiestDto>(content, new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true
+        })!;
+        return shelves;
     }
-    */
 }

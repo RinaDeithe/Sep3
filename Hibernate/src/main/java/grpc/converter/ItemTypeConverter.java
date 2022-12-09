@@ -24,6 +24,9 @@ public enum ItemTypeConverter {
     }
 
     public File.ItemTypeProto toTypeProtoFromType(ItemType type) {
+        if (type ==null){
+            return File.ItemTypeProto.newBuilder().build();
+        }
         return File.ItemTypeProto.newBuilder()
                 .setId(type.getId())
                 .setDimX(type.getDimX())
@@ -55,5 +58,9 @@ public enum ItemTypeConverter {
 
     public ItemType toTypeFromSearch(File.ItemTypeSearchRequest request) {
         return new ItemType(request.getId(), null, null, null);
+    }
+
+    public ItemType toTypeFromProto(File.ItemTypeProto proto) {
+        return new ItemType(proto.getId(), proto.getDimX(), proto.getDimY(), proto.getDimZ());
     }
 }

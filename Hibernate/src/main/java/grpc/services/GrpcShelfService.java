@@ -3,7 +3,6 @@ package grpc.services;
 import GRPC.proto.File;
 import GRPC.proto.ShelfServiceGrpc;
 import database.daoInterfaces.IDbDao;
-import database.daos.DbDao;
 import domain.Model.Shelf;
 import grpc.converter.ShelfConverter;
 import io.grpc.stub.StreamObserver;
@@ -14,7 +13,7 @@ public class GrpcShelfService extends ShelfServiceGrpc.ShelfServiceImplBase {
 
     IDbDao<Shelf> dao;
 
-    public GrpcShelfService(DbDao<Shelf> shelfDbDao) {
+    public GrpcShelfService(IDbDao<Shelf> shelfDbDao) {
         dao = shelfDbDao;
     }
 
@@ -30,7 +29,7 @@ public class GrpcShelfService extends ShelfServiceGrpc.ShelfServiceImplBase {
 
     @Override
     public void read(File.ShelfSearchRequest request, StreamObserver<File.ShelfProto> responseObserver) {
-        Shelf shelf = dao.Read(new Shelf(), request.getId());
+        Shelf shelf = dao.Read(new Shelf(), Integer.parseInt(request.getShelfNo() + request.getRowNo()));
 
         File.ShelfProto proto = ShelfConverter.CONVERT.toShelfProto(shelf);
 
@@ -43,6 +42,14 @@ public class GrpcShelfService extends ShelfServiceGrpc.ShelfServiceImplBase {
         List<Shelf> shelfList = dao.ReadAll(new Shelf());
 
         File.ShelvesListProto proto = ShelfConverter.CONVERT.toShelfProtoFromList(shelfList);
+
+        responseObserver.onNext(proto);
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void update(File.ShelfProto request, StreamObserver<File.ShelfProto> responseObserver) {
+        File.ShelfProto proto = ShelfConverter.CONVERT.toShelfProto(dao.Update(ShelfConverter.CONVERT.toShelfFromProto(request)));
 
         responseObserver.onNext(proto);
         responseObserver.onCompleted();

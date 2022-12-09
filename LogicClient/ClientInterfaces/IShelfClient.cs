@@ -5,9 +5,9 @@ namespace ClientgRPC.ClientInterfaces;
 
 public interface IShelfClient
 {
-    Task<Shared.Model.Shelf> ReadShelf(ShelfSearchParametersDto dao);
-    Task<Shared.Model.Shelf> UpdateShelf(Shared.Model.Shelf dao);
-    Task<List<Shared.Model.Shelf>> GetAllShelves();
-
+    Task<Shelf> Create(ShelfCreationDto dto);
+    Task<Shelf> Read(ShelfSearchParametersDto dao);
     Task<List<Shelf>> ReadAll();
+    Task<Shelf> Update(Shelf entity);
+    Task<Shelf> Delete(ShelfSearchParametersDto dto);
 }

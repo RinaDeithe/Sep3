@@ -64,6 +64,18 @@ public final class ShelfServiceGrpc {
               GRPC.proto.File.ShelvesListProto.getDefaultInstance()))
           .build();
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static final io.grpc.MethodDescriptor<GRPC.proto.File.ShelfProto,
+      GRPC.proto.File.ShelfProto> METHOD_UPDATE =
+      io.grpc.MethodDescriptor.<GRPC.proto.File.ShelfProto, GRPC.proto.File.ShelfProto>newBuilder()
+          .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+          .setFullMethodName(generateFullMethodName(
+              "GRPC.proto.ShelfService", "Update"))
+          .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+              GRPC.proto.File.ShelfProto.getDefaultInstance()))
+          .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+              GRPC.proto.File.ShelfProto.getDefaultInstance()))
+          .build();
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
   public static final io.grpc.MethodDescriptor<GRPC.proto.File.ShelfSearchRequest,
       GRPC.proto.File.ShelfProto> METHOD_DELETE =
       io.grpc.MethodDescriptor.<GRPC.proto.File.ShelfSearchRequest, GRPC.proto.File.ShelfProto>newBuilder()
@@ -126,6 +138,13 @@ public final class ShelfServiceGrpc {
 
     /**
      */
+    public void update(GRPC.proto.File.ShelfProto request,
+        io.grpc.stub.StreamObserver<GRPC.proto.File.ShelfProto> responseObserver) {
+      asyncUnimplementedUnaryCall(METHOD_UPDATE, responseObserver);
+    }
+
+    /**
+     */
     public void delete(GRPC.proto.File.ShelfSearchRequest request,
         io.grpc.stub.StreamObserver<GRPC.proto.File.ShelfProto> responseObserver) {
       asyncUnimplementedUnaryCall(METHOD_DELETE, responseObserver);
@@ -154,6 +173,13 @@ public final class ShelfServiceGrpc {
                 GRPC.proto.File.emptyParams,
                 GRPC.proto.File.ShelvesListProto>(
                   this, METHODID_READ_ALL)))
+          .addMethod(
+            METHOD_UPDATE,
+            asyncUnaryCall(
+              new MethodHandlers<
+                GRPC.proto.File.ShelfProto,
+                GRPC.proto.File.ShelfProto>(
+                  this, METHODID_UPDATE)))
           .addMethod(
             METHOD_DELETE,
             asyncUnaryCall(
@@ -209,6 +235,14 @@ public final class ShelfServiceGrpc {
 
     /**
      */
+    public void update(GRPC.proto.File.ShelfProto request,
+        io.grpc.stub.StreamObserver<GRPC.proto.File.ShelfProto> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(METHOD_UPDATE, getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
     public void delete(GRPC.proto.File.ShelfSearchRequest request,
         io.grpc.stub.StreamObserver<GRPC.proto.File.ShelfProto> responseObserver) {
       asyncUnaryCall(
@@ -253,6 +287,13 @@ public final class ShelfServiceGrpc {
     public GRPC.proto.File.ShelvesListProto readAll(GRPC.proto.File.emptyParams request) {
       return blockingUnaryCall(
           getChannel(), METHOD_READ_ALL, getCallOptions(), request);
+    }
+
+    /**
+     */
+    public GRPC.proto.File.ShelfProto update(GRPC.proto.File.ShelfProto request) {
+      return blockingUnaryCall(
+          getChannel(), METHOD_UPDATE, getCallOptions(), request);
     }
 
     /**
@@ -307,6 +348,14 @@ public final class ShelfServiceGrpc {
 
     /**
      */
+    public com.google.common.util.concurrent.ListenableFuture<GRPC.proto.File.ShelfProto> update(
+        GRPC.proto.File.ShelfProto request) {
+      return futureUnaryCall(
+          getChannel().newCall(METHOD_UPDATE, getCallOptions()), request);
+    }
+
+    /**
+     */
     public com.google.common.util.concurrent.ListenableFuture<GRPC.proto.File.ShelfProto> delete(
         GRPC.proto.File.ShelfSearchRequest request) {
       return futureUnaryCall(
@@ -317,7 +366,8 @@ public final class ShelfServiceGrpc {
   private static final int METHODID_CREATE = 0;
   private static final int METHODID_READ = 1;
   private static final int METHODID_READ_ALL = 2;
-  private static final int METHODID_DELETE = 3;
+  private static final int METHODID_UPDATE = 3;
+  private static final int METHODID_DELETE = 4;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -347,6 +397,10 @@ public final class ShelfServiceGrpc {
         case METHODID_READ_ALL:
           serviceImpl.readAll((GRPC.proto.File.emptyParams) request,
               (io.grpc.stub.StreamObserver<GRPC.proto.File.ShelvesListProto>) responseObserver);
+          break;
+        case METHODID_UPDATE:
+          serviceImpl.update((GRPC.proto.File.ShelfProto) request,
+              (io.grpc.stub.StreamObserver<GRPC.proto.File.ShelfProto>) responseObserver);
           break;
         case METHODID_DELETE:
           serviceImpl.delete((GRPC.proto.File.ShelfSearchRequest) request,
@@ -388,6 +442,7 @@ public final class ShelfServiceGrpc {
               .addMethod(METHOD_CREATE)
               .addMethod(METHOD_READ)
               .addMethod(METHOD_READ_ALL)
+              .addMethod(METHOD_UPDATE)
               .addMethod(METHOD_DELETE)
               .build();
         }

@@ -1,52 +1,40 @@
 ﻿using GRPC.Proto;
+using Shared.DTOs.Shelf;
 using Shared.Model;
 
 namespace ClientgRPC.Converters;
 
 public class ConverterShelf
 {
-    public static Shelf ShelfProtoToShelf(ShelfProto shelfProto){
-        
-    Shelf shelf = new Shelf();
-    shelf.DimX = shelfProto.DimX;
-    shelf.DimY = shelfProto.Dimy;
-    shelf.DimZ = shelfProto.Dimz;
-    shelf.RowNo = shelfProto.RowNo;
-    shelf.ShelfNo = shelfProto.ShelfNo;
-            
-    shelf.ItemsOnShelf = new List<Item>();
-    foreach (var items in shelfProto.ItemsOnShelf)
-    {
-
-        User userit = ConverterUser.UserProtoToUser(items.Owner);
-
-        ItemType itemType = new ItemType(items.Type.Id, items.Type.DimX, items.Type.DimY, items.Type.DimZ);
-                
-        Item item = new Item(itemType, items.UniqueID, userit, shelf);
-        shelf.ItemsOnShelf.Add(item);
-    }
-
-    return shelf;
-    }
-
-    public static ShelfProto ShelfToShelfProto(Shelf shelf)
-    {
-        return new ShelfProto
-        {
-            Dimy = shelf.DimY, Dimz = shelf.DimZ, DimX = shelf.DimX, RowNo = shelf.RowNo, ShelfNo = shelf.ShelfNo
+    
+    
+    public ShelfCreationRequest CreationToProto(ShelfCreationDto dto) {
+        return new ShelfCreationRequest {
+            RowNo = dto.RowNo,
+            ShelfNo = dto.ShelfNo,
+            ShelfDimX = dto.DimensionX,
+            ShelfDimY = dto.DimensionY,
+            ShelfDimZ = dto.DimensionY,
         };
     }
-    /*
-    public static List<Shared.Model.Shelf> AllShelvesProtoToAllShelves(ShelvesListProto shelvesListProto)
-    {
-        List<Shared.Model.Shelf> result = new List<Shared.Model.Shelf>();
+
+    public static Shelf ProtoToShelf(ShelfProto proto) {
         
-        foreach (ShelfProto protoList in shelvesListProto.Proto)
-        {
-            result.Add(ShelfProtoToShelf(protoList));
+        return new Shelf(proto.RowNo, proto.ShelfNo, proto.ShelfDimX, proto.ShelfDimY, proto.ShelfDimZ, ConverterItem.ProtoToList(proto.ItemsOnShelf));
+    }
+
+    public ShelfSearchRequest SearchToProto(ShelfSearchParametersDto dto) {
+        throw new NotImplementedException();
+    }
+
+    public List<Shelf> ProtoToList(ShelvesListProto proto) {
+        List<Shelf> returnList = new();
+
+        foreach (var index in proto.Proto) {
+            returnList.Add(ProtoToShelf(index));
         }
 
-        return result;
+        return returnList;
     }
-    */
+    
 }

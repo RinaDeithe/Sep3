@@ -1,6 +1,5 @@
-﻿using Logic.LogicInterfaces;
+﻿using Logic.Item;
 using Microsoft.AspNetCore.Mvc;
-using Shared.DTOs;
 using Shared.DTOs.ItemType;
 using Shared.Model;
 
@@ -11,9 +10,9 @@ namespace WebAPI.Controllers;
 [Route("[controller]")]
 public class ItemTypeController : ControllerBase
 {
-    private readonly IItemManager itemManager;
+    private readonly IItemLogic itemManager;
 
-    public ItemTypeController(IItemManager itemManager)
+    public ItemTypeController(IItemLogic itemManager)
     {
         this.itemManager = itemManager;
     }

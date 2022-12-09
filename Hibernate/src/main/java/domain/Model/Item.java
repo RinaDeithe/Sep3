@@ -1,11 +1,12 @@
 package domain.Model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-public class Item {
+public class Item implements Serializable {
 
-    @OneToOne
+    @ManyToOne
     private ItemType type;
 
     @Id
@@ -13,7 +14,7 @@ public class Item {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int UID;
 
-    @OneToOne
+    @ManyToOne
     private User Owner;
 
     @ManyToOne
