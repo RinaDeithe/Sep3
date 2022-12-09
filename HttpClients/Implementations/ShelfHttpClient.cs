@@ -3,6 +3,7 @@ using System.Text.Json;
 using HttpClients.ClientInterfaces;
 using Shared.DTOs;
 using Shared.DTOs.Item;
+using Shared.DTOs.ItemType;
 using Shared.DTOs.Shelf;
 using Shared.Model;
 
@@ -41,9 +42,19 @@ public class ShelfHttpClient : IShelfService
         return shelves;
     }
 
-    public Task<bool> HasRoom(ItemRegisterReqiestDto dto)
+    public async Task<bool> HasRoom(ItemRegisterResponseDto dto)
     {
-        client.HasRoom
+        HttpResponseMessage response = await client.GetAsync("/Shelf/HasRoom");
+        string content = await response.Content.ReadAsStringAsync();
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(content);
+        }
+
+        return JsonSerializer.Deserialize<bool>(content, new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true
+        })!;
     }
 
     

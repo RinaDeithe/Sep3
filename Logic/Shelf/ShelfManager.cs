@@ -70,7 +70,39 @@ public class ShelfManager : IShelfManager
         return result;
     }
 
-   
+    public async Task<bool> HasRoom(ItemRegisterResponseDto dto)
+    {
+        List<Shared.Model.Shelf> shelfList = ReadAll();
+        int? totalItems = dto.Amount;
+        double itemVoloume = Amount.ItemTypeMass(await _itemTypeClient.Read(new ItemTypeSearchDto(dto.ItemTypeId)));
+        double totalAvailableSpace = 0;
+
+        foreach (var index in shelfList)
+        {
+            double voloumeAvailable = Amount.ShelfMass(index);
+
+            foreach (var itemIndex in index.ItemsOnShelf)
+            {
+                voloumeAvailable -= Amount.ItemTypeMass(itemIndex.Type);
+            }
+
+            totalAvailableSpace += voloumeAvailable;
+        }
+
+        if (!(itemVoloume * totalItems < totalAvailableSpace))
+        {
+            return false;
+        }
+
+        return true;
+    }
+
+    public List<Shared.Model.Shelf> ReadAll()
+    {
+        throw new NotImplementedException();
+    }
+
+
     public async Task<bool> HasRoom(ShelfAddItemRequestDto dtos)
     {
         List<AmountOnSpaceDto> list = await GetAmountOnShelf(dtos.ItemTypeId);
@@ -82,8 +114,6 @@ public class ShelfManager : IShelfManager
                 {
                     if (spaces.AvalibleSpace<places.AvalibleSpace)
                     {
-
-                        return false;
                         throw new Exception("To many Item on shelf");
                     }
                 }

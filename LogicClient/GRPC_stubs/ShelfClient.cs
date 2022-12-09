@@ -31,4 +31,9 @@ public class ShelfClient : IShelfClient
     {
         throw new NotImplementedException();
     }
+
+    public Task<List<Shelf>> ReadAll()
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -10,7 +10,6 @@ public interface IShelfManager
 
     Task<List<AmountOnSpaceDto>> GetAmountOnShelf(int ItemTypeId);
 
-    Task<bool> HasRoom(int ItemTypeId);
-
-    Task<bool> HasRoom(ItemRegisterReqiestDto dto);
+    Task<bool> HasRoom(ItemRegisterResponseDto dto);
+    List<Shared.Model.Shelf> ReadAll();
 }

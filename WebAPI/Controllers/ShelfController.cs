@@ -37,8 +37,18 @@ public class ShelfController : ControllerBase
         }
     }
 
-    public async Task<bool> HasRoom(ItemRegisterReqiestDto dto)
+    [HttpGet]
+    [Route("HasRoom")]
+    public async Task<ActionResult<bool>> HasRoom(ItemRegisterResponseDto dto)
     {
-        return await _shelfManager.HasRoom(dto);
+        try
+        {
+            return await _shelfManager.HasRoom(dto);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            return StatusCode(500, e.Message);
+        }
     }
 }

@@ -124,16 +124,17 @@ public class ItemManager : IItemLogic, IItemManager
 
         foreach (var index in shelves)
         {
-            double roomLeft = Amount.ShelfMass(index);
-            foreach (var Item in index.ItemsOnShelf)
-            {
-                double itemMass = Amount.ItemTypeMass(Item.Type);
-                roomLeft -= itemMass;
+            double roomAvailable = Amount.ShelfMass(index);
 
-                if (Amount.ItemTypeMass(type) < roomLeft)
-                {
-                    _itemClient.Create(dto);
-                }
+            foreach (var itemIndex in index.ItemsOnShelf)
+            {
+                roomAvailable -= Amount.ItemTypeMass(itemIndex.Type);
+            }
+
+            if (roomAvailable > Amount.ItemTypeMass(type))
+            {
+                _itemClient.Create(dto);
+                return;
             }
         }
     }

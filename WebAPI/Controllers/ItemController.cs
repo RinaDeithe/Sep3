@@ -38,14 +38,15 @@ public class ItemController : ControllerBase {
     
     
     [HttpPost]
+    [Route("/Reserve")]
     public async void ReserveItem(ItemCreationDto dto) {
         try
         {
-            Item item = await _itemLogic.CreateAsync(dto);
+            await _itemLogic.CreateAsync(dto);
         }
-        catch
+        catch (Exception e)
         {
-            ExceptionDispatchInfo.SetCurrentStackTrace(null);
+            Console.WriteLine(e.Message);
         }
     }
 }
