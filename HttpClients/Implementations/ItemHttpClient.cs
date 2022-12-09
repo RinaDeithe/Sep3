@@ -35,7 +35,7 @@ public class ItemHttpClient : IItemService {
 
     public async Task DeleItemAsync(ItemSearchDto dto)
     {
-        HttpResponseMessage response = await client.DeleteAsync($"Todos/{dto}");
+        HttpResponseMessage response = await client.DeleteAsync($"Item/{dto}");
         if (!response.IsSuccessStatusCode)
         {
             string content = await response.Content.ReadAsStringAsync();
@@ -43,8 +43,13 @@ public class ItemHttpClient : IItemService {
         }
     }
 
-    public Task ReserveItem(ItemCreationDto dto)
+    public async Task ReserveItem(ItemCreationDto dto)
     {
-        
+        HttpResponseMessage response = await client.PostAsJsonAsync($"Item/",dto);
+        if (!response.IsSuccessStatusCode)
+        {
+            string content = await response.Content.ReadAsStringAsync();
+            throw new Exception(content);
+        }   
     }
 }
