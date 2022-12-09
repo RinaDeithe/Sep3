@@ -2,6 +2,7 @@
 using System.Text.Json;
 using HttpClients.ClientInterfaces;
 using Shared.DTOs;
+using Shared.DTOs.Item;
 using Shared.DTOs.Shelf;
 using Shared.Model;
 
@@ -41,7 +42,14 @@ public class ShelfHttpClient : IShelfService
         return shelves;
     }
 
-  /*  public async Task<List<Shelf>> getShelfsAmount(int itemTypeId)
+    public Task<bool> HasRoom(ItemRegisterReqiestDto dto)
+    {
+        throw new NotImplementedException();
+    }
+
+    
+    
+    /*  public async Task<List<Shelf>> getShelfsAmount(int itemTypeId)
     {
         
     }
