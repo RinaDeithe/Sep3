@@ -1,3 +1,6 @@
+
+﻿using Shared.DTOs;
+using Shared.DTOs.Item;
 ﻿using Shared.DTOs.Item;
 using Shared.DTOs.Shelf;
 
@@ -9,5 +12,6 @@ public interface IShelfManager
 
     Task<ItemRegisterReqiestDto> GetAmountOnShelf(int ItemTypeId);
 
-    Task<bool> HasRoom(int ItemTypeId);
+    Task<bool> HasRoom(ItemRegisterResponseDto dto);
+    List<Shared.Model.Shelf> ReadAll();
 }

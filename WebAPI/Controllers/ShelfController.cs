@@ -1,5 +1,6 @@
 ﻿using Logic.Shelf;
 using Microsoft.AspNetCore.Mvc;
+using Shared.DTOs;
 using Shared.DTOs.Item;
 using Shared.DTOs.ItemType;
 using Shared.DTOs.Shelf;
@@ -38,6 +39,15 @@ public class ShelfController : ControllerBase
     }
 
     [HttpGet]
+    [Route("HasRoom")]
+    public async Task<ActionResult<bool>> HasRoom(ItemRegisterResponseDto dto)
+    {
+        try
+        {
+            return await _shelfManager.HasRoom(dto);
+        }
+        catch (Exception e)
+
     public async Task<ActionResult<ItemRegisterReqiestDto>> GetAmountOnShelf(ItemTypeSearchDto dto)
     {
         try
@@ -54,5 +64,4 @@ public class ShelfController : ControllerBase
             return StatusCode(500, e.Message);
         }
     }
-
 }

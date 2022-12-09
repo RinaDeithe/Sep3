@@ -1,7 +1,9 @@
-using Logic.Item;
+using System.Runtime.ExceptionServices;
+using Logic.LogicInterfaces;
 using Microsoft.AspNetCore.Mvc;
 using Shared.DTOs.Item;
 using Shared.Model;
+using IItemLogic = Logic.Item.IItemLogic;
 
 namespace WebAPI.Controllers; 
 
@@ -29,6 +31,21 @@ public class ItemController : ControllerBase {
         catch (Exception e) {
             Console.WriteLine(e);
             return StatusCode(500, e.Message);
+            
+        }
+    }
+    
+    
+    [HttpPost]
+    [Route("/Reserve")]
+    public async void ReserveItem(ItemCreationDto dto) {
+        try
+        {
+            await _itemLogic.CreateAsync(dto);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
         }
     }
 }
