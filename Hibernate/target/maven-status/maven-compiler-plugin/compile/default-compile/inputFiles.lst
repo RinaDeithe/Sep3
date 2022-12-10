@@ -1,7 +1,6 @@
 C:\via\Java3\RabbitMQ\MidTermDraft\Hibernate\src\main\java\domain\Dto\ShelfItemAmountDto.java
 C:\via\Java3\RabbitMQ\MidTermDraft\Hibernate\src\main\java\grpc\services\GrpcItemService.java
 C:\via\Java3\RabbitMQ\MidTermDraft\Hibernate\src\main\java\domain\Dto\ItemRegisterRequestDto.java
-C:\via\Java3\RabbitMQ\MidTermDraft\Hibernate\src\main\java\database\daos\DbDao.java
 C:\via\Java3\RabbitMQ\MidTermDraft\Hibernate\src\main\java\domain\Model\ItemType.java
 C:\via\Java3\RabbitMQ\MidTermDraft\Hibernate\src\main\java\domain\Dto\ItemTypeSearchDto.java
 C:\via\Java3\RabbitMQ\MidTermDraft\Hibernate\src\main\java\grpc\converter\UserConverter.java
@@ -9,6 +8,7 @@ C:\via\Java3\RabbitMQ\MidTermDraft\Hibernate\src\main\java\grpc\services\GrpcShe
 C:\via\Java3\RabbitMQ\MidTermDraft\Hibernate\src\main\java\domain\Dto\ItemRegisterResponseDto.java
 C:\via\Java3\RabbitMQ\MidTermDraft\Hibernate\src\main\java\domain\Model\Item.java
 C:\via\Java3\RabbitMQ\MidTermDraft\Hibernate\src\main\java\org\hibernate\dialect\SQLiteDialect.java
+C:\via\Java3\RabbitMQ\MidTermDraft\Hibernate\src\main\java\grpc\testMain.java
 C:\via\Java3\RabbitMQ\MidTermDraft\Hibernate\src\main\java\domain\Model\User.java
 C:\via\Java3\RabbitMQ\MidTermDraft\Hibernate\target\generated-sources\protobuf\grpc-java\GRPC\proto\ItemTypeServiceGrpc.java
 C:\via\Java3\RabbitMQ\MidTermDraft\Hibernate\src\main\java\domain\Dto\ItemTypeCreationDto.java
@@ -19,7 +19,6 @@ C:\via\Java3\RabbitMQ\MidTermDraft\Hibernate\src\main\java\domain\Dto\ShelfSearc
 C:\via\Java3\RabbitMQ\MidTermDraft\Hibernate\src\main\java\database\orm\DbConnection.java
 C:\via\Java3\RabbitMQ\MidTermDraft\Hibernate\src\main\java\domain\Dto\ShelfCreationDto.java
 C:\via\Java3\RabbitMQ\MidTermDraft\Hibernate\src\main\java\grpc\converter\ShelfConverter.java
-C:\via\Java3\RabbitMQ\MidTermDraft\Hibernate\src\main\java\database\orm\IConnector.java
 C:\via\Java3\RabbitMQ\MidTermDraft\Hibernate\src\main\java\grpc\services\GrpcUserService.java
 C:\via\Java3\RabbitMQ\MidTermDraft\Hibernate\src\main\java\domain\Model\Shelf.java
 C:\via\Java3\RabbitMQ\MidTermDraft\Hibernate\src\main\java\domain\Dto\ItemCreationDto.java
