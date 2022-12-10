@@ -107,14 +107,9 @@ public class ItemManager : IItemLogic
         }
     }
 
-    public async Task<ActionResult<bool>> CheckType(ItemTypeSearchDto dto)
+    public async Task<ActionResult<Boolean>> CheckType(ItemTypeSearchDto dto)
     {
-        if (_itemTypeClient.Read(dto).Result == null)
-        {
-            return false;
-        }
-
-        return true;
+        return (_itemTypeClient.Read(dto)?.Result! == null);
     }
 
     public async Task ReserveItem(ItemCreationDto dto)
@@ -137,7 +132,11 @@ public class ItemManager : IItemLogic
 
                 if (roomAvailable > Amount.ItemTypeMass(type))
                 {
-                    _itemClient.Create(dto);
+                    for (int i = 0; i < dto.Antal; i++)
+                    {
+                        _itemClient.Create(dto);
+                    }
+                    
                     return;
                 }
             }

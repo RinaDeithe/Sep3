@@ -11,5 +11,5 @@ public interface IItemLogic {
     Task<ItemType> ReadItemTypeAsync(ItemTypeSearchDto dto);
     Task DeleteItemAsync(ItemSearchDto dto);
     Task ReserveItem(ItemCreationDto dto);
-    Task<ActionResult<bool>> CheckType(ItemTypeSearchDto dto);
+    Task<ActionResult<Boolean>> CheckType(ItemTypeSearchDto dto);
 }
