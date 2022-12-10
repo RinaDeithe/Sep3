@@ -13,6 +13,7 @@
 @inject IItemService ItemService;
 @inject IShelfService ShelfService;
 @inject IItemTypeService ItemTypeService;
+@inject NavigationManager NavigationManager;
 
 <h3 class="text-center mb-5">ShelfPage</h3>
 
@@ -68,7 +69,7 @@
 
                     <td>@item.ShelfID</td>
                     <td>@item.AvalibleSpace</td>
-                    <td><AmountChoose /></td>
+                    <td><input type="number" min="0" max="@item.AvalibleSpace" @bind="@item.Amount" /></td>
                     <td><label></label></td>
 
                 </tr>
@@ -77,7 +78,7 @@
 
             </tbody>
         </table>
-        <button type="button" name="klik" onclick="@ButtonReserver()">klik</button>
+        <button type="button" name="klik" onclick="@ButtonReserver()">put on shelf</button>
         @resultMsg
     </div>
 </div>
@@ -97,14 +98,19 @@
 
     protected override async Task OnInitializedAsync()
     {
+        if (NewItemBeginState.Id==0)
+        {
+            NavigationManager.NavigateTo("/CreateWare");
+        }
       try{
+          
           _glqt = await ShelfService.GetAmountOnShelf(new ItemTypeSearchDto(NewItemBeginState.Id));
           
           list = new List<AmountSpaceRow>();
           
           foreach (AmountOnSpaceDto shelf in _glqt.ShelfInfo)
           {
-              list.Add(new AmountSpaceRow(1,(int)shelf.AvalibleSpace!,shelf.ShelfId));
+              list.Add(new AmountSpaceRow(0,(int)shelf.AvalibleSpace!,shelf.ShelfId));
           }
           
       }
@@ -122,19 +128,7 @@
             resultMsg += e.Message;
         }
     }
-
-    private async Task ChangeAntal(AmountSpaceRow shelfId, int antal)
-    {
-        foreach (var rowInfo in list)
-        {
-            if (rowInfo.ShelfID.Equals(shelfId))
-            {
-                Console.WriteLine(antal);
-                rowInfo.Amount = antal;
-
-            }
-        }
-    }
+    
 
     private async Task ButtonReserver()
     {
