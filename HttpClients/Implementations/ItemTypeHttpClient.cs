@@ -1,4 +1,5 @@
 ﻿using System.Net.Http.Json;
+using System.Text;
 using System.Text.Json;
 using HttpClients.ClientInterfaces;
 using Shared.DTOs.ItemType;
@@ -36,7 +37,6 @@ public class ItemTypeHttpClient : IItemTypeService
     public async Task<ItemType> ReadAsync(ItemTypeSearchDto dto)
     {
         HttpResponseMessage response = await client.GetAsync($"/ItemType/{dto.Id}");
-        Console.WriteLine("test");
         string content = await response.Content.ReadAsStringAsync();
         if (!response.IsSuccessStatusCode)
         {
@@ -52,17 +52,18 @@ public class ItemTypeHttpClient : IItemTypeService
 
     public async Task<bool> CheckType(ItemTypeSearchDto dto)
     {
-        HttpResponseMessage response = await client.GetAsync($"/ItemType/{dto}");
+        
+        HttpResponseMessage response = await client.GetAsync($"/ItemType/Check/{dto.Id}");
+        Console.WriteLine("test1");
         string content = await response.Content.ReadAsStringAsync();
+        Console.WriteLine("test2");
         if (!response.IsSuccessStatusCode)
         {
+            
             throw new Exception(content);
         }
-
-        bool result = JsonSerializer.Deserialize<bool>(content, new JsonSerializerOptions
-        {
-            PropertyNameCaseInsensitive = true
-        })!;
-        return result;
+        Console.WriteLine("test3");
+        Boolean result = System.Text.Json.JsonSerializer.Deserialize<Boolean>(content);
+         return result;
     }
 }

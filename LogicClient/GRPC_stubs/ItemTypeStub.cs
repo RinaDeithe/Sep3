@@ -11,7 +11,7 @@ namespace ClientgRPC.GRPC_stubs;
 
 public class ItemTypeStub : IItemTypeClient {
     
-    private GrpcChannel _channel;
+    private readonly GrpcChannel _channel;
     private ItemTypeService.ItemTypeServiceClient _client;
     private ConverterItemType _converter;
 
@@ -27,10 +27,10 @@ public class ItemTypeStub : IItemTypeClient {
         return Task.FromResult(_converter.ProtoToType(_client.Create(request)));
     }
 
-    public Task<ItemType> Read(ItemTypeSearchDto dto) {
+    public async Task<ItemType> Read(ItemTypeSearchDto dto) {
         ItemTypeSearchRequest request = _converter.SearchToProto(dto);
 
-        return Task.FromResult(_converter.ProtoToType(_client.Read(request)));
+        return await Task.FromResult(_converter.ProtoToType(_client.Read(request)));
     }
 
     public Task<List<ItemType>> ReadAll() {

@@ -21,7 +21,7 @@ public class ItemTypeController : ControllerBase
     public async Task<ActionResult<ItemType>> CreateAsync([FromBody] ItemTypeCreationDto dto)
     {
         try
-        {;
+        {
             Console.WriteLine(dto.Id);
             ItemType created = await itemManager.CreateItemTypeAsync(dto);
             return Created("/ItemType/", created);
@@ -55,17 +55,17 @@ public class ItemTypeController : ControllerBase
     
     
 
-    [HttpGet("test2")]
-    public async Task<ActionResult<bool>> CheckType([FromBody]ItemTypeSearchDto dto)
+    [HttpGet("Check/{id:int}")]
+    public async Task<ActionResult<Boolean>> CheckType([FromRoute] int id)
     {
         try
         {
-            return await itemManager.CheckType(dto);
+            return Ok(await itemManager.CheckType(new ItemTypeSearchDto(id)));
         }
         catch (Exception e)
         {
             Console.WriteLine(e.Message);
-            return StatusCode(500, e.Message);
+            return StatusCode(500, e.Message + "blah");
         }
     }
 
