@@ -33,7 +33,7 @@ public class ItemHttpClient : IItemService {
 
     public async Task DeleItemAsync(ItemSearchDto dto)
     {
-        HttpResponseMessage response = await client.DeleteAsync($"Item/{dto}");
+        HttpResponseMessage response = await client.DeleteAsync($"Item/{dto.id}");
         if (!response.IsSuccessStatusCode)
         {
             string content = await response.Content.ReadAsStringAsync();

@@ -46,4 +46,19 @@ public class ItemController : ControllerBase {
             Console.WriteLine(e.Message);
         }
     }
+
+    [HttpDelete("/{id}")]
+    public async Task<ActionResult> DeleteAsync([FromRoute] int id)
+    {
+        try
+        {
+            await _itemLogic.DeleteItemAsync(new ItemSearchDto(id));
+            return Ok();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            return StatusCode(500, e.Message);
+        }
+    }
 }

@@ -11,16 +11,19 @@ public class ItemManager : IItemLogic
 {
     private IItemClient _itemClient;
     private IItemTypeClient _itemTypeClient;
-    private IShelfManager shelfManager;
-    
-/*
-    public ItemManager(IShelfClient shelfClient, IItemClient itemClient, IItemTypeClient itemTypeClient)
+
+    public ItemManager()
     {
-        _shelfClient = shelfClient;
+        
+    }
+
+    public ItemManager(IItemClient itemClient, IItemTypeClient itemTypeClient)
+    {
+        
         _itemClient = itemClient;
         _itemTypeClient = itemTypeClient;
     }
-*/
+
     public async Task<Shared.Model.Item> CreateAsync(ItemCreationDto dto)
     {
         if (dto.Antal <= 0)
@@ -66,9 +69,15 @@ public class ItemManager : IItemLogic
 
     public async Task<ItemType> ReadItemTypeAsync(ItemTypeSearchDto dto)
     {
+        if (dto.Id < 0)
+        {
+            throw new Exception("Id må ikke være lavere end 0");
+        }
+        
         try
         {
             ItemType result = await _itemTypeClient.Read(dto);
+            Console.WriteLine(result.Id);
             return result;
         }
         catch (Exception e)

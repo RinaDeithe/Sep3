@@ -28,10 +28,10 @@ public class ItemStub : IItemClient {
         return Task.FromResult(ConverterItem.ProtoToItem(_client.Create(request)));
     }
 
-    public Task<Item> Read(ItemSearchDto dto) {
+    public async Task<Item> Read(ItemSearchDto dto) {
         ItemSearchRequest request = _converter.SearchDtoToProto(dto);
 
-        return Task.FromResult(ConverterItem.ProtoToItem(_client.Read(request)));
+        return ConverterItem.ProtoToItem(await _client.ReadAsync(request));
     }
 
     public Task<List<Item>> ReadAll() {

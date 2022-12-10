@@ -17,16 +17,17 @@ public class ShelfController : ControllerBase
         _shelfManager = shelfManager;
     }
 
-    [HttpPatch]
-    public async Task<ActionResult<bool>> update(ShelfAddItemRequestDto dtos)
+    [HttpPatch("AddItem")]
+    public async Task<ActionResult<bool>> update([FromBody]ShelfAddItemRequestDto dtos)
     {
         
         try
         {
+            Console.WriteLine("tete");
             bool succes = await _shelfManager.Update(dtos);
             if (succes)
             {
-                return Ok();
+                return Ok("/shelf/AddItem");
             }
             return StatusCode(500, "something went wrong");
         }
@@ -36,6 +37,7 @@ public class ShelfController : ControllerBase
             return StatusCode(500, e.Message);
         }
     }
+
 
     [HttpGet]
     [Route("HasRoom")]
@@ -52,14 +54,16 @@ public class ShelfController : ControllerBase
         }
     }
 
-    public async Task<ActionResult<ItemRegisterRequestDto>> GetAmountOnShelf(ItemTypeSearchDto dto)
+    [HttpGet("Amount/{dto.Id}")]
+    public async Task<ActionResult<ItemRegisterReqiestDto>> GetAmountOnShelf([FromHeader]ItemTypeSearchDto dto)
     {
+        Console.WriteLine("here");
         try
         {
             
-            ItemRegisterRequestDto succes = await _shelfManager.GetAmountOnShelf(dto.Id);
+            ItemRegisterReqiestDto succes = await _shelfManager.GetAmountOnShelf(dto.Id);
            
-                return Created("Shelf/Amount",succes);
+                return Created($"Shelf/Amount/{dto.Id}",succes);
                 
         }
         catch(Exception e)

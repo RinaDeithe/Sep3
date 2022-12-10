@@ -21,10 +21,10 @@ public class ItemTypeController : ControllerBase
     public async Task<ActionResult<ItemType>> CreateAsync([FromBody] ItemTypeCreationDto dto)
     {
         try
-        {
-            Console.WriteLine("here");
+        {;
+            Console.WriteLine(dto.Id);
             ItemType created = await itemManager.CreateItemTypeAsync(dto);
-            return Created($"/itemtype/{created.Id}", created);
+            return Created("/ItemType/", created);
         }
         catch (Exception e)
         {
@@ -33,13 +33,18 @@ public class ItemTypeController : ControllerBase
         }
     }
     
-    [HttpGet]
-    public async Task<ActionResult<ItemType>> ReadAsync([FromBody] ItemTypeSearchDto dto)
+    [HttpGet("{id:int}")]
+    public async Task<ActionResult<ItemType>> ReadAsync([FromRoute] int id)
     {
         try
         {
+            ItemTypeSearchDto dto = new ItemTypeSearchDto(id);
             ItemType created = await itemManager.ReadItemTypeAsync(dto);
-            return Created($"/itemtype/{created.Id}", created);
+            if (created.Id!=id)
+            {
+                throw new Exception("ItemType not found");
+            }
+            return Ok(created);
         }
         catch (Exception e)
         {
@@ -47,6 +52,8 @@ public class ItemTypeController : ControllerBase
             return StatusCode(500, e.Message);
         }
     }
+    
+    
 
     [HttpGet("{dto : ItemTypeSearchDto}")]
     public async Task<ActionResult<bool>> CheckType([FromQuery]ItemTypeSearchDto dto)

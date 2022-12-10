@@ -16,7 +16,8 @@ public class ItemTypeHttpClient : IItemTypeService
     }
     public async Task<ItemType> CreateAsync(ItemTypeCreationDto dto)
     {
-        HttpResponseMessage response = await client.PostAsJsonAsync("/itemsType", dto);
+        Console.WriteLine("testt");
+        HttpResponseMessage response = await client.PostAsJsonAsync("/ItemType/", dto);
         string result = await response.Content.ReadAsStringAsync();
         
         if (!response.IsSuccessStatusCode)
@@ -34,7 +35,8 @@ public class ItemTypeHttpClient : IItemTypeService
 
     public async Task<ItemType> ReadAsync(ItemTypeSearchDto dto)
     {
-        HttpResponseMessage response = await client.GetAsync("/ItemType");
+        HttpResponseMessage response = await client.GetAsync($"/ItemType/{dto.Id}");
+        Console.WriteLine("test");
         string content = await response.Content.ReadAsStringAsync();
         if (!response.IsSuccessStatusCode)
         {
