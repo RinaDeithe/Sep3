@@ -41,8 +41,13 @@ public class GrpcShelfService extends ShelfServiceGrpc.ShelfServiceImplBase {
     public void readAll(File.emptyParams request, StreamObserver<File.ShelvesListProto> responseObserver) {
         List<Shelf> shelfList = dao.ReadAll(new Shelf());
 
-        File.ShelvesListProto proto = ShelfConverter.CONVERT.toShelfProtoFromList(shelfList);
+        for (Shelf shelf:shelfList
+             ) {
+            System.out.println("item = " + shelf.getItemsOnShelf());
+        }
 
+        File.ShelvesListProto proto = ShelfConverter.CONVERT.toShelfProtoFromList(shelfList);
+        System.out.println(proto);
         responseObserver.onNext(proto);
         responseObserver.onCompleted();
     }

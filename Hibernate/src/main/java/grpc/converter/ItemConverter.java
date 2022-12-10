@@ -34,7 +34,7 @@ public enum ItemConverter {
             return builder.build();
         }
         List<File.ItemProto> protoList = new ArrayList<>();
-        System.out.println(itemList.isEmpty());
+
         for (Item index : itemList) {
             protoList.add(File.ItemProto.newBuilder()
                     .setOwner(UserConverter.CONVERT.toUserProto(index.getOwner()))
