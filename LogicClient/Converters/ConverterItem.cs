@@ -1,4 +1,6 @@
-﻿using GRPC.Proto;
+﻿using Google.Protobuf;
+using Google.Protobuf.WellKnownTypes;
+using GRPC.Proto;
 using Shared.DTOs.Item;
 using Shared.Model;
 
@@ -14,8 +16,12 @@ public class ConverterItem
     }
 
     public static Item ProtoToItem(ItemProto proto) {
+        if (!proto.IsInitialized())
+        {
+            return new Item(null,0,null,null);
+        }
         return new Item(new ItemType(proto.Type.Id, proto.Type.DimX, proto.Type.DimY, proto.Type.DimZ), proto.UniqueID,
-            new User(proto.UniqueID, "temp"), ConverterShelf.ProtoToShelf(proto.Shelf));
+            new User(proto.Owner.Id, "temp"), ConverterShelf.ProtoToShelf(proto.Shelf));
     }
 
     public ItemSearchRequest SearchDtoToProto(ItemSearchDto dto) {
@@ -26,6 +32,10 @@ public class ConverterItem
 
     public static List<Item> ProtoToList(ItemListProto proto) {
         List<Item> returnList = new();
+        if (proto==null)
+        {
+            return returnList;
+        }
 
         foreach (var index in proto.List) {
             returnList.Add(ProtoToItem(index));

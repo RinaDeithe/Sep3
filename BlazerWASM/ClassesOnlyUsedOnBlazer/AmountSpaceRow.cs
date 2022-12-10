@@ -2,13 +2,13 @@
 
 public class AmountSpaceRow
 {
-    public int Amount { get; set; }
+    public int Antal { get; set; }
     public int AvalibleSpace { get; set; }
     public String ShelfID { get; set; }
 
-    public AmountSpaceRow(int amount, int spaceAmount, string row)
+    public AmountSpaceRow(int antal, int spaceAmount, string row)
     {
-        Amount = amount;
+        Antal = antal;
         AvalibleSpace = spaceAmount;
         this.ShelfID = row;
     }
