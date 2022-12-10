@@ -440,6 +440,12 @@
       <option name="presentableId" value="LOCAL-00020" />
       <option name="project" value="LOCAL" />
       <updated>1670578014209</updated>
+    <task id="LOCAL-00020" summary="Compiled updated .proto.">
+      <created>1670579312262</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1670579312262</updated>
     </task>
     <option name="localTasksCounter" value="21" />
     <servers />
@@ -484,6 +490,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />

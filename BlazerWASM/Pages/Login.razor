@@ -1,16 +1,22 @@
 ﻿@page "/"
 
-<h1 class="text-center">Login Page</h1>
+<h1 class="text-center">Login Page</h1><br/>
 
-<div class="text-center">
+<div class="h-100 d-flex align-items-center justify-content-center">
     <form action="/action_page.php">
-        <label>UserId</label> <br/>
-        <input type="text" class="form-control col-6"@bind="UserId"/>
+        <div style="text-align:center">
+            <label>UserId</label> <br/>
+            <input type="text" class="form-control col-6"@bind="UserId"/>
+        </div>
+        <div style="text-align:center">
+            <label>Password</label> <br/>
+            <input type="text" class="form-control col-6"@bind="Password"/>
+        </div>
+        <br/>
 
-        <label>Password</label> <br/>
-        <input type="text" class="form-control col-6"@bind="Password"/>
-
-        <button type="button">Login</button>
+        <div class="h-100 d-flex align-items-center justify-content-center">
+            <button type="button" style="text-align:center">Login</button>
+        </div>
     </form>
 </div>
 

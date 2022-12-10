@@ -48,8 +48,19 @@ public class ItemTypeHttpClient : IItemTypeService
         return result;
     }
 
-    public bool CheckType(ItemTypeSearchDto itemTypeSearchDto)
+    public async Task<bool> CheckType(ItemTypeSearchDto dto)
     {
-        throw new NotImplementedException();
+        HttpResponseMessage response = await client.GetAsync($"/ItemType/{dto}");
+        string content = await response.Content.ReadAsStringAsync();
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(content);
+        }
+
+        bool result = JsonSerializer.Deserialize<bool>(content, new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true
+        })!;
+        return result;
     }
 }
