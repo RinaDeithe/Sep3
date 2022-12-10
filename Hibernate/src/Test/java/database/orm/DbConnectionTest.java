@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import org.hibernate.*;
 import org.hibernate.query.*;
 
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class DbConnectionTest {
@@ -33,5 +34,26 @@ class DbConnectionTest {
         ShelfDao.Create(shelf);
 
         ItemDao.Create(new Item(type, user, shelf));
+
+    }
+
+    @Test
+    void create2() {
+    }
+
+    @Test
+    void read() {
+    }
+
+    @Test
+    void readAll() {
+    }
+
+    @Test
+    void update() {
+    }
+
+    @Test
+    void delete() {
     }
 }

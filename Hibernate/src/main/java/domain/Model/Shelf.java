@@ -23,7 +23,7 @@ public class Shelf implements Serializable {
     @Column(name = "dimZ")
     private double dimZ;
 
-    @ManyToMany
+    @OneToMany(fetch = FetchType.EAGER)
     private List<Item> itemsOnShelf;
 
     public Shelf(String rowNo, String shelfNo, double dimX, double dimY, double dimZ, List<Item> itemsOnShelf) {

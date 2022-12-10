@@ -35,7 +35,11 @@ public enum ShelfConverter {
 
         List<File.ShelfProto> protoList = new ArrayList<>();
 
+        if (shelfList==null){
+            return builder.build();
+        }
         for (Shelf index : shelfList) {
+            System.out.println(index.getItemsOnShelf());
             protoList.add(File.ShelfProto.newBuilder()
                     .setItemsOnShelf(ItemConverter.CONVERT.toProtoFromList(index.getItemsOnShelf()))
                     .setShelfNo(index.getShelfNo())
