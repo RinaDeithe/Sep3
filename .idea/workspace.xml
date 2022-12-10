@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="81ffe829-311a-4bde-8753-4e2da12b99da" name="Changes" comment="Compiled updated .proto.">
+    <list default="true" id="81ffe829-311a-4bde-8753-4e2da12b99da" name="Changes" comment="small changes mainly made it so that user can be null in converter">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/converter/ItemTypeConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/converter/ItemTypeConverter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Hibernate/src/main/resources/database/identifier.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/resources/database/identifier.sqlite" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/target/classes/database/identifier.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/target/classes/database/identifier.sqlite" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -447,7 +445,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670579312262</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="small changes mainly made it so that user can be null in converter">
+      <created>1670660621610</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1670660621610</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -512,7 +517,8 @@
     <MESSAGE value="bug fix" />
     <MESSAGE value="Compiled updated .proto." />
     <MESSAGE value="Fixed null point error. Fixed input int error. Fixed database URL" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed null point error. Fixed input int error. Fixed database URL" />
+    <MESSAGE value="small changes mainly made it so that user can be null in converter" />
+    <option name="LAST_COMMIT_MESSAGE" value="small changes mainly made it so that user can be null in converter" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
