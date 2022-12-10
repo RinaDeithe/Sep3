@@ -71,7 +71,7 @@
 
                     <td>@item.ShelfID</td>
                     <td>@item.AvalibleSpace</td>
-          <!--      <td><AmountChoose Amount="item.Antal"  OnChange="((antal) => ChangeAntal(item.ShelfID, antal))" /></td>-->
+                <td><input type="number"  bind="@item.Antal" /></td>
                     <td><label></label></td>
 
                 </tr>
@@ -96,7 +96,7 @@
     
     List<AmountSpaceRow> list;
     
-    private ItemRegisterReqiestDto _glqt;
+    private ItemRegisterRequestDto _glqt;
 
     protected override async Task OnInitializedAsync()
     {
