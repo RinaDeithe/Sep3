@@ -11,6 +11,7 @@ public class ItemManager : IItemLogic
 {
     private IItemClient _itemClient;
     private IItemTypeClient _itemTypeClient;
+    private IShelfManager shelfManager;
 
     public ItemManager()
     {

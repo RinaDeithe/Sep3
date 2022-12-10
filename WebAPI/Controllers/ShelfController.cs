@@ -55,13 +55,13 @@ public class ShelfController : ControllerBase
     }
 
     [HttpGet("Amount/{dto.Id}")]
-    public async Task<ActionResult<ItemRegisterReqiestDto>> GetAmountOnShelf([FromHeader]ItemTypeSearchDto dto)
+    public async Task<ActionResult<ItemRegisterRequestDto>> GetAmountOnShelf([FromHeader]ItemTypeSearchDto dto)
     {
         Console.WriteLine("here");
         try
         {
             
-            ItemRegisterReqiestDto succes = await _shelfManager.GetAmountOnShelf(dto.Id);
+            ItemRegisterRequestDto succes = await _shelfManager.GetAmountOnShelf(dto.Id);
            
                 return Created($"Shelf/Amount/{dto.Id}",succes);
                 
