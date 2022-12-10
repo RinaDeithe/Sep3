@@ -4,13 +4,11 @@
 @using global::Shared.DTOs.Item
 @using global::Shared.DTOs.ItemType
 @using HttpClients.ClientInterfaces
-@using HttpClients.Implementations
 @inject ReserveItemState state;
 @inject NavigationManager NavigationManager;
 @inject IItemTypeService typeService;
 @inject IShelfService shelfServic;
 @inject IItemService itemService;
-@inject ItemHttpClient itemHttpClient;
 
 <h3 class="text-center">ReservePage</h3>
 
@@ -23,7 +21,7 @@
                 <input type="varenummer" id="varenummer" name="varenummer"@bind="state.typeId" placeholder="@state.typeId"><br><br>
                 <label for="antal">Antal </label> <br/>
                 <input type="antal" id="antal" name="antal" minlength="8" @bind="state.amount" placeholder="@state.amount"><br><br>
-                <button type="button" @onclick="Confirmation">Godkend</button>
+                <button type="button" @onclick="Reserve">Godkend</button>
             </form>
         </div>
 
@@ -48,10 +46,14 @@
             _resultmsg = "Please input an id";
         }
         
-        if (!await typeService.CheckType(new ItemTypeSearchDto(state.typeId)))
+        Console.WriteLine("BUUSEMAND");
+        
+        if (!(await typeService.CheckType(new ItemTypeSearchDto(state.typeId))))
         {
             _buttonClicked = false;
 
+            Console.WriteLine("WOOGIE BOOGIE");
+            
             while (_buttonClicked.Equals(false))
             {
                 Thread.Sleep(500);

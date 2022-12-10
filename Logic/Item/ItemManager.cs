@@ -1,5 +1,6 @@
 using ClientgRPC.ClientInterfaces;
 using ClientgRPC.StaticBusiness;
+using Grpc.Core;
 using Logic.Shelf;
 using Microsoft.AspNetCore.Mvc;
 using Shared.DTOs.Item;
@@ -12,14 +13,16 @@ public class ItemManager : IItemLogic
 {
     private IItemClient _itemClient;
     private IItemTypeClient _itemTypeClient;
-    private IShelfClient shelfManager;
+    private IShelfClient shelfClient;
+    private IShelfManager shelfManager;
 
     public ItemManager()
     {
         this.shelfManager = shelfManager;
     }
 
-    public ItemManager(IItemClient itemClient, IItemTypeClient itemTypeClient, IShelfClient shelfManager)
+    public ItemManager(IItemClient itemClient, IItemTypeClient itemTypeClient, IShelfClient shelfClient)
+    public ItemManager(IItemClient itemClient, IItemTypeClient itemTypeClient, IShelfManager shelfManager)
     {
         
         _itemClient = itemClient;
@@ -110,36 +113,45 @@ public class ItemManager : IItemLogic
         }
     }
 
-    public async Task<bool> CheckType(ItemTypeSearchDto dto)
-    {
-        if (_itemTypeClient.Read(dto).Result == null)
-        {
-            return false;
-        }
 
-        return true;
+    public async Task<ActionResult<Boolean>> CheckType(ItemTypeSearchDto dto)
+    {
+        return (_itemTypeClient.Read(dto)?.Result! == null);
     }
 
     public async Task ReserveItem(ItemCreationDto dto)
     {
-        List<Shared.Model.Shelf> shelves = await shelfManager.ReadAll();
 
-        ItemType type = await _itemTypeClient.Read(new ItemTypeSearchDto(dto.ItemTypeId));
-
-        foreach (var index in shelves)
+        try
         {
-            double roomAvailable = Amount.ShelfMass(index);
+            List<Shared.Model.Shelf> shelves = await shelfManager.ReadAll();
 
-            foreach (var itemIndex in index.ItemsOnShelf)
-            {
-                roomAvailable -= Amount.ItemTypeMass(itemIndex.Type);
-            }
+            ItemType type = await _itemTypeClient.Read(new ItemTypeSearchDto(dto.ItemTypeId));
 
-            if (roomAvailable > Amount.ItemTypeMass(type))
+            foreach (var index in shelves)
             {
-                _itemClient.Create(dto);
-                return;
+                double roomAvailable = Amount.ShelfMass(index);
+
+                foreach (var itemIndex in index.ItemsOnShelf)
+                {
+                    roomAvailable -= Amount.ItemTypeMass(itemIndex.Type);
+                }
+
+                if (roomAvailable > Amount.ItemTypeMass(type))
+                {
+                    for (int i = 0; i < dto.Antal; i++)
+                    {
+                        _itemClient.Create(dto);
+                    }
+                    
+                    return;
+                }
             }
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw new Exception("TEST2");
         }
     }
 

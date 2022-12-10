@@ -39,8 +39,7 @@ public class ShelfController : ControllerBase
     }
 
 
-    [HttpGet]
-    [Route("HasRoom")]
+    [HttpGet("HasRoom")]
     public async Task<ActionResult<bool>> HasRoom(ItemRegisterResponseDto dto)
     {
         try

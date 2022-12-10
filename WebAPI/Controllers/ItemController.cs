@@ -34,16 +34,17 @@ public class ItemController : ControllerBase {
     }
     
     
-    [HttpPost]
-    [Route("/Reserve")]
-    public async void ReserveItem(ItemCreationDto dto) {
+    [HttpPost("reserve")]
+    public async Task<ActionResult> ReserveItem([FromBody]ItemCreationDto dto) {
         try
         {
-            await _itemLogic.CreateAsync(dto);
+            await _itemLogic.ReserveItem(dto);
+            return Ok();
         }
         catch (Exception e)
         {
-            Console.WriteLine(e.Message);
+            Console.WriteLine(e.Message + "test");
+            return StatusCode(500, e.Message);
         }
     }
 

@@ -3,6 +3,7 @@ using ClientgRPC.GRPC_stubs;
 using Logic.Authentication;
 using Logic.Item;
 using Logic.Shelf;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -38,6 +39,8 @@ if (app.Environment.IsDevelopment()) {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+
 
 app.UseHttpsRedirection();
 
