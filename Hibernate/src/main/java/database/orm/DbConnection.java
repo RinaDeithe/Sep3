@@ -1,20 +1,28 @@
 package database.orm;
 
+import database.daoInterfaces.IDbDao;
+
 import javax.persistence.*;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
-public class DbConnection<T> implements IConnector<T>{
+public class DbConnection<T> implements IDbDao<T> {
 
-    private final EntityManagerFactory emf = Persistence.createEntityManagerFactory("default");
+    private EntityManagerFactory emf;
     private EntityManager em;
     private EntityTransaction et;
 
-    @Override
-    public void Create(T entity) {
+    public DbConnection() {
+    }
 
+    @Override
+    public T Create(T entity) {
+
+        emf = Persistence.createEntityManagerFactory("default");
         em = emf.createEntityManager();
         et = em.getTransaction();
 
@@ -24,17 +32,24 @@ public class DbConnection<T> implements IConnector<T>{
             em.persist(entity);
 
             et.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
         } finally {
-            if (et.isActive())
+            if (et.isActive()) {
                 et.rollback();
+                System.out.println("IT ROLLED BACK");
+            }
 
             em.close();
+            emf.close();
         }
+        return entity;
     }
 
     @Override
-    public T Read(T classObject, int entityKey) {
+    public T Read(T classObject, int entity) {
 
+        emf = Persistence.createEntityManagerFactory("default");
         em = emf.createEntityManager();
         et = em.getTransaction();
 
@@ -43,14 +58,17 @@ public class DbConnection<T> implements IConnector<T>{
         try {
             et.begin();
 
-            returnObject = (T) em.find(returnObject.getClass(), entityKey);
+            returnObject = (T) em.find(returnObject.getClass(), entity);
 
             et.commit();
-        } finally {
+        } catch (Exception e) {
+            e.printStackTrace();
+        }  finally {
             if (et.isActive())
                 et.rollback();
 
             em.close();
+            emf.close();
         }
 
         return returnObject;
@@ -59,10 +77,11 @@ public class DbConnection<T> implements IConnector<T>{
     @Override
     public List<T> ReadAll(T classObject) {
 
+        emf = Persistence.createEntityManagerFactory("default");
         em = emf.createEntityManager();
         et = em.getTransaction();
 
-        List<T> returnList;
+        List<T> returnList = new ArrayList<>();
 
         try {
             et.begin();
@@ -73,19 +92,23 @@ public class DbConnection<T> implements IConnector<T>{
             CriteriaQuery<T> all = cq.select(rootEntry);
 
             returnList = em.createQuery(all).getResultList();
-        } finally {
+        } catch (Exception e) {
+            e.printStackTrace();
+        }  finally {
             if (et.isActive())
                 et.rollback();
 
             em.close();
+            emf.close();
         }
 
         return returnList;
     }
 
     @Override
-    public void Update(T entity) {
+    public T Update(T entity) {
 
+        emf = Persistence.createEntityManagerFactory("default");
         em = emf.createEntityManager();
         et = em.getTransaction();
 
@@ -95,17 +118,22 @@ public class DbConnection<T> implements IConnector<T>{
             em.refresh(entity);
 
             et.commit();
-        } finally {
+        } catch (Exception e) {
+            e.printStackTrace();
+        }  finally {
             if (et.isActive())
                 et.rollback();
 
             em.close();
+            emf.close();
         }
+        return entity;
     }
 
     @Override
-    public void Delete(T entity) {
+    public T Delete(T entity) {
 
+        emf = Persistence.createEntityManagerFactory("default");
         em = emf.createEntityManager();
         et = em.getTransaction();
 
@@ -115,11 +143,15 @@ public class DbConnection<T> implements IConnector<T>{
             em.remove(entity);
 
             et.commit();
-        } finally {
+        } catch (Exception e) {
+            e.printStackTrace();
+        }  finally {
             if (et.isActive())
                 et.rollback();
 
             em.close();
+            emf.close();
         }
+        return entity;
     }
 }

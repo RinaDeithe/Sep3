@@ -64,16 +64,16 @@ public final class UserServiceGrpc {
               GRPC.proto.File.UserListProto.getDefaultInstance()))
           .build();
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  public static final io.grpc.MethodDescriptor<GRPC.proto.File.ItemProto,
-      GRPC.proto.File.ItemProto> METHOD_UPDATE =
-      io.grpc.MethodDescriptor.<GRPC.proto.File.ItemProto, GRPC.proto.File.ItemProto>newBuilder()
+  public static final io.grpc.MethodDescriptor<GRPC.proto.File.UserProto,
+      GRPC.proto.File.UserProto> METHOD_UPDATE =
+      io.grpc.MethodDescriptor.<GRPC.proto.File.UserProto, GRPC.proto.File.UserProto>newBuilder()
           .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
           .setFullMethodName(generateFullMethodName(
               "GRPC.proto.UserService", "Update"))
           .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-              GRPC.proto.File.ItemProto.getDefaultInstance()))
+              GRPC.proto.File.UserProto.getDefaultInstance()))
           .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-              GRPC.proto.File.ItemProto.getDefaultInstance()))
+              GRPC.proto.File.UserProto.getDefaultInstance()))
           .build();
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
   public static final io.grpc.MethodDescriptor<GRPC.proto.File.UserSearchRequest,
@@ -138,8 +138,8 @@ public final class UserServiceGrpc {
 
     /**
      */
-    public void update(GRPC.proto.File.ItemProto request,
-        io.grpc.stub.StreamObserver<GRPC.proto.File.ItemProto> responseObserver) {
+    public void update(GRPC.proto.File.UserProto request,
+        io.grpc.stub.StreamObserver<GRPC.proto.File.UserProto> responseObserver) {
       asyncUnimplementedUnaryCall(METHOD_UPDATE, responseObserver);
     }
 
@@ -177,8 +177,8 @@ public final class UserServiceGrpc {
             METHOD_UPDATE,
             asyncUnaryCall(
               new MethodHandlers<
-                GRPC.proto.File.ItemProto,
-                GRPC.proto.File.ItemProto>(
+                GRPC.proto.File.UserProto,
+                GRPC.proto.File.UserProto>(
                   this, METHODID_UPDATE)))
           .addMethod(
             METHOD_DELETE,
@@ -235,8 +235,8 @@ public final class UserServiceGrpc {
 
     /**
      */
-    public void update(GRPC.proto.File.ItemProto request,
-        io.grpc.stub.StreamObserver<GRPC.proto.File.ItemProto> responseObserver) {
+    public void update(GRPC.proto.File.UserProto request,
+        io.grpc.stub.StreamObserver<GRPC.proto.File.UserProto> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(METHOD_UPDATE, getCallOptions()), request, responseObserver);
     }
@@ -291,7 +291,7 @@ public final class UserServiceGrpc {
 
     /**
      */
-    public GRPC.proto.File.ItemProto update(GRPC.proto.File.ItemProto request) {
+    public GRPC.proto.File.UserProto update(GRPC.proto.File.UserProto request) {
       return blockingUnaryCall(
           getChannel(), METHOD_UPDATE, getCallOptions(), request);
     }
@@ -348,8 +348,8 @@ public final class UserServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<GRPC.proto.File.ItemProto> update(
-        GRPC.proto.File.ItemProto request) {
+    public com.google.common.util.concurrent.ListenableFuture<GRPC.proto.File.UserProto> update(
+        GRPC.proto.File.UserProto request) {
       return futureUnaryCall(
           getChannel().newCall(METHOD_UPDATE, getCallOptions()), request);
     }
@@ -399,8 +399,8 @@ public final class UserServiceGrpc {
               (io.grpc.stub.StreamObserver<GRPC.proto.File.UserListProto>) responseObserver);
           break;
         case METHODID_UPDATE:
-          serviceImpl.update((GRPC.proto.File.ItemProto) request,
-              (io.grpc.stub.StreamObserver<GRPC.proto.File.ItemProto>) responseObserver);
+          serviceImpl.update((GRPC.proto.File.UserProto) request,
+              (io.grpc.stub.StreamObserver<GRPC.proto.File.UserProto>) responseObserver);
           break;
         case METHODID_DELETE:
           serviceImpl.delete((GRPC.proto.File.UserSearchRequest) request,

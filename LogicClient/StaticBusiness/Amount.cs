@@ -17,4 +17,15 @@ public class Amount
 
         return new AmountOnSpaceDto(shelf.RowNo+shelf.ShelfNo,(int?)Math.Floor(volumenShelf / volumenItemType));
     }
+
+    public static double ItemTypeMass(ItemType type)
+    {
+        double volumenItemType = type.DimX * type.DimY * type.DimZ;
+        return volumenItemType;
+    }
+
+    public static double ShelfMass(Shelf shelf)
+    {
+        return shelf.DimX * shelf.DimY * shelf.DimZ;
+    }
 }

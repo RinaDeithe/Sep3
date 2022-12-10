@@ -40,4 +40,14 @@ public class ItemHttpClient : IItemService {
             throw new Exception(content);
         }
     }
+
+    public async Task ReserveItem(ItemCreationDto dto)
+    {
+        HttpResponseMessage response = await client.PostAsJsonAsync($"/Reserve",dto);
+        if (!response.IsSuccessStatusCode)
+        {
+            string content = await response.Content.ReadAsStringAsync();
+            throw new Exception(content);
+        }   
+    }
 }

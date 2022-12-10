@@ -23,20 +23,41 @@ public class Shelf implements Serializable {
     @Column(name = "dimZ")
     private double dimZ;
 
-    @ManyToMany
-    private List<Item> ItemsOnShelf;
+    @OneToMany(fetch = FetchType.EAGER)
+    private List<Item> itemsOnShelf;
 
-    public Shelf(String rowNo, String shelfNo, double dimX, double dimY, double dimZ, ArrayList<Item> itemsOnShelf) {
+    public Shelf(String rowNo, String shelfNo, double dimX, double dimY, double dimZ, List<Item> itemsOnShelf) {
         RowNo = rowNo;
         ShelfNo = shelfNo;
         this.dimX = dimX;
         this.dimY = dimY;
         this.dimZ = dimZ;
-        ItemsOnShelf = itemsOnShelf;
+        this.itemsOnShelf = itemsOnShelf;
     }
 
     public Shelf() {
         //DO NOT USE THIS CONSTRUCTOR
+    }
+
+    @Override
+    public String toString() {
+        return "Shelf{" +
+                "RowNo='" + RowNo + '\'' +
+                ", ShelfNo='" + ShelfNo + '\'' +
+                ", dimX=" + dimX +
+                ", dimY=" + dimY +
+                ", dimZ=" + dimZ +
+                '}';
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
     }
 
     public String getRowNo() {
@@ -80,10 +101,10 @@ public class Shelf implements Serializable {
     }
 
     public List<Item> getItemsOnShelf() {
-        return ItemsOnShelf;
+        return itemsOnShelf;
     }
 
     public void setItemsOnShelf(ArrayList<Item> itemsOnShelf) {
-        ItemsOnShelf = itemsOnShelf;
+        this.itemsOnShelf = itemsOnShelf;
     }
 }

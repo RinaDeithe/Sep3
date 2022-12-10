@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface IDbDao<T> {
     T Create(T entity);
-    T Read(T entity, int entityKey);
+    T Read(T classObject, int entity);
     List<T> ReadAll(T entity);
     T Update(T entity);
     T Delete(T entity);

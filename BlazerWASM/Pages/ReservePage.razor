@@ -1,10 +1,16 @@
 ﻿@page "/ReservePage"
 @using BlazerWASM.StateContainer
+@using global::Shared.DTOs
+@using global::Shared.DTOs.Item
 @using global::Shared.DTOs.ItemType
 @using HttpClients.ClientInterfaces
+@using HttpClients.Implementations
 @inject ReserveItemState state;
 @inject NavigationManager NavigationManager;
 @inject IItemTypeService typeService;
+@inject IShelfService shelfServic;
+@inject IItemService itemService;
+@inject ItemHttpClient itemHttpClient;
 
 <h3 class="text-center">ReservePage</h3>
 
@@ -13,11 +19,10 @@
 
         <div class="col-6">
             <form action="/action_page.php">
-                <label for="Varenummer">Varnummer: </label> <br/>
+                <label for="Varenummer">Varenummer: </label> <br/>
                 <input type="varenummer" id="varenummer" name="varenummer"@bind="state.typeId" placeholder="@state.typeId"><br><br>
                 <label for="antal">Antal </label> <br/>
                 <input type="antal" id="antal" name="antal" minlength="8" @bind="state.amount" placeholder="@state.amount"><br><br>
-                <button type="button" @onclick="Reserve">Godkend</button>
                 <button type="button" @onclick="Confirmation">Godkend</button>
             </form>
         </div>
@@ -33,32 +38,41 @@
 
 
 @code {
-    private string resultmsg;
-    private bool buttonClicked;
+    private string? _resultmsg;
+    private bool _buttonClicked;
 
-    private void Reserve()
+    private async void Reserve()
     {
         if (state.typeId == null)
         {
-            resultmsg = "Please input an id";
+            _resultmsg = "Please input an id";
         }
         
-        if (!typeService.CheckType(new ItemTypeSearchDto(state.typeId)))
+        if (!await typeService.CheckType(new ItemTypeSearchDto(state.typeId)))
         {
-            buttonClicked = false;
+            _buttonClicked = false;
 
-            while (buttonClicked.Equals(false))
+            while (_buttonClicked.Equals(false))
             {
                 Thread.Sleep(500);
             }
             
             NavigationManager.NavigateTo("/CreateItemType");
         }
+
+        if (!await shelfServic.HasRoom(new ItemRegisterResponseDto(state.typeId, state.amount, 0)))
+        {
+            _resultmsg = "No room for this amount";
+            return;
+        }
+
+        await itemService.ReserveItem(new ItemCreationDto(state.typeId, state.amount,1, true, null));
     }
+    
     
     private void Confirmation()
     {
-        buttonClicked = true;
+        _buttonClicked = true;
     }
 
 }

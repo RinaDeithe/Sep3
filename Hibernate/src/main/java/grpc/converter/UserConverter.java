@@ -1,7 +1,6 @@
 package grpc.converter;
 
 import GRPC.proto.File;
-import domain.Model.Item;
 import domain.Model.User;
 
 import java.util.ArrayList;
@@ -11,14 +10,17 @@ public enum UserConverter {
     CONVERT;
 
     public File.UserProto toUserProto(User owner) {
+        if(owner==null){
+            File.UserProto.newBuilder().build();
+        }
         return File.UserProto.newBuilder()
                 .setId(owner.getId())
                 .setRole(owner.getRole())
                 .build();
     }
 
-    public User toUserFromProto(File.CreateUserRequest request) {
-        return new User(request.getIdUser());
+    public User toUserFromCreation(File.CreateUserRequest request) {
+        return new User(request.getIdUser(), request.getRole());
     }
 
     public File.UserListProto toUserProtoFromList(List<User> userList) {
@@ -37,5 +39,9 @@ public enum UserConverter {
 
 
         return builder.build();
+    }
+
+    public User toUserFromProto(File.UserProto owner) {
+        return new User(owner.getId(), owner.getRole());
     }
 }

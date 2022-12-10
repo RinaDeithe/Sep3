@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="81ffe829-311a-4bde-8753-4e2da12b99da" name="Changes" comment="bug fix">
+    <list default="true" id="81ffe829-311a-4bde-8753-4e2da12b99da" name="Changes" comment="Compiled updated .proto.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/converter/ItemTypeConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/converter/ItemTypeConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/resources/database/identifier.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/resources/database/identifier.sqlite" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hibernate/target/classes/database/identifier.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/target/classes/database/identifier.sqlite" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +21,7 @@
         <option value="Record" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -28,7 +32,6 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="JpbToolWindowState">
     <option name="myId2FirstActivated">
@@ -56,24 +59,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="DatabaseDriversLRU" value="sqlite" />
-    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
-    <property name="JPA.DatabaseSchemaImportDialog" value="29eccfd2-7cc1-4776-9a66-3b1825bb32a3" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="jdk.selected.JAVA_MODULE" value="19" />
-    <property name="last_directory_selection" value="$PROJECT_DIR$/Hibernate/src/main/java" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="MavenSettings" />
-  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;
+  }
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Rumle\IdeaProjects\test2\Hibernate\src\Test" />
       <recent name="C:\Users\Rumle\IdeaProjects\MidTermDraft\Hibernate\src\main\java" />
       <recent name="C:\Users\Rumle\IdeaProjects\MidTermDraft\Hibernate\src\main\java\domain" />
       <recent name="C:\Users\Rumle\IdeaProjects\MidTermDraft\Hibernate\src\main\java\database" />
@@ -86,6 +81,15 @@
       <recent name="C:\Users\Rumle\IdeaProjects\Tier3" />
       <recent name="C:\Users\Rumle\IdeaProjects" />
     </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="database.orm" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="database.orm" />
+    </key>
     <key name="ImportMappingsDialog.RecentPackages">
       <recent name="model.entities" />
     </key>
@@ -97,14 +101,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.TestConverter.testItemToItemProto">
-    <configuration name="Database" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Database" />
-      <module name="DB" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.DatabaseInitializer">
     <configuration name="DatabaseInitializer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="grpc.DatabaseInitializer" />
       <module name="Hibernate" />
@@ -118,30 +115,61 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestConverter" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="testMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="grpc.testMain" />
       <module name="Hibernate" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TestConverter" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="grpc.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DbConnectionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Hibernate" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="database.orm.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="database.orm" />
+      <option name="MAIN_CLASS_NAME" value="database.orm.DbConnectionTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestConverter.testItemToItemProto" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="DbConnectionTest.create" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Hibernate" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TestConverter" />
-      <option name="METHOD_NAME" value="testItemToItemProto" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="database.orm.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="database.orm" />
+      <option name="MAIN_CLASS_NAME" value="database.orm.DbConnectionTest" />
+      <option name="METHOD_NAME" value="create" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestConverter.testItemTypeToItemProto" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GrpcItemServiceTest.create" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Hibernate" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TestConverter" />
-      <option name="METHOD_NAME" value="testItemTypeToItemProto" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="grpc.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="grpc.services" />
+      <option name="MAIN_CLASS_NAME" value="grpc.services.GrpcItemServiceTest" />
+      <option name="METHOD_NAME" value="create" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -157,6 +185,58 @@
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+    <configuration name="Hibernate [compile] (1)" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="compile" />
+                <option value="pom.xml" />
+              </list>
+            </option>
+            <option name="pomFileName" value="-Xlint:unchecked" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$/Hibernate" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <configuration name="Hibernate [compile]" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="compile" />
+                <option value="pom.xml" />
+              </list>
+            </option>
+            <option name="pomFileName" value="-Xlint:unchecked" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$/Hibernate" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
     </configuration>
     <configuration name="DatabaseServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="DatabaseServer" />
@@ -174,11 +254,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TestConverter.testItemToItemProto" />
         <item itemvalue="Application.DatabaseInitializer" />
-        <item itemvalue="JUnit.TestConverter" />
-        <item itemvalue="JUnit.TestConverter.testItemTypeToItemProto" />
-        <item itemvalue="Application.Database" />
+        <item itemvalue="JUnit.DbConnectionTest.create" />
+        <item itemvalue="Application.testMain" />
+        <item itemvalue="JUnit.DbConnectionTest" />
+        <item itemvalue="JUnit.GrpcItemServiceTest.create" />
       </list>
     </recent_temporary>
   </component>
@@ -214,6 +294,12 @@
       <workItem from="1670405642585" duration="5000" />
       <workItem from="1670412153492" duration="595000" />
       <workItem from="1670485250421" duration="4333000" />
+      <workItem from="1670506457087" duration="976000" />
+      <workItem from="1670511444241" duration="207000" />
+      <workItem from="1670517558974" duration="14152000" />
+      <workItem from="1670573374248" duration="1207000" />
+      <workItem from="1670592323743" duration="289000" />
+      <workItem from="1670607597670" duration="3284000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit Java">
       <created>1667318961742</created>
@@ -341,7 +427,27 @@
       <option name="project" value="LOCAL" />
       <updated>1670381981350</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Compiled updated .proto.">
+      <created>1670501553195</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1670501553195</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Fixed null point error. Fixed input int error. Fixed database URL">
+      <created>1670578014209</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1670578014209</updated>
+    <task id="LOCAL-00020" summary="Compiled updated .proto.">
+      <created>1670579312262</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1670579312262</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -404,7 +510,9 @@
     <MESSAGE value="Lavet nye services til nemmere overblik + Nemmere tilføjelse af nye services + nemmere tilføjelse af nye messages." />
     <MESSAGE value="Slettede gammelt modul" />
     <MESSAGE value="bug fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="bug fix" />
+    <MESSAGE value="Compiled updated .proto." />
+    <MESSAGE value="Fixed null point error. Fixed input int error. Fixed database URL" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed null point error. Fixed input int error. Fixed database URL" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

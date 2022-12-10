@@ -1,9 +1,10 @@
 package domain.Model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-public class User {
+public class User implements Serializable {
 
     @Id
     @Column(name = "id")
@@ -12,8 +13,9 @@ public class User {
     @Column(name = "role")
     private String role;
 
-    public User(int id) {
+    public User(int id, String role) {
         this.id = id;
+        this.role = role;
     }
 
     public User() {

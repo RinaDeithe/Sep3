@@ -55,4 +55,18 @@ public class ItemTypeController : ControllerBase
     
     
 
+    [HttpGet("{dto : ItemTypeSearchDto}")]
+    public async Task<ActionResult<bool>> CheckType([FromQuery]ItemTypeSearchDto dto)
+    {
+        try
+        {
+            return await itemManager.CheckType(dto);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+            return StatusCode(500, e.Message);
+        }
+    }
+
 }
