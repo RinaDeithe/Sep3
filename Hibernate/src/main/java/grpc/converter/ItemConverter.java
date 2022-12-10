@@ -40,13 +40,13 @@ public enum ItemConverter {
                     .setOwner(UserConverter.CONVERT.toUserProto(index.getOwner()))
                     .setShelf(
                             File.ShelfProto.newBuilder().setRowNo(index.getShelf().getRowNo())
-                                    .setRowNo(index.getShelf().getShelfNo())
+                                    .setShelfNo(index.getShelf().getShelfNo())
                                     .setShelfDimZ(index.getShelf().getDimZ())
                                     .setShelfDimY(index.getShelf().getDimY())
                                     .setShelfDimX(index.getShelf().getDimX())
                                     .build()
                     )
-                    .setUniqueID(index.getOwner().getId())
+                    .setUniqueID(index.getUID())
                     .setType(ItemTypeConverter.CONVERT.toTypeProto(index.getType()))
                     .build());
         }

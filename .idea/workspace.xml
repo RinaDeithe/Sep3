@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="81ffe829-311a-4bde-8753-4e2da12b99da" name="Changes" comment="lavet lidt om i Databasen">
+    <list default="true" id="81ffe829-311a-4bde-8753-4e2da12b99da" name="Changes" comment="Fixed bug where it read the item ID instead of user ID">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/domain/Model/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/domain/Model/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/domain/Model/ItemType.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/domain/Model/ItemType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/domain/Model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/domain/Model/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/converter/ItemConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/converter/ItemConverter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/testMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/testMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Hibernate/src/main/resources/database/identifier.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/resources/database/identifier.sqlite" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Hibernate/target/classes/database/identifier.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/target/classes/database/identifier.sqlite" afterDir="false" />
     </list>
@@ -311,12 +307,12 @@
       <option name="project" value="LOCAL" />
       <updated>1670671627986</updated>
     </task>
-    <task id="LOCAL-00002" summary="gRPC Pom.XML setup - Dependencies">
-      <created>1667983547997</created>
+    <task id="LOCAL-00002" summary="Fixed bug where it read the item ID instead of user ID">
+      <created>1670674311127</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1667983547997</updated>
+      <updated>1670674311127</updated>
     </task>
     <task id="LOCAL-00003" summary="Proto rename">
       <created>1667991950318</created>
@@ -444,7 +440,7 @@
       <option name="project" value="LOCAL" />
       <updated>1670579312262</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -509,7 +505,8 @@
     <MESSAGE value="Compiled updated .proto." />
     <MESSAGE value="Fixed null point error. Fixed input int error. Fixed database URL" />
     <MESSAGE value="lavet lidt om i Databasen" />
-    <option name="LAST_COMMIT_MESSAGE" value="lavet lidt om i Databasen" />
+    <MESSAGE value="Fixed bug where it read the item ID instead of user ID" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed bug where it read the item ID instead of user ID" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
