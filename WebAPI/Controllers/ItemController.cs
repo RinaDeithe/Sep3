@@ -1,7 +1,7 @@
-using Logic.Item;
 using Microsoft.AspNetCore.Mvc;
 using Shared.DTOs.Item;
 using Shared.Model;
+using IItemLogic = Logic.Item.IItemLogic;
 
 namespace WebAPI.Controllers; 
 
@@ -27,6 +27,36 @@ public class ItemController : ControllerBase {
             return Created($"/item/{item.Uid}", item);
         }
         catch (Exception e) {
+            Console.WriteLine(e);
+            return StatusCode(500, e.Message);
+            
+        }
+    }
+    
+    
+    [HttpPost]
+    [Route("/Reserve")]
+    public async void ReserveItem(ItemCreationDto dto) {
+        try
+        {
+            await _itemLogic.CreateAsync(dto);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+        }
+    }
+
+    [HttpDelete("/{id}")]
+    public async Task<ActionResult> DeleteAsync([FromRoute] int id)
+    {
+        try
+        {
+            await _itemLogic.DeleteItemAsync(new ItemSearchDto(id));
+            return Ok();
+        }
+        catch (Exception e)
+        {
             Console.WriteLine(e);
             return StatusCode(500, e.Message);
         }

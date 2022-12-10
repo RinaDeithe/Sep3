@@ -11,6 +11,13 @@ public enum ItemTypeConverter {
     CONVERT;
 
     public File.ItemTypeProto toTypeProto(ItemType type) {
+        if (type==null){
+            return File.ItemTypeProto.newBuilder().build();
+        }
+        if (type.getDimX()==null && type.getDimY()==null&& type.getDimZ()==null){
+            return File.ItemTypeProto.newBuilder().setId(type.getId()).build();
+        }
+
         return File.ItemTypeProto.newBuilder()
                 .setId(type.getId())
                 .setDimX(type.getDimX())

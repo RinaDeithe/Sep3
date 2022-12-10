@@ -1,3 +1,5 @@
+using ClientgRPC.ClientInterfaces;
+using ClientgRPC.GRPC_stubs;
 using Logic.Authentication;
 using Logic.Item;
 using Logic.Shelf;
@@ -15,11 +17,13 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IShelfManager, ShelfManager>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IItemLogic, ItemManager>();
-/*builder.Services.AddScoped<IItemClient, ItemStub>();
+
+
+builder.Services.AddScoped<IItemClient, ItemStub>();
 builder.Services.AddScoped<IItemTypeClient, ItemTypeStub>();
 builder.Services.AddScoped<IShelfClient, ShelfStub>();
 builder.Services.AddScoped<IUserClient, UserStub>();
-*/
+
 
 var app = builder.Build();
 
@@ -35,9 +39,16 @@ if (app.Environment.IsDevelopment()) {
     app.UseSwaggerUI();
 }
 
+app.UseRouting();
+
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllers();
+});
 
 app.MapControllers();
 

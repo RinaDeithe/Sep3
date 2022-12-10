@@ -11,13 +11,12 @@ namespace HttpClients.Implementations;
 public class ShelfHttpClient : IShelfService
 {
     private readonly HttpClient client;
-
     public ShelfHttpClient(HttpClient client)
     {
         this.client = client;
     }
 
-    public async Task<bool> AddItemToShelf(List<ShelfAddItemRequestDto> dto)
+    public async Task<bool> AddItemToShelf(ShelfAddItemRequestDto dto)
     {
         string dtoAsJson = JsonSerializer.Serialize(dto);
         StringContent body = new StringContent(dtoAsJson, Encoding.UTF8, "application/json");
@@ -42,16 +41,31 @@ public class ShelfHttpClient : IShelfService
         return shelves;
     }
 
-    public async Task<ItemRegisterReqiestDto> GetAmountOnShelf(ItemTypeSearchDto dto)
+    public async Task<bool> HasRoom(ItemRegisterResponseDto dto)
     {
-        HttpResponseMessage response = await client.GetAsync($"/Shelfs/{dto.Id}");
+        HttpResponseMessage response = await client.GetAsync("/Shelf/HasRoom");
+        string content = await response.Content.ReadAsStringAsync();
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(content);
+        }
+
+        return JsonSerializer.Deserialize<bool>(content, new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true
+        })!;
+    }
+    public async Task<ItemRegisterRequestDto> GetAmountOnShelf(ItemTypeSearchDto dto)
+    {
+        Console.WriteLine("getting amount");
+        HttpResponseMessage response = await client.GetAsync($"Shelf/Amount/{dto.Id}");
         string content = await response.Content.ReadAsStringAsync();
         if (!response.IsSuccessStatusCode)
         {
             throw new Exception(content);
         }
         
-        ItemRegisterReqiestDto shelves = JsonSerializer.Deserialize<ItemRegisterReqiestDto>(content, new JsonSerializerOptions
+        ItemRegisterRequestDto shelves = JsonSerializer.Deserialize<ItemRegisterRequestDto>(content, new JsonSerializerOptions
         {
             PropertyNameCaseInsensitive = true
         })!;

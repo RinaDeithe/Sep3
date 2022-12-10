@@ -7,8 +7,8 @@ namespace HttpClients.ClientInterfaces;
 
 public interface IShelfService
 {
-    Task<bool> AddItemToShelf(List<ShelfAddItemRequestDto> dto);
+    Task<bool> AddItemToShelf(ShelfAddItemRequestDto dto);
     Task<List<Shelf>> getShelfs();
-
-    Task<ItemRegisterReqiestDto> GetAmountOnShelf(ItemTypeSearchDto dto);
+    Task<bool> HasRoom(ItemRegisterResponseDto dto);
+    Task<ItemRegisterRequestDto> GetAmountOnShelf(ItemTypeSearchDto dto);
 }

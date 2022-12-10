@@ -21,13 +21,18 @@ public class ShelfManager : IShelfManager
         _itemClient = itemClient;
     }
 
+    public ShelfManager()
+    {
+    }
+
     public async Task<bool> Update(ShelfAddItemRequestDto dtos)
     {
-        if (await HasRoom(dtos))
+        
+        if (!await HasRoom(dtos))
         {
             return false;
         }
-
+        
  
         
         
@@ -39,14 +44,17 @@ public class ShelfManager : IShelfManager
             for (int i = 0; i < antalPåHylde.AvalibleSpace; i++)
             {
                 ItemCreationDto newItem = new ItemCreationDto(dtos.ItemTypeId, 1, dtos.Owner.Id
-                    , false, antalPåHylde.ShelfID);
+                    , false, antalPåHylde.ShelfId);
+                _itemClient.Create(newItem);
             }
+            
         }
+        
 
         return true;
     }
 
-    public async Task<ItemRegisterReqiestDto> GetAmountOnShelf(int itemTypeId)
+    public async Task<ItemRegisterRequestDto> GetAmountOnShelf(int itemTypeId)
     {
         List<AmountOnSpaceDto> result = new List<AmountOnSpaceDto>();
 
@@ -60,24 +68,52 @@ public class ShelfManager : IShelfManager
             result.Add(Amount.AmountOnSpaceDto(shelf, _itemType));
         }
 
-        ItemRegisterReqiestDto itemRegisterReqiestDto = new ItemRegisterReqiestDto(itemTypeId, result);
+        ItemRegisterRequestDto itemRegisterRequestDto = new ItemRegisterRequestDto(itemTypeId, result);
 
-        return itemRegisterReqiestDto;
+        return itemRegisterRequestDto;
     }
 
-    public Task<bool> HasRoom(int ItemTypeId)
+    public async Task<bool> HasRoom(ItemRegisterResponseDto dto)
+    {
+        List<Shared.Model.Shelf> shelfList = ReadAll();
+        int? totalItems = dto.Amount;
+        double itemVoloume = Amount.ItemTypeMass(await _itemTypeClient.Read(new ItemTypeSearchDto(dto.ItemTypeId)));
+        double totalAvailableSpace = 0;
+
+        foreach (var index in shelfList)
+        {
+            double voloumeAvailable = Amount.ShelfMass(index);
+
+            foreach (var itemIndex in index.ItemsOnShelf)
+            {
+                voloumeAvailable -= Amount.ItemTypeMass(itemIndex.Type);
+            }
+
+            totalAvailableSpace += voloumeAvailable;
+        }
+
+        if (!(itemVoloume * totalItems < totalAvailableSpace))
+        {
+            return false;
+        }
+
+        return true;
+    }
+
+    public List<Shared.Model.Shelf> ReadAll()
     {
         throw new NotImplementedException();
     }
 
+
     public async Task<bool> HasRoom(ShelfAddItemRequestDto dtos)
     {
-        ItemRegisterReqiestDto list = await GetAmountOnShelf(dtos.ItemTypeId);
+        ItemRegisterRequestDto list = await GetAmountOnShelf(dtos.ItemTypeId);
         foreach (AmountOnSpaceDto spaces in list.ShelfInfo)
         {
             foreach (AmountOnSpaceDto places in dtos.ShelfInfo)
             {
-                if (spaces.ShelfID.Equals(places.ShelfID))
+                if (spaces.ShelfId.Equals(places.ShelfId))
                 {
                     if (spaces.AvalibleSpace<places.AvalibleSpace)
                     {

@@ -10,6 +10,9 @@ public enum UserConverter {
     CONVERT;
 
     public File.UserProto toUserProto(User owner) {
+        if(owner==null){
+            File.UserProto.newBuilder().build();
+        }
         return File.UserProto.newBuilder()
                 .setId(owner.getId())
                 .setRole(owner.getRole())
