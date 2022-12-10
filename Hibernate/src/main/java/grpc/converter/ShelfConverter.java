@@ -11,6 +11,9 @@ public enum ShelfConverter {
     CONVERT;
 
     public File.ShelfProto toShelfProto(Shelf shelf) {
+        if (shelf==null){
+            return File.ShelfProto.newBuilder().build();
+        }
         return File.ShelfProto.newBuilder()
                 .setRowNo(shelf.getRowNo())
                 .setShelfNo(shelf.getShelfNo())

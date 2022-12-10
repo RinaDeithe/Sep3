@@ -140,7 +140,7 @@ public class DbConnection<T> implements IDbDao<T> {
         try {
             et.begin();
 
-            em.remove(entity);
+            em.remove(em.contains(entity) ? entity : em.merge(entity));
 
             et.commit();
         } catch (Exception e) {
