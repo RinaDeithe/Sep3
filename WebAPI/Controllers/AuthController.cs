@@ -23,7 +23,7 @@ public class AuthController : ControllerBase
         this.config = config;
     }
 
-    [HttpPost, Route("login")]
+    [HttpPost("login")]
     public async Task<ActionResult> Login([FromBody] UserLoginDto userLoginDto)
     {
         try

@@ -55,8 +55,8 @@ public class ItemTypeController : ControllerBase
     
     
 
-    [HttpGet("{dto : ItemTypeSearchDto}")]
-    public async Task<ActionResult<bool>> CheckType([FromQuery]ItemTypeSearchDto dto)
+    [HttpGet("test2")]
+    public async Task<ActionResult<bool>> CheckType([FromBody]ItemTypeSearchDto dto)
     {
         try
         {
