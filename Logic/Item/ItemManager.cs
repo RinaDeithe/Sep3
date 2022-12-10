@@ -12,17 +12,19 @@ public class ItemManager : IItemLogic
 {
     private IItemClient _itemClient;
     private IItemTypeClient _itemTypeClient;
+    private IShelfClient shelfManager;
 
     public ItemManager()
     {
-        
+        this.shelfManager = shelfManager;
     }
 
-    public ItemManager(IItemClient itemClient, IItemTypeClient itemTypeClient)
+    public ItemManager(IItemClient itemClient, IItemTypeClient itemTypeClient, IShelfClient shelfManager)
     {
         
         _itemClient = itemClient;
         _itemTypeClient = itemTypeClient;
+        this.shelfManager = shelfManager;
     }
 
     public async Task<Shared.Model.Item> CreateAsync(ItemCreationDto dto)
@@ -108,7 +110,7 @@ public class ItemManager : IItemLogic
         }
     }
 
-    public async Task<ActionResult<bool>> CheckType(ItemTypeSearchDto dto)
+    public async Task<bool> CheckType(ItemTypeSearchDto dto)
     {
         if (_itemTypeClient.Read(dto).Result == null)
         {
@@ -120,7 +122,7 @@ public class ItemManager : IItemLogic
 
     public async Task ReserveItem(ItemCreationDto dto)
     {
-        List<Shared.Model.Shelf> shelves = shelfManager.ReadAll();
+        List<Shared.Model.Shelf> shelves = await shelfManager.ReadAll();
 
         ItemType type = await _itemTypeClient.Read(new ItemTypeSearchDto(dto.ItemTypeId));
 
