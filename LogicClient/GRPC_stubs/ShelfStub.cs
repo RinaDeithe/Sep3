@@ -41,9 +41,9 @@ public class ShelfStub : IShelfClient {
         throw new NotImplementedException();
     }
 
-    public Task<Shelf> Delete(ShelfSearchParametersDto dto) {
+    public async Task<Shelf> Delete(ShelfSearchParametersDto dto) {
         ShelfSearchRequest request = _converter.SearchToProto(dto);
 
-        return Task.FromResult(ConverterShelf.ProtoToShelf(_client.Delete(request)));
+        return ConverterShelf.ProtoToShelf(await _client.DeleteAsync(request));
     }
 }

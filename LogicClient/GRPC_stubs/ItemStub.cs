@@ -21,11 +21,11 @@ public class ItemStub : IItemClient {
         _client = new(_channel);
     }
 
-    public Task<Item> Create(ItemCreationDto dto) {
+    public async Task<Item> Create(ItemCreationDto dto) {
 
         ItemCreation request = _converter.CreationDtoToProto(dto);
 
-        return Task.FromResult(ConverterItem.ProtoToItem(_client.Create(request)));
+        return ConverterItem.ProtoToItem(await _client.CreateAsync(request));
     }
 
     public async Task<Item> Read(ItemSearchDto dto) {
@@ -34,8 +34,8 @@ public class ItemStub : IItemClient {
         return ConverterItem.ProtoToItem(await _client.ReadAsync(request));
     }
 
-    public Task<List<Item>> ReadAll() {
-        return Task.FromResult(ConverterItem.ProtoToList(_client.ReadAll(new emptyParams())));
+    public async Task<List<Item>> ReadAll() {
+        return ConverterItem.ProtoToList(await _client.ReadAllAsync(new emptyParams()));
     }
 
     public Task<Item> Update(Item entity) {
@@ -44,10 +44,10 @@ public class ItemStub : IItemClient {
         throw new NotImplementedException();
     }
 
-    public Task<Item> Delete(ItemSearchDto dto) {
+    public async Task<Item> Delete(ItemSearchDto dto) {
         ItemSearchRequest request = _converter.SearchDtoToProto(dto);
 
-        return Task.FromResult(ConverterItem.ProtoToItem(_client.Delete(request)));
+        return ConverterItem.ProtoToItem(await _client.DeleteAsync(request));
     }
 
 }

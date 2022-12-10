@@ -20,29 +20,29 @@ public class UserStub : IUserClient {
         _converter = new();
     }
     
-    public Task<User> Create(UserCreationDto dto) {
+    public async Task<User> Create(UserCreationDto dto) {
         CreateUserRequest request = _converter.CreationToProto(dto);
 
-        return Task.FromResult(_converter.ProtoToUser(_client.Create(request)));
+        return _converter.ProtoToUser(await _client.CreateAsync(request));
     }
 
-    public Task<User> Read(UserSearchDto dto) {
+    public async Task<User> Read(UserSearchDto dto) {
         UserSearchRequest request = _converter.SearchToProto(dto);
 
-        return Task.FromResult(_converter.ProtoToUser(_client.Read(request)));
+        return _converter.ProtoToUser(await _client.ReadAsync(request));
     }
 
-    public Task<List<User>> ReadAll() {
-        return Task.FromResult(_converter.ProtoToList(_client.ReadAll(new emptyParams())));
+    public async Task<List<User>> ReadAll() {
+        return _converter.ProtoToList(await _client.ReadAllAsync( new emptyParams()));
     }
 
     public Task<User> Update(User entity) {
         throw new NotImplementedException();
     }
 
-    public Task<User> Delete(UserSearchDto dto) {
+    public async Task<User> Delete(UserSearchDto dto) {
         UserSearchRequest request = _converter.SearchToProto(dto);
 
-        return Task.FromResult(_converter.ProtoToUser(_client.Delete(request)));
+        return _converter.ProtoToUser(await _client.DeleteAsync(request));
     }
 }

@@ -133,9 +133,21 @@
     private async Task ButtonReserver()
     {
         List<AmountOnSpaceDto> requestlist = new List<AmountOnSpaceDto>();
+        int total = 0;
         foreach (var getinfo in list)
         {
+            total += getinfo.Amount;
             requestlist.Add(new AmountOnSpaceDto(getinfo.ShelfID, getinfo.Amount));
+        }
+        if (total<NewItemBeginState.Amount)
+        {
+            resultMsg= "du mangler nogle varer";
+            return;
+        }
+        if (total>NewItemBeginState.Amount)
+        {
+            resultMsg = "du har alt for mange varer";
+            return;
         }
         ShelfAddItemRequestDto shelfAdd = new ShelfAddItemRequestDto(NewItemBeginState.Id, requestlist, new User(0, "0"));
         
@@ -143,12 +155,16 @@
         {
             await ShelfService.AddItemToShelf(shelfAdd);
 
+            resultMsg = "du har nu gemt dem";
+
         }
         catch (Exception e)
         {
             Console.WriteLine(e);
+            resultMsg = e.Message;
             throw;
         }
+        
         
         
     }
