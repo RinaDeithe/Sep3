@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Shared.DTOs.Item;
 using Shared.DTOs.ItemType;
 using Shared.Model;
+
 namespace Logic.Item; 
 
 public class ItemManager : IItemLogic
@@ -26,44 +27,42 @@ public class ItemManager : IItemLogic
 
     public async Task<Shared.Model.Item> CreateAsync(ItemCreationDto dto)
     {
-        if (dto.Antal <= 0)
-        {
+        if (dto.Antal<=0)
+        { 
             throw new Exception("antal skal være mere end 0");
         }
 
-        if (dto.ItemTypeId <= 0)
+        if (dto.ItemTypeId<=0)
         {
             throw new Exception("itemType skal være større end 0");
 
         }
-
         Shared.Model.Item result = await _itemClient.Create(dto);
-
+        
         return result;
     }
 
     public async Task<ItemType> CreateItemTypeAsync(ItemTypeCreationDto dto)
     {
-        if (dto.Id < 1)
+        if (dto.Id<1)
         {
             throw new Exception("Id skal være større end 0");
         }
 
-        if (dto.DimensionX <= 0)
+        if (dto.DimensionX<=0)
         {
             throw new Exception("Din X dim skal være større end 0");
         }
-
-        if (dto.DimenstionY <= 0)
+        
+        if (dto.DimenstionY<=0)
         {
             throw new Exception("Din Y dim skal være større end 0");
         }
-
-        if (dto.DimensionZ <= 0)
+        
+        if (dto.DimensionZ<=0)
         {
             throw new Exception("Din Z dim skal være større end 0");
         }
-
         return await _itemTypeClient.Create(dto);
     }
 
@@ -87,12 +86,17 @@ public class ItemManager : IItemLogic
         }
     }
 
+    public Task<Shared.Model.Item> CreateAsync(ItemSearchDto dto)
+    {
+        throw new NotImplementedException();
+    }
+
     public async Task DeleteItemAsync(ItemSearchDto dto)
     {
         try
         {
             Shared.Model.Item item = await _itemClient.Delete(dto);
-            if (item.Uid != dto.id)
+            if (item.Uid!=dto.id)
             {
                 throw new Exception("Item Not Found");
             }
@@ -134,6 +138,20 @@ public class ItemManager : IItemLogic
                 _itemClient.Create(dto);
                 return;
             }
+        }
+    }
+
+    public async Task<List<Shared.Model.Item>> ReadAllAsync()
+    {
+        try
+        {
+            List<Shared.Model.Item> items = await _itemClient.ReadAll();
+            return items;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
         }
     }
 }

@@ -47,7 +47,7 @@ public class ItemController : ControllerBase {
         }
     }
 
-    [HttpDelete("/{id}")]
+    [HttpDelete("{id}")]
     public async Task<ActionResult> DeleteAsync([FromRoute] int id)
     {
         try
@@ -60,5 +60,21 @@ public class ItemController : ControllerBase {
             Console.WriteLine(e);
             return StatusCode(500, e.Message);
         }
+    }
+
+    [HttpGet]
+    public async Task<ActionResult<List<Item>>> GetAllItems()
+    {
+        try
+        {
+            List<Item> items = await _itemLogic.ReadAllAsync();
+            return Ok(items);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            return StatusCode(500, e.Message);
+        }
+        
     }
 }

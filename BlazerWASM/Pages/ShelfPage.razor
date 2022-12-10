@@ -71,7 +71,7 @@
 
                     <td>@item.ShelfID</td>
                     <td>@item.AvalibleSpace</td>
-                    <td><AmountChoose /></td>
+          <!--      <td><AmountChoose Amount="item.Antal"  OnChange="((antal) => ChangeAntal(item.ShelfID, antal))" /></td>-->
                     <td><label></label></td>
 
                 </tr>
@@ -126,17 +126,17 @@
         }
     }
 
-    private async Task ChangeAntal(AmountSpaceRow shelfId, int antal)
+    private Task ChangeAntal(string shelfId, int antal)
     {
         foreach (var rowInfo in list)
         {
             if (rowInfo.ShelfID.Equals(shelfId))
             {
-                Console.WriteLine(antal);
-                rowInfo.Amount = antal;
-
+                rowInfo.Antal = antal;
+                return Task.CompletedTask;
             }
         }
+        return Task.CompletedTask;
     }
 
     private async Task ButtonReserver()
@@ -144,7 +144,7 @@
         List<AmountOnSpaceDto> requestlist = new List<AmountOnSpaceDto>();
         foreach (var getinfo in list)
         {
-            requestlist.Add(new AmountOnSpaceDto(getinfo.ShelfID, getinfo.Amount));
+            requestlist.Add(new AmountOnSpaceDto(getinfo.ShelfID, getinfo.Antal));
         }
         ShelfAddItemRequestDto shelfAdd = new ShelfAddItemRequestDto(NewItemBeginState.Id, requestlist, new User(0, "0"));
         

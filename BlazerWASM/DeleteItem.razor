@@ -1,11 +1,13 @@
 ﻿@page "/DeleteItem"
 @using HttpClients.ClientInterfaces
 @using global::Shared.DTOs.Item
+@using global::Shared.Model
+@using Microsoft.AspNetCore.Components
 
 @inject IItemService Service;
 
 <h3>DeleteItem</h3>
-
+<div class="d-flex align-items-center">
 <table>
     <tr>
         
@@ -17,27 +19,71 @@
         </td>
     </tr>
     <tr>
-        <button type="button" name="klik" onclick="@Delete()">klik</button>
+        <button type="button" name="delete" @onclick="Fjern">delete</button>
     </tr>
 </table>
+</div>
+@if (items == null)
+            {
+                <label>loading item list</label>
+            }
+else
+{
+    <tr class="border-2">
+        <th>Item ID</th>
+        <th>Owner ID</th>
+        <th>Shelf Row</th>
+        <th>Shelf No</th>
+        <th>Item Type Id</th>
 
+    </tr>
+    @foreach (Item item in items)
+    {
+
+
+        <tr>
+            <td>@item.Uid</td>
+            <td>@item.Owner.Id</td>
+            <td>@item.Shelf?.RowNo</td>
+            <td>@item.Shelf?.ShelfNo</td>
+            <td>@item.Type.Id</td>
+            </tr>
+    }
+}
 
 
 @code {
-    int _uniqevareNummer=0;
+    int _uniqevareNummer = 0;
+    string msg = "";
+    List<Item> items;
 
-    private async Task Delete()
+    private async Task Fjern()
     {
         try
         {
             await Service.DeleItemAsync(new ItemSearchDto(_uniqevareNummer));
+            items = await Service.ReadAllAsync();
         }
         catch (Exception e)
         {
             Console.WriteLine(e);
             throw;
         }
-        
+
     }
-    
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            items = await Service.ReadAllAsync();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            msg = e.Message;
+        }
+
+    }
+
 }

@@ -2,11 +2,9 @@
 <label class="Amount-Container">
     <input 
         type="number"
-        class="form-control col-6" 
-        defaultValue ="@Amount" 
-        min ="0"
-        @onchange="@((arg) => OnChange.InvokeAsync((int)arg.Value!))"
+        @onchange="@(arg => OnChange.InvokeAsync((int)arg.Value!))"
     />
+    <span></span>
 </label>
 @code {
     [Parameter]
