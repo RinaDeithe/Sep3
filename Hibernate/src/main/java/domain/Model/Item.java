@@ -6,16 +6,17 @@ import java.io.Serializable;
 @Entity
 public class Item implements Serializable {
 
-    @ManyToOne
-    private ItemType type;
-
     @Id
     @Column(name = "Id")
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int UID;
 
     @ManyToOne
+    private ItemType type;
+
+    @ManyToOne
     private User Owner;
+
 
     @ManyToOne
     private Shelf shelf;
@@ -68,5 +69,15 @@ public class Item implements Serializable {
 
     public void setShelf(Shelf shelf) {
         this.shelf = shelf;
+    }
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "UID=" + UID +
+                ", type=" + type +
+                ", Owner=" + Owner +
+                ", shelf=" + shelf +
+                '}';
     }
 }

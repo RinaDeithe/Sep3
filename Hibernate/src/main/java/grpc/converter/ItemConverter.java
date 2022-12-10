@@ -46,7 +46,7 @@ public enum ItemConverter {
                                     .setShelfDimX(index.getShelf().getDimX())
                                     .build()
                     )
-                    .setUniqueID(index.getUID())
+                    .setUniqueID(index.getOwner().getId())
                     .setType(ItemTypeConverter.CONVERT.toTypeProto(index.getType()))
                     .build());
         }
