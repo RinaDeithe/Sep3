@@ -57,7 +57,7 @@ public class GrpcItemService extends ItemServiceGrpc.ItemServiceImplBase {
 
     @Override
     public void delete(File.ItemSearchRequest request, StreamObserver<File.ItemProto> responseObserver) {
-        Item item = dao.Delete(new Item(request.getId(), null, null, null));
+        Item item = dao.Delete(new Item(request.getId(), null, null,null));
 
         File.ItemProto proto = ItemConverter.CONVERT.toItemProtoFromItem(item);
 
