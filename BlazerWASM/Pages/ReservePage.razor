@@ -4,13 +4,11 @@
 @using global::Shared.DTOs.Item
 @using global::Shared.DTOs.ItemType
 @using HttpClients.ClientInterfaces
-@using HttpClients.Implementations
 @inject ReserveItemState state;
 @inject NavigationManager NavigationManager;
 @inject IItemTypeService typeService;
 @inject IShelfService shelfServic;
 @inject IItemService itemService;
-@inject ItemHttpClient itemHttpClient;
 
 <h3 class="text-center">ReservePage</h3>
 

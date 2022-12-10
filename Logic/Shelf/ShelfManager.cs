@@ -75,7 +75,7 @@ public class ShelfManager : IShelfManager
 
     public async Task<bool> HasRoom(ItemRegisterResponseDto dto)
     {
-        List<Shared.Model.Shelf> shelfList = ReadAll();
+        List<Shared.Model.Shelf> shelfList = await ReadAll();
         int? totalItems = dto.Amount;
         double itemVoloume = Amount.ItemTypeMass(await _itemTypeClient.Read(new ItemTypeSearchDto(dto.ItemTypeId)));
         double totalAvailableSpace = 0;
@@ -100,9 +100,9 @@ public class ShelfManager : IShelfManager
         return true;
     }
 
-    public List<Shared.Model.Shelf> ReadAll()
+    public async Task<List<Shared.Model.Shelf>> ReadAll()
     {
-        throw new NotImplementedException();
+        return await _shelfClient.ReadAll();
     }
 
 
