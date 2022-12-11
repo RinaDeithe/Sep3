@@ -50,4 +50,19 @@ public class ItemHttpClient : IItemService {
             throw new Exception(content);
         }   
     }
+
+    public async Task<List<Item>> ReadAllAsync()
+    {
+        HttpResponseMessage response = await client.GetAsync("/Item");
+        string content = await response.Content.ReadAsStringAsync();
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(content);
+        }
+        List<Item> items = JsonSerializer.Deserialize<List<Item>>(content, new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true
+        })!;
+        return items;
+    }
 }

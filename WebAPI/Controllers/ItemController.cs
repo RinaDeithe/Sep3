@@ -62,4 +62,20 @@ public class ItemController : ControllerBase {
             return StatusCode(500, e.Message);
         }
     }
+
+    [HttpGet]
+    public async Task<ActionResult<List<Item>>> GetAllItems()
+    {
+        try
+        {
+            List<Item> items = await _itemLogic.ReadAllAsync();
+            return Ok(items);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            return StatusCode(500, e.Message);
+        }
+        
+    }
 }

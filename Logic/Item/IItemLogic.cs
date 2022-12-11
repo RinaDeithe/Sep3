@@ -1,4 +1,3 @@
-using Microsoft.AspNetCore.Mvc;
 using Shared.DTOs.Item;
 using Shared.DTOs.ItemType;
 using Shared.Model;
@@ -10,6 +9,7 @@ public interface IItemLogic {
     Task<ItemType> CreateItemTypeAsync(ItemTypeCreationDto dto);
     Task<ItemType> ReadItemTypeAsync(ItemTypeSearchDto dto);
     Task DeleteItemAsync(ItemSearchDto dto);
+    Task<List<Shared.Model.Item>> ReadAllAsync();
     Task ReserveItem(ItemCreationDto dto);
-    Task<ActionResult<bool>> CheckType(ItemTypeSearchDto dto);
+    Task<ActionResult<Boolean>> CheckType(ItemTypeSearchDto dto);
 }
