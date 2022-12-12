@@ -5775,9 +5775,14 @@ public final class File {
     int getItemTypeID();
 
     /**
-     * <code>int32 ShelfID = 2;</code>
+     * <code>string ShelfID = 2;</code>
      */
-    int getShelfID();
+    java.lang.String getShelfID();
+    /**
+     * <code>string ShelfID = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getShelfIDBytes();
 
     /**
      * <code>int32 OwnerID = 3;</code>
@@ -5797,7 +5802,7 @@ public final class File {
     }
     private ItemCreation() {
       itemTypeID_ = 0;
-      shelfID_ = 0;
+      shelfID_ = "";
       ownerID_ = 0;
     }
 
@@ -5831,9 +5836,10 @@ public final class File {
               itemTypeID_ = input.readInt32();
               break;
             }
-            case 16: {
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
 
-              shelfID_ = input.readInt32();
+              shelfID_ = s;
               break;
             }
             case 24: {
@@ -5874,12 +5880,37 @@ public final class File {
     }
 
     public static final int SHELFID_FIELD_NUMBER = 2;
-    private int shelfID_;
+    private volatile java.lang.Object shelfID_;
     /**
-     * <code>int32 ShelfID = 2;</code>
+     * <code>string ShelfID = 2;</code>
      */
-    public int getShelfID() {
-      return shelfID_;
+    public java.lang.String getShelfID() {
+      java.lang.Object ref = shelfID_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        shelfID_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string ShelfID = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getShelfIDBytes() {
+      java.lang.Object ref = shelfID_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        shelfID_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     public static final int OWNERID_FIELD_NUMBER = 3;
@@ -5906,8 +5937,8 @@ public final class File {
       if (itemTypeID_ != 0) {
         output.writeInt32(1, itemTypeID_);
       }
-      if (shelfID_ != 0) {
-        output.writeInt32(2, shelfID_);
+      if (!getShelfIDBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, shelfID_);
       }
       if (ownerID_ != 0) {
         output.writeInt32(3, ownerID_);
@@ -5923,9 +5954,8 @@ public final class File {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(1, itemTypeID_);
       }
-      if (shelfID_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(2, shelfID_);
+      if (!getShelfIDBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, shelfID_);
       }
       if (ownerID_ != 0) {
         size += com.google.protobuf.CodedOutputStream
@@ -5949,8 +5979,8 @@ public final class File {
       boolean result = true;
       result = result && (getItemTypeID()
           == other.getItemTypeID());
-      result = result && (getShelfID()
-          == other.getShelfID());
+      result = result && getShelfID()
+          .equals(other.getShelfID());
       result = result && (getOwnerID()
           == other.getOwnerID());
       return result;
@@ -5966,7 +5996,7 @@ public final class File {
       hash = (37 * hash) + ITEMTYPEID_FIELD_NUMBER;
       hash = (53 * hash) + getItemTypeID();
       hash = (37 * hash) + SHELFID_FIELD_NUMBER;
-      hash = (53 * hash) + getShelfID();
+      hash = (53 * hash) + getShelfID().hashCode();
       hash = (37 * hash) + OWNERID_FIELD_NUMBER;
       hash = (53 * hash) + getOwnerID();
       hash = (29 * hash) + unknownFields.hashCode();
@@ -6100,7 +6130,7 @@ public final class File {
         super.clear();
         itemTypeID_ = 0;
 
-        shelfID_ = 0;
+        shelfID_ = "";
 
         ownerID_ = 0;
 
@@ -6173,8 +6203,9 @@ public final class File {
         if (other.getItemTypeID() != 0) {
           setItemTypeID(other.getItemTypeID());
         }
-        if (other.getShelfID() != 0) {
-          setShelfID(other.getShelfID());
+        if (!other.getShelfID().isEmpty()) {
+          shelfID_ = other.shelfID_;
+          onChanged();
         }
         if (other.getOwnerID() != 0) {
           setOwnerID(other.getOwnerID());
@@ -6231,28 +6262,71 @@ public final class File {
         return this;
       }
 
-      private int shelfID_ ;
+      private java.lang.Object shelfID_ = "";
       /**
-       * <code>int32 ShelfID = 2;</code>
+       * <code>string ShelfID = 2;</code>
        */
-      public int getShelfID() {
-        return shelfID_;
+      public java.lang.String getShelfID() {
+        java.lang.Object ref = shelfID_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          shelfID_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
-       * <code>int32 ShelfID = 2;</code>
+       * <code>string ShelfID = 2;</code>
        */
-      public Builder setShelfID(int value) {
-        
+      public com.google.protobuf.ByteString
+          getShelfIDBytes() {
+        java.lang.Object ref = shelfID_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          shelfID_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string ShelfID = 2;</code>
+       */
+      public Builder setShelfID(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         shelfID_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 ShelfID = 2;</code>
+       * <code>string ShelfID = 2;</code>
        */
       public Builder clearShelfID() {
         
-        shelfID_ = 0;
+        shelfID_ = getDefaultInstance().getShelfID();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string ShelfID = 2;</code>
+       */
+      public Builder setShelfIDBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        shelfID_ = value;
         onChanged();
         return this;
       }
@@ -11884,7 +11958,7 @@ public final class File {
       "(\005\022\014\n\004DimX\030\002 \001(\001\022\014\n\004DimY\030\003 \001(\001\022\014\n\004DimZ\030\004" +
       " \001(\001\"<\n\021ItemTypeListProto\022\'\n\004list\030\001 \003(\0132" +
       "\031.GRPC.proto.ItemTypeProto\"D\n\014ItemCreati" +
-      "on\022\022\n\nItemTypeID\030\001 \001(\005\022\017\n\007ShelfID\030\002 \001(\005\022" +
+      "on\022\022\n\nItemTypeID\030\001 \001(\005\022\017\n\007ShelfID\030\002 \001(\t\022" +
       "\017\n\007OwnerID\030\003 \001(\005\"\037\n\021ItemSearchRequest\022\n\n" +
       "\002id\030\001 \001(\005\"\223\001\n\tItemProto\022\'\n\004type\030\001 \001(\0132\031.",
       "GRPC.proto.ItemTypeProto\022\020\n\010UniqueID\030\002 \001" +

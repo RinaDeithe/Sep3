@@ -19,6 +19,7 @@ public class GrpcItemService extends ItemServiceGrpc.ItemServiceImplBase {
 
     @Override
     public void create(File.ItemCreation request, StreamObserver<File.ItemProto> responseObserver) {
+        System.out.println("Create request = " + request.getShelfID());
         Item item = dao.Create(ItemConverter.CONVERT.toItemFromCreation(request));
 
         File.ItemProto proto = ItemConverter.CONVERT.toItemProtoFromItem(item);

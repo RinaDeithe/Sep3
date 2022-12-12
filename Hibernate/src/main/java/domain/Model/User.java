@@ -7,10 +7,10 @@ import java.io.Serializable;
 public class User implements Serializable {
 
     @Id
-    @Column(name = "id")
+    @Column()
     private int id;
 
-    @Column(name = "role")
+    @Column()
     private String role;
 
     public User(int id, String role) {

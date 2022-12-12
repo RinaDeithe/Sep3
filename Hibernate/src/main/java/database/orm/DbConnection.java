@@ -26,6 +26,8 @@ public class DbConnection<T> implements IDbDao<T> {
         em = emf.createEntityManager();
         et = em.getTransaction();
 
+        System.out.println(entity.toString());
+
         try {
             et.begin();
 

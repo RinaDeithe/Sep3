@@ -27,11 +27,11 @@ class DbConnectionTest {
         ItemType type = new ItemType(-1, -1.0, -1.0, -1.0);
         Shelf shelf = new Shelf("test", "shelf", -1.0, -1.0, -1.0, null);
 
-        UserDao.Create(user);
+        //UserDao.Create(user);
 
-        TypeDao.Create(type);
+        //TypeDao.Create(type);
 
-        ShelfDao.Create(shelf);
+        //ShelfDao.Create(shelf);
 
         ItemDao.Create(new Item(type, user, shelf));
 
