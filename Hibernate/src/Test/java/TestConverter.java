@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class TestConverter {
 
     @Test
-    public void testItemToItemProto(){
+    public void TestForUendeligLoopImellemItemOgShelf(){
         ItemType itemType = new ItemType(1,2.,3.,4.);
         User user = new User(1, "temp");
         user.setRole("tet");
@@ -24,9 +24,9 @@ public class TestConverter {
         Item item = new Item(itemType, user, shelf);
         itemList.add(item);
 
-        File.ItemTypeProto itemTypeProto = ItemTypeConverter.CONVERT.toTypeProto(itemType);
-
         File.ItemProto itemProto= ItemConverter.CONVERT.toItemProtoFromItem(item);
+
+        System.out.println(shelf);
 
         assert true;
     }
@@ -41,6 +41,32 @@ public class TestConverter {
         if (test.equals(itemTypeProto)){
             assert true;
         }else {
+            assert false;
+        }
+
+    }
+
+    @Test
+    public void ShelfProtoHarEnHyldeISig(){
+        //assign
+        ItemType itemType = new ItemType(1,2.,3.,4.);
+        User user = new User(1, "temp");
+        user.setRole("tet");
+        ArrayList<Item> itemList = new ArrayList<>();
+
+        Shelf shelf = new Shelf("String rowNo", "String shelfNo", 20., 23., 24., itemList);
+        Item item = new Item(itemType, user, shelf);
+        itemList.add(item);
+
+        //a
+        File.ItemProto itemProto= ItemConverter.CONVERT.toItemProtoFromItem(item);
+
+
+        //assert
+        System.out.println(itemProto);
+        if (itemProto.getShelf().hasItemsOnShelf()){
+            assert true;
+        }else{
             assert false;
         }
 

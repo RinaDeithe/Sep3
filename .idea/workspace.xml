@@ -4,15 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="81ffe829-311a-4bde-8753-4e2da12b99da" name="Changes" comment="">
+    <list default="true" id="81ffe829-311a-4bde-8753-4e2da12b99da" name="Changes" comment="small things">
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/database/orm/DbConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/database/orm/DbConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/converter/ShelfConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/converter/ShelfConverter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/converter/UserConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/converter/UserConverter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/services/GrpcItemService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/services/GrpcItemService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hibernate/src/Test/java/TestConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/Test/java/TestConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/converter/ItemConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/converter/ItemConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/services/GrpcShelfService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/services/GrpcShelfService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Hibernate/src/main/resources/database/identifier.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/resources/database/identifier.sqlite" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Hibernate/target/classes/database/identifier.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/target/classes/database/identifier.sqlite" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,12 +62,11 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;
+  }
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Rumle\IdeaProjects\test2\Hibernate\src\Test" />
@@ -104,7 +102,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Application.DatabaseInitializer">
+  <component name="RunManager" selected="JUnit.TestConverter">
     <configuration name="DatabaseInitializer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="grpc.DatabaseInitializer" />
       <module name="Hibernate" />
@@ -131,48 +129,30 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DbConnectionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestConverter" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Hibernate" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="database.orm.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="database.orm" />
-      <option name="MAIN_CLASS_NAME" value="database.orm.DbConnectionTest" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestConverter" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DbConnectionTest.create" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestConverter.ShelfProtoHarEnHyldeISig" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Hibernate" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="database.orm.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="database.orm" />
-      <option name="MAIN_CLASS_NAME" value="database.orm.DbConnectionTest" />
-      <option name="METHOD_NAME" value="create" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestConverter" />
+      <option name="METHOD_NAME" value="ShelfProtoHarEnHyldeISig" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GrpcItemServiceTest.create" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestConverter.testItemToItemProto" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Hibernate" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="grpc.services.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="grpc.services" />
-      <option name="MAIN_CLASS_NAME" value="grpc.services.GrpcItemServiceTest" />
-      <option name="METHOD_NAME" value="create" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestConverter" />
+      <option name="METHOD_NAME" value="testItemToItemProto" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -257,11 +237,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TestConverter" />
         <item itemvalue="Application.DatabaseInitializer" />
-        <item itemvalue="JUnit.DbConnectionTest.create" />
+        <item itemvalue="JUnit.TestConverter.ShelfProtoHarEnHyldeISig" />
+        <item itemvalue="JUnit.TestConverter.testItemToItemProto" />
         <item itemvalue="Application.testMain" />
-        <item itemvalue="JUnit.DbConnectionTest" />
-        <item itemvalue="JUnit.GrpcItemServiceTest.create" />
       </list>
     </recent_temporary>
   </component>
@@ -303,27 +283,29 @@
       <workItem from="1670573374248" duration="1207000" />
       <workItem from="1670592323743" duration="289000" />
       <workItem from="1670607597670" duration="3284000" />
+      <workItem from="1670682520773" duration="2038000" />
+      <workItem from="1670692784578" duration="2398000" />
     </task>
-    <task id="LOCAL-00001" summary="Initial Commit Java">
-      <created>1667318961742</created>
+    <task id="LOCAL-00001" summary="lavet lidt om i Databasen">
+      <created>1670671627986</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1667318961742</updated>
+      <updated>1670671627986</updated>
     </task>
-    <task id="LOCAL-00002" summary="gRPC Pom.XML setup - Dependencies">
-      <created>1667983547997</created>
+    <task id="LOCAL-00002" summary="Fixed bug where it read the item ID instead of user ID">
+      <created>1670674311127</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1667983547997</updated>
+      <updated>1670674311127</updated>
     </task>
-    <task id="LOCAL-00003" summary="Proto rename">
-      <created>1667991950318</created>
+    <task id="LOCAL-00003" summary="small things">
+      <created>1670675217325</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1667991950318</updated>
+      <updated>1670675217325</updated>
     </task>
     <task id="LOCAL-00004" summary="Projekt rename, da Mikkel pc er lårt">
       <created>1667993345343</created>
@@ -444,6 +426,7 @@
       <option name="project" value="LOCAL" />
       <updated>1670579312262</updated>
     </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -507,7 +490,26 @@
     <MESSAGE value="bug fix" />
     <MESSAGE value="Compiled updated .proto." />
     <MESSAGE value="Fixed null point error. Fixed input int error. Fixed database URL" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed null point error. Fixed input int error. Fixed database URL" />
+    <MESSAGE value="lavet lidt om i Databasen" />
+    <MESSAGE value="Fixed bug where it read the item ID instead of user ID" />
+    <MESSAGE value="small things" />
+    <option name="LAST_COMMIT_MESSAGE" value="small things" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Hibernate/src/main/java/database/orm/DbConnection.java</url>
+          <line>58</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Hibernate/src/main/java/database/orm/DbConnection.java</url>
+          <line>86</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

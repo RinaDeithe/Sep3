@@ -63,4 +63,14 @@ public class ItemType implements Serializable
     public void setDimZ(Double dimZ) {
         this.dimZ = dimZ;
     }
+
+    @Override
+    public String toString() {
+        return "ItemType{" +
+                "id=" + id +
+                ", dimX=" + dimX +
+                ", dimY=" + dimY +
+                ", dimZ=" + dimZ +
+                '}';
+    }
 }

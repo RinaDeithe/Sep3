@@ -34,13 +34,13 @@ public enum ItemConverter {
             return builder.build();
         }
         List<File.ItemProto> protoList = new ArrayList<>();
-        System.out.println(itemList.isEmpty());
+
         for (Item index : itemList) {
             protoList.add(File.ItemProto.newBuilder()
                     .setOwner(UserConverter.CONVERT.toUserProto(index.getOwner()))
                     .setShelf(
                             File.ShelfProto.newBuilder().setRowNo(index.getShelf().getRowNo())
-                                    .setRowNo(index.getShelf().getShelfNo())
+                                    .setShelfNo(index.getShelf().getShelfNo())
                                     .setShelfDimZ(index.getShelf().getDimZ())
                                     .setShelfDimY(index.getShelf().getDimY())
                                     .setShelfDimX(index.getShelf().getDimX())
