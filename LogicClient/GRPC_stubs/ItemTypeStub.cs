@@ -21,29 +21,29 @@ public class ItemTypeStub : IItemTypeClient {
         _converter = new();
     }
 
-    public Task<ItemType> Create(ItemTypeCreationDto dto) {
+    public async Task<ItemType> Create(ItemTypeCreationDto dto) {
         ItemTypeCreationRequest request = _converter.CreationToProto(dto);
 
-        return Task.FromResult(_converter.ProtoToType(_client.Create(request)));
+        return _converter.ProtoToType(await _client.CreateAsync(request));
     }
 
     public async Task<ItemType> Read(ItemTypeSearchDto dto) {
         ItemTypeSearchRequest request = _converter.SearchToProto(dto);
 
-        return await Task.FromResult(_converter.ProtoToType(_client.Read(request)));
+        return _converter.ProtoToType(await _client.ReadAsync(request));
     }
 
-    public Task<List<ItemType>> ReadAll() {
-        return Task.FromResult(_converter.ProtoToList(_client.ReadAll(new emptyParams())));
+    public async Task<List<ItemType>> ReadAll() {
+        return _converter.ProtoToList(await _client.ReadAllAsync(new emptyParams()));
     }
 
     public Task<ItemType> Update(ItemType entity) {
         throw new NotImplementedException();
     }
 
-    public Task<ItemType> Delete(ItemTypeSearchDto dto) {
+    public async Task<ItemType> Delete(ItemTypeSearchDto dto) {
         ItemTypeSearchRequest request = _converter.SearchToProto(dto);
 
-        return Task.FromResult(_converter.ProtoToType(_client.Delete(request)));
+        return _converter.ProtoToType(await _client.DeleteAsync(request));
     }
 }

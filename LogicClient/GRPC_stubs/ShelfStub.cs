@@ -20,29 +20,30 @@ public class ShelfStub : IShelfClient {
         _converter = new();
     }
 
-    public Task<Shelf> Create(ShelfCreationDto dto) {
+    public async Task<Shelf> Create(ShelfCreationDto dto) {
         ShelfCreationRequest request = _converter.CreationToProto(dto);
 
-        return Task.FromResult(ConverterShelf.ProtoToShelf(_client.Create(request)));
+        return  ConverterShelf.ProtoToShelf(await _client.CreateAsync(request));
     }
 
-    public Task<Shelf> Read(ShelfSearchParametersDto dto) {
+    public async Task<Shelf> Read(ShelfSearchParametersDto dto) {
         ShelfSearchRequest request = _converter.SearchToProto(dto);
 
-        return Task.FromResult(ConverterShelf.ProtoToShelf(_client.Read(request)));
+        return ConverterShelf.ProtoToShelf(await _client.ReadAsync(request));
     }
 
-    public Task<List<Shelf>> ReadAll() {
-        return Task.FromResult(_converter.ProtoToList(_client.ReadAll(new emptyParams())));
+    public async Task<List<Shelf>> ReadAll() {
+        List<Shelf> result = _converter.ProtoToList(await _client.ReadAllAsync(new emptyParams()));
+        return result;
     }
 
     public Task<Shelf> Update(Shelf entity) {
         throw new NotImplementedException();
     }
 
-    public Task<Shelf> Delete(ShelfSearchParametersDto dto) {
+    public async Task<Shelf> Delete(ShelfSearchParametersDto dto) {
         ShelfSearchRequest request = _converter.SearchToProto(dto);
 
-        return Task.FromResult(ConverterShelf.ProtoToShelf(_client.Delete(request)));
+        return ConverterShelf.ProtoToShelf(await _client.DeleteAsync(request));
     }
 }

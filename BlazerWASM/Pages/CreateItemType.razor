@@ -50,9 +50,18 @@
     private double? dimY;
     private double? dimX;
     private string resultMsg;
-    
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (NewItemBeginState.Id==0)
+        {
+            NavigationManager.NavigateTo("/CreateWare");
+        }
+    }
+
     private async Task CreateItemTypeMethod()
     {
+        
         
         try
         {

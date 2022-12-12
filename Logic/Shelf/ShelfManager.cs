@@ -65,6 +65,7 @@ public class ShelfManager : IShelfManager
         List < Shared.Model.Shelf > allShelves= await _shelfClient.ReadAll();
         foreach (var shelf in allShelves)
         {
+            
             result.Add(Amount.AmountOnSpaceDto(shelf, _itemType));
         }
 

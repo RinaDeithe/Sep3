@@ -12,6 +12,7 @@ public class Amount
 
         foreach (Item ItemOnShelf in shelf.ItemsOnShelf)
         {
+            Console.WriteLine(ItemOnShelf.Uid + "info om row" + ItemOnShelf.Shelf);
             volumenShelf -= ItemOnShelf.Type.DimX * ItemOnShelf.Type.DimY * ItemOnShelf.Type.DimZ;
         }
 
