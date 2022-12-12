@@ -54,7 +54,7 @@ public class ShelfController : ControllerBase
     }
 
     [HttpGet("Amount/{dto.Id}")]
-    public async Task<ActionResult<ItemRegisterRequestDto>> GetAmountOnShelf([FromHeader]ItemTypeSearchDto dto)
+    public async Task<ActionResult<ItemRegisterRequestDto>> GetAmountOnShelf([FromRoute]ItemTypeSearchDto dto)
     {
         Console.WriteLine("here");
         try

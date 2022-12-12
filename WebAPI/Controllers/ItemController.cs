@@ -17,8 +17,9 @@ public class ItemController : ControllerBase {
     }
 
     [HttpPost]
-    public async Task<ActionResult<Item>> CreateAsync(ItemCreationDto dto) {
+    public async Task<ActionResult<Item>> CreateAsync([FromBody]ItemCreationDto dto) {
         try {
+            Console.WriteLine(dto);
             Item item = await _itemLogic.CreateAsync(dto);
             if (item.Type.Id!=dto.ItemTypeId)
             {

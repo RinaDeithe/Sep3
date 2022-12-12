@@ -10,10 +10,9 @@ public class Amount
         double volumenShelf = shelf.DimX * shelf.DimY * shelf.DimZ;
         double volumenItemType = itemType.DimX * itemType.DimY * itemType.DimZ;
 
-        foreach (Item ItemOnShelf in shelf.ItemsOnShelf)
+        foreach (Item itemOnShelf in shelf.ItemsOnShelf)
         {
-            Console.WriteLine(ItemOnShelf.Uid + "info om row" + ItemOnShelf.Shelf);
-            volumenShelf -= ItemOnShelf.Type.DimX * ItemOnShelf.Type.DimY * ItemOnShelf.Type.DimZ;
+            volumenShelf -= itemOnShelf.Type.DimX * itemOnShelf.Type.DimY * itemOnShelf.Type.DimZ;
         }
 
         return new AmountOnSpaceDto(shelf.RowNo+shelf.ShelfNo,(int?)Math.Floor(volumenShelf / volumenItemType));

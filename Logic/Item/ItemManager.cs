@@ -42,6 +42,7 @@ public class ItemManager : IItemLogic
             throw new Exception("itemType skal være større end 0");
 
         }
+        
         Shared.Model.Item result = await _itemClient.Create(dto);
         
         return result;
