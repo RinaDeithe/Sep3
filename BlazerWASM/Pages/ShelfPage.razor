@@ -69,7 +69,7 @@
 
                     <td>@item.ShelfID</td>
                     <td>@item.AvalibleSpace</td>
-                    <td><input type="number" min="0" max="@item.AvalibleSpace" @bind="@item.Amount" /></td>
+                    <td><input type="number" min="0" max="@item.AvalibleSpace" @bind="@item.Antal" /></td>
                     <td><label></label></td>
 
                 </tr>
@@ -78,7 +78,7 @@
 
             </tbody>
         </table>
-        <button type="button" name="klik" onclick="@ButtonReserver()">put on shelf</button>
+        <button type="button" name="klik" onclick=@ButtonReserver>put on shelf</button>
         @resultMsg
     </div>
 </div>
@@ -135,8 +135,8 @@
         int total = 0;
         foreach (var getinfo in list)
         {
-            total += getinfo.Amount;
-            requestlist.Add(new AmountOnSpaceDto(getinfo.ShelfID, getinfo.Amount));
+            total += getinfo.Antal;
+            requestlist.Add(new AmountOnSpaceDto(getinfo.ShelfID, getinfo.Antal));
         }
         if (total<NewItemBeginState.Amount)
         {
