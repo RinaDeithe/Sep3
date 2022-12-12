@@ -110,13 +110,13 @@ public class ShelfManager : IShelfManager
     public async Task<bool> HasRoom(ShelfAddItemRequestDto dtos)
     {
         ItemRegisterRequestDto list = await GetAmountOnShelf(dtos.ItemTypeId);
-        foreach (AmountOnSpaceDto spaces in list.ShelfInfo)
+        foreach (AmountOnSpaceDto ShelfSpace in list.ShelfInfo)
         {
-            foreach (AmountOnSpaceDto places in dtos.ShelfInfo)
+            foreach (AmountOnSpaceDto ItemSpace in dtos.ShelfInfo)
             {
-                if (spaces.ShelfId.Equals(places.ShelfId))
+                if (ShelfSpace.ShelfId.Equals(ItemSpace.ShelfId))
                 {
-                    if (spaces.AvalibleSpace<places.AvalibleSpace)
+                    if (ShelfSpace.AvalibleSpace<ItemSpace.AvalibleSpace)
                     {
                         throw new Exception("To many Item on shelf");
                     }
