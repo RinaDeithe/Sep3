@@ -91,7 +91,7 @@ message ItemTypeListProto {
 
 message ItemCreation{
   int32 ItemTypeID = 1;
-  int32 ShelfID = 2;
+  string ShelfID = 2;
   int32 OwnerID = 3;
 }
 

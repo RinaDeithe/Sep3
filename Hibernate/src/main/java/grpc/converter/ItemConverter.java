@@ -5,6 +5,7 @@ import domain.Model.Item;
 import domain.Model.ItemType;
 import domain.Model.Shelf;
 import domain.Model.User;
+import grpc.services.GrpcItemService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,8 +14,12 @@ public enum ItemConverter {
 
     CONVERT;
 
+
     public Item toItemFromCreation(File.ItemCreation request) {
-        return new Item(new ItemType(request.getItemTypeID(), null, null, null), new User(request.getOwnerID(), "temp"), new Shelf(request.getShelfID() + "", request.getShelfID() + "" , 0, 0, 0, null));
+        return new Item(new ItemType(request.getItemTypeID(), -1., -1., -1.), new User(request.getOwnerID(), "temp"), new Shelf(request.getShelfID() + "", request.getShelfID() + "" , 0, 0, 0, null));
+    }
+    public Item toItemFromCreation(File.ItemCreation request, Shelf shelf) {
+        return new Item(new ItemType(request.getItemTypeID(), -1., -1., -1.), new User(request.getOwnerID(), "temp"), shelf);
     }
 
     public File.ItemProto toItemProtoFromItem(Item item) {
