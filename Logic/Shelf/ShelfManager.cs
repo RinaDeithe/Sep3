@@ -12,7 +12,7 @@ public class ShelfManager : IShelfManager
 {
     private readonly IShelfClient _shelfClient;
     private readonly IItemTypeClient _itemTypeClient;
-    private IItemClient _itemClient;
+    private readonly IItemClient _itemClient;
 
     public ShelfManager(IShelfClient shelfClient, IItemTypeClient itemTypeClient, IItemClient itemClient)
     {
@@ -45,12 +45,12 @@ public class ShelfManager : IShelfManager
             {
                 ItemCreationDto newItem = new ItemCreationDto(dtos.ItemTypeId, 1, dtos.Owner.Id
                     , false, antalPåHylde.ShelfId);
-                _itemClient.Create(newItem);
+                 await _itemClient.Create(newItem);
             }
             
         }
-        
 
+        
         return true;
     }
 
@@ -110,17 +110,22 @@ public class ShelfManager : IShelfManager
     public async Task<bool> HasRoom(ShelfAddItemRequestDto dtos)
     {
         ItemRegisterRequestDto list = await GetAmountOnShelf(dtos.ItemTypeId);
-        foreach (AmountOnSpaceDto ShelfSpace in list.ShelfInfo)
-        {
-            foreach (AmountOnSpaceDto ItemSpace in dtos.ShelfInfo)
+        foreach (AmountOnSpaceDto ItemSpace in dtos.ShelfInfo) 
+        {   
+            if (ItemSpace.AvalibleSpace > 0) 
             {
-                if (ShelfSpace.ShelfId.Equals(ItemSpace.ShelfId))
+                
+                foreach (AmountOnSpaceDto ShelfSpace in list.ShelfInfo)
                 {
-                    if (ShelfSpace.AvalibleSpace<ItemSpace.AvalibleSpace)
-                    {
-                        throw new Exception("To many Item on shelf");
-                    }
+                    if (ShelfSpace.ShelfId.Equals(ItemSpace.ShelfId))
+                        {
+                            if (ShelfSpace.AvalibleSpace<ItemSpace.AvalibleSpace)
+                            {
+                                throw new Exception("To many Item on shelf");
+                            }
+                        }
                 }
+            
             }
         }
 

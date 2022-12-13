@@ -148,7 +148,7 @@
             resultMsg = "du har alt for mange varer";
             return;
         }
-        ShelfAddItemRequestDto shelfAdd = new ShelfAddItemRequestDto(NewItemBeginState.Id, requestlist, new User(0, "0"));
+        ShelfAddItemRequestDto shelfAdd = new ShelfAddItemRequestDto(NewItemBeginState.Id, requestlist, new User(NewItemBeginState.Id, "tete"));
         
         try
         {
