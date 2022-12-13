@@ -11,7 +11,7 @@ public class ConverterItemType
         return new ItemTypeCreationRequest { Id = dto.Id, ItemDimX = dto.DimensionX, ItemDimY = dto.DimenstionY, ItemDimZ = dto.DimensionZ};
     }
 
-    public ItemType ProtoToType(ItemTypeProto proto) {
+    public static ItemType ProtoToType(ItemTypeProto proto) {
         return new ItemType(proto.Id, proto.DimX, proto.DimY, proto.DimZ);
     }
 

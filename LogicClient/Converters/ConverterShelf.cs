@@ -18,9 +18,19 @@ public class ConverterShelf
         };
     }
 
-    public static Shelf ProtoToShelf(ShelfProto proto) {
+    public static Shelf ProtoToShelf(ShelfProto proto)
+    {
         
-        return new Shelf(proto.RowNo, proto.ShelfNo, proto.ShelfDimX, proto.ShelfDimY, proto.ShelfDimZ, ConverterItem.ProtoToList(proto.ItemsOnShelf));
+        List<Item> items = new List<Item>();
+        Shelf shelf = new Shelf(proto.RowNo, proto.ShelfNo, proto.ShelfDimX, proto.ShelfDimY, proto.ShelfDimZ,items);
+        foreach (var protofile in proto.ItemsOnShelf.List)
+        {
+            items.Add(new Item(ConverterItemType.ProtoToType(protofile.Type), 
+                protofile.UniqueID,
+                ConverterUser.ProtoToUser(protofile.Owner),shelf));
+        }
+        
+        return shelf;
     }
 
     public ShelfSearchRequest SearchToProto(ShelfSearchParametersDto dto) {

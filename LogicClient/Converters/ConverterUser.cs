@@ -19,7 +19,7 @@ public class ConverterUser
         };
     }
 
-    public User ProtoToUser(UserProto proto) {
+    public static User ProtoToUser(UserProto proto) {
         return new User(proto.Id, proto.Role);
     }
 
