@@ -24,13 +24,13 @@ public class ItemTypeStub : IItemTypeClient {
     public async Task<ItemType> Create(ItemTypeCreationDto dto) {
         ItemTypeCreationRequest request = _converter.CreationToProto(dto);
 
-        return _converter.ProtoToType(await _client.CreateAsync(request));
+        return ConverterItemType.ProtoToType(await _client.CreateAsync(request));
     }
 
     public async Task<ItemType> Read(ItemTypeSearchDto dto) {
         ItemTypeSearchRequest request = _converter.SearchToProto(dto);
 
-        return _converter.ProtoToType(await _client.ReadAsync(request));
+        return ConverterItemType.ProtoToType(await _client.ReadAsync(request));
     }
 
     public async Task<List<ItemType>> ReadAll() {
@@ -44,6 +44,6 @@ public class ItemTypeStub : IItemTypeClient {
     public async Task<ItemType> Delete(ItemTypeSearchDto dto) {
         ItemTypeSearchRequest request = _converter.SearchToProto(dto);
 
-        return _converter.ProtoToType(await _client.DeleteAsync(request));
+        return ConverterItemType.ProtoToType(await _client.DeleteAsync(request));
     }
 }
