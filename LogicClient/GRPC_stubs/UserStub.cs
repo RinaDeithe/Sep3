@@ -23,13 +23,13 @@ public class UserStub : IUserClient {
     public async Task<User> Create(UserCreationDto dto) {
         CreateUserRequest request = _converter.CreationToProto(dto);
 
-        return _converter.ProtoToUser(await _client.CreateAsync(request));
+        return ConverterUser.ProtoToUser(await _client.CreateAsync(request));
     }
 
     public async Task<User> Read(UserSearchDto dto) {
         UserSearchRequest request = _converter.SearchToProto(dto);
 
-        return _converter.ProtoToUser(await _client.ReadAsync(request));
+        return ConverterUser.ProtoToUser(await _client.ReadAsync(request));
     }
 
     public async Task<List<User>> ReadAll() {
@@ -43,6 +43,6 @@ public class UserStub : IUserClient {
     public async Task<User> Delete(UserSearchDto dto) {
         UserSearchRequest request = _converter.SearchToProto(dto);
 
-        return _converter.ProtoToUser(await _client.DeleteAsync(request));
+        return ConverterUser.ProtoToUser(await _client.DeleteAsync(request));
     }
 }
