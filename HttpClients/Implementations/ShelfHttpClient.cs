@@ -22,6 +22,11 @@ public class ShelfHttpClient : IShelfService
         StringContent body = new StringContent(dtoAsJson, Encoding.UTF8, "application/json");
 
         HttpResponseMessage response = await client.PatchAsync("/shelf/AddItem", body);
+        if (!response.IsSuccessStatusCode)
+        {
+            string content  = await response.Content.ReadAsStringAsync();
+            throw new Exception(content);
+        }
         return true;
     }
 
