@@ -53,33 +53,30 @@
                 <th>Shelf ID</th>
                 <th>Room For</th>
                 <th>Input Wished</th>
-
             </tr>
             
             <tbody>
-            @if (_glqt == null)
+            @if (ShelfInfo == null)
             {
                 <label>loading ShelfInfo</label>
             }
             else{
             @foreach (AmountSpaceRow item in list)
             {
-
                 <tr>
-
                     <td>@item.ShelfID</td>
                     <td>@item.AvalibleSpace</td>
                     <td><input type="number" min="0" max="@item.AvalibleSpace" @bind="@item.Antal" /></td>
                     <td><label></label></td>
-
                 </tr>
             }
             }
-
             </tbody>
         </table>
         <button type="button" name="klik" onclick=@ButtonReserver>put on shelf</button>
         @resultMsg
+        
+        
     </div>
 </div>
 </div>
@@ -94,7 +91,7 @@
     
     List<AmountSpaceRow> list;
     
-    private ItemRegisterRequestDto _glqt;
+    private ItemRegisterRequestDto ShelfInfo;
 
     protected override async Task OnInitializedAsync()
     {
@@ -104,11 +101,11 @@
         }
       try{
           
-          _glqt = await ShelfService.GetAmountOnShelf(new ItemTypeSearchDto(NewItemBeginState.Id));
+          ShelfInfo = await ShelfService.GetAmountOnShelf(new ItemTypeSearchDto(NewItemBeginState.Id));
           
           list = new List<AmountSpaceRow>();
           
-          foreach (AmountOnSpaceDto shelf in _glqt.ShelfInfo)
+          foreach (AmountOnSpaceDto shelf in ShelfInfo.ShelfInfo)
           {
               list.Add(new AmountSpaceRow(0,(int)shelf.AvalibleSpace!,shelf.ShelfId));
           }
@@ -148,8 +145,8 @@
             resultMsg = "du har alt for mange varer";
             return;
         }
-        ShelfAddItemRequestDto shelfAdd = new ShelfAddItemRequestDto(NewItemBeginState.Id, requestlist, new User(NewItemBeginState.Id, "tete"));
-        
+        ShelfAddItemRequestDto shelfAdd = new ShelfAddItemRequestDto(NewItemBeginState.Id, 
+            requestlist, new User(NewItemBeginState.Id, "tete"));
         try
         {
             await ShelfService.AddItemToShelf(shelfAdd);
@@ -163,9 +160,6 @@
             resultMsg = e.Message;
             throw;
         }
-        
-        
-        
     }
 
 }
