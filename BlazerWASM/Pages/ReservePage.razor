@@ -37,29 +37,20 @@
 
 @code {
     private string? _resultmsg;
-    private bool _buttonClicked;
 
     private async void Reserve()
     {
-        if (state.typeId == null)
+        if (state.typeId == 0)
         {
             _resultmsg = "Please input an id";
         }
         
         Console.WriteLine("BUUSEMAND");
         
-        if (!(await typeService.CheckType(new ItemTypeSearchDto(state.typeId))))
+        if (!await typeService.CheckType(new ItemTypeSearchDto(state.typeId)))
         {
-            _buttonClicked = false;
-
-            Console.WriteLine("WOOGIE BOOGIE");
-            
-            while (_buttonClicked.Equals(false))
-            {
-                Thread.Sleep(500);
-            }
-            
-            NavigationManager.NavigateTo("/CreateItemType");
+            NavigationManager.NavigateTo("/ReserveCreationType");
+            return;
         }
 
         if (!await shelfServic.HasRoom(new ItemRegisterResponseDto(state.typeId, state.amount, 0)))
@@ -67,14 +58,10 @@
             _resultmsg = "No room for this amount";
             return;
         }
-
-        await itemService.ReserveItem(new ItemCreationDto(state.typeId, state.amount,1, true, null));
-    }
-    
-    
-    private void Confirmation()
-    {
-        _buttonClicked = true;
+        Console.WriteLine("Creating Item.");
+        ItemCreationDto dto = new ItemCreationDto(state.typeId, state.amount, 0, true, "1");
+        Console.WriteLine("Sending Item.");
+        await itemService.ReserveItem(dto);
     }
 
 }

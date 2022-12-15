@@ -22,9 +22,7 @@ public class ItemStub : IItemClient {
     }
 
     public async Task<Item> Create(ItemCreationDto dto) {
-        Console.WriteLine(dto.shelfId);
         ItemCreation request = _converter.CreationDtoToProto(dto);
-        Console.WriteLine(request);
 
         return ConverterItem.ProtoToItem(await _client.CreateAsync(request));
     }
