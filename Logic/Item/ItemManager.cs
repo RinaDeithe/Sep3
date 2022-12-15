@@ -18,7 +18,6 @@ public class ItemManager : IItemLogic
 
     public ItemManager()
     {
-        this.shelfManager = shelfManager;
     }
     
     public ItemManager(IItemClient itemClient, IItemTypeClient itemTypeClient, IShelfManager shelfManager, IShelfClient shelfClient)
@@ -92,11 +91,6 @@ public class ItemManager : IItemLogic
         }
     }
 
-    public Task<Shared.Model.Item> CreateAsync(ItemSearchDto dto)
-    {
-        throw new NotImplementedException();
-    }
-
     public async Task DeleteItemAsync(ItemSearchDto dto)
     {
         try
@@ -117,11 +111,12 @@ public class ItemManager : IItemLogic
 
     public async Task<Boolean> CheckType(ItemTypeSearchDto dto)
     {
-        return (_itemTypeClient.Read(dto)?.Result! == null);
+        ItemType type = await _itemTypeClient.Read(dto);
+        Console.WriteLine("Reads before or after?");
+        return type.Id! != 0;
     }
 
-    public async Task ReserveItem(ItemCreationDto dto)
-    {
+    public async Task ReserveItem(ItemCreationDto dto) {
 
         try
         {
@@ -142,7 +137,8 @@ public class ItemManager : IItemLogic
                 {
                     for (int i = 0; i < dto.Antal; i++)
                     {
-                        _itemClient.Create(dto);
+                        _itemClient.Create(new ItemCreationDto(dto.ItemTypeId, dto.Antal, dto.OwnerId, dto.Reserved, index.RowNo));
+                        Thread.Sleep(500);
                     }
                     
                     return;
@@ -152,7 +148,6 @@ public class ItemManager : IItemLogic
         catch (Exception e)
         {
             Console.WriteLine(e);
-            throw new Exception("TEST2");
         }
     }
 

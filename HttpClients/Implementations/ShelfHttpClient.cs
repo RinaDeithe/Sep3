@@ -48,17 +48,25 @@ public class ShelfHttpClient : IShelfService
 
     public async Task<bool> HasRoom(ItemRegisterResponseDto dto)
     {
-        HttpResponseMessage response = await client.GetAsync("/Shelf/HasRoom");
+        string dtoAsJson = JsonSerializer.Serialize(dto);
+        StringContent body = new StringContent(dtoAsJson, Encoding.UTF8, "application/json");
+        HttpResponseMessage response = await client.PatchAsync("/Shelf/HasRoom", body);
+        Console.WriteLine("Got a response.");
         string content = await response.Content.ReadAsStringAsync();
-        if (!response.IsSuccessStatusCode)
-        {
+        
+        Console.WriteLine("Response: " + content);
+        
+        if (!response.IsSuccessStatusCode) {
             throw new Exception(content);
         }
-
-        return JsonSerializer.Deserialize<bool>(content, new JsonSerializerOptions
+        
+        bool returnVar = JsonSerializer.Deserialize<bool>(content, new JsonSerializerOptions
         {
             PropertyNameCaseInsensitive = true
         })!;
+        Console.WriteLine("Deserialized bool.");
+        
+        return returnVar;
     }
     public async Task<ItemRegisterRequestDto> GetAmountOnShelf(ItemTypeSearchDto dto)
     {

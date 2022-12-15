@@ -54,15 +54,12 @@ public class ItemTypeHttpClient : IItemTypeService
     {
         
         HttpResponseMessage response = await client.GetAsync($"/ItemType/Check/{dto.Id}");
-        Console.WriteLine("test1");
         string content = await response.Content.ReadAsStringAsync();
-        Console.WriteLine("test2");
         if (!response.IsSuccessStatusCode)
         {
             
             throw new Exception(content);
         }
-        Console.WriteLine("test3");
         Boolean result = System.Text.Json.JsonSerializer.Deserialize<Boolean>(content);
          return result;
     }

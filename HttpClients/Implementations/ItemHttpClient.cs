@@ -43,12 +43,16 @@ public class ItemHttpClient : IItemService {
 
     public async Task ReserveItem(ItemCreationDto dto)
     {
-        HttpResponseMessage response = await client.PostAsJsonAsync($"/Reserve",dto);
+        Console.WriteLine("Checking response.");
+        HttpResponseMessage response = await client.PostAsJsonAsync("Item/reserve", dto);
+        Console.WriteLine("Creating result.");
+        string result = await response.Content.ReadAsStringAsync();
+        
         if (!response.IsSuccessStatusCode)
         {
-            string content = await response.Content.ReadAsStringAsync();
-            throw new Exception(content);
-        }   
+            
+            throw new Exception(result);
+        }
     }
 
     public async Task<List<Item>> ReadAllAsync()

@@ -7,13 +7,13 @@
 
 @inject IItemTypeService Service;
 @inject NavigationManager NavigationManager;
-@inject ReserveItemState state;
+@inject ReserveItemState ReserveState;
 
 <div class="card col-6 border border-0">
 <div>
     <h3>CreateItemType</h3>
                     <td class="border-1 text-center fw-bold">
-                        <label >Vare nummer: @state.typeId </label>
+                        <label >Vare nummer: @ReserveState.typeId</label>
                     </td>
     <div class="my-2">
         <label>DimX</label>
@@ -50,12 +50,22 @@
     private double? dimY;
     private double? dimX;
     private string resultMsg;
-    
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (ReserveState.typeId==0)
+        {
+            NavigationManager.NavigateTo("/ReservePage");
+        }
+    }
+
     private async Task CreateItemTypeMethod()
     {
+        
+        
         try
         {
-            await Service.CreateAsync(new ItemTypeCreationDto(state.typeId,(double)dimX,(double)dimY,(double)dimZ));
+            await Service.CreateAsync(new ItemTypeCreationDto(ReserveState.typeId,(double)dimX,(double)dimY,(double)dimZ));
             dimZ = null;
             dimY = null;
             dimX= null;

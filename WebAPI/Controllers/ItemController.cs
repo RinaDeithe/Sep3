@@ -37,15 +37,15 @@ public class ItemController : ControllerBase {
     
     [HttpPost("reserve")]
     public async Task<ActionResult> ReserveItem([FromBody]ItemCreationDto dto) {
-        try
-        {
+        try {
+            Console.WriteLine(dto);
             await _itemLogic.ReserveItem(dto);
-            return Ok();
+            return Created($"/reserve", dto);
         }
-        catch (Exception e)
-        {
-            Console.WriteLine(e.Message + "test");
+        catch (Exception e) {
+            Console.WriteLine(e);
             return StatusCode(500, e.Message);
+            
         }
     }
 
