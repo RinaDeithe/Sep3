@@ -23,7 +23,6 @@ public class ShelfController : ControllerBase
         
         try
         {
-            Console.WriteLine("tete");
             bool succes = await _shelfManager.Update(dtos);
             if (succes)
             {
