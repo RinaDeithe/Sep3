@@ -16,7 +16,7 @@ public enum ItemConverter {
 
 
     public Item toItemFromCreation(File.ItemCreation request) {
-        return new Item(new ItemType(request.getItemTypeID(), -1., -1., -1.), new User(request.getOwnerID(), "temp"), new Shelf(request.getShelfID() + "", request.getShelfID() + "" , 0, 0, 0, null));
+        return new Item(new ItemType(request.getItemTypeID(), -1., -1., -1.), new User(request.getOwnerID(), "temp"), new Shelf(request.getShelfID() + "", request.getShelfID() + "" , 0, 0, 0, new ArrayList<Item>()));
     }
     public Item toItemFromCreation(File.ItemCreation request, Shelf shelf) {
         return new Item(new ItemType(request.getItemTypeID(), -1., -1., -1.), new User(request.getOwnerID(), "temp"), shelf);
@@ -66,5 +66,30 @@ public enum ItemConverter {
 
         return new Item(request.getUniqueID(), ItemTypeConverter.CONVERT.toTypeFromProto(request.getType()), UserConverter.CONVERT.toUserFromProto(request.getOwner()), ShelfConverter.CONVERT.toShelfFromProto(request.getShelf()));
 
+    }
+
+    private List<Item> GetItemsOnShelfList(File.ItemListProto itemsOnShelf) {
+
+        List<Item> itemList = new ArrayList<>();
+        List<Item> placeHolderList = new ArrayList<>();
+
+        for (File.ItemProto index : itemsOnShelf.getListList()) {
+            new Item(
+                    index.getUniqueID(),
+                    ItemTypeConverter.CONVERT.toTypeFromProto(index.getType()),
+                    UserConverter.CONVERT.toUserFromProto(index.getOwner()),
+                    new Shelf(
+                            index.getShelf().getRowNo(),
+                            index.getShelf().getShelfNo(),
+                            index.getShelf().getShelfDimX(),
+                            index.getShelf().getShelfDimY(),
+                            index.getShelf().getShelfDimZ(),
+                            placeHolderList
+                    )
+            );
+        }
+
+
+        return itemList;
     }
 }

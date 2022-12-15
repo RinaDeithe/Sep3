@@ -25,6 +25,8 @@ public class DbConnection<T> implements IDbDao<T> {
         try {
             et.begin();
 
+            System.out.println(entity.toString());
+
             em.persist(entity);
 
             et.commit();
@@ -33,7 +35,6 @@ public class DbConnection<T> implements IDbDao<T> {
         } finally {
             if (et.isActive()) {
                 et.rollback();
-                System.out.println("IT ROLLED BACK");
             }
 
             em.close();
@@ -111,7 +112,7 @@ public class DbConnection<T> implements IDbDao<T> {
         try {
             et.begin();
 
-            em.refresh(entity);
+            em.merge(em.contains(entity) ? entity : em.merge(entity));
 
             et.commit();
         } catch (Exception e) {

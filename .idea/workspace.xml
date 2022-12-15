@@ -4,12 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="81ffe829-311a-4bde-8753-4e2da12b99da" name="Changes" comment="small things">
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
+    <list default="true" id="81ffe829-311a-4bde-8753-4e2da12b99da" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/database/orm/DbConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/database/orm/DbConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/domain/Model/Shelf.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/domain/Model/Shelf.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/DatabaseInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/DatabaseInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/converter/ItemConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/converter/ItemConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/services/GrpcItemService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/services/GrpcItemService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/services/GrpcShelfService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/services/GrpcShelfService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/testMain.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Hibernate/src/main/resources/database/identifier.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/resources/database/identifier.sqlite" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Hibernate/target/classes/database/identifier.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/target/classes/database/identifier.sqlite" afterDir="false" />
     </list>
@@ -35,6 +40,13 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubProjectSettings">
+    <option name="branchProtectionPatterns">
+      <list>
+        <option value="main" />
+      </list>
+    </option>
   </component>
   <component name="JpbToolWindowState">
     <option name="myId2FirstActivated">
@@ -294,7 +306,9 @@
       <workItem from="1670840830944" duration="9194000" />
       <workItem from="1670854860649" duration="2577000" />
       <workItem from="1671059907025" duration="2336000" />
-      <workItem from="1671100674294" duration="311000" />
+      <workItem from="1671100674294" duration="379000" />
+      <workItem from="1671101584607" duration="604000" />
+      <workItem from="1671138742539" duration="7009000" />
     </task>
     <task id="LOCAL-00001" summary="lavet lidt om i Databasen">
       <created>1670671627986</created>
@@ -317,12 +331,12 @@
       <option name="project" value="LOCAL" />
       <updated>1670675217325</updated>
     </task>
-    <task id="LOCAL-00004" summary="Projekt rename, da Mikkel pc er lårt">
-      <created>1667993345343</created>
+    <task id="LOCAL-00004" summary="Bug fixes">
+      <created>1671101008669</created>
       <option name="number" value="00004" />
       <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
-      <updated>1667993345343</updated>
+      <updated>1671101008669</updated>
     </task>
     <task id="LOCAL-00005" summary="Projekt rename, da Mikkel pc er lårt">
       <created>1667993364840</created>
@@ -436,7 +450,7 @@
       <option name="project" value="LOCAL" />
       <updated>1670579312262</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -504,23 +518,8 @@
     <MESSAGE value="lavet lidt om i Databasen" />
     <MESSAGE value="Fixed bug where it read the item ID instead of user ID" />
     <MESSAGE value="small things" />
-    <option name="LAST_COMMIT_MESSAGE" value="small things" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Hibernate/src/main/java/database/orm/DbConnection.java</url>
-          <line>54</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Hibernate/src/main/java/database/orm/DbConnection.java</url>
-          <line>82</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Bug fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Bug fixes" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
