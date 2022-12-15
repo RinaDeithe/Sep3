@@ -20,10 +20,13 @@ public class ConverterShelf
 
     public static Shelf ProtoToShelf(ShelfProto proto)
     {
-        
         List<Item> items = new List<Item>();
         Shelf shelf = new Shelf(proto.RowNo, proto.ShelfNo, proto.ShelfDimX, proto.ShelfDimY, proto.ShelfDimZ,items);
-        foreach (var protofile in proto.ItemsOnShelf.List)
+        if (proto.ItemsOnShelf==null)
+        {
+            return shelf;
+        }
+        foreach (ItemProto protofile in proto.ItemsOnShelf.List)
         {
             items.Add(new Item(ConverterItemType.ProtoToType(protofile.Type), 
                 protofile.UniqueID,

@@ -33,8 +33,11 @@ public class ItemStub : IItemClient {
         return ConverterItem.ProtoToItem(await _client.ReadAsync(request));
     }
 
-    public async Task<List<Item>> ReadAll() {
-        return ConverterItem.ProtoToList(await _client.ReadAllAsync(new emptyParams()));
+    public async Task<List<Item>> ReadAll()
+    {
+        var tets = await _client.ReadAllAsync(new emptyParams());
+        Console.Write(tets);
+        return ConverterItem.ProtoToList(tets);
     }
 
     public Task<Item> Update(Item entity) {
