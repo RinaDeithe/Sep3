@@ -118,6 +118,8 @@ public class ItemManager : IItemLogic
 
     public async Task ReserveItem(ItemCreationDto dto) {
 
+        int amount = dto.Antal;
+
         try
         {
             List<Shared.Model.Shelf> shelves = await shelfManager.ReadAll();
@@ -132,16 +134,20 @@ public class ItemManager : IItemLogic
                 {
                     roomAvailable -= Amount.ItemTypeMass(itemIndex.Type);
                 }
+                
+                Console.WriteLine("Room available: " + roomAvailable);
 
-                if (roomAvailable > Amount.ItemTypeMass(type))
+                int indexCount = amount;
+
+                for (int i = 0; i < indexCount; i++)
                 {
-                    for (int i = 0; i < dto.Antal; i++)
-                    {
-                        _itemClient.Create(new ItemCreationDto(dto.ItemTypeId, dto.Antal, dto.OwnerId, dto.Reserved, index.RowNo));
-                        Thread.Sleep(500);
+                    if (roomAvailable > Amount.ItemTypeMass(type)) {
+                        Console.WriteLine("Room available: " + roomAvailable);
+                        _itemClient.Create(new ItemCreationDto(dto.ItemTypeId, dto.Antal, dto.OwnerId, dto.Reserved, index.RowNo + index.ShelfNo));
+                        roomAvailable -= Amount.ItemTypeMass(type);
+                        amount -= 1;
+                        Thread.Sleep(200);
                     }
-                    
-                    return;
                 }
             }
         }
