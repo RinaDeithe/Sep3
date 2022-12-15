@@ -5,24 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="81ffe829-311a-4bde-8753-4e2da12b99da" name="Changes" comment="small things">
-      <change afterPath="$PROJECT_DIR$/Hibernate/src/main/java/UnitTest/TestAfItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/src/Test/java/database/orm/DbConnectionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/Test/java/database/orm/DbConnectionTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/Proto/File.proto" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/Proto/File.proto" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/database/orm/DbConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/database/orm/DbConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/domain/Model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/domain/Model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/converter/ItemConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/converter/ItemConverter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/services/GrpcItemService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/services/GrpcItemService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/testMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/testMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Hibernate/src/main/resources/database/identifier.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/resources/database/identifier.sqlite" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Hibernate/target/classes/database/identifier.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/target/classes/database/identifier.sqlite" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/target/generated-sources/protobuf/grpc-java/GRPC/proto/ItemServiceGrpc.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/target/generated-sources/protobuf/grpc-java/GRPC/proto/ItemServiceGrpc.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/target/generated-sources/protobuf/grpc-java/GRPC/proto/ItemTypeServiceGrpc.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/target/generated-sources/protobuf/grpc-java/GRPC/proto/ItemTypeServiceGrpc.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/target/generated-sources/protobuf/grpc-java/GRPC/proto/ShelfServiceGrpc.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/target/generated-sources/protobuf/grpc-java/GRPC/proto/ShelfServiceGrpc.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/target/generated-sources/protobuf/grpc-java/GRPC/proto/UserServiceGrpc.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/target/generated-sources/protobuf/grpc-java/GRPC/proto/UserServiceGrpc.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/target/generated-sources/protobuf/java/GRPC/proto/File.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/target/generated-sources/protobuf/java/GRPC/proto/File.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,11 +62,10 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;
-  }
-}</component>
+  <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+  </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Rumle\IdeaProjects\test2\Hibernate\src\Test" />
@@ -305,6 +293,8 @@
       <workItem from="1670692784578" duration="2398000" />
       <workItem from="1670840830944" duration="9194000" />
       <workItem from="1670854860649" duration="2577000" />
+      <workItem from="1671059907025" duration="2336000" />
+      <workItem from="1671100674294" duration="311000" />
     </task>
     <task id="LOCAL-00001" summary="lavet lidt om i Databasen">
       <created>1670671627986</created>
@@ -489,6 +479,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
@@ -520,12 +511,12 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Hibernate/src/main/java/database/orm/DbConnection.java</url>
-          <line>60</line>
+          <line>54</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Hibernate/src/main/java/database/orm/DbConnection.java</url>
-          <line>88</line>
+          <line>82</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>

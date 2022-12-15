@@ -12,21 +12,15 @@ import java.util.List;
 
 public class DbConnection<T> implements IDbDao<T> {
 
-    private EntityManagerFactory emf;
-    private EntityManager em;
-    private EntityTransaction et;
-
     public DbConnection() {
     }
 
     @Override
     public T Create(T entity) {
 
-        emf = Persistence.createEntityManagerFactory("default");
-        em = emf.createEntityManager();
-        et = em.getTransaction();
-
-        System.out.println(entity.toString());
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("default");
+        EntityManager em = emf.createEntityManager();
+        EntityTransaction et = em.getTransaction();
 
         try {
             et.begin();
@@ -51,9 +45,9 @@ public class DbConnection<T> implements IDbDao<T> {
     @Override
     public T Read(T classObject, int entity) {
 
-        emf = Persistence.createEntityManagerFactory("default");
-        em = emf.createEntityManager();
-        et = em.getTransaction();
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("default");
+        EntityManager em = emf.createEntityManager();
+        EntityTransaction et = em.getTransaction();
 
         T returnObject = classObject;
 
@@ -79,9 +73,9 @@ public class DbConnection<T> implements IDbDao<T> {
     @Override
     public List<T> ReadAll(T classObject) {
 
-        emf = Persistence.createEntityManagerFactory("default");
-        em = emf.createEntityManager();
-        et = em.getTransaction();
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("default");
+        EntityManager em = emf.createEntityManager();
+        EntityTransaction et = em.getTransaction();
 
         List<T> returnList = new ArrayList<>();
 
@@ -110,9 +104,9 @@ public class DbConnection<T> implements IDbDao<T> {
     @Override
     public T Update(T entity) {
 
-        emf = Persistence.createEntityManagerFactory("default");
-        em = emf.createEntityManager();
-        et = em.getTransaction();
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("default");
+        EntityManager em = emf.createEntityManager();
+        EntityTransaction et = em.getTransaction();
 
         try {
             et.begin();
@@ -135,9 +129,9 @@ public class DbConnection<T> implements IDbDao<T> {
     @Override
     public T Delete(T entity) {
 
-        emf = Persistence.createEntityManagerFactory("default");
-        em = emf.createEntityManager();
-        et = em.getTransaction();
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("default");
+        EntityManager em = emf.createEntityManager();
+        EntityTransaction et = em.getTransaction();
 
         try {
             et.begin();
