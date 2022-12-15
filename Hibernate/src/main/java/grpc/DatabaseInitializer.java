@@ -1,5 +1,6 @@
 package grpc;
 
+import database.daoInterfaces.IDbDao;
 import database.orm.DbConnection;
 import domain.Model.Item;
 import domain.Model.ItemType;
@@ -17,11 +18,15 @@ import java.io.IOException;
 public class DatabaseInitializer {
     public static void main(String[] args) throws IOException, InterruptedException {
         System.out.println("Adding gRPC services...");
+        IDbDao<Item> itemDao = new DbConnection<>();
+        IDbDao<ItemType> typeDao = new DbConnection<>();
+        IDbDao<Shelf> shelfDao = new DbConnection<>();
+        IDbDao<User> userDao = new DbConnection<>();
         Server server = ServerBuilder.forPort(9090)
-                .addService(new GrpcItemService(new DbConnection<Item>()))
-                .addService(new GrpcItemTypeService(new DbConnection<ItemType>()))
-                .addService(new GrpcShelfService(new DbConnection<Shelf>()))
-                .addService(new GrpcUserService(new DbConnection<User>()))
+                .addService(new GrpcItemService(itemDao, shelfDao))
+                .addService(new GrpcItemTypeService(typeDao))
+                .addService(new GrpcShelfService(shelfDao))
+                .addService(new GrpcUserService(userDao))
                 .build();
         System.out.println("Starting server.");
         server.start();

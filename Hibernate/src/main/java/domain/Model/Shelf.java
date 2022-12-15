@@ -8,10 +8,12 @@ import java.util.List;
 @Entity
 public class Shelf implements Serializable {
     @Id
+    @Column(name = "Id")
+    private int Id;
+
     @Column(name = "RowNo")
     private String RowNo;
 
-    @Id
     @Column(name = "ShelfNo")
     private String ShelfNo;
 
@@ -29,6 +31,7 @@ public class Shelf implements Serializable {
     public Shelf(String rowNo, String shelfNo, double dimX, double dimY, double dimZ, List<Item> itemsOnShelf) {
         RowNo = rowNo;
         ShelfNo = shelfNo;
+        Id = Integer.parseInt(RowNo + ShelfNo);
         this.dimX = dimX;
         this.dimY = dimY;
         this.dimZ = dimZ;
@@ -37,6 +40,14 @@ public class Shelf implements Serializable {
 
     public Shelf() {
         //DO NOT USE THIS CONSTRUCTOR
+    }
+
+    public int getId() {
+        return Id;
+    }
+
+    public void setId(int id) {
+        Id = id;
     }
 
     @Override
