@@ -4,25 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="81ffe829-311a-4bde-8753-4e2da12b99da" name="Changes" comment="small things">
-      <change afterPath="$PROJECT_DIR$/Hibernate/src/main/java/UnitTest/TestAfItem.java" afterDir="false" />
+    <list default="true" id="81ffe829-311a-4bde-8753-4e2da12b99da" name="Changes" comment="Lavet den sådan at man kan gemme items + lavet videre på mine test">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/src/Test/java/database/orm/DbConnectionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/Test/java/database/orm/DbConnectionTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/Proto/File.proto" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/Proto/File.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/database/orm/DbConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/database/orm/DbConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/domain/Model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/domain/Model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/converter/ItemConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/converter/ItemConverter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/services/GrpcItemService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/services/GrpcItemService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/testMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/testMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/services/GrpcShelfService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/services/GrpcShelfService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Hibernate/src/main/resources/database/identifier.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/resources/database/identifier.sqlite" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Hibernate/target/classes/database/identifier.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/target/classes/database/identifier.sqlite" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/target/generated-sources/protobuf/grpc-java/GRPC/proto/ItemServiceGrpc.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/target/generated-sources/protobuf/grpc-java/GRPC/proto/ItemServiceGrpc.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/target/generated-sources/protobuf/grpc-java/GRPC/proto/ItemTypeServiceGrpc.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/target/generated-sources/protobuf/grpc-java/GRPC/proto/ItemTypeServiceGrpc.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/target/generated-sources/protobuf/grpc-java/GRPC/proto/ShelfServiceGrpc.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/target/generated-sources/protobuf/grpc-java/GRPC/proto/ShelfServiceGrpc.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/target/generated-sources/protobuf/grpc-java/GRPC/proto/UserServiceGrpc.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/target/generated-sources/protobuf/grpc-java/GRPC/proto/UserServiceGrpc.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/target/generated-sources/protobuf/java/GRPC/proto/File.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/target/generated-sources/protobuf/java/GRPC/proto/File.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -304,7 +292,13 @@
       <workItem from="1670682520773" duration="2038000" />
       <workItem from="1670692784578" duration="2398000" />
       <workItem from="1670840830944" duration="9194000" />
-      <workItem from="1670854860649" duration="2577000" />
+      <workItem from="1670854860649" duration="2872000" />
+      <workItem from="1670922296015" duration="5500000" />
+      <workItem from="1671026866462" duration="820000" />
+      <workItem from="1671091843805" duration="197000" />
+      <workItem from="1671099738272" duration="3584000" />
+      <workItem from="1671261358835" duration="1518000" />
+      <workItem from="1671298955061" duration="2744000" />
     </task>
     <task id="LOCAL-00001" summary="lavet lidt om i Databasen">
       <created>1670671627986</created>
@@ -327,12 +321,12 @@
       <option name="project" value="LOCAL" />
       <updated>1670675217325</updated>
     </task>
-    <task id="LOCAL-00004" summary="Projekt rename, da Mikkel pc er lårt">
-      <created>1667993345343</created>
+    <task id="LOCAL-00004" summary="Lavet den sådan at man kan gemme items + lavet videre på mine test">
+      <created>1670862629617</created>
       <option name="number" value="00004" />
       <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
-      <updated>1667993345343</updated>
+      <updated>1670862629617</updated>
     </task>
     <task id="LOCAL-00005" summary="Projekt rename, da Mikkel pc er lårt">
       <created>1667993364840</created>
@@ -446,7 +440,7 @@
       <option name="project" value="LOCAL" />
       <updated>1670579312262</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -513,7 +507,8 @@
     <MESSAGE value="lavet lidt om i Databasen" />
     <MESSAGE value="Fixed bug where it read the item ID instead of user ID" />
     <MESSAGE value="small things" />
-    <option name="LAST_COMMIT_MESSAGE" value="small things" />
+    <MESSAGE value="Lavet den sådan at man kan gemme items + lavet videre på mine test" />
+    <option name="LAST_COMMIT_MESSAGE" value="Lavet den sådan at man kan gemme items + lavet videre på mine test" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -527,6 +522,11 @@
           <url>file://$PROJECT_DIR$/Hibernate/src/main/java/database/orm/DbConnection.java</url>
           <line>88</line>
           <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Hibernate/src/main/java/grpc/services/GrpcItemService.java</url>
+          <line>19</line>
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
