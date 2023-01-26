@@ -5,18 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="81ffe829-311a-4bde-8753-4e2da12b99da" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/database/orm/DbConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/database/orm/DbConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/domain/Model/Shelf.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/domain/Model/Shelf.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/DatabaseInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/DatabaseInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/converter/ItemConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/converter/ItemConverter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/services/GrpcItemService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/services/GrpcItemService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/services/GrpcShelfService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/services/GrpcShelfService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/grpc/testMain.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Hibernate/src/main/resources/database/identifier.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/resources/database/identifier.sqlite" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/target/classes/database/identifier.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/target/classes/database/identifier.sqlite" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +26,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="MortenDataBaseDelete" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -308,7 +298,12 @@
       <workItem from="1671059907025" duration="2336000" />
       <workItem from="1671100674294" duration="379000" />
       <workItem from="1671101584607" duration="604000" />
-      <workItem from="1671138742539" duration="7009000" />
+      <workItem from="1671138742539" duration="9295000" />
+      <workItem from="1671215664238" duration="618000" />
+      <workItem from="1673431194441" duration="291000" />
+      <workItem from="1674217786650" duration="12000" />
+      <workItem from="1674462275560" duration="2823000" />
+      <workItem from="1674583451747" duration="1500000" />
     </task>
     <task id="LOCAL-00001" summary="lavet lidt om i Databasen">
       <created>1670671627986</created>
@@ -338,12 +333,12 @@
       <option name="project" value="LOCAL" />
       <updated>1671101008669</updated>
     </task>
-    <task id="LOCAL-00005" summary="Projekt rename, da Mikkel pc er lårt">
-      <created>1667993364840</created>
+    <task id="LOCAL-00005" summary="Fixed MAJOR bug where shelf wouldn't update its item capacity.">
+      <created>1671147488215</created>
       <option name="number" value="00005" />
       <option name="presentableId" value="LOCAL-00005" />
       <option name="project" value="LOCAL" />
-      <updated>1667993364840</updated>
+      <updated>1671147488215</updated>
     </task>
     <task id="LOCAL-00006" summary="Pom.Xml update i nyt projekt">
       <created>1667993678617</created>
@@ -450,7 +445,7 @@
       <option name="project" value="LOCAL" />
       <updated>1670579312262</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -519,7 +514,8 @@
     <MESSAGE value="Fixed bug where it read the item ID instead of user ID" />
     <MESSAGE value="small things" />
     <MESSAGE value="Bug fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Bug fixes" />
+    <MESSAGE value="Fixed MAJOR bug where shelf wouldn't update its item capacity." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed MAJOR bug where shelf wouldn't update its item capacity." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
